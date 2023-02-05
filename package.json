@@ -3,6 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-email.umd.cjs",
+  "module": "./dist/vue-email.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-email.js",
+      "require": "./dist/vue-email.umd.cjs"
+    }
+  },
+  "types": "./dist/types/index.d.ts",
   "author": {
     "name": "David Arenas"
   },
@@ -17,6 +29,7 @@
     "vue": "^3.2.45"
   },
   "devDependencies": {
+    "@types/node": "^18.11.19",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
     "@vitejs/plugin-vue": "^4.0.0",
