@@ -23,9 +23,13 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .js,.ts,.vue --ignore-path .eslintignore --fix src",
-    "format": "prettier . --write"
+    "format": "prettier . --write",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
+    "vitepress": "1.0.0-alpha.45",
     "vue": "^3.2.45"
   },
   "devDependencies": {
