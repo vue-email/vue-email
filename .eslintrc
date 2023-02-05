@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "es2021": true,
+    "browser": true,
+    "vue/setup-compiler-macros": true
+  },
+  "parser": "vue-eslint-parser",
+  "plugins": ["@typescript-eslint", "vue", "prettier"],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "sourceType": "module",
+    "ecmaVersion": 2020
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/vue3-essential",
+    "plugin:vue/vue3-strongly-recommended",
+    "prettier"
+  ]
+}
