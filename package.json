@@ -29,11 +29,16 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
+    "csstype": "^3.1.1",
+    "html-to-text": "^9.0.3",
+    "pretty": "^2.0.0",
     "vitepress": "1.0.0-alpha.45",
     "vue": "^3.2.45"
   },
   "devDependencies": {
+    "@types/html-to-text": "^9.0.0",
     "@types/node": "^18.11.19",
+    "@types/pretty": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
     "@vitejs/plugin-vue": "^4.0.0",
