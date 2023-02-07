@@ -3,6 +3,7 @@
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
+    "outDir": "dist",
     "moduleResolution": "Node",
     "strict": true,
     "jsx": "preserve",

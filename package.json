@@ -14,7 +14,7 @@
       "require": "./dist/vue-email.umd.cjs"
     }
   },
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/index.d.ts",
   "author": {
     "name": "David Arenas"
   },
@@ -29,7 +29,6 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "csstype": "^3.1.1",
     "html-to-text": "^9.0.3",
     "pretty": "^2.0.0",
     "vitepress": "1.0.0-alpha.45",
@@ -49,6 +48,7 @@
     "prettier": "^2.8.3",
     "typescript": "^4.9.3",
     "vite": "^4.1.0",
+    "vite-plugin-dts": "^1.7.2",
     "vite-plugin-eslint": "^1.8.1",
     "vue-tsc": "^1.0.24"
   }
