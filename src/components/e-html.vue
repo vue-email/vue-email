@@ -5,7 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-interface Props extends Omit<HTMLHtmlElement, 'lang'> {
+import { HTMLAttributes } from 'vue';
+
+interface Props extends Omit<HTMLAttributes, 'lang'> {
   lang?: string;
 }
 
