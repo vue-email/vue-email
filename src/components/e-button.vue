@@ -9,10 +9,10 @@
 </template>
 
 <script lang="ts" setup>
-import { CSSProperties } from 'vue';
 import { pxToPt, styleToString } from '../utils';
+import type { CSSProperties, HTMLAttributes } from 'vue';
 
-interface Props {
+interface Props extends HTMLAttributes {
   href: string;
   target?: string;
   style?: CSSProperties;

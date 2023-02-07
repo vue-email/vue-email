@@ -16,10 +16,10 @@
 </template>
 
 <script lang="ts" setup>
-import { CSSProperties } from 'vue';
 import { styleToString } from '../utils';
+import type { CSSProperties, HTMLAttributes } from 'vue';
 
-interface Props extends Omit<HTMLTableElement, 'style'> {
+interface Props extends Omit<HTMLAttributes, 'style'> {
   style?: CSSProperties;
 }
 

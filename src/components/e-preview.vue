@@ -9,8 +9,9 @@
 
 <script lang="ts" setup>
 import { styleToString } from '../utils';
+import type { HTMLAttributes } from 'vue';
 
-interface Props extends HTMLDivElement {
+interface Props extends HTMLAttributes {
   preview: string;
 }
 

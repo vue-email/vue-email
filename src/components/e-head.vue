@@ -7,7 +7,9 @@
 </template>
 
 <script lang="ts" setup>
-interface Props extends HTMLHeadElement {}
+import type { HTMLAttributes } from 'vue';
+
+interface Props extends HTMLAttributes {}
 
 defineProps<Props>();
 </script>

@@ -66,7 +66,7 @@ const footer = {
         <e-text :style="paragraph">{{ firstName }}, welcome to vue-email</e-text>
         <e-text :style="paragraph"> A Vue component library for building responsive emails </e-text>
         <e-section :style="btnContainer">
-          <e-button :pX="12" :pY="12" :style="button" href="https://github.com/Dave136/vue-email">
+          <e-button :p-x="12" :p-y="12" :style="button" href="https://github.com/Dave136/vue-email">
             View on GitHub
           </e-button>
         </e-section>

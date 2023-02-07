@@ -3,10 +3,10 @@
 </template>
 
 <script lang="ts" setup>
-import { CSSProperties } from 'vue';
+import { CSSProperties, HTMLAttributes } from 'vue';
 import { styleToString } from '../utils';
 
-interface Props extends Omit<HTMLImageElement, 'style' | 'width' | 'height'> {
+interface Props extends Omit<HTMLAttributes, 'style' | 'width' | 'height'> {
   style?: CSSProperties;
   alt: string;
   src: string;

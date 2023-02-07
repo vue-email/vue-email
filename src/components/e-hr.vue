@@ -4,9 +4,9 @@
 
 <script lang="ts" setup>
 import { styleToString } from '../utils';
-import type { CSSProperties } from 'vue';
+import type { CSSProperties, HTMLAttributes } from 'vue';
 
-interface Props extends Omit<HTMLHRElement, 'style'> {
+interface Props extends Omit<HTMLAttributes, 'style'> {
   style?: CSSProperties;
 }
 
