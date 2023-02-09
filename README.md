@@ -1,18 +1,124 @@
-# Vue 3 + TypeScript + Vite
+<h1 align="center">Vue email</h1>
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<div align="center">
+   Simple way to build email templates in vue
+</div>
 
-## Recommended IDE Setup
+<br />
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+<div align="center">
+   <a href="#">Documentation</a>
+   <span> | </span>
+   <a href="https://github.com/dave136/vue-email">GitHub</a> 
+</div>
 
-## Type Support For `.vue` Imports in TS
+> Documentation is in progress :construction:
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+# What is Vue email?
+After see [react-email](https://github.com/resendlabs/react-email) and [svelte-email](https://github.com/carstenlebek/svelte-email), i took the decision to build the same idea but for vue 😀, there you can design email templates using vue3 and render them to HTML or simple text.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+# Installation :sunglasses:
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+It's so simple as install the package in your project:
+
+```bash title="npm"
+npm install vue-email
+```
+
+```bash title="yarn"
+yarn add vue-email
+```
+
+```bash title="pnpm"
+pnpm install vue-email
+```
+
+# Getting started 💪
+Vue Email provides you a series of components to build a email template
+
+## 1. Creating a template
+
+`src/components/template-email.vue`
+
+```html
+<template>
+   <e-html lang="en">
+      <e-text>Hello, {{ user }}!</e-text>
+      <e-hr />
+      <e-button href="vuejs.org">Visit vue</e-button>
+   </e-html>
+</template>
+
+<script setup>
+import { EButton, EHr, EHtml, EText } from 'vue-email';
+import { ref } from 'vue';
+   
+const user = ref('Dave');
+</script>
+```
+
+## 2. Send email
+
+This basic example uses [Nodemailer](https://nodemailer.com/about/) and [Nuxt 3](https://nuxt.com) to send email. You easily can use other email service provider.
+
+> In this example i pass the template by params in a request.
+
+`email.post.ts`
+
+```ts
+import nodemailer from 'nodemailer';
+
+export default defineEventHandler(async (event) => {
+  const body = await readBody(event);
+
+  const testAccount = await nodemailer.createTestAccount();
+
+  const transporter = nodemailer.createTransport({
+    host: process.env.HOST || 'smtp.ethereal.email',
+    port: 587,
+    secure: false,
+    auth: {
+      user: testAccount.user,
+      pass: testAccount.pass,
+    },
+  });
+
+  const options = {
+    from: 'you@example.com',
+    to: 'user@gmail.com',
+    subject: 'hello world',
+    html: body.template,
+  };
+
+  const info = await transporter.sendMail(options);
+
+  return { messageId: info.messageId, previewUrl: nodemailer.getTestMessageUrl(info) as string };
+});
+```
+
+> You can see the full example [here](https://github.com/Dave136/vue-email/tree/main/examples/nodemailer)
+
+# Documentation 🚧
+
+> In progress
+
+# Components 🚧
+
+> In progress
+
+# Integrations
+
+Emails built with vue-email can be converted into HTML or plain text, and sent using any email service provider. You can see examples here:
+
+- [Nodemailer](https://github.com/Dave136/vue-email/tree/main/examples/nodemailer)
+
+## Author
+
+- David Arenas [@dave136](https://twitter.com/davejs4)
+
+### Annotations 📝
+
+This project is originally written in react ([react-email](https://github.com/resendlabs/react-email)) by:
+
+- Bu Kinoshita ([@bukinoshita](https://twitter.com/bukinoshita))
+- Zeno Rocha ([@zenorocha](https://twitter.com/zenorocha))
