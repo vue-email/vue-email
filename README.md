@@ -7,12 +7,10 @@
 <br />
 
 <div align="center">
-   <a href="#">Documentation</a>
+   <a href="https://vue-email.vercel.app/" target="_blank">Documentation</a>
    <span> | </span>
    <a href="https://github.com/dave136/vue-email">GitHub</a> 
 </div>
-
-> Documentation is in progress :construction:
 
 # What is Vue email?
 After see [react-email](https://github.com/resendlabs/react-email) and [svelte-email](https://github.com/carstenlebek/svelte-email), i took the decision to build the same idea but for vue 😀, there you can design email templates using vue3 and render them to HTML or simple text.
@@ -98,13 +96,26 @@ export default defineEventHandler(async (event) => {
 
 > You can see the full example [here](https://github.com/Dave136/vue-email/tree/main/examples/nodemailer)
 
-# Documentation 🚧
+# Documentation
 
-> In progress
+You can see the documentation [here](https://vue-email.vercel.app/)
 
-# Components 🚧
+# Components
 
-> In progress
+You can see the components, listed below:
+
+- [Html](https://vue-email.vercel.app/components/html.html)
+- [Head](https://vue-email.vercel.app/components/head.html)
+- [Button](https://vue-email.vercel.app/components/button.html)
+- [Container](https://vue-email.vercel.app/components/container.html)
+- [Column](https://vue-email.vercel.app/components/column.html)
+- [Section](https://vue-email.vercel.app/components/section.html)
+- [Heading](https://vue-email.vercel.app/components/heading.html)
+- [Hr](https://vue-email.vercel.app/components/hr.html)
+- [Image](https://vue-email.vercel.app/components/image.html)
+- [Link](https://vue-email.vercel.app/components/link.html)
+- [Preview](https://vue-email.vercel.app/components/preview.html)
+- [Text](https://vue-email.vercel.app/components/text.html)
 
 # Integrations
 

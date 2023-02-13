@@ -1,4 +1,4 @@
-# Preview
+# Text
 A block of text separated by blank spaces.
 
 ### Usage
