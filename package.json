@@ -13,6 +13,9 @@
       "require": "./dist/vue-email.umd.cjs"
     }
   },
+  "bugs": {
+    "url": "https://github.com/Dave136/vue-email/issues"
+  },
   "types": "./dist/index.d.ts",
   "author": {
     "name": "David Arenas"

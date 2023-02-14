@@ -36,7 +36,9 @@ Vue Email provides you a series of components to build a email template
 
 ## 1. Creating a template
 
-`src/components/template-email.vue`
+> This example is based on Nuxt 3 app 
+
+`components/template-email.vue`
 
 ```html
 <template>
@@ -61,7 +63,7 @@ This basic example uses [Nodemailer](https://nodemailer.com/about/) and [Nuxt 3]
 
 > In this example i pass the template by params in a request.
 
-`email.post.ts`
+`server/api/email.post.ts`
 
 ```ts
 import nodemailer from 'nodemailer';
