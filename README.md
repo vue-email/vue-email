@@ -133,3 +133,7 @@ This project is originally written in react ([react-email](https://github.com/re
 
 - Bu Kinoshita ([@bukinoshita](https://twitter.com/bukinoshita))
 - Zeno Rocha ([@zenorocha](https://twitter.com/zenorocha))
+
+### License
+
+This project is licensed under [MIT](./LICENSE)
