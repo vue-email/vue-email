@@ -123,6 +123,13 @@ Emails built with vue-email can be converted into HTML or plain text, and sent u
 
 - [Nodemailer](https://github.com/Dave136/vue-email/tree/main/examples/nodemailer)
 
+## Roadmap
+
+This a list of features to add in the future:
+
+- [ ] TailwindCSS support
+- [ ] i18n support
+
 ## Author
 
 - David Arenas [@dave136](https://twitter.com/davejs4)
