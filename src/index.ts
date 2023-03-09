@@ -14,7 +14,7 @@ import EText from './components/e-text.vue';
 
 import { styleToString } from './utils';
 
-import { render } from './render';
+import { render, renderComponent } from './render';
 
 export {
   EBody,
@@ -31,5 +31,6 @@ export {
   ESection,
   EText,
   render,
+  renderComponent,
   styleToString,
 };

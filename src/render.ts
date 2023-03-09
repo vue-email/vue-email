@@ -1,6 +1,6 @@
 import { convert } from 'html-to-text';
 import pretty from 'pretty';
-import { h, type Component } from 'vue';
+import { createApp, h, type Component } from 'vue';
 import { renderToString } from 'vue/server-renderer';
 
 export interface Options {
@@ -24,6 +24,19 @@ export const render = async (component: Component, options?: Options) => {
 
   return document;
 };
+
+/**
+ * Convert Vue file into HTML email template
+ * @param component the main component to render
+ * @param props props to pass to component
+ * @returns {string}
+ */
+export const renderComponent = async (component: Component, props?: any) => {
+  const app = createApp({ render: () => h(component) }, props);
+  const html = await renderToString(app);
+
+  return html;
+}
 
 const renderAsText = async (component: Component) => {
   const markup = await renderToString(h(component));
