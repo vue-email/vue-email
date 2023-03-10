@@ -24,6 +24,7 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
+    "prepublish": "npm run build",
     "lint": "eslint . --ext .js,.ts,.vue --ignore-path .eslintignore --fix src",
     "format": "prettier . --write",
     "docs:dev": "vitepress dev docs",
