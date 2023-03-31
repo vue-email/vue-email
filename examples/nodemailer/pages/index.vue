@@ -10,19 +10,22 @@
   <button @click="seeTemplate = !seeTemplate">See template component</button>
 
   <div v-if="seeTemplate">
-    <welcome-template />
+    <welcome-template-with-props first-name="Dave13" message="This is my custom message" />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { render } from 'vue-email';
-import WelcomeTemplate from '../components/welcome-template.vue';
+import { renderComponent } from 'vue-email';
+import WelcomeTemplateWithProps from '../components/welcome-template-with-props.vue';
 const messageId = ref('');
 const previewUrl = ref('');
 const seeTemplate = ref(false);
 
 const handleClick = async () => {
-  const template = await render(WelcomeTemplate);
+  const template = await renderComponent(WelcomeTemplateWithProps, {
+    firstName: 'Dave13',
+    message: 'This is my custom message',
+  });
   const data = await $fetch('/api/email', {
     method: 'post',
     body: {
