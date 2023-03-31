@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { render } from 'vue-email';
+import { render, renderComponent } from 'vue-email';
 import WelcomeTemplate from '../components/welcome-template.vue';
 const messageId = ref('');
 const previewUrl = ref('');
