@@ -8,14 +8,22 @@ export interface Options {
   plainText?: boolean;
 }
 
-export const render = async (component: Component, options?: Options) => {
+/**
+ * Convert Vue file into HTML email template
+ * @param component The main component to render
+ * @param props The props passed to the component
+ * @param {Options} options The options to convert the template
+ * @returns {string}
+ */
+export const render = async (component: Component, props?: any, options?: Options) => {
   if (options?.plainText) {
     return renderAsText(component);
   }
 
   const doctype =
     '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
-  const markup = await renderToString(h(component));
+  const app = createApp({ render: () => h(component) }, props);
+  const markup = await renderToString(app);
   const document = `${doctype}${markup}`;
 
   if (options?.pretty) {
@@ -24,19 +32,6 @@ export const render = async (component: Component, options?: Options) => {
 
   return document;
 };
-
-/**
- * Convert Vue file into HTML email template
- * @param component the main component to render
- * @param props props to pass to component
- * @returns {string}
- */
-export const renderComponent = async (component: Component, props?: any) => {
-  const app = createApp({ render: () => h(component) }, props);
-  const html = await renderToString(app);
-
-  return html;
-}
 
 const renderAsText = async (component: Component) => {
   const markup = await renderToString(h(component));
