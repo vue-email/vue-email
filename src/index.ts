@@ -31,6 +31,5 @@ export {
   ESection,
   EText,
   render,
-  renderComponent,
   styleToString,
 };
