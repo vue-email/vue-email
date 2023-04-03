@@ -15,14 +15,14 @@
 </template>
 
 <script lang="ts" setup>
-import { renderComponent } from 'vue-email';
+import { render } from 'vue-email';
 import WelcomeTemplateWithProps from '../components/welcome-template-with-props.vue';
 const messageId = ref('');
 const previewUrl = ref('');
 const seeTemplate = ref(false);
 
 const handleClick = async () => {
-  const template = await renderComponent(WelcomeTemplateWithProps, {
+  const template = await render(WelcomeTemplateWithProps, {
     firstName: 'Dave13',
     message: 'This is my custom message',
   });
