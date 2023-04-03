@@ -7,7 +7,7 @@ You can start building your email template in a `.vue` file.
 ```vue
 <template>
   <e-html lang="en">
-    <e-text>Title</e-text>
+    <e-text>{{ title }}</e-text>
     <e-hr />
     <e-button>Click me</e-button>
   </e-html>
@@ -15,6 +15,9 @@ You can start building your email template in a `.vue` file.
 
 <script setup>
 import { EHtml, EText, EHr, EButton } from 'vue-email';
+defineProps({
+  title: String,
+});
 </script>
 ```
 
@@ -26,7 +29,7 @@ Import an existing Vue component and convert into a HTML string.
   import { render } from 'vue-email';
   import template from '~/components/template.vue';
 
-  const html = await render(template);
+  const html = await render(template, { title: 'My template' });
 
   console.log(html);
 </script>
@@ -47,7 +50,7 @@ Here’s how to convert a React component into plain text.
   import { render } from 'vue-email';
   import template from '~/components/template.vue';
 
-  const text = await render(template, {
+  const text = await render(template, null, {
     plainText: true,
   });
 
