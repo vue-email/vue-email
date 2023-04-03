@@ -129,6 +129,7 @@ Emails built with vue-email can be converted into HTML or plain text, and sent u
 
 This a list of features to add in the future:
 
+- [ ] Plugin for Nuxt 3
 - [ ] TailwindCSS support
 - [ ] i18n support
 
