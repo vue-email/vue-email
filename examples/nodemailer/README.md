@@ -1,42 +1,9 @@
-# Nuxt 3 Minimal Starter
+# Nodemailer example
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is a simple example using `vue-email` with `Nodemailer` provider.
 
-## Setup
+### Getting Started
 
-Make sure to install the dependencies:
+> You can clone this repository and run this example, to see the results.
 
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This projects uses `nuxt` in the most recent version, to figure out how to use the library.

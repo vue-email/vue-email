@@ -13,6 +13,7 @@
         />
         <e-text :style="paragraph">{{ firstName }}, welcome to vue-email</e-text>
         <e-text :style="paragraph"> A Vue component library for building responsive emails </e-text>
+        <e-text :style="paragraph">{{ message }}</e-text>
         <e-section :style="btnContainer">
           <e-button :p-x="12" :p-y="12" :style="button" href="https://github.com/Dave136/vue-email">
             View on GitHub
@@ -28,7 +29,12 @@
 <script lang="ts" setup>
 import { EButton, EContainer, EHead, EHr, EHtml, EImg, EPreview, ESection, EText } from 'vue-email';
 
-const firstName = ref('Dave');
+interface Props {
+  firstName: string;
+  message: string;
+}
+
+defineProps<Props>();
 
 const fontFamily =
   '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
