@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-dark-7 p-8 px-30">
+  <div class="min-h-screen p-8 px-30">
     <div class="flex gap-8 mb-8 justify-between">
       <div class="flex gap-4">
         <button
@@ -46,6 +46,7 @@ import { ref, shallowRef, watch } from 'vue';
 import { render } from '../src';
 import HelloWorld from './examples/hello-world.vue';
 import WelcomeTemplate from './examples/welcome-template.vue';
+import WithTailwind from './examples/with-tailwind.vue';
 
 const example = shallowRef<any>(null);
 const template = ref('');
@@ -59,6 +60,10 @@ const examplesList = [
   {
     text: 'welcome-template',
     component: WelcomeTemplate,
+  },
+  {
+    text: 'tailwind',
+    component: WithTailwind,
   },
 ];
 

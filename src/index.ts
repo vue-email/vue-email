@@ -13,6 +13,7 @@ import EPreview from './components/e-preview.vue';
 import ERow from './components/e-row.vue';
 import ESection from './components/e-section.vue';
 import EText from './components/e-text.vue';
+import ETailwind from './components/e-tailwind.vue';
 
 import { styleToString } from './utils';
 
@@ -34,6 +35,7 @@ export {
   ERow,
   ESection,
   EText,
+  ETailwind,
   render,
   styleToString,
 };
