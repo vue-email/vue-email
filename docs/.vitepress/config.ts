@@ -33,6 +33,7 @@ export default defineConfig({
           { text: 'Head', link: '/components/head' },
           { text: 'Button', link: '/components/button' },
           { text: 'Container', link: '/components/container' },
+          { text: 'Font', link: '/components/font' },
           { text: 'Column', link: '/components/column' },
           { text: 'Section', link: '/components/section' },
           { text: 'Heading', link: '/components/heading' },

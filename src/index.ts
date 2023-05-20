@@ -2,6 +2,7 @@ import EBody from './components/e-body.vue';
 import EButton from './components/e-button.vue';
 import EColumn from './components/e-column.vue';
 import EContainer from './components/e-container.vue';
+import EFont from './components/e-font.vue';
 import EHead from './components/e-head.vue';
 import EHeading from './components/e-heading.vue';
 import EHr from './components/e-hr.vue';
@@ -21,6 +22,7 @@ export {
   EButton,
   EColumn,
   EContainer,
+  EFont,
   EHead,
   EHeading,
   EHr,
