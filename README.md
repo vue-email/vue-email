@@ -15,6 +15,8 @@
 # What is Vue email?
 After see [react-email](https://github.com/resendlabs/react-email) and [svelte-email](https://github.com/carstenlebek/svelte-email), i took the decision to build the same idea but for vue 😀, there you can design email templates using vue3 and render them to HTML or simple text.
 
+Now TailwindCSS its supported! You can see [here](https://vue-email.vercel.app/components/tailwind.html)
+
 # Installation :sunglasses:
 
 It's so simple as install the package in your project:
@@ -108,8 +110,10 @@ You can see the components, listed below:
 
 - [Html](https://vue-email.vercel.app/components/html.html)
 - [Head](https://vue-email.vercel.app/components/head.html)
+- [Body](https://vue-email.vercel.app/components/body.html)
 - [Button](https://vue-email.vercel.app/components/button.html)
 - [Container](https://vue-email.vercel.app/components/container.html)
+- [Font](https://vue-email.vercel.app/components/font.html)
 - [Column](https://vue-email.vercel.app/components/column.html)
 - [Section](https://vue-email.vercel.app/components/section.html)
 - [Heading](https://vue-email.vercel.app/components/heading.html)
@@ -117,6 +121,8 @@ You can see the components, listed below:
 - [Image](https://vue-email.vercel.app/components/image.html)
 - [Link](https://vue-email.vercel.app/components/link.html)
 - [Preview](https://vue-email.vercel.app/components/preview.html)
+- [Row](https://vue-email.vercel.app/components/row.html)
+- [Tailwind](https://vue-email.vercel.app/components/tailwind.html)
 - [Text](https://vue-email.vercel.app/components/text.html)
 
 # Integrations
@@ -129,8 +135,8 @@ Emails built with vue-email can be converted into HTML or plain text, and sent u
 
 This a list of features to add in the future:
 
+- [x] TailwindCSS support
 - [ ] Plugin for Nuxt 3
-- [ ] TailwindCSS support
 - [ ] i18n support
 
 ## Author
