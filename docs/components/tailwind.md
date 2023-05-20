@@ -1,4 +1,4 @@
-# Row
+# Tailwind
 A Vue component to wrap emails with Tailwind CSS.
 
 ### Usage
