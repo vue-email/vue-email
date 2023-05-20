@@ -7,11 +7,11 @@
     cellspacing="0"
     cellpadding="0"
     border="0"
-    style="max-width: 37.5em;"
+    style="max-width: 37.5em"
     :style="style"
   >
     <tbody>
-      <tr style="width: 100%;">
+      <tr style="width: 100%">
         <td>
           <slot />
         </td>

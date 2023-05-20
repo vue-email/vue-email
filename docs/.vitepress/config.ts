@@ -42,6 +42,7 @@ export default defineConfig({
           { text: 'Image', link: '/components/image' },
           { text: 'Link', link: '/components/link' },
           { text: 'Preview', link: '/components/preview' },
+          { text: 'Tailwind', link: '/components/tailwind' },
           { text: 'Text', link: '/components/text' },
         ],
       },
