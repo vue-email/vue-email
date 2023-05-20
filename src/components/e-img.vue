@@ -1,12 +1,11 @@
 <template>
-  <img :style="styleToString(styleDefault)" :alt="alt" :src="src" :width="width" :height="height" />
+  <img style="display: block; outline: none; border: none; text-decoration: none;" :style="style" :alt="alt" :src="src" :width="width" :height="height" />
 </template>
 
 <script lang="ts" setup>
 import { CSSProperties, HTMLAttributes } from 'vue';
-import { styleToString } from '../utils';
 
-interface Props extends Omit<HTMLAttributes, 'style' | 'width' | 'height'> {
+interface Props extends /* @vue-ignore */ Omit<HTMLAttributes, 'style' | 'width' | 'height'> {
   style?: CSSProperties;
   alt: string;
   src: string;
@@ -14,18 +13,10 @@ interface Props extends Omit<HTMLAttributes, 'style' | 'width' | 'height'> {
   height: string;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   alt: '',
   src: '',
   width: '0',
   height: '0',
 });
-
-const styleDefault = {
-  display: 'block',
-  outline: 'none',
-  border: 'none',
-  textDecoration: 'none',
-  ...props.style,
-};
 </script>

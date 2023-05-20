@@ -59,7 +59,7 @@ const footer = {
 <template>
   <e-html lang="en">
     <e-head />
-    <e-preview preview="Welcome to svelte-email" />
+    <e-preview>Welcome to vue-email</e-preview>
     <e-section :style="main">
       <e-container :style="container">
         <e-img :src="logoUrl" alt="Svelte logo" :style="logo" width="200" height="50" />

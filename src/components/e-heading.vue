@@ -15,14 +15,16 @@
         ...style,
       })
     "
-  />
+  >
+    <slot />
+  </component>
 </template>
 
 <script lang="ts" setup>
 import { styleToString, withMargin } from '../utils';
 import type { CSSProperties, HTMLAttributes } from 'vue';
 
-interface Props extends Omit<HTMLAttributes, 'style'> {
+interface Props extends /* @vue-ignore */ Omit<HTMLAttributes, 'style'> {
   style?: CSSProperties;
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   m?: string;

@@ -12,7 +12,7 @@
 import { pxToPt, styleToString } from '../utils';
 import type { CSSProperties, HTMLAttributes } from 'vue';
 
-interface Props extends HTMLAttributes {
+interface Props extends /* @vue-ignore */ HTMLAttributes {
   href: string;
   target?: string;
   style?: CSSProperties;

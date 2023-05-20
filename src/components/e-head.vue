@@ -9,7 +9,7 @@
 <script lang="ts" setup>
 import type { HTMLAttributes } from 'vue';
 
-interface Props extends HTMLAttributes {}
+interface Props extends /* @vue-ignore */ HTMLAttributes {}
 
 defineProps<Props>();
 </script>

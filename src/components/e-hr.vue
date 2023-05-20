@@ -1,21 +1,13 @@
 <template>
-  <hr :style="styleToString(styleDefault)" />
+  <hr style="width: 100%; border: none; border-top: 1px solid #eaeaea;" :style="style" />
 </template>
 
 <script lang="ts" setup>
-import { styleToString } from '../utils';
 import type { CSSProperties, HTMLAttributes } from 'vue';
 
-interface Props extends Omit<HTMLAttributes, 'style'> {
+interface Props extends /* @vue-ignore */ Omit<HTMLAttributes, 'style'> {
   style?: CSSProperties;
 }
 
-const props = defineProps<Props>();
-
-const styleDefault = {
-  width: '100%',
-  border: 'none',
-  borderTop: '1px solid #eaeaea',
-  ...props.style,
-};
+defineProps<Props>();
 </script>

@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import type { HTMLAttributes, CSSProperties } from 'vue';
 
-interface Props extends Omit<HTMLAttributes, 'style'> {
+interface Props extends /* @vue-ignore */ Omit<HTMLAttributes, 'style'> {
   style?: CSSProperties;
 }
 
