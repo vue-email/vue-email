@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EButton, EHr, EHtml, EText } from '../index';
+import { EButton, EHr, EHtml, EText } from '../../src/index';
 </script>
 
 <template>

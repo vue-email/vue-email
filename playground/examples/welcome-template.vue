@@ -1,7 +1,17 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { EButton, EContainer, EHead, EHr, EHtml, EImg, EPreview, ESection, EText } from '../index';
-import logoUrl from '../assets/vue.svg';
+import {
+  EButton,
+  EContainer,
+  EHead,
+  EHr,
+  EHtml,
+  EImg,
+  EPreview,
+  ESection,
+  EText,
+} from '../../src/index';
+import logoUrl from '../../src/assets/vue.svg';
 
 const firstName = ref('Dave');
 
