@@ -10,6 +10,7 @@ import EHtml from './components/e-html.vue';
 import EImg from './components/e-img.vue';
 import ELink from './components/e-link.vue';
 import EPreview from './components/e-preview.vue';
+import ERow from './components/e-row.vue';
 import ESection from './components/e-section.vue';
 import EText from './components/e-text.vue';
 
@@ -30,6 +31,7 @@ export {
   EImg,
   ELink,
   EPreview,
+  ERow,
   ESection,
   EText,
   render,

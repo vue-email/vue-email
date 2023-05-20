@@ -36,6 +36,7 @@ export default defineConfig({
           { text: 'Font', link: '/components/font' },
           { text: 'Column', link: '/components/column' },
           { text: 'Section', link: '/components/section' },
+          { text: 'Row', link: '/components/row' },
           { text: 'Heading', link: '/components/heading' },
           { text: 'Hr', link: '/components/hr' },
           { text: 'Image', link: '/components/image' },
