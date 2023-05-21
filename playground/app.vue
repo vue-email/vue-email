@@ -78,6 +78,7 @@ watch(selected, (val) => {
     return;
   }
 
-  example.value = examplesList!.find((item) => item.text === val).component;
+  const found = examplesList!.find((item) => item.text === val);
+  example.value = found!.component;
 });
 </script>

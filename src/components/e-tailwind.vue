@@ -56,10 +56,13 @@ const helper = (node: any, hasHTML: boolean, hasHead: boolean) => {
     if (
       typeof vnode.children === 'object' &&
       vnode.children &&
+      // @ts-ignore
       Array.isArray(vnode.children.default()) &&
+      // @ts-ignore
       vnode.children.default().length
     ) {
       const childrenComponent = vnode.children
+        // @ts-ignore
         .default()
         .map((vnode: VNode) => helper(vnode, hasHTML, hasHead));
       return h(vnode, () => childrenComponent);
@@ -103,7 +106,9 @@ const renderHelper = () => {
 
     $default.forEach($forEachHelper);
 
+    // @ts-ignore
     const htmlFound = vnodesArray.find((el) => el.type.__name.includes('html'));
+    // @ts-ignore
     const headFound = vnodesArray.find((el) => el.type.__name.includes('head'));
 
     if (htmlFound != undefined) {
