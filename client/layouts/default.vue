@@ -24,7 +24,7 @@
             <div class="relative mt-3" v-if="isOpen">
               <div class="absolute left-2.5 w-px h-full bg-slate-6" />
               <div class="py-2 flex flex-col truncate">
-                <nuxt-link v-for="item in navItems" :key="item" :to="`preview/${item}`">
+                <nuxt-link v-for="item in navItems" :key="item" :to="`/preview/${item}`">
                   <span
                     class="text-[14px] flex items-center font-medium gap-2 w-full pl-4 h-8 rounded-md relative transition ease-in-out duration-200"
                     :class="{
