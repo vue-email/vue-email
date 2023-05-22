@@ -1,5 +1,16 @@
 export default defineNuxtConfig({
   ssr: true,
+  app: {
+    head: {
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/svg+xml',
+          href: '/vue.svg',
+        },
+      ],
+    },
+  },
   components: {
     dirs: [
       '~/components',
