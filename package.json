@@ -1,8 +1,14 @@
 {
   "name": "vue-email",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "type": "module",
-  "keywords": ["vue", "email", "vue-email", "html", "template"],
+  "keywords": [
+    "vue",
+    "email",
+    "vue-email",
+    "html",
+    "template"
+  ],
   "files": [
     "dist"
   ],
