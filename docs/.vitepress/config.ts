@@ -15,6 +15,7 @@ export default defineConfig({
 
     nav: [
       { text: 'Docs', link: '/', activeMatch: '/' },
+      { text: 'Demo', link: 'https://demo-vue-email.up.railway.app/preview/vercel-invite-user' },
       // { text: 'Examples', link: '/examples/overview', activeMatch: '/examples/' },
     ],
 
