@@ -8,7 +8,13 @@
           class="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] w-[465px]"
         >
           <e-section class="mt-[32px]">
-            <e-img :src="VercelLogo" width="40" height="37" alt="Vercel" class="my-0 mx-auto" />
+            <e-img
+              src="/vercel-logo.png"
+              width="40"
+              height="37"
+              alt="Vercel"
+              class="my-0 mx-auto"
+            />
           </e-section>
           <e-heading class="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
             Join <strong>{{ teamName }}</strong> on <strong>Vercel</strong>
@@ -25,13 +31,13 @@
           <e-section>
             <e-row>
               <e-column align="right">
-                <e-img class="rounded-full" :src="userImage" width="64" height="64" />
+                <e-img class="rounded-full" src="/vercel-user.png" width="64" height="64" />
               </e-column>
               <e-column align="center">
-                <e-img :src="vercelArrow" width="12" height="9" alt="invited you to" />
+                <e-img src="/vercel-arrow.png" width="12" height="9" alt="invited you to" />
               </e-column>
               <e-column align="left">
-                <e-img class="rounded-full" :src="teamImage" width="64" height="64" />
+                <e-img class="rounded-full" src="/vercel-team.png" width="64" height="64" />
               </e-column>
             </e-row>
           </e-section>
@@ -83,10 +89,10 @@ import {
   EHr,
   ETailwind,
 } from 'vue-email';
-import VercelLogo from '../../src/assets/email/vercel-logo.png';
-import userImage from '../../src/assets/email/vercel-user.png';
-import teamImage from '../../src/assets/email/vercel-team.png';
-import vercelArrow from '../../src/assets/email/vercel-arrow.png';
+// import VercelLogo from '../../src/assets/email/vercel-logo.png';
+// import userImage from '../../src/assets/email/vercel-user.png';
+// import teamImage from '../../src/assets/email/vercel-team.png';
+// import vercelArrow from '../../src/assets/email/vercel-arrow.png';
 
 interface Props {
   invitedByUsername?: string;
