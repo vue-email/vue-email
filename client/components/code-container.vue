@@ -53,7 +53,6 @@
 
 <script lang="ts" setup>
 import { PhCheck, PhClipboard, PhDownload } from '@phosphor-icons/vue';
-import { copyTextToClipboard } from '~/../src/utils';
 
 interface MarkupProps {
   language: string;
