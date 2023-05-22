@@ -16,6 +16,7 @@
     "@phosphor-icons/vue": "^2.1.4",
     "@unocss/nuxt": "^0.52.0",
     "@unocss/reset": "^0.52.0",
+    "vue-email": "^0.2.5",
     "vue3-code-block": "^2.1.2"
   }
 }

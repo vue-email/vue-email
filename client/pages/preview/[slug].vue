@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { render } from '~/../src';
+import { render } from 'vue-email';
 
 const { data } = await useFetch('/api/emails');
 

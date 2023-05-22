@@ -82,7 +82,7 @@ import {
   ERow,
   EHr,
   ETailwind,
-} from '../../src';
+} from 'vue-email';
 import VercelLogo from '../../src/assets/email/vercel-logo.png';
 import userImage from '../../src/assets/email/vercel-user.png';
 import teamImage from '../../src/assets/email/vercel-team.png';
