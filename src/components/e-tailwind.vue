@@ -107,9 +107,9 @@ const renderHelper = () => {
     $default.forEach($forEachHelper);
 
     // @ts-ignore
-    const htmlFound = vnodesArray.find((el) => el.type.__name.includes('html'));
+    const htmlFound = vnodesArray.find((el) => el.type?.__name?.includes('html') ?? null);
     // @ts-ignore
-    const headFound = vnodesArray.find((el) => el.type.__name.includes('head'));
+    const headFound = vnodesArray.find((el) => el.type?.__name?.includes('head') ?? null);
 
     if (htmlFound != undefined) {
       hasHTML = true;

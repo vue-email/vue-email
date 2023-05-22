@@ -36,7 +36,7 @@
                       <div class="bg-green-4 w-px absolute top-1 left-2.5 h-6" />
                     </span>
                     <ph-file class="flex-shrink-0 absolute" size="20" weight="thin" />
-                    <span class="absolute right-10">{{ item }}</span>
+                    <span class="absolute left-10 truncate">{{ item }}</span>
                   </span>
                 </nuxt-link>
               </div>

@@ -5,10 +5,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { CSSProperties, HTMLAttributes } from 'vue';
+import type { HTMLAttributes } from 'vue';
 
 interface Props extends /* @vue-ignore */ Omit<HTMLAttributes, 'style'> {
-  style?: CSSProperties;
+  style?: string;
 }
 
 defineProps<Props>();

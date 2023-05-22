@@ -47,6 +47,7 @@ import { render } from '../src';
 import HelloWorld from './examples/hello-world.vue';
 import WelcomeTemplate from './examples/welcome-template.vue';
 import WithTailwind from './examples/with-tailwind.vue';
+import twitchResetPassword from './examples/twitch-reset-password.vue';
 
 const example = shallowRef<any>(null);
 const template = ref('');
@@ -64,6 +65,10 @@ const examplesList = [
   {
     text: 'tailwind',
     component: WithTailwind,
+  },
+  {
+    text: 'twitch-reset',
+    component: twitchResetPassword,
   },
 ];
 
