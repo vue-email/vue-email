@@ -1,16 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import {
-  EButton,
-  EContainer,
-  EHead,
-  EHr,
-  EHtml,
-  EImg,
-  EPreview,
-  ESection,
-  EText,
-} from '../../src/index';
+import { EButton, EContainer, EHead, EHr, EHtml, EImg, EPreview, ESection, EText } from 'vue-email';
 import logoUrl from '../../src/assets/vue.svg';
 
 const firstName = ref('Dave');

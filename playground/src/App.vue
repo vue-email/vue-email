@@ -43,7 +43,7 @@
 
 <script lang="ts" setup>
 import { ref, shallowRef, watch } from 'vue';
-import { render } from '../src';
+import { render } from 'vue-email';
 import HelloWorld from './examples/hello-world.vue';
 import WelcomeTemplate from './examples/welcome-template.vue';
 import WithTailwind from './examples/with-tailwind.vue';

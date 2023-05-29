@@ -1,55 +1,23 @@
 {
-  "name": "vue-email",
-  "version": "0.2.6",
+  "name": "vue-email-monorepo",
+  "version": "0.0.0",
   "type": "module",
-  "keywords": [
-    "vue",
-    "email",
-    "vue-email",
-    "html",
-    "template"
-  ],
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/vue-email.umd.cjs",
-  "module": "./dist/vue-email.js",
-  "exports": {
-    ".": {
-      "import": "./dist/vue-email.js",
-      "require": "./dist/vue-email.umd.cjs"
-    }
-  },
-  "bugs": {
-    "url": "https://github.com/Dave136/vue-email/issues"
-  },
-  "types": "./dist/index.d.ts",
-  "author": {
-    "name": "David Arenas"
-  },
+  "private": true,
+  "author": "David Arenas <davejs136@gmail.com>",
+  "homepage": "https://vue-email.vercel.app/",
+  "repository": "https://github.com/davejs136/vue-email",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview",
-    "prepublish": "npm run build",
     "lint": "eslint . --ext .js,.ts,.vue --ignore-path .eslintignore --fix src",
-    "format": "prettier . --write",
+    "format": "prettier \"./**/*.ts\" --write",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "@unocss/reset": "^0.52.3",
-    "html-to-text": "^9.0.5",
-    "pretty": "^2.0.0",
-    "tw-to-css": "^0.0.11",
-    "vitepress": "1.0.0-beta.1",
-    "vue": "^3.3.4"
+    "vitepress": "1.0.0-beta.1"
   },
   "devDependencies": {
-    "@types/html-to-text": "^9.0.0",
     "@types/node": "^20.2.3",
-    "@types/pretty": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^5.59.7",
     "@typescript-eslint/parser": "^5.59.7",
     "@vitejs/plugin-vue": "^4.2.3",
@@ -58,12 +26,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.14.0",
     "prettier": "^2.8.8",
-    "typescript": "^5.0.4",
-    "unocss": "^0.52.3",
-    "vite": "^4.3.8",
-    "vite-plugin-dts": "^2.3.0",
-    "vite-plugin-eslint": "^1.8.1",
-    "vue-tsc": "^1.6.5"
+    "typescript": "^5.0.4"
   },
   "license": "MIT"
 }

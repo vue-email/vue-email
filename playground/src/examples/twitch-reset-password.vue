@@ -15,41 +15,17 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
-import {
-  EHead,
-  EHtml,
-  EText,
-  EButton,
-  EContainer,
-  EPreview,
-  EBody,
-  ESection,
-  EImg,
-  EHeading,
-  ELink,
-  EColumn,
-  ERow,
-  EHr,
-  ETailwind,
-} from '../../src';
+import { EHead, EHtml, EContainer, EPreview, EBody, ESection, EImg, ETailwind } from 'vue-email';
 
-import TwitchLogo from '../../client/public/twitch-logo.png';
+import TwitchLogo from '../assets/twitch-logo.png';
 
 interface Props {
   username?: string;
   updatedDate?: Date;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   username: 'John Doe',
   updatedDate: () => new Date('June 23, 2022 4:06:00 pm UTC'),
 });
-
-const formattedDate = computed(() =>
-  new Intl.DateTimeFormat('en', {
-    dateStyle: 'medium',
-    timeStyle: 'medium',
-  }).format(props.updatedDate)
-);
 </script>

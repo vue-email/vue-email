@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { EButton, EHr, EHtml, EText } from '../../src/index';
-</script>
-
 <template>
   <e-html lang="es">
     <e-text>Hello!</e-text>
@@ -9,3 +5,7 @@ import { EButton, EHr, EHtml, EText } from '../../src/index';
     <e-button href="https://vuejs.org/">Visit Vue</e-button>
   </e-html>
 </template>
+
+<script setup lang="ts">
+import { EButton, EHr, EHtml, EText } from 'vue-email';
+</script>

@@ -82,11 +82,11 @@ import {
   ERow,
   EHr,
   ETailwind,
-} from '../../src';
-import VercelLogo from '../../src/assets/email/vercel-logo.png';
-import userImage from '../../src/assets/email/vercel-user.png';
-import teamImage from '../../src/assets/email/vercel-team.png';
-import vercelArrow from '../../src/assets/email/vercel-arrow.png';
+} from 'vue-email';
+import VercelLogo from '../assets/vercel-logo.png';
+import userImage from '../assets/vercel-user.png';
+import teamImage from '../assets/vercel-team.png';
+import vercelArrow from '../assets/vercel-arrow.png';
 
 interface Props {
   invitedByUsername?: string;
