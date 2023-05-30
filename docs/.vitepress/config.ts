@@ -55,6 +55,7 @@ export default defineConfig({
         text: 'Integrations',
         items: [
           { text: 'Overview', link: '/integration/overview' },
+          { text: 'Nuxt', link: '/integration/nuxt' },
           // { text: 'Nodemailer', link: '/integration/nodemailer' },
         ],
       },
