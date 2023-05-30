@@ -138,7 +138,7 @@ You can see the components, listed below:
 Emails built with vue-email can be converted into HTML or plain text, and sent using any email service provider. You can see examples here:
 
 - [Nodemailer](https://github.com/Dave136/vue-email/tree/main/examples/nodemailer)
-- [Nuxt]()
+- [Nuxt](https://vue-email.vercel.app/integration/nuxt.html)
 
 ## Roadmap
 
