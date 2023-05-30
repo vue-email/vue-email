@@ -1,4 +1,13 @@
-<h1 align="center">Vue email</h1>
+<h1 align="center">
+  <img src="./docs/assets/vue-email.svg" />
+</h1>
+
+<div align="center">
+  <img src="https://img.shields.io/npm/v/vue-email/latest.svg?style=flat&colorA=18181B&colorB=28CF8D" />
+  <img src="https://img.shields.io/npm/dm/vue-email.svg?style=flat&colorA=18181B&colorB=28CF8D" />
+  <img src="https://img.shields.io/npm/l/vue-email.svg?style=flat&colorA=18181B&colorB=28CF8D" />
+  <img src="" />
+</div>
 
 <div align="center">
    Simple way to build email templates in vue
@@ -130,13 +139,14 @@ You can see the components, listed below:
 Emails built with vue-email can be converted into HTML or plain text, and sent using any email service provider. You can see examples here:
 
 - [Nodemailer](https://github.com/Dave136/vue-email/tree/main/examples/nodemailer)
+- [Nuxt]()
 
 ## Roadmap
 
 This a list of features to add in the future:
 
 - [x] TailwindCSS support
-- [ ] Plugin for Nuxt 3
+- [x] Plugin for Nuxt 3
 - [ ] i18n support
 
 ## Author
