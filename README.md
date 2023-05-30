@@ -2,15 +2,15 @@
   <img src="./docs/assets/vue-email.svg" />
 </h1>
 
+<p align="center">
+   Simple way to build email templates in vue
+</p>
+
 <div align="center">
   <img src="https://img.shields.io/npm/v/vue-email/latest.svg?style=flat&colorA=18181B&colorB=28CF8D" />
   <img src="https://img.shields.io/npm/dm/vue-email.svg?style=flat&colorA=18181B&colorB=28CF8D" />
   <img src="https://img.shields.io/npm/l/vue-email.svg?style=flat&colorA=18181B&colorB=28CF8D" />
   <img src="" />
-</div>
-
-<div align="center">
-   Simple way to build email templates in vue
 </div>
 
 <br />

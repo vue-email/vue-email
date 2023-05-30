@@ -1,11 +1,24 @@
-# Vue Email
+<h1 align="center">
+  <img src="../../docs/assets/nuxt-email.svg" />
+</h1>
 
-[![npm version][npm-version-src]][npm-version-href]
+<!-- [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
-[![Nuxt][nuxt-src]][nuxt-href]
+[![Nuxt][nuxt-src]][nuxt-href] -->
 
-Simple way to build awesomes email templates in nuxt.
+<p align="center">
+  Simple way to build awesomes email templates in nuxt.
+</p>
+
+<div align="center">
+  <img src="https://img.shields.io/npm/v/@vue-email/nuxt/latest.svg?style=flat&colorA=18181B&colorB=28CF8D" />
+  <img src="https://img.shields.io/npm/dm/@vue-email/nuxt.svg?style=flat&colorA=18181B&colorB=28CF8D" />
+  <img src="https://img.shields.io/npm/l/@vue-email/nuxt.svg?style=flat&colorA=18181B&colorB=28CF8D" />
+  <img src="https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js" />
+</div>
+
+<br />
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
 <!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) -->
