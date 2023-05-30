@@ -1,16 +1,21 @@
 <template>
-  <p style="font-size: 14px; line-height: 24px; margin: 16px 0" :style="style">
+  <p
+    v-bind="$props"
+    data-id="__vue-email-text"
+    style="font-size: 14px; line-height: 24px; margin: 16px 0"
+    :style="style"
+  >
     <slot />
   </p>
 </template>
 
 <script lang="ts" setup>
-import type { CSSProperties, HTMLAttributes } from 'vue';
+import type { StyleValue, HTMLAttributes } from 'vue';
 
-type Attributes = Omit<HTMLAttributes, 'style'>;
+type RootAttributes = Omit<HTMLAttributes, 'style'>;
 
-interface Props extends /* @vue-ignore */ Attributes {
-  style?: CSSProperties;
+interface Props extends /* @vue-ignore */ RootAttributes {
+  style?: StyleValue;
 }
 
 defineProps<Props>();

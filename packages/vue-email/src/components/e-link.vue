@@ -1,14 +1,21 @@
 <template>
-  <a style="color: #067df7; text-decoration: none;" :style="style" :href="href" :target="target">
+  <a
+    v-bind="$props"
+    data-id="__vue-email-link"
+    style="color: #067df7; text-decoration: none"
+    :style="style"
+    :href="href"
+    :target="target"
+  >
     <slot />
   </a>
 </template>
 
 <script lang="ts" setup>
-import type { CSSProperties, HTMLAttributes } from 'vue';
+import type { AnchorHTMLAttributes } from 'vue';
 
-interface Props extends /* @vue-ignore */ Omit<HTMLAttributes, 'style' | 'target'> {
-  style?: CSSProperties;
+interface Props extends /* @vue-ignore */ Omit<AnchorHTMLAttributes, 'style' | 'target'> {
+  style?: any;
   target?: string;
   href: string;
 }

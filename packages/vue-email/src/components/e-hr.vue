@@ -1,12 +1,17 @@
 <template>
-  <hr style="width: 100%; border: none; border-top: 1px solid #eaeaea;" :style="style" />
+  <hr
+    v-bind="$props"
+    data-id="__vue-email-hr"
+    style="width: 100%; border: none; border-top: 1px solid #eaeaea"
+    :style="style"
+  />
 </template>
 
 <script lang="ts" setup>
-import type { CSSProperties, HTMLAttributes } from 'vue';
+import type { HTMLAttributes } from 'vue';
 
 interface Props extends /* @vue-ignore */ Omit<HTMLAttributes, 'style'> {
-  style?: CSSProperties;
+  style?: any;
 }
 
 defineProps<Props>();

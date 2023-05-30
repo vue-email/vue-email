@@ -1,5 +1,11 @@
 <template>
-  <a :href="href" :target="target" :style="styleToString(buttonStyle({ ...style, pX, pY }))">
+  <a
+    v-bind="$props"
+    data-id="__vue-email-button"
+    :href="href"
+    :target="target"
+    :style="styleToString(buttonStyle({ ...style, pX, pY }))"
+  >
     <span v-html="firstSpan"></span>
     <span :style="styleToString(buttonTextStyle({ ...style, pX, pY }))">
       <slot />
@@ -10,12 +16,12 @@
 
 <script lang="ts" setup>
 import { pxToPt, styleToString } from '../utils';
-import type { CSSProperties, HTMLAttributes } from 'vue';
+import type { LinkHTMLAttributes } from 'vue';
 
-interface Props extends /* @vue-ignore */ HTMLAttributes {
+interface Props extends /* @vue-ignore */ Omit<LinkHTMLAttributes, 'style'> {
   href: string;
   target?: string;
-  style?: CSSProperties;
+  style?: any;
   pX?: number;
   pY?: number;
 }

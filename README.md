@@ -10,7 +10,6 @@
   <img src="https://img.shields.io/npm/v/vue-email/latest.svg?style=flat&colorA=18181B&colorB=28CF8D" />
   <img src="https://img.shields.io/npm/dm/vue-email.svg?style=flat&colorA=18181B&colorB=28CF8D" />
   <img src="https://img.shields.io/npm/l/vue-email.svg?style=flat&colorA=18181B&colorB=28CF8D" />
-  <img src="" />
 </div>
 
 <br />

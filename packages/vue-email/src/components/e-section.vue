@@ -2,6 +2,8 @@
   <table
     align="center"
     width="100%"
+    v-bind="$props"
+    data-id="__vue-email-section"
     border="0"
     cellPadding="0"
     cellSpacing="0"
@@ -19,10 +21,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { CSSProperties, HTMLAttributes } from 'vue';
+import type { TableHTMLAttributes, StyleValue } from 'vue';
 
-interface Props extends /* @vue-ignore */ Omit<HTMLAttributes, 'style'> {
-  style?: CSSProperties;
+interface Props extends /* @vue-ignore */ Omit<TableHTMLAttributes, 'style'> {
+  style?: StyleValue;
 }
 
 defineProps<Props>();

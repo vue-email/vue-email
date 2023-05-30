@@ -1,5 +1,9 @@
 <template>
   <component
+    v-bind="{
+      ...$props,
+      dataId: '__vue-email-heading',
+    }"
     :is="as"
     :style="
       styleToString({
@@ -22,10 +26,10 @@
 
 <script lang="ts" setup>
 import { styleToString, withMargin } from '../utils';
-import type { CSSProperties, HTMLAttributes } from 'vue';
+import type { HTMLAttributes } from 'vue';
 
 interface Props extends /* @vue-ignore */ Omit<HTMLAttributes, 'style'> {
-  style?: CSSProperties;
+  style?: object;
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   m?: string;
   mx?: string;

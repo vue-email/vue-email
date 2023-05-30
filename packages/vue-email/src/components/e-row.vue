@@ -2,7 +2,8 @@
   <table
     align="center"
     width="100%"
-    data-id="vue-email-row"
+    v-bind="$props"
+    data-id="__vue-email-row"
     :style="style"
     role="presentation"
     cellSpacing="0"
@@ -18,10 +19,10 @@
 </template>
 
 <script lang="ts" setup>
-import { HTMLAttributes } from 'vue';
+import { TableHTMLAttributes } from 'vue';
 
-interface Props extends /* @vue-ignore */ Omit<HTMLAttributes, 'style'> {
-  style?: string;
+interface Props extends /* @vue-ignore */ Omit<TableHTMLAttributes, 'style'> {
+  style?: any;
 }
 
 defineProps<Props>();
