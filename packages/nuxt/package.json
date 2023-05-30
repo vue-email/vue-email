@@ -1,0 +1,52 @@
+{
+  "name": "@vue-email/nuxt",
+  "version": "0.0.0",
+  "description": "vue-email nuxt module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dave136/vue-email.git",
+    "directory": "packages/nuxt"
+  },
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "VueJs",
+    "Vue",
+    "nuxtjs",
+    "nuxt",
+    "email",
+    "template",
+    "vue-email",
+    "email-template"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build",
+    "release": "npm run lint && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.5.2",
+    "vue-email": "workspace:^"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.1.1",
+    "@nuxt/module-builder": "^0.4.0",
+    "@nuxt/schema": "^3.5.2",
+    "@nuxt/test-utils": "^3.5.1",
+    "changelogen": "^0.5.3",
+    "eslint": "^8.41.0",
+    "nuxt": "^3.5.1"
+  }
+}
