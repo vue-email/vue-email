@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="../../docs/assets/nuxt-email.svg" />
+  <img src="https://raw.githubusercontent.com/Dave136/vue-email/9eccd7ebcad406dd4fd58840f6e226bca1dac968/docs/assets/nuxt-email.svg" />
 </h1>
 
 <!-- [![npm version][npm-version-src]][npm-version-href]

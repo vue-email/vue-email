@@ -1,6 +1,6 @@
 {
   "name": "@vue-email/nuxt",
-  "version": "0.0.1",
+  "version": "0.2.8",
   "description": "vue-email nuxt module",
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.5.2",
-    "vue-email": "workspace:^"
+    "vue-email": "0.2.8"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",

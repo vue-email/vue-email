@@ -61,7 +61,7 @@ importers:
         specifier: ^3.5.2
         version: 3.5.2(rollup@3.23.0)
       vue-email:
-        specifier: workspace:^
+        specifier: 0.2.8
         version: link:../vue-email
     devDependencies:
       '@nuxt/eslint-config':
@@ -85,10 +85,6 @@ importers:
       nuxt:
         specifier: ^3.5.1
         version: 3.5.1(@types/node@20.2.3)(eslint@8.41.0)(rollup@3.23.0)(typescript@5.0.4)
-
-  packages/nuxt/playground: {}
-
-  packages/nuxt/test/fixtures/basic: {}
 
   packages/vue-email:
     dependencies:
