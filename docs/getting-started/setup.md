@@ -1,17 +1,27 @@
----
-title: 'Usage'
-description: 'Use vue-email'
----
+# Getting Started
 
-# Usage
+This guide will walk you through the steps to get started with `vue-email`.
 
-### Creating email template
+## Step 1: Install `vue-email`
 
-Create a new email template in wherever you want to have your templates, for this case, we can create a template folder, with a template called `welcome.vue`.
+::: code-group
+  ```bash [pnpm]
+  pnpm add -D vue-email
+  ```
+  ```bash [yarn]
+  yarn add -D vue-email
+  ```
+  ```bash [npm]
+  npm install -D vue-email
+  ```
+:::
 
-`src/templates/welcome.vue`
+## Step 2: Create an email template
+
+Create a new email template in wherever you want to have your templates, for this case, we can create a template folder called `emails` within the components folder, template will be called `welcome.vue`.
 
 ```vue
+// `components/emails/welcome.vue`
 <template>
   <e-html lang="en">
     <e-head />
@@ -28,7 +38,7 @@ Create a new email template in wherever you want to have your templates, for thi
         <e-text :style="paragraph">{{ name }}, welcome to vue-email</e-text>
         <e-text :style="paragraph">A Vue component library for building responsive emails</e-text>
         <e-section :style="btnContainer">
-          <e-button :p-x="12" :p-y="12" :style="button" href="https://github.com/Dave136/vue-email">
+          <e-button :px="12" :py="12" :style="button" href="https://github.com/Dave136/vue-email">
             View on GitHub
           </e-button>
         </e-section>
@@ -95,32 +105,38 @@ const footer = {
   fontSize: '12px',
 };
 </script>
-
 ```
 
-### Rendering the templates
+## Step 3: Rendering the template
 
-We can use the `render` function, it receives two params, the first one is the template to render, and the second the params to be used for the template, and then pass the result template in the body of request.
+We can use the `render` function. The value is an object with the following properties:
 
-> Passing the template in the body, give us the chance of rendering using any server, express, fastify, nuxt in SSR, etc.
+- `component`: The component to render
+- `props`: The props to pass to the component (optional)
+- `options`: The options to pass to the component (optional)
+  - `options.plainText`: Whether to render the plain text version (default: `false` for HTML)
+  - `options.pretty`: Whether to pretty print the HTML output (default: `false`)
 
-`src/pages/index.vue`
 
 ```vue
+// `pages/index.vue`
 <template>
   <h2>Send email with nodemailer</h2>
   <input type="text" v-model="name" />
-  <button @click="handleClick">Sent email</button>
+  <button @click="sendEmail">Send email</button>
 </template>
 
 <script lang="ts" setup>
 import { render } from 'vue-email';
-import WelcomeTemplate from '~/templates/welcome.vue';
+import WelcomeTemplate from '~/components/emails/welcome.vue';
 
+// props to pass to the template
 const name = ref('Dave');
 
-const handleClick = async () => {
+// send email function
+const sendEmail = async () => {
   const template = await render(WelcomeTemplate, { name });
+  // call your API endpoint to send the email
   const data = await $fetch('/api/email', {
     method: 'post',
     body: {
@@ -129,19 +145,16 @@ const handleClick = async () => {
   });
 };
 </script>
-
 ```
 
+## Step 4: Send email
 
-### Send email
+We use [`Nuxt 3`](https://nuxt.com/) to set APIs within our project and define multiple API routes. We extract the request body template and send the email using the `sendMail` function from the [`nodemailer`](https://nodemailer.com/about/) package.
 
-In this example i using `nuxt v3` because it allows us to set api inside own project, and define multiple api routes.
 
-Here we just extract the template of the request body, and send the email passing the template in the `sendMail` function of the `nodemailer` package.
-
-`src/server/api/email.post.ts`
 
 ```ts
+// `server/api/email.post.ts`
 import nodemailer from 'nodemailer';
 
 export default defineEventHandler(async (event) => {
@@ -168,12 +181,12 @@ export default defineEventHandler(async (event) => {
 
   await transporter.sendMail(options);
 });
-
 ```
 
-If you are not using the server in nuxt, you can easily implement on any framework for example using express:
+If you're not using the server in Nuxt, you can easily implement it on any framework, such as [`Express`](https://expressjs.com/).
 
 ```ts
+
 import express from 'express';
 import nodemailer from 'nodemailer';
 
@@ -209,4 +222,6 @@ app.post('/api/send-email', async (req, res) => {
 });
 
 app.listen(3001);
+
+
 ```

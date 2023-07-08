@@ -1,7 +1,10 @@
 # Html
-A vue html component to wrap emails.
+A Vue html component to wrap emails.
 
-### Usage
+### Getting started
+
+Add the component to your email template. Include styles where needed.
+
 
 ```vue
 <template>
@@ -15,6 +18,9 @@ import { EHtml } from 'vue-email';
 </script>
 ```
 
+### Props
+
 | Name |  type  |  Default  |        Description        |
 | ---- | :---:  |   :---:   | :-----------------------: |
-| `lang` | string |     `en`    | The language of the email |
+| `lang` | string |     `en`    | Identify the language of text content on the email |
+| `dir` | string |     `ltr`    | Identify the direction of text content on the email |
