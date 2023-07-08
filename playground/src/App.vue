@@ -32,9 +32,9 @@
       </div>
 
       <div v-if="template">
-        <p class="mb-8 text-white op50">Output:</p>
+        <p class="mb-8 text-black">Output:</p>
         <div class="overflow-scroll">
-          <pre class="whitespace-break-spaces text-xs text-white op50">{{ template }}</pre>
+          <pre class="whitespace-break-spaces text-xs text-black">{{ template }}</pre>
         </div>
       </div>
     </div>
