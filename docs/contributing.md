@@ -25,7 +25,7 @@ pnpm install
 pnpm run docs
 ```
 
-4. Make your changes under the `docs` folder and see a live preview at [localhost:5173](http://localhost:5173/).
+4. Make your changes under the `docs` folder and see a live preview at `localhost:5173`.
 
 5. Submit a pull request with your changes.
 
