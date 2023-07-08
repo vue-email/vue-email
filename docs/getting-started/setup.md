@@ -1,3 +1,8 @@
+---
+title: Setup
+description: Setup vue-email in your project.
+---
+
 # Getting Started
 
 This guide will walk you through the steps to get started with `vue-email`.

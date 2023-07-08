@@ -1,6 +1,6 @@
 ---
-title: vue-email Nuxt Module
-description: Nuxt module for vue-email.
+title: Nuxt Setup
+description: Setup vue-email in your Nuxt project.
 ---
 
 # Getting Started

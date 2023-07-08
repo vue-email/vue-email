@@ -156,7 +156,7 @@ function sidebar(): DefaultTheme.SidebarItem[] {
       text: 'Overview',
       items: [
         { text: 'Introduction', link: '/introduction' },
-        { text: 'Roadmap', link: '/roadmap' },
+        // { text: 'Roadmap', link: '/roadmap' },
       ]
     },
     {

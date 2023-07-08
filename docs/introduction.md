@@ -1,3 +1,8 @@
+---
+title: Introduction
+description: Build and send emails using Vue.
+---
+
 # Vue Email
 Build and send emails using Vue.
 
