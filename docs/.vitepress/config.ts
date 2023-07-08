@@ -176,6 +176,12 @@ function sidebar(): DefaultTheme.SidebarItem[] {
       text: 'Components',
       items: components,
     },
+    {
+      text: 'Utilities',
+      items: [
+        { text: 'Render', link: '/utilities/render' },
+      ]
+    },
     { text: 'Playground', link: 'https://github.com/Dave136/vue-email/tree/main/playground' },
   ]
 }
