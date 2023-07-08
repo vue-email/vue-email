@@ -46,7 +46,7 @@ Import the email template you just built and use the Resend SDK to send it.
 
 ::: code-group
 
-```ts [Nuxt]
+```ts [Nuxt 3]
 // server/api/send-email.post.ts
 
 import { Resend } from 'resend';

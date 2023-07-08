@@ -46,7 +46,7 @@ Import the email template you just built, convert into a HTML string, and use th
 
 ::: code-group
 
-```ts [Nuxt]
+```ts [Nuxt 3]
 // server/api/send-email.post.ts
 
 import sendgrid from '@sendgrid/mail';
