@@ -78,6 +78,37 @@ const components = [
   },
 ]
 
+const integrations = [
+  {
+    text: 'Nodemailer',
+    link: '/integrations/nodemailer',
+  },
+  {
+    text: 'Resend',
+    link: '/integrations/resend',
+  },
+  {
+    text: 'SendGrid',
+    link: '/integrations/sendgrid',
+  },
+  {
+    text: 'Postmark',
+    link: '/integrations/postmark',
+  },
+  {
+    text: 'AWS SES',
+    link: '/integrations/aws-ses',
+  },
+  {
+    text: 'MailSend',
+    link: '/integrations/mailsend',
+  },
+  {
+    text: 'Plunk',
+    link: '/integrations/plunk',
+  }
+]
+
 
 export default defineConfig({
   lang: 'en-US',
@@ -139,6 +170,11 @@ function nav(): DefaultTheme.NavItem[] {
       items: components,
     },
     {
+      text: 'Integrations',
+      activeMatch: '^/integrations/',
+      items: integrations,
+    },
+    {
       text: `v${version}`,
       items: [
         {
@@ -181,6 +217,10 @@ function sidebar(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Render', link: '/utilities/render' },
       ]
+    },
+    {
+      text: 'Integrations',
+      items: integrations,
     },
     { text: 'Playground', link: 'https://github.com/Dave136/vue-email/tree/main/playground' },
   ]

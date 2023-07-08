@@ -34,8 +34,8 @@ features:
   - title: Integrations
     icon: 📦
     details: Easily integrate with your favorite email service provider.
-    link: /link
-    linkText: Text
+    link: /integrations/nodemailer
+    linkText: Integrations
   - title: Email clients support
     icon: 📱
     details: Works with all major email clients.
