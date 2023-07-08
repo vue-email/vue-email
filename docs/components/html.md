@@ -1,8 +1,7 @@
 # Html
 A Vue html component to wrap emails.
 
-### Getting started
-
+## Getting started
 Add the component to your email template. Include styles where needed.
 
 
