@@ -12,6 +12,7 @@ Documentation is extremely important and takes a fair deal of time and effort to
 ```bash
 git clone https://github.com/Dave136/vue-email.git
 ```
+2. Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
 
 2. Install the dependencies:
 
