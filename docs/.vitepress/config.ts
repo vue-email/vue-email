@@ -116,7 +116,6 @@ export default defineConfig({
   description: description,
   head: [
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
-    ['meta', { name: 'author', content: 'Johann Schopplich' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:url', content: ogUrl }],
     ['meta', { property: 'og:title', content: name }],
@@ -125,10 +124,8 @@ export default defineConfig({
     ['meta', { name: 'twitter:title', content: name }],
     ['meta', { name: 'twitter:description', content: description }],
     ['meta', { name: 'twitter:image', content: ogImage }],
-    ['meta', { name: 'twitter:site', content: '@jschopplich' }],
+    ['meta', { name: 'twitter:site', content: '@davejs4' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    // Plausible analytics
-    ['script', { 'src': 'https://plausible.io/js/script.js', 'defer': '', 'data-domain': url.hostname }],
   ],
 
   themeConfig: {
@@ -192,6 +189,7 @@ function sidebar(): DefaultTheme.SidebarItem[] {
       text: 'Overview',
       items: [
         { text: 'Introduction', link: '/introduction' },
+        { text: 'Contributing', link: '/contributing' },
         // { text: 'Roadmap', link: '/roadmap' },
       ]
     },

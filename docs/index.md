@@ -38,7 +38,5 @@ features:
     linkText: Integrations
   - title: Email clients support
     icon: 📱
-    details: Works with all major email clients.
-    link: /link
-    linkText: Text
+    details: All components were tested using the most popular email clients.
 ---
