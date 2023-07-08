@@ -1,16 +1,21 @@
 <template>
-  <e-html>
-    <e-head />
-    <e-preview>{{ previewText }}</e-preview>
-    <e-tailwind>
+  <e-tailwind>
+    <e-html>
+      <e-head />
+      <e-preview>{{ previewText }}</e-preview>
       <e-body class="bg-white my-auto mx-auto font-sans">
         <e-container
           class="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] w-[465px]"
         >
-          <e-section class="mt-[32px]">
+          <e-section class="mt-[32px] md:mt-[60px]">
             <e-img :src="VercelLogo" width="40" height="37" alt="Vercel" class="my-0 mx-auto" />
           </e-section>
-          <e-heading class="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
+          <e-heading
+            as="h2"
+            my="30"
+            class="text-black text-[24px] font-normal text-center p-0"
+            style="background-color: red"
+          >
             Join <strong>{{ teamName }}</strong> on <strong>Vercel</strong>
           </e-heading>
           <e-text class="text-black text-[14px] leading-[24px]"> Hello {{ username }}, </e-text>
@@ -37,8 +42,8 @@
           </e-section>
           <e-section class="text-center mt-[32px] mb-[32px]">
             <e-button
-              :p-x="20"
-              :p-y="12"
+              px="20"
+              py="10"
               class="bg-[#000000] rounded text-white text-[12px] font-semibold no-underline text-center"
               :href="inviteLink"
             >
@@ -59,10 +64,20 @@
             concerned about your account's safety, please reply to this email to get in touch with
             us.
           </e-text>
+          <e-button
+            v-for="t in [1, 2, 3]"
+            :key="t"
+            px="20"
+            py="10"
+            href="https://google.com"
+            class="text-[14px] bg-[#28a745] text-white leading-[1.5] rounded-[.5em]"
+          >
+            View your token {{ t }}
+          </e-button>
         </e-container>
       </e-body>
-    </e-tailwind>
-  </e-html>
+    </e-html>
+  </e-tailwind>
 </template>
 
 <script lang="ts" setup>
@@ -105,6 +120,7 @@ const props = withDefaults(defineProps<Props>(), {
   inviteLink: 'https://vercel.com/teams/invite/foo',
   inviteFromIp: '204.168.127.12',
   inviteFromLocation: 'San Francisco, CA',
+  invitedByUsername: 'bukinoshita',
 });
 
 const previewText = `Join ${props.invitedByUsername} on Vercel`;
