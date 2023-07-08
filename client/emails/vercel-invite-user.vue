@@ -43,8 +43,8 @@
           </e-section>
           <e-section class="text-center mt-[32px] mb-[32px]">
             <e-button
-              :p-x="20"
-              :p-y="12"
+              :px="20"
+              :py="12"
               class="bg-[#000000] rounded text-white text-[12px] font-semibold no-underline text-center"
               :href="inviteLink"
             >
