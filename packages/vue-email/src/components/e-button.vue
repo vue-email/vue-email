@@ -1,5 +1,5 @@
 <template>
-  <a data-id="__vue-email-button" :style="buttonStyle(px, py)">
+  <a data-id="__vue-email-button" :style="buttonStyle(px, py)" :href="href" :target="target">
     <span v-html="firstSpan" />
     <span :style="buttonTextStyle(py)">
       <slot />
@@ -19,6 +19,14 @@ const props = defineProps({
   py: {
     type: String,
     default: '0',
+  },
+  target: {
+    type: String,
+    default: '_blank',
+  },
+  href: {
+    type: String,
+    required: true,
   },
 });
 

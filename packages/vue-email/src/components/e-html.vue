@@ -1,7 +1,6 @@
 <template>
   <html v-bind="$props" id="__vue-email" :lang="lang" :dir="dir">
-  <slot />
-
+    <slot />
   </html>
 </template>
 

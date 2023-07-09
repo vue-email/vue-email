@@ -44,8 +44,9 @@
             <e-button
               px="20"
               py="10"
-              class="bg-[#000000] rounded text-white text-[12px] font-semibold no-underline text-center"
+              class="rounded text-white text-[12px] font-semibold no-underline text-center"
               :href="inviteLink"
+              style="background-color: #000000"
             >
               Join the team
             </e-button>
