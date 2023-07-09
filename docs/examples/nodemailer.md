@@ -1,3 +1,0 @@
-# Nodemailer
-
-In construction 🚧

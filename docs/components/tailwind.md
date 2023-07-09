@@ -1,29 +1,17 @@
 # Tailwind
 A Vue component to wrap emails with Tailwind CSS.
 
-### Usage
+## Getting started
+Add the component to your email template. Include styles where needed.
 
-Add the component around your email body content.
 
 ```vue
 <template>
-  <e-tailwind :config="tailwindConfig">
-    <e-button href="https://example.com" class="bg-primary px-3 py-2 font-medium leading-4 text-white">Click me</e-button>
-  </e-tailwind>
+  <e-button href="https://vuejs.org" style="color: #61dafb">Click</e-button>
 </template>
 
 <script setup>
-import { ETailwind, EButton } from 'vue-email';
-
-const tailwindConfig = {
-  theme: {
-    extend: {
-      colors: {
-        primary: '#007291',
-      },
-    },
-  },
-};
+import { EButton } from 'vue-email';
 </script>
 ```
 
@@ -36,3 +24,7 @@ const tailwindConfig = {
 ::: info
 Note: Most email clients are style-limited and some styles may not work.
 :::
+
+## Live example
+
+[Tailwind Demo](https://demo-vue-email.up.railway.app/preview/vercel-invite-user)

@@ -1,7 +1,9 @@
 # Text
 A block of text separated by blank spaces.
 
-### Usage
+## Getting started
+Add the component to your email template. Include styles where needed.
+
 
 ```vue
 <template>

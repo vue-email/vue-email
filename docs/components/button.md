@@ -1,7 +1,13 @@
 # Button
 A link that is styled to look like a button.
 
-### Usage
+::: info
+Semantics: Quite often in the email world we talk about buttons, when actually we mean links. Behind the scenes this is a `<a>` tag, that is styled like a `<button>` tag.
+:::
+
+## Getting started
+Add the component to your email template. Include styles where needed.
+
 
 ```vue
 <template>
@@ -12,6 +18,8 @@ A link that is styled to look like a button.
 import { EButton } from 'vue-email';
 </script>
 ```
+
+### Props
 
 | Name |  type  |  default  |Required  |        Description        |
 | ---- | :---:  |  :--: | :---:   | :-----------------------: |

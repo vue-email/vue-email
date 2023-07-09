@@ -1,7 +1,12 @@
 # Hr
 Display a divider that separates content areas in your email.
 
-### Usage
+## Getting started
+
+Add the component to your email template. Include styles where needed.
+
+
+
 
 ```vue
 <template>
