@@ -190,7 +190,7 @@ function sidebar(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Introduction', link: '/introduction' },
         { text: 'Contributing', link: '/contributing' },
-        // { text: 'Roadmap', link: '/roadmap' },
+        { text: 'Roadmap', link: '/roadmap' },
       ]
     },
     {
