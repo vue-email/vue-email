@@ -1,7 +1,8 @@
 # Column
 Display a column that separates content areas vertically in your email.
 
-### Usage
+## Getting started
+Add the component to your email template. Include styles where needed.
 
 ```vue
 <template>

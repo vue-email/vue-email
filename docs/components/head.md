@@ -1,7 +1,9 @@
 # Head
 Contains head components, related to the document such as style and meta elements.
 
-### Usage
+## Getting started
+Add the component to your email template. Include children tags where needed.
+
 
 ```vue
 <template>

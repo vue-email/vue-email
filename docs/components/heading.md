@@ -1,17 +1,24 @@
 # Heading
 A block of heading text.
 
-### Usage
+## Getting started
+
+Add the component to your email template. Include styles where needed.
+
+
+
 
 ```vue
 <template>
-  <e-heading as="h2">My heading</e-heading>
+  <e-heading as="h2">Lorem ipsum</e-heading>
 </template>
 
 <script setup>
 import { ESection, EText } from 'vue-email';
 </script>
 ```
+
+### Props
 
 | Name |  type  |  default |        Description        |
 | ---- | :---:  |  :--:  | :-----------------------: |

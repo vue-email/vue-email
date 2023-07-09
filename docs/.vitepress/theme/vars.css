@@ -1,0 +1,34 @@
+/**
+ * Colors Theme
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-c-accent: #6389c3;
+  --vp-c-brand: #4fc2d9;
+  --vp-c-brand-light: #7addf2;
+  --vp-c-brand-lighter: #c5f2fa;
+  --vp-c-brand-dark: #3492a3;
+  --vp-c-brand-darker: #2a7481;
+}
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #6389c3 15%, #4fc2d9);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #6389c360 30%, #4fc2d960);
+  --vp-home-hero-image-filter: blur(30px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(72px);
+  }
+}

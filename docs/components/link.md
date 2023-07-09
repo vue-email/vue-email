@@ -1,7 +1,12 @@
 # Link
 A hyperlink to web pages, email addresses, or anything else a URL can address.
 
-### Usage
+## Getting started
+
+Add the component to your email template. Include styles where needed.
+
+
+
 
 ```vue
 <template>
@@ -11,8 +16,10 @@ A hyperlink to web pages, email addresses, or anything else a URL can address.
 <script setup>
 import { ELink } from 'vue-email';
 </script>
+
 ```
 
+### Props
 | Name     |  type  | Required | default |                   Description                    |
 | -------- | :----: | :------: | :-----: | :----------------------------------------------: |
 | `href`   | string |   true   |         | Link to be triggered when the button is clicked  |
