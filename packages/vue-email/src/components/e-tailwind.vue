@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, defineComponent, h, useAttrs, useSlots, normalizeProps, VNode } from 'vue'
+import { ref, defineComponent, h, useAttrs, useSlots, VNode } from 'vue'
 import { TailwindConfig, tailwindToCSS } from 'tw-to-css';
 import { cleanCss, getMediaQueryCss, makeCssMap } from '../utils/css';
 
@@ -29,24 +29,24 @@ const ETailwindComponent = defineComponent(function ETailwindComponent() {
   }
 
   const $default = slots.default();
+  const headNamePattern = /^(head|e-head|ehead)$/i;
 
   const helper = (v: VNode) => {
-    // @ts-ignore
-    if (hasResponsiveStyles.value && hasHead.value && v.type && v.type?.__name?.toLowerCase().includes('Head')) {
-      if (v.children) {
-        const props = normalizeProps(v.props)
 
-        return h('head', {
-          ...props
-        }, [
-          h('style', headStyle.value)
-        ])
-      }
+
+    if (
+      hasHead.value &&
+      hasResponsiveStyles.value &&
+      v.type &&
+      // @ts-ignore
+      headNamePattern.test(v.type?.__name?.toLowerCase() || '')
+    ) {
+      v.children = [
+        h('style', headStyle.value),
+      ];
     }
 
-
     if (v.props && v.props.class) {
-
       const cleanRegex = /[:#\\!\-[\]\\/\\.%]+/g;
 
       const cleanTailwindClasses = v.props.class.replace(cleanRegex, "_");
