@@ -1,72 +1,60 @@
 <template>
-  <a
-    v-bind="$props"
-    data-id="__vue-email-button"
-    :href="href"
-    :target="target"
-    :style="styleToString(buttonStyle({ ...style, pX, pY }))"
-  >
-    <span v-html="firstSpan"></span>
-    <span :style="styleToString(buttonTextStyle({ ...style, pX, pY }))">
+  <a data-id="__vue-email-button" :style="buttonStyle(px, py)" :href="href" :target="target">
+    <span v-html="firstSpan" />
+    <span :style="buttonTextStyle(py)">
       <slot />
     </span>
-    <span v-html="secondSpan"></span>
+    <span v-html="secondSpan" />
   </a>
 </template>
 
 <script lang="ts" setup>
-import { pxToPt, styleToString } from '../utils';
-import type { LinkHTMLAttributes } from 'vue';
+import { pxToPt } from '../utils';
 
-interface Props extends /* @vue-ignore */ Omit<LinkHTMLAttributes, 'style'> {
-  href: string;
-  target?: string;
-  style?: any;
-  pX?: number;
-  pY?: number;
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  href: '',
-  target: '_blank',
-  pX: 0,
-  pY: 0,
+const props = defineProps({
+  px: {
+    type: String,
+    default: '0',
+  },
+  py: {
+    type: String,
+    default: '0',
+  },
+  target: {
+    type: String,
+    default: '_blank',
+  },
+  href: {
+    type: String,
+    required: true,
+  },
 });
 
-const y = props!.pY * 2;
+const y = Number.parseInt(props.py) * 2;
 const textRaise = pxToPt(y.toString());
 
-const buttonStyle = (style?: Record<string, string | number> & { pY?: number; pX?: number }) => {
-  const paddingY = style?.pY || 0;
-  const paddingX = style?.pX || 0;
-
+const buttonStyle = (py: string = '0', px: string = '0') => {
   return {
-    ...style,
     lineHeight: '100%',
     textDecoration: 'none',
     display: 'inline-block',
     maxWidth: '100%',
-    padding: `${paddingY}px ${paddingX}px`,
+    padding: `${py}px ${px}px`,
   };
 };
 
-const buttonTextStyle = (
-  style?: Record<string, string | number | null> & { pY?: number; pX?: number }
-) => {
-  const paddingY = style?.pY || 0;
-
+const buttonTextStyle = (py: string = '0') => {
   return {
-    ...style,
     maxWidth: '100%',
     display: 'inline-block',
     lineHeight: '120%',
     textDecoration: 'none',
     textTransform: 'none' as const,
     msoPaddingAlt: '0px',
-    msoTextRaise: pxToPt(paddingY.toString()),
+    msoTextRaise: pxToPt(py),
   };
 };
 
-const firstSpan = `<!--[if mso]><i style="letter-spacing: ${props.pX}px;mso-font-width:-100%;mso-text-raise:${textRaise}" hidden>&nbsp;</i><![endif]-->`;
-const secondSpan = `<!--[if mso]><i style="letter-spacing: ${props.pX}px;mso-font-width:-100%" hidden>&nbsp;</i><![endif]-->`;
+const firstSpan = `<!--[if mso]><i style="letter-spacing: ${props.px}px;mso-font-width:-100%;mso-text-raise:${textRaise}" hidden>&nbsp;</i><![endif]-->`;
+const secondSpan = `<!--[if mso]><i style="letter-spacing: ${props.px}px;mso-font-width:-100%" hidden>&nbsp;</i><![endif]-->`;
 </script>

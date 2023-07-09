@@ -1,130 +1,158 @@
-<template>
-  <render />
-</template>
-
-<script lang="ts" setup>
-import { VNode, h, useSlots } from 'vue';
+<script setup lang="ts">
+import { ref, defineComponent, h, useAttrs, useSlots, VNode } from 'vue'
 import { TailwindConfig, tailwindToCSS } from 'tw-to-css';
-import {
-  cleanCss,
-  getMediaQueryCss,
-  makeCssMap,
-  testResponsiveStyles,
-  styleToObject,
-} from '../utils/css';
+import { cleanCss, getMediaQueryCss, makeCssMap } from '../utils/css';
 
 interface Props {
   config?: TailwindConfig;
 }
-
 const props = defineProps<Props>();
-const slots = useSlots();
 
-if (!slots?.default || !slots?.default()) {
-  throw new Error('You must insert at least one code');
-}
+const ETailwindComponent = defineComponent(function ETailwindComponent() {
+  const attrs = useAttrs()
+  const slots = useSlots()
 
-const $default = slots?.default();
-const { twi } = tailwindToCSS({ config: props.config });
 
-const helper = (node: any, hasHTML: boolean, hasHead: boolean) => {
-  if (node.props) {
-    const tailwindCSS = twi(node.props.class, {
-      merge: false,
-      ignoreMediaQueries: false,
-    });
+  const { twi } = tailwindToCSS({ config: props.config });
+  const hasHTML = ref(false);
+  const hasHead = ref(false);
+  const hasResponsiveStyles = ref(false);
+  const classes = ref<string[]>([]);
+  const css = ref<string>('');
+  const tailwindCss = ref<string>('');
+  const cssMap = ref<Record<string, string>>({});
+  const headStyle = ref<string>('');
 
-    const css = cleanCss(tailwindCSS);
-    const cssMap = makeCssMap(css);
-    const headStyle = getMediaQueryCss(css);
-    const hasResponsiveStyles = testResponsiveStyles(headStyle);
-    const stylesString = Object.values(cssMap).join(';');
-    const styles = styleToObject(stylesString);
 
-    if (hasResponsiveStyles && hasHead && node.type.__name.includes('head')) {
-      let newVNode: VNode | null = null;
+  if (!slots.default || !slots.default()) {
+    throw new Error('You must insert at least one code');
+  }
 
-      if (node.children.default().length) {
-        newVNode = h('head', { ...node.props }, [h('style', headStyle)]);
-      }
+  const $default = slots.default();
+  const headNamePattern = /^(head|e-head|ehead)$/i;
 
-      return newVNode;
+  const helper = (v: VNode) => {
+
+
+    if (
+      hasHead.value &&
+      hasResponsiveStyles.value &&
+      v.type &&
+      // @ts-ignore
+      headNamePattern.test(v.type?.__name?.toLowerCase() || '')
+    ) {
+      v.children = [
+        h('style', headStyle.value),
+      ];
     }
 
-    const vnode = h(node, { ...node.props, style: styles });
+    if (v.props && v.props.class) {
+      const cleanRegex = /[:#\\!\-[\]\\/\\.%]+/g;
+
+      const cleanTailwindClasses = v.props.class.replace(cleanRegex, "_");
+
+      let currentStyles = "";
+
+      if (typeof v.props.style === 'object') {
+        currentStyles = Object.keys(v.props.style).map((key) => {
+          // @ts-ignore
+          return `${key}: ${v.props.style[key]};`
+        }).join(" ")
+      }
+      // @ts-ignore
+      const tailwindStyles = cleanTailwindClasses.split(" ").map((className) => {
+        return cssMap.value[`.${className}`];
+      }).join(";")
+
+      v.props.style = `${currentStyles} ${tailwindStyles}`.trim();
+
+      v.props.class = v.props.class
+        .split(" ")
+        // @ts-ignore
+        .filter((className) => className.search(/^.{2}:/) !== -1)
+        .join(" ")
+        .replace(cleanRegex, "_");
+
+
+      if (v.props.class === '') {
+        delete v.props.class
+      }
+    }
+
+
+
+    if (v.children) {
+      // @ts-ignore
+      const defaultChildren = v.children.default?.();
+
+      if (defaultChildren && Array.isArray(defaultChildren) && defaultChildren.length) {
+        // @ts-ignore
+        v.children['default'] = () => defaultChildren.map((vnode: VNode) => helper(vnode))
+      } else if (v.children && Array.isArray(v.children)) {
+        // @ts-ignore
+        v.children = v.children.map((vnode: VNode) => helper(vnode))
+      }
+    }
+
+    return h(v);
+  }
+
+  const $forEachHelper = (vnode: any) => {
+
+    if (vnode.props && vnode.props.class) {
+      classes.value.push(vnode.props.class)
+    }
+
+    if (vnode.type && vnode.type?.__name?.toLowerCase().includes('html')) {
+      hasHTML.value = true;
+    }
+
+    if (vnode.type && vnode.type?.__name?.toLowerCase().includes('head')) {
+      hasHead.value = true;
+    }
 
     if (
       typeof vnode.children === 'object' &&
-      vnode.children &&
-      // @ts-ignore
-      Array.isArray(vnode.children.default()) &&
-      // @ts-ignore
-      vnode.children.default().length
+      vnode.children
     ) {
-      const childrenComponent = vnode.children
-        // @ts-ignore
-        .default()
-        .map((vnode: VNode) => helper(vnode, hasHTML, hasHead));
-      return h(vnode, () => childrenComponent);
-    }
+      const defaultChildren = vnode.children.default?.();
 
-    return h(vnode);
-  }
-
-  if (
-    typeof node.children === 'object' &&
-    node.children &&
-    Array.isArray(node.children.default()) &&
-    node.children.default().length
-  ) {
-    const children = node.children.default().map((vnode: VNode) => helper(vnode, hasHTML, hasHead));
-    return h(node, () => children);
-  }
-
-  return h(node);
-};
-
-const renderHelper = () => {
-  let hasHTML = false;
-  let hasHead = false;
-
-  return function inner() {
-    const vnodesArray: VNode[] = [];
-
-    const $forEachHelper = (vnode: any) => {
-      vnodesArray.push(vnode);
-
-      if (
-        typeof vnode.children === 'object' &&
-        vnode.children &&
-        Array.isArray(vnode.children.default()) &&
-        vnode.children.default().length > 1
-      ) {
-        vnode.children.default().forEach($forEachHelper);
+      if (defaultChildren && Array.isArray(defaultChildren) && defaultChildren.length) {
+        defaultChildren.forEach($forEachHelper)
+      } else if (vnode.children && Array.isArray(vnode.children)) {
+        vnode.children.forEach($forEachHelper)
       }
-    };
-
-    $default.forEach($forEachHelper);
-
-    // @ts-ignore
-    const htmlFound = vnodesArray.find((el) => el.type?.__name?.includes('html') ?? null);
-    // @ts-ignore
-    const headFound = vnodesArray.find((el) => el.type?.__name?.includes('head') ?? null);
-
-    if (htmlFound != undefined) {
-      hasHTML = true;
     }
-
-    if (headFound != undefined) {
-      hasHead = true;
-    }
-
-    return $default.map((vnode) => helper(vnode, hasHTML, hasHead));
   };
-};
 
-function render() {
-  const _render = renderHelper();
-  return h('div', _render());
-}
+  $default.forEach($forEachHelper);
+
+  tailwindCss.value = twi(classes.value.join(" "), {
+    merge: false,
+    ignoreMediaQueries: false,
+  });
+
+  css.value = cleanCss(tailwindCss.value);
+  cssMap.value = makeCssMap(css.value);
+  headStyle.value = getMediaQueryCss(css.value);
+  hasResponsiveStyles.value = /@media[^{]+\{(?<content>[\s\S]+?)\}\s*\}/gm.test(
+    headStyle.value
+  );
+
+  return () => h(
+    'div',
+    {
+      ...attrs,
+    },
+    $default.map((vnode) => helper(vnode))
+  )
+
+
+})
 </script>
+
+<template>
+  <ETailwindComponent>
+    <slot />
+  </ETailwindComponent>
+</template>

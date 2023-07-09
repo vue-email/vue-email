@@ -13,7 +13,7 @@ interface Props extends /* @vue-ignore */ Omit<HtmlHTMLAttributes, 'lang'> {
 }
 
 withDefaults(defineProps<Props>(), {
-  lang: 'es',
+  lang: 'en',
   dir: 'ltr',
 });
 </script>

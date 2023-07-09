@@ -15,7 +15,7 @@
         <e-text :style="paragraph"> A Vue component library for building responsive emails </e-text>
         <e-text :style="paragraph">{{ message }}</e-text>
         <e-section :style="btnContainer">
-          <e-button :p-x="12" :p-y="12" :style="button" href="https://github.com/Dave136/vue-email">
+          <e-button :px="12" :py="12" :style="button" href="https://github.com/Dave136/vue-email">
             View on GitHub
           </e-button>
         </e-section>

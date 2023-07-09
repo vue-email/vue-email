@@ -15,8 +15,6 @@ import ESection from './components/e-section.vue';
 import EText from './components/e-text.vue';
 import ETailwind from './components/e-tailwind.vue';
 
-import { styleToString } from './utils';
-
 import { render } from './render';
 
 export {
@@ -37,5 +35,4 @@ export {
   EText,
   ETailwind,
   render,
-  styleToString,
 };
