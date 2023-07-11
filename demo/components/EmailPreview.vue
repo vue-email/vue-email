@@ -159,7 +159,7 @@ watchEffect(() => {
             <UButton
               color="green"
               :disabled="
-                sending &&
+                !sending &&
                   (!emailTo || !emailSubject) &&
                   (emailSubject.trim().length === 0 ||
                     emailTo.trim().length === 0)

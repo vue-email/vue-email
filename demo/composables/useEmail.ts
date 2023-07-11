@@ -5,7 +5,7 @@ export function useEmail() {
   const components = useNuxtApp().vueApp._context.components
   const emails = useState<Email[]>('emails')
   const email = useState<Email>('email')
-  const sending = useState<boolean>('sending')
+  const sending = useState<boolean>('sending', () => false)
 
   const getEmails = async () => {
     const componentNames = Object.keys(components)
