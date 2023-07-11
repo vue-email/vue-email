@@ -47,13 +47,16 @@ const render = defineComponent(() => {
   const $default = slots.default()
   const headNamePattern = /^(head|e-head|ehead)$/i
 
+  const vName = (v: VNode) => {
+    return typeof v.type === 'string'
+      ? v.type.toLowerCase()
+      : typeof v.type === 'object' && v.type !== null && 'name' in v.type
+        ? (v.type as { name: string; }).name.toLowerCase()
+        : ''
+  }
+
   const helper = (v: VNode) => {
-    const typeName =
-      typeof v.type === 'string'
-        ? v.type.toLowerCase()
-        : typeof v.type === 'object' && v.type !== null && 'name' in v.type
-          ? (v.type as { name: string; }).name.toLowerCase()
-          : ''
+    const typeName = vName(v)
 
     if (
       hasHead.value &&
@@ -100,50 +103,35 @@ const render = defineComponent(() => {
     }
 
     if (v.children) {
-      if (typeof v.children === 'object' && 'default' in v.children) {
-        const defaultChildren =
-          typeof v.children.default === 'function' ? v.children.default() : null
+      const defaultChildren = v.children.default?.()
 
-        if (
-          defaultChildren &&
-          Array.isArray(defaultChildren) &&
-          defaultChildren.length
-        ) {
-          v.children['default'] = () =>
-            defaultChildren.map((vnode: VNodeChild) => {
-              if (!vnode) return vnode
-              if (typeof vnode === 'object' && 'type' in vnode) {
-                return helper(vnode as VNode)
-              } else {
-                return vnode
-              }
-            })
-        }
-      } else if (Array.isArray(v.children)) {
-        v.children = v.children.map((vnode: VNodeChild) => {
-          if (!vnode) return vnode
-          if (typeof vnode === 'object' && 'type' in vnode) {
-            return helper(vnode as VNode)
-          } else {
-            return vnode
-          }
-        }) as VNodeChild[]
+      if (
+        defaultChildren &&
+        Array.isArray(defaultChildren) &&
+        defaultChildren.length
+      ) {
+        v.children['default'] = () =>
+          defaultChildren.map((vnode: VNode) => helper(vnode))
+      } else if (v.children && Array.isArray(v.children)) {
+        v.children = v.children.map((vnode: VNode) => helper(vnode))
       }
     }
 
     return h(v)
   }
 
-  const $forEachHelper = (vnode: any) => {
+  const $forEachHelper = (vnode: VNode) => {
     if (vnode.props && vnode.props.class) {
       classes.value.push(vnode.props.class)
     }
 
-    if (vnode.type && vnode.type?.__name?.toLowerCase().includes('html')) {
+    const typeName = vName(vnode)
+
+    if (typeName && typeName.includes('html')) {
       hasHTML.value = true
     }
 
-    if (vnode.type && vnode.type?.__name?.toLowerCase().includes('head')) {
+    if (typeName && headNamePattern.test(typeName)) {
       hasHead.value = true
     }
 
