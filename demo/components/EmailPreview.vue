@@ -1,8 +1,5 @@
 <script lang="ts" setup>
-interface Template {
-  html: string;
-  plainText: string;
-}
+import { ActiveView, ActiveLang, Template } from '@/types/email'
 
 const props = defineProps({
   slug: {
@@ -14,9 +11,6 @@ const props = defineProps({
     required: true,
   },
 })
-
-type ActiveView = 'desktop' | 'mobile' | 'source'
-type ActiveLang = 'html' | 'markdown'
 
 const router = useRouter()
 const route = useRoute()
@@ -43,7 +37,7 @@ async function updateIframe() {
   iframeUpdate.value++
 }
 
-function handleLang(lang: ActiveLang) {
+const setlang = (lang: ActiveLang) => {
   activeLang.value = lang
   router.push(`${route.path}?view=source&lang=${lang}`)
 }
@@ -57,7 +51,7 @@ watchEffect(() => {
     activeView.value = query.view
 
   if (query.lang) {
-    if (['html', 'markdown'].includes(query.lang)) activeLang.value = query.lang
+    if (['html', 'md'].includes(query.lang)) activeLang.value = query.lang
   }
 })
 </script>
@@ -91,7 +85,7 @@ watchEffect(() => {
         variant="solid"
         label="Source"
         :trailing="true"
-        @click="handleView('source')"
+        @click="activeView === 'source' ? null : handleView('source')"
       />
       <UButton
         icon="i-heroicons-arrow-path"
@@ -127,11 +121,11 @@ watchEffect(() => {
             content: template.html,
           },
           {
-            language: 'markdown',
+            language: 'md',
             content: template.plainText,
           },
         ]"
-        @setlang="handleLang"
+        @setlang="setlang"
       />
     </div>
   </section>

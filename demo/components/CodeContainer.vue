@@ -1,26 +1,27 @@
 <script lang="ts" setup>
-interface MarkupProps {
-  language: string;
-  content: string;
-}
+import { ActiveLang, MarkupProps } from '@/types/email'
 
-interface Props {
-  markups: MarkupProps[];
-  activeLang: string;
-}
+const props = defineProps({
+  markups: {
+    type: Array as PropType<MarkupProps[]>,
+    required: true,
+  },
+  activeLang: {
+    type: String,
+    required: true,
+  },
+})
 
-interface Emits {
-  (e: 'setlang', lang: string): void;
-}
-
-const props = defineProps<Props>()
-
-defineEmits<Emits>()
+defineEmits({
+  setlang: (lang: ActiveLang) => true,
+})
 
 const isCopied = ref(false)
 
 function handleDownload() {
-  const value = props.markups.filter((markup) => markup.language === props.activeLang)[0]
+  const value = props.markups.filter(
+    (markup) => markup.language === props.activeLang,
+  )[0]
   const file = new File([value.content], `email.${value.language}`)
   const url = URL.createObjectURL(file)
 
@@ -34,11 +35,13 @@ function handleDownload() {
 
 const languageMap = {
   html: 'HTML',
-  markdown: 'Plain Text',
+  md: 'Markdown',
 }
 
 async function handleClipboad() {
-  const value = props.markups.filter((markup) => markup.language === props.activeLang)[0]
+  const value = props.markups.filter(
+    (markup) => markup.language === props.activeLang,
+  )[0]
 
   isCopied.value = true
   await copyTextToClipboard(value.content)
@@ -51,7 +54,9 @@ async function handleClipboad() {
     class="border-slate-6 relative w-full items-center whitespace-pre rounded-md border text-sm backdrop-blur-md"
     style="line-height: 130%"
   >
-    <div class="flex justify-between items-center i border-b border-slate-6 px-5">
+    <div
+      class="flex justify-between items-center i border-b border-slate-6 px-5"
+    >
       <div class="flex py-[8px] gap-x-4">
         <button
           v-for="markup in markups"
@@ -74,7 +79,11 @@ async function handleClipboad() {
       </div>
       <div class="text-xl flex gap-x-2">
         <button @click="handleClipboad">
-          <UIcon v-if="isCopied" name="i-heroicons-check-20-solid" weight="light" />
+          <UIcon
+            v-if="isCopied"
+            name="i-heroicons-check-20-solid"
+            weight="light"
+          />
           <UIcon v-else name="i-heroicons-clipboard-document" weight="light" />
         </button>
         <button class="text-gray-11" @click="handleDownload">
