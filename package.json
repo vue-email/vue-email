@@ -17,8 +17,10 @@
     "postinstall": "simple-git-hooks",
     "dev": "cd packages/vue-email && pnpm dev",
     "docs": "cd docs && pnpm dev",
+    "demo": "cd demo && pnpm dev",
     "build": "cd packages/vue-email && pnpm build:prod",
     "docs:build": "pnpm build && cd docs && pnpm build",
+    "demo:build": "pnpm build && cd demo && pnpm build",
     "lint": "eslint --ext .js,.ts,.vue .",
     "lint:email": "eslint --ext .js,.ts,.vue,.mjs ./packages/vue-email",
     "test": "cd packages/vue-email && pnpm test",
@@ -47,5 +49,8 @@
   "simple-git-hooks": {
     "pre-commit": "pnpm -r --workspace-concurrency=1 lint-staged --concurrent false",
     "commit-msg": "pnpm -r --workspace-concurrency=1 tsx .scripts/verifyCommit.ts $1"
+  },
+  "volta": {
+    "node": "20.4.0"
   }
 }

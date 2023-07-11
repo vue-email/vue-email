@@ -1,4 +1,9 @@
-import { defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
+import {
+  defineNuxtModule,
+  addPlugin,
+  createResolver,
+  addImportsDir,
+} from '@nuxt/kit'
 import { fileURLToPath } from 'node:url'
 
 export default defineNuxtModule({
@@ -26,5 +31,7 @@ export default defineNuxtModule({
         prefix: options?.prefix ? options?.prefix : 'E',
       })
     })
+
+    addImportsDir(resolve('./src/composables'))
   },
 })

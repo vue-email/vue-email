@@ -15,7 +15,11 @@ export interface Options {
  * @param {Options} options The options to convert the template
  * @returns {string}
  */
-const render = async (component: Component, props?: any, options?: Options) => {
+export const useRender = async (
+  component: Component,
+  props?: any,
+  options?: Options,
+) => {
   if (options?.plainText) {
     return renderAsText(component)
   }
@@ -42,8 +46,4 @@ const renderAsText = async (component: Component) => {
       { selector: '#__vue-email-preview', format: 'skip' },
     ],
   })
-}
-
-export const useRender = (): typeof render => {
-  return render
 }
