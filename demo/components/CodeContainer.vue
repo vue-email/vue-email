@@ -17,6 +17,7 @@ defineEmits({
 })
 
 const isCopied = ref(false)
+const toast = useToast()
 
 function handleDownload() {
   const value = props.markups.filter(
@@ -31,6 +32,11 @@ function handleDownload() {
   a.download = file.name
   document.body.appendChild(a)
   a.click()
+  toast.add({
+    title: 'Downloaded',
+    description: 'Check your downloads folder.',
+    icon: 'i-ph-download-simple-bold',
+  })
 }
 
 const languageMap = {
@@ -45,6 +51,11 @@ async function handleClipboad() {
 
   isCopied.value = true
   await copyTextToClipboard(value.content)
+  toast.add({
+    title: 'Copied to clipboard',
+    description: 'You can now paste it anywhere you want.',
+    icon: 'i-ph-copy-bold',
+  })
   setTimeout(() => (isCopied.value = false), 3000)
 }
 </script>
