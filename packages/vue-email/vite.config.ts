@@ -1,31 +1,36 @@
-import { defineConfig } from 'vite';
-import path from 'path';
-import vue from '@vitejs/plugin-vue';
-import eslintPlugin from 'vite-plugin-eslint';
-import dts from 'vite-plugin-dts';
+/// <reference types="vitest" />
+import { resolve } from "path";
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import vueJsx from "@vitejs/plugin-vue-jsx";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    eslintPlugin(),
-    dts({
-      insertTypesEntry: true,
-    }),
-  ],
+  plugins: [vue(), vueJsx()],
   build: {
-    target: 'esnext',
+    outDir: "lib",
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'vue-email',
+      entry: resolve(__dirname, "src/index.ts"),
+      name: "vue-email",
+      formats: ["es", "cjs"],
+      fileName: (format) => {
+        return `[name].${format}.js`;
+      },
     },
     rollupOptions: {
-      external: ['vue'],
+      // preserveModules: true,
+      external: ["vue"],
       output: {
+        exports: "named",
         globals: {
-          vue: 'Vue',
+          vue: "Vue",
         },
       },
+    },
+  },
+  test: {
+    transformMode: {
+      web: [/\.[jt]sx$/],
     },
   },
 });

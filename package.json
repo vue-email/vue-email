@@ -1,31 +1,51 @@
 {
-  "name": "vue-email",
-  "version": "0.0.0",
-  "type": "module",
+  "name": "root",
   "private": true,
-  "author": "David Arenas <davejs136@gmail.com>",
+  "author": "David Arenas (https://github.com/Dave136/)",
   "homepage": "https://vue-email.vercel.app/",
-  "repository": "https://github.com/davejs136/vue-email",
-  "description": "Build and send emails using Vue",
+  "description": "💌 Build and send emails using Vue",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davejs136/vue-email/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davejs136/vue-email.git"
+  },
   "scripts": {
-    "lint": "eslint . --ext .js,.ts,.vue --ignore-path .eslintignore --fix src",
-    "format": "prettier \"./**/*.ts\" --write",
-    "docs": "pnpm -C docs run dev",
-    "docs:build": "pnpm -C docs run build",
-    "docs:serve": "pnpm -C docs run serve"
+    "preinstall": "npm exec only-allow pnpm",
+    "postinstall": "simple-git-hooks",
+    "dev": "cd packages/vue-email && pnpm dev",
+    "docs": "cd docs && pnpm dev",
+    "build": "cd packages/vue-email && pnpm build:prod",
+    "build:docs": "pnpm build && cd docs && pnpm build",
+    "lint": "eslint --ext .js,.ts,.vue .",
+    "lint:email": "eslint --ext .js,.ts,.vue,.mjs ./packages/vue-email",
+    "test": "cd packages/vue-email && pnpm test",
+    "changeset": "changeset",
+    "version:prod": "changeset version",
+    "publish:prod": "changeset publish",
+    "version:snapshot": "changeset version --snapshot dev",
+    "publish:snapshot": "changeset publish --no-git-tag --snapshot --tag dev",
+    "changeset:status": "node .scripts/changesetStatus.js"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@types/node": "^20",
-    "@typescript-eslint/eslint-plugin": "^5.59.7",
-    "@typescript-eslint/parser": "^5.59.7",
-    "@vitejs/plugin-vue": "^4.2.3",
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.2",
+    "@indielayer/eslint-config-vue": "^3.2.0",
     "eslint": "^8.44.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^9.15.1",
-    "prettier": "^3.0.0",
-    "typescript": "^5.1.6"
+    "lint-staged": "^13.2.3",
+    "only-allow": "^1.1.1",
+    "simple-git-hooks": "^2.8.1",
+    "tsx": "^3.12.7"
   },
-  "license": "MIT"
+  "lint-staged": {
+    "*.{cjs,js,jsx,ts,tsx,vue}": [
+      "eslint --cache --fix"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm -r --workspace-concurrency=1 lint-staged --concurrent false",
+    "commit-msg": "pnpm -r --workspace-concurrency=1 tsx .scripts/verifyCommit.ts $1"
+  }
 }

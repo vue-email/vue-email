@@ -13,6 +13,4 @@ yarn-error.log*
 Thumbs.db
 .nuxt
 lib
-packages/vue-email/lib
-packages/vue-email/vite.config.ts
-docs/.vitepress/dist
+vite.config.ts

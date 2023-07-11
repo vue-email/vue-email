@@ -1,0 +1,25 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@types/node": "^20",
+    "nuxt": "^3.6.2",
+    "eslint": "8.44.0",
+    "eslint-plugin-tailwindcss": "^3.13.0",
+    "@antfu/eslint-config": "0.39.7",
+    "vue-email": "workspace:*"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:tailwindcss/recommended"
+    ]
+  }
+}
