@@ -189,7 +189,7 @@ watchEffect(() => {
         :width="activeView === 'desktop' ? '100%' : 425"
       ></iframe>
     </div>
-    <div v-else class="flex gap-6 mx-auto p-6 max-w-6xl">
+    <div v-else class="flex gap-6 mx-auto p-6 max-w-screen-xl">
       <CodeContainer
         :active-lang="activeLang"
         :markups="[
