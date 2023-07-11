@@ -60,10 +60,20 @@ export function useEmail() {
       if (response.status === 429) {
         const { error } = await response.json()
 
-        alert(error)
+        useToast().add({
+          title: 'Too many requests',
+          description: error,
+          color: 'red',
+          icon: 'i-ph-bell-bold',
+        })
       }
     } catch (error) {
-      alert('Something went wrong. Please try again.')
+      useToast().add({
+        title: 'Error',
+        description: 'Something went wrong. Please try again.',
+        color: 'red',
+        icon: 'i-ph-bell-bold',
+      })
     } finally {
       sending.value = false
     }
