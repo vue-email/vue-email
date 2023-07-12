@@ -24,7 +24,7 @@ const activeView = ref<ActiveView>('desktop')
 const activeLang = ref<ActiveLang>('html')
 const iframeUpdate = ref(0)
 const emailTo = ref('')
-const emailSubject = ref('Testing React Email')
+const emailSubject = ref('Testing Vue Email')
 
 function handleView(view: ActiveView) {
   activeView.value = view
