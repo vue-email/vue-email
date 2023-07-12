@@ -5,7 +5,7 @@ export default { name: 'EButton' }
 <template>
   <a
     data-id="__vue-email-button"
-    :style="buttonStyle(px, py)"
+    :style="buttonStyle(py, px)"
     :href="href"
     :target="target"
   >
@@ -18,32 +18,34 @@ export default { name: 'EButton' }
 </template>
 
 <script lang="ts" setup>
-import { pxToPt } from '../utils'
+import type { CSSProperties } from 'vue'
+import { pxToPt, convertStyleStringToObj } from '../utils'
 
-const props = defineProps({
-  px: {
-    type: String,
-    default: '0',
-  },
-  py: {
-    type: String,
-    default: '0',
-  },
-  target: {
-    type: String,
-    default: '_blank',
-  },
-  href: {
-    type: String,
-    required: true,
-  },
+interface Props {
+  px?: string;
+  py?: string;
+  target?: string;
+  href: string;
+  style?: CSSProperties;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  px: '0',
+  py: '0',
+  target: '_blank',
+  href: '#',
 })
 
 const y = Number.parseInt(props.py) * 2
 const textRaise = pxToPt(y.toString())
+const styles =
+  typeof props.style === 'string'
+    ? convertStyleStringToObj(props.style)
+    : props.style
 
 const buttonStyle = (py = '0', px = '0') => {
   return {
+    ...styles,
     lineHeight: '100%',
     textDecoration: 'none',
     display: 'inline-block',
@@ -54,6 +56,7 @@ const buttonStyle = (py = '0', px = '0') => {
 
 const buttonTextStyle = (py = '0') => {
   return {
+    ...styles,
     maxWidth: '100%',
     display: 'inline-block',
     lineHeight: '120%',

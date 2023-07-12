@@ -62,7 +62,7 @@ watchEffect(() => {
 <template>
   <section>
     <header
-      class="h-[70px] w-full bg-dark-9 flex justify-between items-center space-x-3 px-3"
+      class="h-[70px] w-full bg-gray-900 flex justify-between items-center space-x-3 px-3"
     >
       <div class="items-center flex justify-center space-x-3">
         <UTooltip text="Change View to Mobile">
@@ -111,7 +111,7 @@ watchEffect(() => {
         :ui="{
           base: 'p-4',
           width: 'w-72',
-          background: 'bg-zinc-9',
+          background: 'bg-zinc-900',
         }"
       >
         <UButton
@@ -150,9 +150,9 @@ watchEffect(() => {
           />
 
           <div class="flex items-center justify-between mt-3">
-            <span class="inline-block text-xs text-slate-11 font-normal">Powered by
+            <span class="inline-block text-xs text-gray-100 font-normal">Powered by
               <a
-                class="hover:text-slate-12 transition ease-in-out duration-300"
+                class="hover:text-gray-100 transition ease-in-out duration-300"
                 href="https://resend.com"
                 target="_blank"
                 rel="noreferrer"

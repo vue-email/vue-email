@@ -7,7 +7,7 @@ const props = defineProps({
     required: true,
   },
   activeLang: {
-    type: String,
+    type: String as PropType<ActiveLang>,
     required: true,
   },
 })
@@ -16,7 +16,6 @@ defineEmits({
   setlang: (lang: ActiveLang) => true,
 })
 
-const isCopied = ref(false)
 const toast = useToast()
 
 function handleDownload() {
@@ -49,51 +48,58 @@ async function handleClipboad() {
     (markup) => markup.language === props.activeLang,
   )[0]
 
-  isCopied.value = true
   await copyTextToClipboard(value.content)
   toast.add({
     title: 'Copied to clipboard',
     description: 'You can now paste it anywhere you want.',
     icon: 'i-ph-copy-bold',
   })
-  setTimeout(() => (isCopied.value = false), 3000)
 }
 </script>
 
 <template>
   <div
-    class="border-slate-6 relative w-full items-center whitespace-pre rounded-md border text-sm backdrop-blur-md"
+    class="border-gray-600 relative w-full items-center whitespace-pre rounded-md border text-sm"
     style="line-height: 130%"
   >
-    <div class="flex justify-between items-center i border-b border-slate-6">
+    <div class="flex justify-between items-center border-b border-gray-600">
       <div class="flex">
         <button
           v-for="markup in markups"
           :key="markup.language"
-          class="relative py-[8px] px-4 text-sm font-medium font-sans transition ease-in-out duration-200 hover:text-slate-12"
+          class="relative py-[8px] px-4 text-sm font-medium font-sans transition ease-in-out duration-200 hover:text-gray-100"
           :class="[
             activeLang !== markup.language
-              ? 'text-slate-5'
-              : 'text-slate-1 bg-dark-6 rounded-lt-md',
+              ? 'text-gray-500'
+              : 'text-gray-100 bg-gray-600 rounded-lt-md',
           ]"
           @click="$emit('setlang', markup.language)"
         >
           <span
             v-if="activeLang === markup.language"
-            class="absolute left-0 right-0 top-0 bottom-0 border-b border-b-sky-4"
+            class="absolute left-0 right-0 top-0 bottom-0 border-b border-b-sky-400"
           ></span>
 
           {{ languageMap[markup.language] }}
         </button>
       </div>
-      <div class="text-xl flex gap-x-2 mr-4">
-        <button @click="handleClipboad">
-          <UIcon v-if="isCopied" name="i-ph-check-bold" weight="light" />
-          <UIcon v-else name="i-ph-copy-bold" weight="light" />
-        </button>
-        <button class="text-gray-11" @click="handleDownload">
-          <UIcon name="i-ph-download-simple-bold" weight="light" />
-        </button>
+      <div class="flex gap-x-2 mr-4 relative">
+        <UTooltip text="Copy to clipboard">
+          <UButton
+            color="white"
+            size="xs"
+            icon="i-ph-copy-bold"
+            @click="handleClipboad"
+          />
+        </UTooltip>
+        <UTooltip :text="`Download ${languageMap[activeLang]} Code`">
+          <UButton
+            color="white"
+            size="xs"
+            icon="i-ph-download-simple-bold"
+            @click="handleDownload"
+          />
+        </UTooltip>
       </div>
     </div>
     <template v-for="markup in markups" :key="markup.language">

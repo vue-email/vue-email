@@ -6,7 +6,7 @@ const links = computed(() => (emails.value ? emails.value : []))
 <template>
   <div v-if="links && links.length" class="flex h-screen">
     <aside
-      class="min-w-[275px] max-w-[275px] min-h-full bg-dark-9 border-r border-r-dark px-6"
+      class="min-w-[275px] max-w-[275px] min-h-full bg-gray-900 border-r border-r-dark px-6"
     >
       <nav class="flex flex-col gap-4 mt-16">
         <p
@@ -35,10 +35,11 @@ const links = computed(() => (emails.value ? emails.value : []))
         />
       </nav>
     </aside>
-    <div class="w-[calc(100%_-_275px)] bg-dark-8">
+    <div class="w-[calc(100%_-_275px)] bg-gray-800">
       <main class="">
         <slot></slot>
       </main>
     </div>
+    <UNotifications />
   </div>
 </template>

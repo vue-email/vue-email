@@ -6,6 +6,7 @@ export default { name: 'EHeading' }
     :is="as"
     data-id="__vue-email-heading"
     :style="{
+      ...styles,
       ...withMargin({
         m,
         mx,
@@ -22,48 +23,34 @@ export default { name: 'EHeading' }
 </template>
 
 <script lang="ts" setup>
-import { withMargin } from '../utils'
-import type { PropType } from 'vue'
+import { withMargin, convertStyleStringToObj } from '../utils'
+import type { CSSProperties } from 'vue'
 
-defineProps({
-  as: {
-    type: String as PropType<'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'>,
-    default: 'h1',
-  },
-  m: {
-    type: String,
-    default: undefined,
-    required: false,
-  },
-  mx: {
-    type: String,
-    default: undefined,
-    required: false,
-  },
-  my: {
-    type: String,
-    default: undefined,
-    required: false,
-  },
-  mt: {
-    type: String,
-    default: undefined,
-    required: false,
-  },
-  mr: {
-    type: String,
-    default: undefined,
-    required: false,
-  },
-  mb: {
-    type: String,
-    default: undefined,
-    required: false,
-  },
-  ml: {
-    type: String,
-    default: undefined,
-    required: false,
-  },
+interface Props {
+  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  m?: string;
+  mx?: string;
+  my?: string;
+  mt?: string;
+  mr?: string;
+  mb?: string;
+  ml?: string;
+  style?: CSSProperties;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  as: 'h1',
+  m: undefined,
+  mx: undefined,
+  my: undefined,
+  mt: undefined,
+  mr: undefined,
+  mb: undefined,
+  ml: undefined,
 })
+
+const styles =
+  typeof props.style === 'string'
+    ? convertStyleStringToObj(props.style)
+    : props.style
 </script>

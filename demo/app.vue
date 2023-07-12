@@ -1,5 +1,7 @@
 <script setup lang="ts">
 useHead({
+  titleTemplate: (title) =>
+    title && title.includes('Vue Email') ? title : `${title} - Vue Email`,
   meta: [
     {
       name: 'viewport',
@@ -11,7 +13,7 @@ useHead({
     lang: 'en',
   },
   bodyAttrs: {
-    class: 'antialiased font-sans text-gray-2 bg-gray-9',
+    class: 'antialiased font-sans text-gray-200 bg-gray-900',
   },
 })
 </script>
@@ -19,6 +21,5 @@ useHead({
 <template>
   <NuxtLayout>
     <NuxtPage />
-    <UNotifications />
   </NuxtLayout>
 </template>

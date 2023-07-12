@@ -4,12 +4,7 @@ export default { name: 'EText' }
 <template>
   <p
     data-id="__vue-email-text"
-    style="
-      font-size: 14px;
-      line-height: 24px;
-      margin: 16px 0;
-      font-family: Arial, Helvetica, sans-serif;
-    "
+    style="font-size: 14px; line-height: 24px; margin: 16px 0"
   >
     <slot></slot>
   </p>
