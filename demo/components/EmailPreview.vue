@@ -54,7 +54,7 @@ watchEffect(() => {
     activeView.value = query.view
 
   if (query.lang) {
-    if (['html', 'md'].includes(query.lang)) activeLang.value = query.lang
+    if (['html', 'txt'].includes(query.lang)) activeLang.value = query.lang
   }
 })
 </script>
@@ -62,7 +62,7 @@ watchEffect(() => {
 <template>
   <section>
     <header
-      class="h-[70px] w-full bg-dark-8 flex justify-between items-center space-x-3 px-3"
+      class="h-[70px] w-full bg-dark-9 flex justify-between items-center space-x-3 px-3"
     >
       <div class="items-center flex justify-center space-x-3">
         <UTooltip text="Change View to Mobile">
@@ -85,7 +85,7 @@ watchEffect(() => {
             @click="handleView('desktop')"
           />
         </UTooltip>
-        <UTooltip text="Get HTML/Markdown Code">
+        <UTooltip text="Get HTML/PlainText Code">
           <UButton
             icon="i-heroicons-code-bracket"
             size="sm"
@@ -101,7 +101,7 @@ watchEffect(() => {
           <UButton
             icon="i-heroicons-arrow-path"
             size="sm"
-            color="green"
+            color="primary"
             variant="solid"
             @click="updateIframe"
           />
@@ -111,6 +111,7 @@ watchEffect(() => {
         :ui="{
           base: 'p-4',
           width: 'w-72',
+          background: 'bg-zinc-9',
         }"
       >
         <UButton
@@ -131,7 +132,7 @@ watchEffect(() => {
             id="to"
             v-model="emailTo"
             type="email"
-            color="white"
+            color="gray"
             variant="outline"
             placeholder="you@example.com"
           />
@@ -143,7 +144,7 @@ watchEffect(() => {
             id="to"
             v-model="emailSubject"
             type="text"
-            color="white"
+            color="gray"
             variant="outline"
             placeholder="My Email"
           />
@@ -157,7 +158,7 @@ watchEffect(() => {
                 rel="noreferrer"
               >Resend</a></span>
             <UButton
-              color="green"
+              color="primary"
               :disabled="
                 !sending &&
                   (!emailTo || !emailSubject) &&
@@ -198,7 +199,7 @@ watchEffect(() => {
             content: template.html,
           },
           {
-            language: 'md',
+            language: 'txt',
             content: template.plainText,
           },
         ]"

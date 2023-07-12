@@ -1,10 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: [
-    '@nuxthq/ui',
-    'vue-email/nuxt',
-  ],
+  modules: ['@unocss/nuxt', '@nuxthq/ui', 'vue-email/nuxt'],
   typescript: {
     shim: false,
   },
@@ -28,5 +25,10 @@ export default defineNuxtConfig({
         watch: true,
       },
     ],
+  },
+  css: ['@unocss/reset/tailwind.css'],
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark',
   },
 })

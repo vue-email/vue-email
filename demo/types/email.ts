@@ -6,7 +6,7 @@ export interface Email {
 }
 
 export type ActiveView = 'desktop' | 'mobile' | 'source'
-export type ActiveLang = 'html' | 'md'
+export type ActiveLang = 'html' | 'txt'
 
 export interface Template {
   html: string;

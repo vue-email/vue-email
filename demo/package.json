@@ -9,13 +9,15 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@indielayer/eslint-config-vue": "^3.2.0",
     "@iconify-json/mdi": "^1.1.53",
     "@iconify-json/ph": "^1.1.5",
     "@iconify-json/simple-icons": "^1.1.60",
+    "@indielayer/eslint-config-vue": "^3.2.0",
     "@nuxt/devtools": "latest",
     "@nuxthq/ui": "^2.5.0",
     "@types/node": "^20",
+    "@unocss/nuxt": "^0.53.5",
+    "@unocss/reset": "^0.53.5",
     "eslint": "8.44.0",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "nuxt": "^3.6.2",

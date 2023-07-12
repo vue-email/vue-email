@@ -41,7 +41,7 @@ function handleDownload() {
 
 const languageMap = {
   html: 'HTML',
-  md: 'Markdown',
+  txt: 'PlanText',
 }
 
 async function handleClipboad() {
@@ -65,14 +65,12 @@ async function handleClipboad() {
     class="border-slate-6 relative w-full items-center whitespace-pre rounded-md border text-sm backdrop-blur-md"
     style="line-height: 130%"
   >
-    <div
-      class="flex justify-between items-center i border-b border-slate-6 px-5"
-    >
-      <div class="flex py-[8px] gap-x-4">
+    <div class="flex justify-between items-center i border-b border-slate-6">
+      <div class="flex">
         <button
           v-for="markup in markups"
           :key="markup.language"
-          class="relative text-sm font-medium font-sans transition ease-in-out duration-200 hover:text-slate-12"
+          class="relative py-[8px] px-4 text-sm font-medium font-sans transition ease-in-out duration-200 hover:text-slate-12"
           :class="[
             activeLang !== markup.language
               ? 'text-slate-5'
@@ -82,23 +80,19 @@ async function handleClipboad() {
         >
           <span
             v-if="activeLang === markup.language"
-            class="absolute left-0 right-0 top-0 bottom-0 border-b border-b-green-4"
+            class="absolute left-0 right-0 top-0 bottom-0 border-b border-b-sky-4"
           ></span>
 
           {{ languageMap[markup.language] }}
         </button>
       </div>
-      <div class="text-xl flex gap-x-2">
+      <div class="text-xl flex gap-x-2 mr-4">
         <button @click="handleClipboad">
-          <UIcon
-            v-if="isCopied"
-            name="i-heroicons-check-20-solid"
-            weight="light"
-          />
-          <UIcon v-else name="i-heroicons-clipboard-document" weight="light" />
+          <UIcon v-if="isCopied" name="i-ph-check-bold" weight="light" />
+          <UIcon v-else name="i-ph-copy-bold" weight="light" />
         </button>
         <button class="text-gray-11" @click="handleDownload">
-          <UIcon name="i-heroicons-document-arrow-down" weight="light" />
+          <UIcon name="i-ph-download-simple-bold" weight="light" />
         </button>
       </div>
     </div>
