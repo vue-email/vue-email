@@ -1,0 +1,39 @@
+name: Pull Request Check
+run-name: Pull Request Check - ${{ github.ref_name }}
+
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  release:
+    name: Pull Request Check - ${{ github.ref_name }}
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Linting
+        run: |
+          pnpm run lint:email
+
+      - name: Unit tests
+        run: pnpm run test
