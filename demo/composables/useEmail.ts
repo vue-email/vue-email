@@ -6,6 +6,7 @@ export function useEmail() {
   const emails = useState<Email[]>('emails')
   const email = useState<Email>('email')
   const sending = useState<boolean>('sending', () => false)
+  const refresh = useState<boolean>('refresh', () => false)
 
   const getEmails = async () => {
     const componentNames = Object.keys(components)
@@ -95,6 +96,7 @@ export function useEmail() {
     email,
     emails,
     sending,
+    refresh,
     getEmail,
     sendTestEmail,
     getVueCode,

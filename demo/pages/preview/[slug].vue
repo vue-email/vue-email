@@ -2,7 +2,7 @@
 const route = useRoute()
 const slug = route.params.slug as string
 
-const { email, getEmail, getVueCode } = useEmail()
+const { email, refresh, getEmail, getVueCode } = useEmail()
 
 const emailTemplate = ref({
   vue: '',
@@ -15,8 +15,9 @@ const emailFile: any = email.value
   ? resolveComponent(email.value.component)
   : null
 
-watch(email, async (value) => {
+watch(refresh, async (value) => {
   await loadMarkups()
+  refresh.value = !value
 })
 
 async function loadMarkups() {

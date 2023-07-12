@@ -14,7 +14,7 @@ const props = defineProps({
 
 const router = useRouter()
 const route = useRoute()
-const { getEmail, sendTestEmail, sending } = useEmail()
+const { getEmail, sendTestEmail, sending, refresh } = useEmail()
 const query = route.query as {
   view?: ActiveView;
   lang?: ActiveLang;
@@ -34,7 +34,7 @@ function handleView(view: ActiveView) {
 }
 
 async function updateIframe() {
-  await getEmail(props.slug)
+  refresh.value = !refresh.value
 
   if (iframeUpdate.value >= 100) iframeUpdate.value = 0
   iframeUpdate.value++
@@ -98,15 +98,17 @@ watchEffect(() => {
             @click="activeView === 'source' ? null : handleView('source')"
           />
         </UTooltip>
-        <UTooltip text="Refresh Frame">
-          <UButton
-            icon="i-heroicons-arrow-path"
-            size="sm"
-            color="primary"
-            variant="solid"
-            @click="updateIframe"
-          />
-        </UTooltip>
+        <DevOnly>
+          <UTooltip text="Refresh Frame">
+            <UButton
+              icon="i-heroicons-arrow-path"
+              size="sm"
+              color="primary"
+              variant="solid"
+              @click="updateIframe"
+            />
+          </UTooltip>
+        </DevOnly>
       </div>
       <UPopover
         :ui="{
