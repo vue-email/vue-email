@@ -21,7 +21,7 @@ const query = route.query as {
 }
 
 const activeView = ref<ActiveView>('desktop')
-const activeLang = ref<ActiveLang>('html')
+const activeLang = ref<ActiveLang>('vue')
 const iframeUpdate = ref(0)
 const emailTo = ref('')
 const emailSubject = ref('Testing Vue Email')
@@ -54,7 +54,8 @@ watchEffect(() => {
     activeView.value = query.view
 
   if (query.lang) {
-    if (['html', 'txt'].includes(query.lang)) activeLang.value = query.lang
+    if (['vue', 'html', 'txt'].includes(query.lang))
+      activeLang.value = query.lang
   }
 })
 </script>
@@ -194,6 +195,10 @@ watchEffect(() => {
       <CodeContainer
         :active-lang="activeLang"
         :markups="[
+          {
+            language: 'vue',
+            content: template.vue,
+          },
           {
             language: 'html',
             content: template.html,

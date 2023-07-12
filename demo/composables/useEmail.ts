@@ -39,6 +39,16 @@ export function useEmail() {
     return null
   }
 
+  const getVueCode = async (name: string) => {
+    const { data } = await useAsyncData('markup', () =>
+      $fetch<string>(`/api/markup/${name}`),
+    )
+
+    if (data.value) return data.value
+
+    return ''
+  }
+
   const sendTestEmail = async (to: string, subject: string, markup: string) => {
     try {
       if (!email || !subject) {
@@ -87,5 +97,6 @@ export function useEmail() {
     sending,
     getEmail,
     sendTestEmail,
+    getVueCode,
   }
 }

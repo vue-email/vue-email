@@ -6,9 +6,10 @@ export interface Email {
 }
 
 export type ActiveView = 'desktop' | 'mobile' | 'source'
-export type ActiveLang = 'html' | 'txt'
+export type ActiveLang = 'vue' | 'html' | 'txt'
 
 export interface Template {
+  vue: string;
   html: string;
   plainText: string;
 }

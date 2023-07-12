@@ -2,9 +2,10 @@
 const route = useRoute()
 const slug = route.params.slug as string
 
-const { email, getEmail } = useEmail()
+const { email, getEmail, getVueCode } = useEmail()
 
 const emailTemplate = ref({
+  vue: '',
   html: '',
   plainText: '',
 })
@@ -20,10 +21,12 @@ watch(email, async (value) => {
 
 async function loadMarkups() {
   if (!emailFile) return
+  const vue = await getVueCode(email.value.label)
   const html = await useRender(emailFile, null, { pretty: true })
   const plainText = await useRender(emailFile, null, { plainText: true })
 
   emailTemplate.value = {
+    vue,
     html,
     plainText,
   }

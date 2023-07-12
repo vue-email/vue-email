@@ -39,6 +39,7 @@ function handleDownload() {
 }
 
 const languageMap = {
+  vue: 'Vue',
   html: 'HTML',
   txt: 'PlanText',
 }
