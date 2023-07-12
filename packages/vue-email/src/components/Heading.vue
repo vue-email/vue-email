@@ -27,7 +27,7 @@ import { withMargin, convertStyleStringToObj } from '../utils'
 import type { CSSProperties } from 'vue'
 
 interface Props {
-  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   m?: string;
   mx?: string;
   my?: string;

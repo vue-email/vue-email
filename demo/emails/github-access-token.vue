@@ -99,5 +99,3 @@ const footer = {
   marginTop: '60px',
 } as CSSProperties
 </script>
-
-<style scoped></style>
