@@ -9,15 +9,7 @@ export interface Options {
 }
 
 // TODO: Used only in tests, find a way to merge this with useRender later
-export const useRenderClient = (
-  component: Component,
-  props?: any,
-  options?: Options,
-) => {
-  if (options?.plainText) {
-    return renderAsText(component)
-  }
-
+export const useRenderClient = (component: Component, props?: any) => {
   const doctype =
     '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
   const app = createApp({ render: () => h(component) }, props)
@@ -25,10 +17,6 @@ export const useRenderClient = (
 
   const markup = mounted.$el.outerHTML
   const doc = `${doctype}${markup}`
-
-  if (options?.pretty) {
-    return pretty(doc)
-  }
 
   return doc
 }

@@ -55,7 +55,7 @@ const render = defineComponent(() => {
         : ''
   }
 
-  const helper = (v: VNode) => {
+  const helper = (v: any) => {
     const typeName = vName(v)
 
     if (
@@ -120,7 +120,7 @@ const render = defineComponent(() => {
     return h(v)
   }
 
-  const $forEachHelper = (vnode: VNode) => {
+  const $forEachHelper = (vnode: any) => {
     if (vnode.props && vnode.props.class) {
       classes.value.push(vnode.props.class)
     }
