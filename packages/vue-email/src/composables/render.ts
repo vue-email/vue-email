@@ -1,11 +1,19 @@
 import { convert } from 'html-to-text'
 import pretty from 'pretty'
-import { createApp, h, type Component } from 'vue'
-import { renderToString } from 'vue/server-renderer'
+import { createApp, h, type Component, type App } from 'vue'
+// import { renderToString } from 'vue/server-renderer'
 
 export interface Options {
   pretty?: boolean;
   plainText?: boolean;
+}
+
+const renderToString = (app: App) => {
+  const mounted = app.mount(document.createElement('div'))
+
+  const markup = mounted.$el.outerHTML
+
+  return markup
 }
 
 /**
@@ -15,7 +23,7 @@ export interface Options {
  * @param {Options} options The options to convert the template
  * @returns {string}
  */
-export const useRender = async (
+export const useRender = (
   component: Component,
   props?: any,
   options?: Options,
@@ -27,18 +35,19 @@ export const useRender = async (
   const doctype =
     '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
   const app = createApp({ render: () => h(component) }, props)
-  const markup = await renderToString(app)
-  const document = `${doctype}${markup}`
+  const markup = renderToString(app)
+  const doc = `${doctype}${markup}`
 
   if (options?.pretty) {
-    return pretty(document)
+    return pretty(doc)
   }
 
-  return document
+  return doc
 }
 
-const renderAsText = async (component: Component) => {
-  const markup = await renderToString(h(component))
+const renderAsText = (component: Component) => {
+  const app = createApp({ render: () => h(component) })
+  const markup = renderToString(app)
 
   return convert(markup, {
     selectors: [

@@ -7,7 +7,7 @@ export default { name: 'EFont' }
 </template>
 
 <script lang="ts" setup>
-import { h } from 'vue'
+import { defineComponent, h } from 'vue'
 
 type FallbackFont =
   | 'Arial'
@@ -38,33 +38,40 @@ interface FontProps {
   fontWeight?: FontWeight;
 }
 
-const props = defineProps<FontProps>()
+const props = withDefaults(defineProps<FontProps>(), {
+  fallbackFontFamily: 'Arial',
+  fontStyle: 'normal',
+  fontWeight: 400,
+})
 
 const src = props.webFont
   ? `src: url(${props.webFont.url}) format('${props.webFont.format}');`
   : ''
 
-const styles = `
-    @font-face {
-      font-family: '${props.fontFamily}';
-      font-style: ${props.fontStyle};
-      font-weight: ${props.fontWeight};
-      mso-font-alt: '${
+const styles = `@font-face {
+font-family: '${props.fontFamily}';
+font-style: ${props.fontStyle};
+font-weight: ${props.fontWeight};
+mso-font-alt: '${
   Array.isArray(props.fallbackFontFamily)
     ? props.fallbackFontFamily[0]
     : props.fallbackFontFamily
 }';
-      ${src}
-    }
+${src}
+}
 
-    * {
-      font-family: '${props.fontFamily}', ${
+* {
+font-family: '${props.fontFamily}', ${
   Array.isArray(props.fallbackFontFamily)
     ? props.fallbackFontFamily.join(', ')
     : props.fallbackFontFamily
 };
-    }
-  `
+}`
 
-const render = h('style', styles)
+const render = defineComponent(() => {
+  return () =>
+    h('style', undefined, {
+      default: () => styles,
+    })
+})
 </script>
