@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import Font from '../Font.vue'
 import { h } from 'vue'
-import { useRender } from 'src'
+import { useRenderClient } from 'src'
 
 describe('render', () => {
   it('renders the <Font> component', () => {
@@ -10,7 +10,7 @@ describe('render', () => {
       fallbackFontFamily: 'Verdana',
     })
 
-    const actualOutput = useRender(component)
+    const actualOutput = useRenderClient(component)
 
     console.log(actualOutput)
 

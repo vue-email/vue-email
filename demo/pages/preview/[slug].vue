@@ -23,8 +23,8 @@ watch(refresh, async (value) => {
 async function loadMarkups() {
   if (!emailFile) return
   const vue = await getVueCode(email.value.label)
-  const html = useRender(emailFile, null, { pretty: true })
-  const plainText = useRender(emailFile, null, { plainText: true })
+  const html = await useRender(emailFile, null, { pretty: true })
+  const plainText = await useRender(emailFile, null, { plainText: true })
 
   emailTemplate.value = {
     vue,

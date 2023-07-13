@@ -1,29 +1,15 @@
 import { convert } from 'html-to-text'
 import pretty from 'pretty'
 import { createApp, h, type Component, type App } from 'vue'
-// import { renderToString } from 'vue/server-renderer'
+import { renderToString } from 'vue/server-renderer'
 
 export interface Options {
   pretty?: boolean;
   plainText?: boolean;
 }
 
-const renderToString = (app: App) => {
-  const mounted = app.mount(document.createElement('div'))
-
-  const markup = mounted.$el.outerHTML
-
-  return markup
-}
-
-/**
- * Convert Vue file into HTML email template
- * @param component The main component to render
- * @param props The props passed to the component
- * @param {Options} options The options to convert the template
- * @returns {string}
- */
-export const useRender = (
+// TODO: Used only in tests, find a way to merge this with useRender later
+export const useRenderClient = (
   component: Component,
   props?: any,
   options?: Options,
@@ -35,7 +21,9 @@ export const useRender = (
   const doctype =
     '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
   const app = createApp({ render: () => h(component) }, props)
-  const markup = renderToString(app)
+  const mounted = app.mount(document.createElement('div'))
+
+  const markup = mounted.$el.outerHTML
   const doc = `${doctype}${markup}`
 
   if (options?.pretty) {
@@ -45,9 +33,37 @@ export const useRender = (
   return doc
 }
 
-const renderAsText = (component: Component) => {
-  const app = createApp({ render: () => h(component) })
-  const markup = renderToString(app)
+/**
+ * Convert Vue file into HTML email template
+ * @param component The main component to render
+ * @param props The props passed to the component
+ * @param {Options} options The options to convert the template
+ * @returns {string}
+ */
+export const useRender = async (
+  component: Component,
+  props?: any,
+  options?: Options,
+) => {
+  if (options?.plainText) {
+    return renderAsText(component)
+  }
+
+  const doctype =
+    '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
+  const app = createApp({ render: () => h(component) }, props)
+  const markup = await renderToString(app)
+  const doc = `${doctype}${markup}`
+
+  if (options?.pretty) {
+    return pretty(doc)
+  }
+
+  return doc
+}
+
+const renderAsText = async (component: Component) => {
+  const markup = await renderToString(h(component))
 
   return convert(markup, {
     selectors: [
