@@ -1,13 +1,8 @@
 import { defineConfig } from 'vitepress'
 import type { DefaultTheme } from 'vitepress'
-import { description } from "../../package.json"
+import { description } from '../../package.json'
 import { name, version } from '../../packages/vue-email/package.json'
-import {
-  github,
-  ogImage,
-  ogUrl,
-  releases,
-} from './meta'
+import { github, ogImage, ogUrl, releases } from './meta'
 
 const url = new URL(ogUrl)
 
@@ -106,9 +101,8 @@ const integrations = [
   {
     text: 'Plunk',
     link: '/integrations/plunk',
-  }
+  },
 ]
-
 
 export default defineConfig({
   lang: 'en-US',
@@ -144,9 +138,7 @@ export default defineConfig({
       '/components': sidebar(),
     },
 
-    socialLinks: [
-      { icon: 'github', link: github },
-    ],
+    socialLinks: [{ icon: 'github', link: github }],
 
     footer: {
       message: 'Released under the MIT License.',
@@ -191,18 +183,18 @@ function sidebar(): DefaultTheme.SidebarItem[] {
         { text: 'Introduction', link: '/introduction' },
         { text: 'Contributing', link: '/contributing' },
         { text: 'Roadmap', link: '/roadmap' },
-      ]
+      ],
     },
     {
       text: 'Getting Started',
       items: [
         {
           text: 'Setup',
-          link: '/getting-started/setup'
+          link: '/getting-started/setup',
         },
         {
           text: 'Nuxt Setup',
-          link: '/getting-started/nuxt'
+          link: '/getting-started/nuxt',
         },
       ],
     },
@@ -212,14 +204,15 @@ function sidebar(): DefaultTheme.SidebarItem[] {
     },
     {
       text: 'Utilities',
-      items: [
-        { text: 'Render', link: '/utilities/render' },
-      ]
+      items: [{ text: 'Render', link: '/utilities/render' }],
     },
     {
       text: 'Integrations',
       items: integrations,
     },
-    { text: 'Playground', link: 'https://github.com/Dave136/vue-email/tree/main/playground' },
+    {
+      text: 'Demo Playground',
+      link: 'https://github.com/Dave136/vue-email/tree/main/demo',
+    },
   ]
 }

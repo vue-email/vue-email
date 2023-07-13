@@ -41,8 +41,8 @@ We’re open to expanding the catalog of components to cover as many use cases a
 ::: details Components Setup Guide
 
 ### Components Setup Guide
-1. Add a new component under the <u>`packages/vue-email/src/components`</u> folder, and make sure to export it in the <u>`packages/vue-email/src/components/index.js`</u> file.
-2. Don't forget to add tests. ( TO BE ADDED )
+1. Add a new component under the <u>`packages/vue-email/src/components`</u> folder, and make sure to export it in the <u>`packages/vue-email/src/components/index.ts`</u> file and <u>`packages/vue-email/src/volar.d.ts`</u> file.
+2. Don't forget to add tests. You can find examples of tests in the <u>`packages/vue-email/src/components/__tests__`</u> folder.
 3. Submit a pull request with your changes.
 :::
 

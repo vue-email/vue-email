@@ -21,20 +21,7 @@ This guide will walk you through the steps to get started with `vue-email`.
   ```
 :::
 
-## Step 2: Load `vue-email` in your project
-
-```js
-
-import { createApp } from 'vue'
-import VueEmail from 'vue-email'
-
-const app = createApp(App)
-
-app.use(VueEmail)
-
-```
-
-## Step 3: Create an email template
+## Step 2: Create an email template
 
 Create a new email template in wherever you want to have your templates, for this case, we can create a template folder called `emails` within the components folder, template will be called `welcome.vue`.
 
@@ -125,7 +112,7 @@ const footer = {
 </script>
 ```
 
-## Step 4: Rendering the template
+## Step 3: Rendering the template
 
 We can use the `render` function. The value is an object with the following properties:
 
@@ -165,6 +152,6 @@ const sendEmail = async () => {
 </script>
 ```
 
-## Step 5: Send email
+## Step 4: Send email
 
 Check the integrations section to see how to send emails with different providers.
