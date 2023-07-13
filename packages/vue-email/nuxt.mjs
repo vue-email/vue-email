@@ -11,9 +11,7 @@ export default defineNuxtModule({
     name: 'vue-email',
     configKey: 'vue-email',
   },
-  defaults: {
-    prefix: 'E',
-  },
+  defaults: {},
   async setup(options, nuxt) {
     // Create resolver to resolve relative paths
     const { resolve } = createResolver(import.meta.url)
@@ -28,7 +26,7 @@ export default defineNuxtModule({
       dirs.push({
         path: fileURLToPath(new URL('./src/components', import.meta.url)),
         extensions: ['vue', 'tsx'],
-        prefix: options?.prefix ? options?.prefix : 'E',
+        prefix: 'E',
       })
     })
 

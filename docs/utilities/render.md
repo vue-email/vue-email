@@ -30,10 +30,10 @@ You can use the `pretty` option to beautify the output.
 
 ```vue
 <script setup>
-  import { render } from 'vue-email';
+  import { useRender } from 'vue-email';
   import template from '~/components/email.vue';
 
-  const html = await render(template, { title: 'Some title' }, {
+  const html = await useRender(template, { title: 'Some title' }, {
     pretty: true,
   });
 
@@ -63,10 +63,10 @@ Here’s how to convert a Vue component into plain text.
 
 ```vue
 <script setup>
-  import { render } from 'vue-email';
+  import { useRender } from 'vue-email';
   import template from '~/components/template.vue';
 
-  const text = await render(template, null, {
+  const text = await useRender(template, null, {
     plainText: true,
   });
 

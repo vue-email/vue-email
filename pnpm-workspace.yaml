@@ -2,3 +2,4 @@ packages:
   - 'packages/**'
   - 'docs'
   - 'demo'
+  - 'vue-demo'
