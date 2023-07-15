@@ -1,6 +1,7 @@
 <script lang="ts">
 export default { name: 'EText' }
 </script>
+
 <template>
   <p
     data-id="__vue-email-text"
@@ -9,5 +10,3 @@ export default { name: 'EText' }
     <slot></slot>
   </p>
 </template>
-
-<script lang="ts" setup></script>

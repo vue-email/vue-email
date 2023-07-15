@@ -1,6 +1,7 @@
 <script lang="ts">
 export default { name: 'ELink' }
 </script>
+
 <template>
   <a
     data-id="__vue-email-link"

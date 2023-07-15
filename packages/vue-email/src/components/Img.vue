@@ -9,7 +9,7 @@ export default { name: 'EImg' }
   />
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 defineProps({
   src: {
     type: String,

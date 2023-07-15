@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import Img from '../Img.vue'
 import { h } from 'vue'
 import { useRenderClient } from 'src'
+import Img from '../Img.vue'
 
 describe('render', () => {
   it('renders the <Img> component', () => {

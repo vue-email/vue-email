@@ -1,6 +1,7 @@
 <script lang="ts">
 export default { name: 'EHtml' }
 </script>
+
 <template>
   <html id="__vue-email" :lang="lang" :dir="dir">
     <slot></slot>

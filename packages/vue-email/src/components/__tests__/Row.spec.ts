@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import Row from '../Row.vue'
 import { h } from 'vue'
 import { useRenderClient } from 'src'
+import Row from '../Row.vue'
 
 describe('render', () => {
   it('renders the <Row> component', () => {

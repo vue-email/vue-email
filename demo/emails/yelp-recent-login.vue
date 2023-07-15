@@ -91,7 +91,7 @@
   </EHtml>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const props = defineProps({
   userFirstName: {
     type: String,

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import Text from '../Text.vue'
 import { h } from 'vue'
 import { useRenderClient } from 'src'
+import Text from '../Text.vue'
 
 describe('render', () => {
   const innerText = 'Lorem ipsum'

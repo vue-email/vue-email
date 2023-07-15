@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import Font from '../Font.vue'
 import { h } from 'vue'
 import { useRenderClient } from 'src'
+import Font from '../Font.vue'
 
 describe('render', () => {
   it('renders the <Font> component', () => {

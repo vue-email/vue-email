@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import Tailwind from '../Tailwind.vue'
 import { h } from 'vue'
 import { useRenderClient } from 'src'
+import Tailwind from '../Tailwind.vue'
 
 describe('Tailwind component', () => {
   describe('Inline styles', () => {

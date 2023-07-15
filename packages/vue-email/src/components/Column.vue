@@ -7,5 +7,3 @@ export default { name: 'EColumn' }
     <slot></slot>
   </td>
 </template>
-
-<script lang="ts" setup></script>

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import Button from '../Button.vue'
-import { useRenderClient } from 'src'
 import { h } from 'vue'
+import { useRenderClient } from 'src'
+import Button from '../Button.vue'
 
 describe('render', () => {
   it('renders the <Button> component', () => {

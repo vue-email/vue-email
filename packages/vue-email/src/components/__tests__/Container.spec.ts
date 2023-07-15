@@ -1,8 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import { mount } from '@vue/test-utils'
-import Container from '../Container.vue'
 import { h } from 'vue'
 import { useRenderClient } from 'src'
+import Container from '../Container.vue'
 
 describe('render', () => {
   const innerText = 'Lorem ipsum'

@@ -35,7 +35,7 @@
   </EHtml>
 </template>
 
-<script setup lang="ts">
+<script setup>
 defineProps({
   userFirstname: {
     type: String,

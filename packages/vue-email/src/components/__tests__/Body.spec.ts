@@ -1,8 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import { mount } from '@vue/test-utils'
-import Body from '../Body.vue'
-import { useRenderClient } from 'src'
 import { compile, h } from 'vue'
+import { useRenderClient } from 'src'
+import Body from '../Body.vue'
 
 describe('render', () => {
   const innerText = 'Hi there!'

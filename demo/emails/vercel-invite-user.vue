@@ -1,26 +1,3 @@
-<script lang="ts" setup>
-interface Props {
-  invitedByUsername?: string;
-  teamName?: string;
-  username?: string;
-  invitedByEmail?: string;
-  inviteLink?: string;
-  inviteFromIp?: string;
-  inviteFromLocation?: string;
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  teamName: 'My project',
-  username: 'John Doe',
-  invitedByEmail: 'anpch@example.com',
-  inviteLink: 'https://vercel.com/teams/invite/foo',
-  inviteFromIp: '172.0.0.1',
-  inviteFromLocation: 'San Francisco, CA',
-})
-
-const previewText = `Join ${props.invitedByUsername} on Vercel`
-</script>
-
 <template>
   <ETailwind>
     <EHtml>
@@ -118,3 +95,26 @@ const previewText = `Join ${props.invitedByUsername} on Vercel`
     </EHtml>
   </ETailwind>
 </template>
+
+<script setup lang="ts">
+interface Props {
+  invitedByUsername?: string;
+  teamName?: string;
+  username?: string;
+  invitedByEmail?: string;
+  inviteLink?: string;
+  inviteFromIp?: string;
+  inviteFromLocation?: string;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  teamName: 'My project',
+  username: 'John Doe',
+  invitedByEmail: 'anpch@example.com',
+  inviteLink: 'https://vercel.com/teams/invite/foo',
+  inviteFromIp: '172.0.0.1',
+  inviteFromLocation: 'San Francisco, CA',
+})
+
+const previewText = `Join ${props.invitedByUsername} on Vercel`
+</script>

@@ -4,9 +4,6 @@ export default { name: 'EBody' }
 
 <template>
   <body data-id="__vue-email-body">
-    <slot ></slot>
+    <slot></slot>
   </body>
 </template>
-
-<script lang="ts" setup>
-</script>

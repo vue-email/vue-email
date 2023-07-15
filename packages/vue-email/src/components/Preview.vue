@@ -1,6 +1,7 @@
 <script lang="ts">
 export default { name: 'EPreview' }
 </script>
+
 <template>
   <div
     id="__vue-email-preview"

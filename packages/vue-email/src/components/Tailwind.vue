@@ -9,15 +9,7 @@ export default { name: 'ETailwind' }
 </template>
 
 <script setup lang="ts">
-import {
-  ref,
-  defineComponent,
-  h,
-  useAttrs,
-  useSlots,
-  type VNode,
-  type VNodeChild,
-} from 'vue'
+import { ref, defineComponent, h, useAttrs, useSlots, type VNode } from 'vue'
 import { type TailwindConfig, tailwindToCSS } from 'tw-to-css'
 import { cleanCss, getMediaQueryCss, makeCssMap } from '../utils/css'
 

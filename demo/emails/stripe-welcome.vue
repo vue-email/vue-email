@@ -75,7 +75,7 @@
   </EHtml>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const main = {
   backgroundColor: '#f6f9fc',
   fontFamily:

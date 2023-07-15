@@ -1,6 +1,7 @@
 <script lang="ts">
 export default { name: 'ESection' }
 </script>
+
 <template>
   <table
     align="center"
@@ -20,5 +21,3 @@ export default { name: 'ESection' }
     </tbody>
   </table>
 </template>
-
-<script lang="ts" setup></script>

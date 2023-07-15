@@ -44,7 +44,7 @@ const languageMap = {
   txt: 'PlanText',
 }
 
-async function handleClipboad() {
+async function handleClipboard() {
   const value = props.markups.filter(
     (markup) => markup.language === props.activeLang,
   )[0]
@@ -90,7 +90,7 @@ async function handleClipboad() {
             color="white"
             size="xs"
             icon="i-ph-copy-bold"
-            @click="handleClipboad"
+            @click="handleClipboard"
           />
         </UTooltip>
         <UTooltip :text="`Download ${languageMap[activeLang]} Code`">

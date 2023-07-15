@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import Column from '../Column.vue'
 import { h } from 'vue'
 import { useRenderClient } from 'src'
+import Column from '../Column.vue'
 
 describe('render', () => {
   const innerText = 'Lorem ipsum'

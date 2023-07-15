@@ -1,5 +1,5 @@
-<script lang="ts" setup>
-import { CSSProperties } from 'vue'
+<script setup lang="ts">
+import type { CSSProperties } from 'vue'
 
 const props = defineProps({
   username: {

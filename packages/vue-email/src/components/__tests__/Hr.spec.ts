@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import Hr from '../Hr.vue'
 import { h } from 'vue'
 import { useRenderClient } from 'src'
+import Hr from '../Hr.vue'
 
 describe('render', () => {
   it('renders the <Hr> component', () => {

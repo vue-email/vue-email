@@ -29,7 +29,7 @@
     "publish:prod": "changeset publish",
     "version:snapshot": "changeset version --snapshot dev",
     "publish:snapshot": "changeset publish --no-git-tag --snapshot --tag dev",
-    "changeset:status": "node .scripts/changesetStatus.js"
+    "changeset:status": "pnpm -r --workspace-concurrency=1 tsx .scripts/changesetStatus.js"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",

@@ -1,8 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import { mount } from '@vue/test-utils'
-import Head from '../Head.vue'
 import { h } from 'vue'
 import { useRenderClient } from 'src'
+import Head from '../Head.vue'
 
 describe('render', () => {
   it('renders the <Head> component', () => {

@@ -1,6 +1,7 @@
 <script lang="ts">
 export default { name: 'ERow' }
 </script>
+
 <template>
   <table
     align="center"
@@ -18,5 +19,3 @@ export default { name: 'ERow' }
     </tbody>
   </table>
 </template>
-
-<script lang="ts" setup></script>
