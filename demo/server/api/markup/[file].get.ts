@@ -12,19 +12,16 @@ export default defineEventHandler(async (event) => {
         ? event.context.params.file
         : null
 
-    const template = resolve(emailsDir, `${file}.vue`)
-    const vueMarkup = await fs.readFile(template, {
-      encoding: 'utf-8',
-    })
+    const template = await useStorage('assets:emails').getItem(`${file}.vue`)
 
-    if (!vueMarkup) {
+    if (!template) {
       throw createError({
         statusCode: 404,
         statusMessage: 'Not Found',
       })
     }
 
-    return vueMarkup
+    return template
   } catch (error) {
     throw createError({
       statusCode: 500,

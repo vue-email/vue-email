@@ -17,7 +17,6 @@ const emailFile: any = email.value
 
 watch(refresh, async (value) => {
   await loadMarkups()
-  refresh.value = !value
 })
 
 async function loadMarkups() {
