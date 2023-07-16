@@ -1,1 +1,1 @@
-[readme](packages/vue-email/README.md)
+./packages/vue-email/README.md
