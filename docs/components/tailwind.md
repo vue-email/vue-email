@@ -27,4 +27,4 @@ Note: Most email clients are style-limited and some styles may not work.
 
 ## Live example
 
-[Tailwind Demo](https://demo-vue-email.up.railway.app/preview/vercel-invite-user)
+[Tailwind Demo](https://vue-email-demo.vercel.app/)
