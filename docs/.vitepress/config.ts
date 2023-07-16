@@ -164,6 +164,10 @@ function nav(): DefaultTheme.NavItem[] {
       items: integrations,
     },
     {
+      text: 'Demo',
+      link: 'https://vue-email-demo.vercel.app/',
+    },
+    {
       text: `v${version}`,
       items: [
         {
