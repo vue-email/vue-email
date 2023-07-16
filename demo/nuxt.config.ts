@@ -32,12 +32,12 @@ export default defineNuxtConfig({
     fallback: 'dark',
   },
   hooks: {
-    'nitro:build:public-assets': () => {
+    'nitro:build:public-assets': (nitro) => {
       // move a copy of emails folder to .output/public
       const fs = require('fs')
       const path = require('path')
       const source = path.resolve(__dirname, 'emails')
-      const destination = path.resolve(__dirname, '.output/public/emails')
+      const destination = path.resolve(nitro.options.output.publicDir, 'emails')
 
       // if no destination folder, create it
       if (!fs.existsSync(destination)) {

@@ -3,6 +3,7 @@
 .nuxt
 .nitro
 .cache
+.vercel
 dist
 
 # Node dependencies
