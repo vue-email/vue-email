@@ -1,56 +1,41 @@
-<h1 align="center">
-  <img src="./../../docs/assets/vue-email.svg" />
-</h1>
+[![vue-email](../../docs/public/og.png)](https://vue-email.vercel.app)
 
-<p align="center">
-   Simple way to build email templates in vue
-</p>
+# vue-email
 
-<div align="center">
-  <img src="https://img.shields.io/npm/v/vue-email/latest.svg?style=flat&colorA=18181B&colorB=28CF8D" />
-  <img src="https://img.shields.io/npm/dm/vue-email.svg?style=flat&colorA=18181B&colorB=28CF8D" />
-  <img src="https://img.shields.io/npm/l/vue-email.svg?style=flat&colorA=18181B&colorB=28CF8D" />
-</div>
+[![npm version](https://img.shields.io/npm/v/vue-email?color=3492a3&label=)](https://www.npmjs.com/package/vue-email)
+[![npm version](https://img.shields.io/npm/dm/vue-email.svg?style=flat&colorA=18181B&colorB=3492a3&label=Downloads)](https://www.npmjs.com/package/vue-email)
+[![npm version](https://img.shields.io/npm/l/vue-email.svg?style=flat&colorA=18181B&colorB=3492a3)](https://github.com/Dave136/vue-email/blob/main/LICENSE)
 
-<br />
+> Simple way to build email templates in vue.
 
-<div align="center">
-   <a href="https://vue-email.vercel.app/" target="_blank">Documentation</a>
-   <span> | </span>
-   <a href="https://github.com/dave136/vue-email">GitHub</a> 
-</div>
+- [✨ &nbsp;Release Notes](https://github.com/Dave136/vue-email/releases)
+- [📖 &nbsp;Read the documentation](https://vue-email.vercel.app)
 
-# What is Vue email?
-After see [react-email](https://github.com/resendlabs/react-email) and [svelte-email](https://github.com/carstenlebek/svelte-email), i took the decision to build the same idea but for vue 😀, there you can design email templates using vue3 and render them to HTML or simple text.
+## Features
 
-Now TailwindCSS its supported! You can see [here](https://vue-email.vercel.app/components/tailwind.html)
+- 🧩 Build email templates with Vue components
+- 📨 [Integrates with many email providers](https://vue-email.vercel.app/integrations/nodemailer.html)
+- 🧪 Tested against popular email clients
+- 🎨 [Supports Tailwind CSS](https://vue-email.vercel.app/components/tailwind.html)
 
-# Installation :sunglasses:
+## Setup
 
-It's so simple as install the package in your project:
+> [📖 Read the documentation](https://vue-email.vercel.app)
 
-```bash title="npm"
-npm install vue-email
+```bash
+# pnpm
+pnpm add -D vue-email
+
+# npm
+npm i -D vue-email
 ```
 
-```bash title="yarn"
-yarn add vue-email
-```
+## Basic Usage
 
-```bash title="pnpm"
-pnpm install vue-email
-```
-
-# Getting started 💪
-Vue Email provides you a series of components to build a email template
-
-## 1. Creating a template
-
-> This example is based on Nuxt 3 app 
-
-`components/template-email.vue`
+> [📖 Read the documentation](https://vue-email.vercel.app)
 
 ```html
+// components/template-email.vue
 <template>
    <e-html lang="en">
       <e-text>Hello, {{ user }}!</e-text>
@@ -66,99 +51,21 @@ import { ref } from 'vue';
 const user = ref('Dave');
 </script>
 ```
+> You can see the full example [here](https://github.com/Dave136/vue-email/getting-started/setup.html)
 
-## 2. Send email
+## 💻 Development
 
-This basic example uses [Nodemailer](https://nodemailer.com/about/) and [Nuxt 3](https://nuxt.com) to send email. You easily can use other email service provider.
+1. Clone this repository
+2. Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
+3. Install dependencies using `pnpm install`
 
-> In this example i pass the template by params in a request.
-
-`server/api/email.post.ts`
-
-```ts
-import nodemailer from 'nodemailer';
-
-export default defineEventHandler(async (event) => {
-  const body = await readBody(event);
-
-  const testAccount = await nodemailer.createTestAccount();
-
-  const transporter = nodemailer.createTransport({
-    host: process.env.HOST || 'smtp.ethereal.email',
-    port: 587,
-    secure: false,
-    auth: {
-      user: testAccount.user,
-      pass: testAccount.pass,
-    },
-  });
-
-  const options = {
-    from: 'you@example.com',
-    to: 'user@gmail.com',
-    subject: 'hello world',
-    html: body.template,
-  };
-
-  const info = await transporter.sendMail(options);
-
-  return { messageId: info.messageId, previewUrl: nodemailer.getTestMessageUrl(info) as string };
-});
-```
-
-> You can see the full example [here](https://github.com/Dave136/vue-email/tree/main/examples/nodemailer)
-
-# Documentation
-
-You can see the documentation [here](https://vue-email.vercel.app/)
-
-# Components
-
-You can see the components, listed below:
-
-- [Html](https://vue-email.vercel.app/components/html.html)
-- [Head](https://vue-email.vercel.app/components/head.html)
-- [Body](https://vue-email.vercel.app/components/body.html)
-- [Button](https://vue-email.vercel.app/components/button.html)
-- [Container](https://vue-email.vercel.app/components/container.html)
-- [Font](https://vue-email.vercel.app/components/font.html)
-- [Column](https://vue-email.vercel.app/components/column.html)
-- [Section](https://vue-email.vercel.app/components/section.html)
-- [Heading](https://vue-email.vercel.app/components/heading.html)
-- [Hr](https://vue-email.vercel.app/components/hr.html)
-- [Image](https://vue-email.vercel.app/components/image.html)
-- [Link](https://vue-email.vercel.app/components/link.html)
-- [Preview](https://vue-email.vercel.app/components/preview.html)
-- [Row](https://vue-email.vercel.app/components/row.html)
-- [Tailwind](https://vue-email.vercel.app/components/tailwind.html)
-- [Text](https://vue-email.vercel.app/components/text.html)
-
-# Integrations
-
-Emails built with vue-email can be converted into HTML or plain text, and sent using any email service provider. You can see examples here:
-
-- [Nodemailer](https://github.com/Dave136/vue-email/tree/main/examples/nodemailer)
-- [Nuxt](https://vue-email.vercel.app/integration/nuxt.html)
-
-## Roadmap
-
-This a list of features to add in the future:
-
-- [x] TailwindCSS support
-- [x] Plugin for Nuxt 3
-- [ ] i18n support
-
-## Author
-
-- David Arenas [@dave136](https://twitter.com/davejs4)
-
-### Annotations 📝
+## 📝 Annotations
 
 This project is originally written in react ([react-email](https://github.com/resendlabs/react-email)) by:
 
 - Bu Kinoshita ([@bukinoshita](https://twitter.com/bukinoshita))
 - Zeno Rocha ([@zenorocha](https://twitter.com/zenorocha))
 
-### License
+## License
 
 This project is licensed under [MIT](./LICENSE)

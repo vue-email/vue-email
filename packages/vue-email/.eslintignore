@@ -1,0 +1,16 @@
+dist
+node_modules
+*.js.map
+*.d.ts
+.yarn
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.cache
+.DS_Store
+Thumbs.db
+.nuxt
+lib
+vite.config.ts

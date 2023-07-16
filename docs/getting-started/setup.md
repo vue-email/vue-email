@@ -132,7 +132,7 @@ We can use the `render` function. The value is an object with the following prop
 </template>
 
 <script lang="ts" setup>
-import { render } from 'vue-email';
+import { useRender } from 'vue-email';
 import WelcomeTemplate from '~/components/emails/welcome.vue';
 
 // props to pass to the template
@@ -140,7 +140,7 @@ const name = ref('Dave');
 
 // send email function
 const sendEmail = async () => {
-  const template = await render(WelcomeTemplate, { name });
+  const template = await useRender(WelcomeTemplate, { name });
   // call your API endpoint to send the email
   const data = await $fetch('/api/email', {
     method: 'post',

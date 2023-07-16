@@ -10,9 +10,10 @@ Feel free to contribute to any of them as well.
 # Planned Features
 These are the features that we’ve planned to work on in the near future.
 
-* ### MDX components
+* ### MDX components | ⌛ TODO 
 Enable users to create entire emails using MDX only.
-* ### Tests
+* ### Tests | ✅ Added - [ Source ](https://github.com/Dave136/vue-email/pull/9)
 Add tests to the project.
 
-~~More to come...
+* ### Server-side rendering | ❓ MAYBE - [ Source ](https://github.com/Dave136/vue-email/issues/10)
+Add support for server-side rendering.

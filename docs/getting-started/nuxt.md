@@ -7,38 +7,33 @@ description: Setup vue-email in your Nuxt project.
 
 This guide will walk you through the steps to get started with `vue-email` in a Nuxt project.
 
-## Step 1: Install `@vue-email/nuxt`
+## Step 1: Install `vue-email`
 
 ::: code-group
   ```bash [pnpm]
-  pnpm add -D @vue-email/nuxt
+  pnpm add -D vue-email
   ```
   ```bash [yarn]
-  yarn add -D @vue-email/nuxt
+  yarn add -D vue-email
   ```
   ```bash [npm]
-  npm install -D @vue-email/nuxt
+  npm install -D vue-email
   ```
 :::
 
-## Step 2: Use `@vue-email/nuxt`
+## Step 2: Use `vue-email`
 
-Add `@vue-email/nuxt` to your Nuxt configuration:
+Add `vue-email` to your Nuxt configuration:
 
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({
   modules: [
-    '@vue-email/nuxt',
+    'vue-email/nuxt',
   ],
 })
 ```
 
 
-The components be automatically injected by the module and a special composable to render component.
+The components and composables are auto imported, so you can use them in your components.
 
-------------
-
-# `useRender`
-
-This utility function transform vue components into HTML email templates. and the composable gives access to the actual `render` function, mentioned [`here`](/utilities/render)

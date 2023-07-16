@@ -1,0 +1,9 @@
+{
+  "search.exclude": {
+    "packages/ui/lib": true,
+    "pnpm-lock.yaml": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+}
