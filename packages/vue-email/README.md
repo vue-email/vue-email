@@ -1,4 +1,4 @@
-[![vue-email](../../docs/public/og.png)](https://vue-email.vercel.app)
+[![vue-email](https://github.com/Dave136/vue-email/blob/main/docs/public/og.png?raw=true)](https://vue-email.vercel.app)
 
 # vue-email
 
