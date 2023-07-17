@@ -95,4 +95,4 @@ Click me [https://example.com]
 | Name       |  type   |         Description        |
 | ----       | :----:  |  :-----------------------: |
 | `pretty`   | boolean |  Beautify HTML output      |
-| `planText` | boolean |  Generate plain text version |
+| `plainText` | boolean |  Generate plain text version |

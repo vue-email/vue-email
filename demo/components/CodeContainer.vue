@@ -41,7 +41,7 @@ function handleDownload() {
 const languageMap = {
   vue: 'Vue',
   html: 'HTML',
-  txt: 'PlanText',
+  txt: 'PlainText',
 }
 
 async function handleClipboard() {
