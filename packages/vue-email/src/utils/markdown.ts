@@ -39,37 +39,37 @@ export function parseMarkdownToVueEmailJSX(
   vueMailTemplate = markdown.replace(
     patterns.h1,
     `<h1 style="${parseCssInJsToInlineCss(finalStyles.h1)}"${
-      withDataAttr ? ' data-id="nuxt-email-heading"' : ''
+      withDataAttr ? ' data-id="vue-email-heading"' : ''
     }>$1</h1>`,
   )
   vueMailTemplate = vueMailTemplate.replace(
     patterns.h2,
     `<h2 style="${parseCssInJsToInlineCss(finalStyles.h2)}"${
-      withDataAttr ? ' data-id="nuxt-email-heading"' : ''
+      withDataAttr ? ' data-id="vue-email-heading"' : ''
     }>$1</h2>`,
   )
   vueMailTemplate = vueMailTemplate.replace(
     patterns.h3,
     `<h3${
-      withDataAttr ? ' data-id="nuxt-email-heading"' : ''
+      withDataAttr ? ' data-id="vue-email-heading"' : ''
     } style="${parseCssInJsToInlineCss(finalStyles.h3)}">$1</h3>`,
   )
   vueMailTemplate = vueMailTemplate.replace(
     patterns.h4,
     `<h4${
-      withDataAttr ? ' data-id="nuxt-email-heading"' : ''
+      withDataAttr ? ' data-id="vue-email-heading"' : ''
     } style="${parseCssInJsToInlineCss(finalStyles.h4)}">$1</h4>`,
   )
   vueMailTemplate = vueMailTemplate.replace(
     patterns.h5,
     `<h5${
-      withDataAttr ? ' data-id="nuxt-email-heading"' : ''
+      withDataAttr ? ' data-id="vue-email-heading"' : ''
     } style="${parseCssInJsToInlineCss(finalStyles.h5)}">$1</h5>`,
   )
   vueMailTemplate = vueMailTemplate.replace(
     patterns.h6,
     `<h6${
-      withDataAttr ? ' data-id="nuxt-email-heading"' : ''
+      withDataAttr ? ' data-id="vue-email-heading"' : ''
     } style="${parseCssInJsToInlineCss(finalStyles.h6)}">$1</h6>`,
   )
 
@@ -142,7 +142,7 @@ export function parseMarkdownToVueEmailJSX(
   vueMailTemplate = vueMailTemplate.replace(
     patterns.bold,
     `<p${
-      withDataAttr ? ' data-id="nuxt-email-text"' : ''
+      withDataAttr ? ' data-id="vue-email-text"' : ''
     } style="${parseCssInJsToInlineCss(finalStyles.bold)}">$1</p>`,
   )
 
@@ -150,7 +150,7 @@ export function parseMarkdownToVueEmailJSX(
   vueMailTemplate = vueMailTemplate.replace(
     patterns.italic,
     `<p${
-      withDataAttr ? ' data-id="nuxt-email-text"' : ''
+      withDataAttr ? ' data-id="vue-email-text"' : ''
     } style="${parseCssInJsToInlineCss(finalStyles.italic)}">$1</p>`,
   )
 
@@ -176,7 +176,7 @@ export function parseMarkdownToVueEmailJSX(
   vueMailTemplate = vueMailTemplate.replace(
     patterns.link,
     `<a${
-      withDataAttr ? ' data-id="nuxt-email-link"' : ''
+      withDataAttr ? ' data-id="vue-email-link"' : ''
     } style="${parseCssInJsToInlineCss(
       finalStyles.link,
     )}"  href="$2" target="_blank" >$1</a>`,
@@ -186,7 +186,7 @@ export function parseMarkdownToVueEmailJSX(
   vueMailTemplate = vueMailTemplate.replace(
     patterns.codeBlocks,
     `<pre style="${parseCssInJsToInlineCss(finalStyles.codeBlock)}"><p${
-      withDataAttr ? ' data-id="nuxt-email-text"' : ''
+      withDataAttr ? ' data-id="vue-email-text"' : ''
     }>${'{`$1`}'}</p></pre>`,
   )
 
@@ -194,7 +194,7 @@ export function parseMarkdownToVueEmailJSX(
   vueMailTemplate = vueMailTemplate.replace(
     patterns.codeInline,
     `<p${
-      withDataAttr ? ' data-id="nuxt-email-text"' : ''
+      withDataAttr ? ' data-id="vue-email-text"' : ''
     } style="${parseCssInJsToInlineCss(finalStyles.codeInline)}">$1</p>`,
   )
 
@@ -202,7 +202,7 @@ export function parseMarkdownToVueEmailJSX(
   vueMailTemplate = vueMailTemplate.replace(
     /^>\s+(.+)$/gm,
     `<p${
-      withDataAttr ? ' data-id="nuxt-email-text"' : ''
+      withDataAttr ? ' data-id="vue-email-text"' : ''
     } style="${parseCssInJsToInlineCss(finalStyles.blockQuote)}">$1</p>`,
   )
 
@@ -216,7 +216,7 @@ export function parseMarkdownToVueEmailJSX(
   vueMailTemplate = vueMailTemplate.replace(
     patterns.hr,
     `<hr${
-      withDataAttr ? ' data-id="nuxt-email-hr"' : ''
+      withDataAttr ? ' data-id="vue-email-hr"' : ''
     } style="${parseCssInJsToInlineCss(finalStyles.hr)}" />`,
   )
 

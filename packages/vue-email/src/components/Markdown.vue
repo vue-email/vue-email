@@ -7,9 +7,9 @@ export default { name: 'EMarkdown' }
 </template>
 
 <script setup lang="ts">
+import type { CSSProperties } from 'vue'
 import type { StylesType } from '../types/markdown'
 import { parseMarkdownToVueEmailJSX } from '../utils/markdown'
-import type { CSSProperties } from 'vue'
 
 interface Props {
   source: string;
