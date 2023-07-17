@@ -16,6 +16,7 @@ declare module '@vue/runtime-core' {
     ESection: typeof import('vue-email')['ESection']
     ETailwind: typeof import('vue-email')['ETailwind']
     EText: typeof import('vue-email')['EText']
+    EMarkdown: typeof import('vue-email')['EMarkdown']
   }
 }
 
