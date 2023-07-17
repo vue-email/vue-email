@@ -2,6 +2,7 @@ import {
   defineNuxtModule,
   addPlugin,
   createResolver,
+  addComponentsDir,
   addImportsDir,
 } from '@nuxt/kit'
 import { fileURLToPath } from 'node:url'
@@ -9,7 +10,7 @@ import { fileURLToPath } from 'node:url'
 export default defineNuxtModule({
   meta: {
     name: 'vue-email',
-    configKey: 'vue-email',
+    configKey: 'vueEmail',
   },
   defaults: {},
   async setup(options, nuxt) {
@@ -22,12 +23,10 @@ export default defineNuxtModule({
     addPlugin(resolve('./nuxt.plugin.js'))
 
     // nuxt install
-    nuxt.hook('components:dirs', (dirs) => {
-      dirs.push({
-        path: fileURLToPath(new URL('./src/components', import.meta.url)),
-        extensions: ['vue', 'tsx'],
-        prefix: 'E',
-      })
+    await addComponentsDir({
+      path: fileURLToPath(new URL('./src/components', import.meta.url)),
+      extensions: ['vue', 'tsx'],
+      prefix: 'E',
     })
 
     addImportsDir(resolve('./src/composables'))
