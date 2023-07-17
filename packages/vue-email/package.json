@@ -68,6 +68,7 @@
     "eslint": "^8.44.0",
     "eslint-plugin-cypress": "^2.13.3",
     "html-to-text": "^9.0.5",
+    "isomorphic-dompurify": "^1.8.0",
     "jsdom": "^22.1.0",
     "postcss": "^8.4.25",
     "pretty": "^2.0.0",

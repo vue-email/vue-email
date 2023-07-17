@@ -16,6 +16,7 @@ export type StylesType = {
   p?: CSSProperties;
   li?: CSSProperties;
   ul?: CSSProperties;
+  ol?: CSSProperties;
   image?: CSSProperties;
   br?: CSSProperties;
   hr?: CSSProperties;

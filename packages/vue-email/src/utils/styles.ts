@@ -45,8 +45,7 @@ const blockQuote = {
   background: '#f9f9f9',
   borderLeft: '10px solid #ccc',
   margin: '1.5em 10px',
-  padding: '1em 10px 0.1em 10px',
-  quotes: '"\u201C""\u201D""\u2018""\u2019"',
+  padding: '1em 10px',
 }
 
 const codeInline = {
@@ -89,6 +88,7 @@ export const styles: StylesType = {
   p: emptyStyle,
   li: emptyStyle,
   ul: emptyStyle,
+  ol: emptyStyle,
   image: emptyStyle,
   br: emptyStyle,
   hr: emptyStyle,
