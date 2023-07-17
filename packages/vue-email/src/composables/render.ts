@@ -1,11 +1,11 @@
 import { convert } from 'html-to-text'
 import pretty from 'pretty'
-import { createApp, h, type Component, type App } from 'vue'
+import { createApp, h, type Component } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 
 export interface Options {
-  pretty?: boolean;
-  plainText?: boolean;
+  pretty: boolean;
+  plainText: boolean;
 }
 
 // TODO: Used only in tests, find a way to merge this with useRender later
@@ -31,9 +31,12 @@ export const useRenderClient = (component: Component, props?: any) => {
 export const useRender = async (
   component: Component,
   props?: any,
-  options?: Options,
+  options: Options = {
+    pretty: true,
+    plainText: false,
+  },
 ) => {
-  if (options?.plainText) {
+  if (options.plainText) {
     return renderAsText(component)
   }
 
@@ -41,9 +44,9 @@ export const useRender = async (
     '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
   const app = createApp({ render: () => h(component) }, props)
   const markup = await renderToString(app)
-  const doc = `${doctype}${markup}`
+  const doc = `${doctype}${replaceString(markup)}`
 
-  if (options?.pretty) {
+  if (options.pretty) {
     return pretty(doc)
   }
 
@@ -59,4 +62,13 @@ const renderAsText = async (component: Component) => {
       { selector: '#__vue-email-preview', format: 'skip' },
     ],
   })
+}
+
+const replaceString = (str: string) => {
+  if (!str || typeof str !== 'string') return str
+
+  return str
+    .replace(/ data-v-inspector="[^"]*"/g, '')
+    .replace(/<!--\[-->/g, '')
+    .replace(/<!--]-->/g, '')
 }
