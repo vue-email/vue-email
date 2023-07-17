@@ -28,7 +28,7 @@ export function parseCssInJsToInlineCss(
 export function parseMarkdownToVueEmailJSX(
   markdown: string,
   customStyles: StylesType = {},
-  withDataAttr = false,
+  withDataAttr = true,
 ): string {
   if (
     markdown === undefined ||
@@ -96,7 +96,7 @@ export function parseMarkdownToVueEmailJSX(
       parseCssInJsToInlineCss(finalStyles.p) !== ''
         ? ` style="${parseCssInJsToInlineCss(finalStyles.p)}"`
         : ''
-    }${withDataAttr ? ' data-id="react-email-text"' : ''}>$1</p>`,
+    }${withDataAttr ? ' data-id="vue-email-text"' : ''}>$1</p>`,
   )
 
   // Handle headings (e.g., # Heading)
@@ -106,7 +106,7 @@ export function parseMarkdownToVueEmailJSX(
       parseCssInJsToInlineCss(finalStyles.h1) !== ''
         ? ` style="${parseCssInJsToInlineCss(finalStyles.h1)}"`
         : ''
-    }${withDataAttr ? ' data-id="react-email-heading"' : ''}>$1</h1>`,
+    }${withDataAttr ? ' data-id="vue-email-heading"' : ''}>$1</h1>`,
   )
   vueMailTemplate = vueMailTemplate.replace(
     patterns.h2,
@@ -114,7 +114,7 @@ export function parseMarkdownToVueEmailJSX(
       parseCssInJsToInlineCss(finalStyles.h2) !== ''
         ? ` style="${parseCssInJsToInlineCss(finalStyles.h2)}"`
         : ''
-    }${withDataAttr ? ' data-id="react-email-heading"' : ''}>$1</h2>`,
+    }${withDataAttr ? ' data-id="vue-email-heading"' : ''}>$1</h2>`,
   )
   vueMailTemplate = vueMailTemplate.replace(
     patterns.h3,
@@ -122,7 +122,7 @@ export function parseMarkdownToVueEmailJSX(
       parseCssInJsToInlineCss(finalStyles.h3) !== ''
         ? ` style="${parseCssInJsToInlineCss(finalStyles.h3)}"`
         : ''
-    }${withDataAttr ? ' data-id="react-email-heading"' : ''}>$1</h3>`,
+    }${withDataAttr ? ' data-id="vue-email-heading"' : ''}>$1</h3>`,
   )
   vueMailTemplate = vueMailTemplate.replace(
     patterns.h4,
@@ -130,7 +130,7 @@ export function parseMarkdownToVueEmailJSX(
       parseCssInJsToInlineCss(finalStyles.h4) !== ''
         ? ` style="${parseCssInJsToInlineCss(finalStyles.h4)}"`
         : ''
-    }${withDataAttr ? ' data-id="react-email-heading"' : ''}>$1</h4>`,
+    }${withDataAttr ? ' data-id="vue-email-heading"' : ''}>$1</h4>`,
   )
   vueMailTemplate = vueMailTemplate.replace(
     patterns.h5,
@@ -138,7 +138,7 @@ export function parseMarkdownToVueEmailJSX(
       parseCssInJsToInlineCss(finalStyles.h5) !== ''
         ? ` style="${parseCssInJsToInlineCss(finalStyles.h5)}"`
         : ''
-    }${withDataAttr ? ' data-id="react-email-heading"' : ''}>$1</h5>`,
+    }${withDataAttr ? ' data-id="vue-email-heading"' : ''}>$1</h5>`,
   )
   vueMailTemplate = vueMailTemplate.replace(
     patterns.h6,
@@ -146,7 +146,7 @@ export function parseMarkdownToVueEmailJSX(
       parseCssInJsToInlineCss(finalStyles.h6) !== ''
         ? ` style="${parseCssInJsToInlineCss(finalStyles.h6)}"`
         : ''
-    }${withDataAttr ? ' data-id="react-email-heading"' : ''}>$1</h6>`,
+    }${withDataAttr ? ' data-id="vue-email-heading"' : ''}>$1</h6>`,
   )
 
   // Handle Tables from GFM
@@ -236,7 +236,7 @@ export function parseMarkdownToVueEmailJSX(
       parseCssInJsToInlineCss(finalStyles.bold) !== ''
         ? ` style="${parseCssInJsToInlineCss(finalStyles.bold)}"`
         : ''
-    }${withDataAttr ? ' data-id="react-email-text"' : ''}>$1</strong>`,
+    }${withDataAttr ? ' data-id="vue-email-text"' : ''}>$1</strong>`,
   )
 
   // Handle italic text (e.g., *italic*)
@@ -246,7 +246,7 @@ export function parseMarkdownToVueEmailJSX(
       parseCssInJsToInlineCss(finalStyles.italic) !== ''
         ? ` style="${parseCssInJsToInlineCss(finalStyles.italic)}"`
         : ''
-    }${withDataAttr ? ' data-id="react-email-text"' : ''}>$2</em>`,
+    }${withDataAttr ? ' data-id="vue-email-text"' : ''}>$2</em>`,
   )
 
   // Handle lists (unordered)
@@ -304,7 +304,7 @@ export function parseMarkdownToVueEmailJSX(
   // Handle links (e.g., [link text](url))
   vueMailTemplate = vueMailTemplate.replace(
     patterns.link,
-    `<a${withDataAttr ? ' data-id="react-email-link"' : ''}${
+    `<a${withDataAttr ? ' data-id="vue-email-link"' : ''}${
       parseCssInJsToInlineCss(finalStyles.link) !== ''
         ? ` style="${parseCssInJsToInlineCss(finalStyles.link)}"`
         : ''
@@ -324,7 +324,7 @@ export function parseMarkdownToVueEmailJSX(
   // Handle horizontal rules (e.g., ---)
   vueMailTemplate = vueMailTemplate.replace(
     patterns.hr,
-    `<hr${withDataAttr ? ' data-id="react-email-hr"' : ''}${
+    `<hr${withDataAttr ? ' data-id="vue-email-hr"' : ''}${
       parseCssInJsToInlineCss(finalStyles.hr) !== ''
         ? ` style="${parseCssInJsToInlineCss(finalStyles.hr)}"`
         : ''

@@ -3,7 +3,11 @@ export default { name: 'EMarkdown' }
 </script>
 
 <template>
-  <div :style="containerStyles" v-html="html"></div>
+  <div
+    data-id="__vue-email-markdown"
+    :style="containerStyles"
+    v-html="html"
+  ></div>
 </template>
 
 <script setup lang="ts">
