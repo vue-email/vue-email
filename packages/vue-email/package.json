@@ -41,7 +41,13 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "peerDependencies": {
+    "@nuxt/kit": "^3.6.3",
     "vue": "^3.3.4"
+  },
+  "peerDependenciesMeta": {
+    "@nuxt/kit": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@cypress/vite-dev-server": "^5.0.5",
