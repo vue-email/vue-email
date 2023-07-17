@@ -1,8 +1,9 @@
-import { defineNuxtPlugin } from '#app'
+import { defineNuxtPlugin, useRuntimeConfig } from '#imports'
 import create from './src/create'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  const UI = create(nuxtApp.$config.vueEmailOptions)
+  const config = useRuntimeConfig()
+  const UI = create(config.vueEmailOptions)
 
   nuxtApp.vueApp.use(UI)
 })
