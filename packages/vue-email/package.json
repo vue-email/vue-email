@@ -18,7 +18,7 @@
     "lib",
     "src",
     "volar.d.ts",
-    "nuxt.js",
+    "nuxt.mjs",
     "nuxt.plugin.js",
     "README.md"
   ],
