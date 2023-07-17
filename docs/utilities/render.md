@@ -45,9 +45,14 @@ This will generate the following output:
 
 ```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en" dir="ltr" id="__vue-email"><!--[-->
-  <p style="font-size:14px;line-height:24px;margin:16px 0;" data-id="__vue-email-text"><!--[--><!--]--></p>
-  <hr style="width:100%;border:none;border-top:1px solid #eaeaea;" data-id="__vue-email-hr"><a href="https://example.com" target="_blank" px="0" py="0" style="p-x:0;p-y:0;line-height:100%;text-decoration:none;display:inline-block;max-width:100%;padding:0px 0px;" data-id="__vue-email-button"><span><!--[if mso]><i style="letter-spacing: 0px;mso-font-width:-100%;mso-text-raise:0" hidden>&nbsp;</i><![endif]--></span><span style="p-x:0;p-y:0;max-width:100%;display:inline-block;line-height:120%;text-decoration:none;text-transform:none;mso-padding-alt:0px;mso-text-raise:0;"><!--[-->Click me<!--]--></span><span><!--[if mso]><i style="letter-spacing: 0px;mso-font-width:-100%" hidden>&nbsp;</i><![endif]--></span></a><!--]-->
+<html id="__vue-email" lang="en" dir="ltr">
+  <!--[-->
+  <p data-id="__vue-email-text" style="font-size:14px;line-height:24px;margin:16px 0;" >
+    <!--[--> Some title
+    <!--]-->
+  </p>
+  <hr data-id="__vue-email-hr" style="width:100%;border:none;border-top:1px solid #eaeaea;" ><a data-id="__vue-email-button" style="line-height:100%;text-decoration:none;display:inline-block;max-width:100%;padding:0px 0px;" href="https://example.com" target="_blank" ><span ><!--[if mso]><i style="letter-spacing: 0px;mso-font-width:-100%;mso-text-raise:0" hidden>&nbsp;</i><![endif]--></span><span style="max-width:100%;display:inline-block;line-height:120%;text-decoration:none;text-transform:none;mso-padding-alt:0px;mso-text-raise:0;" ><!--[-->Click me<!--]--></span><span ><!--[if mso]><i style="letter-spacing: 0px;mso-font-width:-100%" hidden>&nbsp;</i><![endif]--></span></a>
+  <!--]-->
 
 </html>
 ```
