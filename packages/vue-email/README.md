@@ -10,6 +10,7 @@
 
 - [✨ &nbsp;Release Notes](https://github.com/Dave136/vue-email/releases)
 - [📖 &nbsp;Read the documentation](https://vue-email.vercel.app)
+- [💚 &nbsp;Nuxt Module](https://nuxt.com/modules/vue-email)
 
 ## Features
 
@@ -17,6 +18,7 @@
 - 📨 [Integrates with many email providers](https://vue-email.vercel.app/integrations/nodemailer.html)
 - 🧪 Tested against popular email clients
 - 🎨 [Supports Tailwind CSS](https://vue-email.vercel.app/components/tailwind.html)
+- 📦 [Supports Nuxt.js](https://nuxt.com/modules/vue-email)
 
 ## Setup
 
@@ -58,6 +60,18 @@ const user = ref('Dave');
 1. Clone this repository
 2. Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
 3. Install dependencies using `pnpm install`
+
+
+## Contributors
+
+<a href="https://github.com/Dave136/vue-email/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Dave136/vue-email" />
+</a>
+
+## Repo Activity
+
+<img width="100%" src="https://repobeats.axiom.co/api/embed/7b2dec4aa2ae80fa81831c28f9bb7cdc532960fa.svg" />
+
 
 ## 📝 Annotations
 
