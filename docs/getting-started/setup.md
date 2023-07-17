@@ -140,7 +140,7 @@ const name = ref('Dave');
 
 // send email function
 const sendEmail = async () => {
-  const template = await useRender(WelcomeTemplate, { name });
+  const template = await useRender(WelcomeTemplate, { name: name.value });
   // call your API endpoint to send the email
   const data = await $fetch('/api/email', {
     method: 'post',
