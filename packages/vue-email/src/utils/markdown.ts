@@ -1,7 +1,7 @@
-import type { CSSProperties } from 'vue'
 import DOMPurify from 'isomorphic-dompurify'
 import { styles } from './styles'
 import { patterns } from './patterns'
+import type { CSSProperties } from 'vue'
 import type { StylesType } from '../types/markdown'
 
 // hook to handle target="_blank" in all links
