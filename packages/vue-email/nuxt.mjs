@@ -11,6 +11,9 @@ export default defineNuxtModule({
   meta: {
     name: 'vue-email',
     configKey: 'vueEmail',
+    compatibility: {
+      nuxt: '^3.0.0',
+    },
   },
   defaults: {},
   setup(options, nuxt) {
