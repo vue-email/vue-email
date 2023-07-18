@@ -102,6 +102,10 @@ const integrations = [
     text: 'Plunk',
     link: '/integrations/plunk',
   },
+    {
+    text: 'MailPace',
+    link: '/integrations/mailpace',
+  },
 ]
 
 export default defineConfig({
