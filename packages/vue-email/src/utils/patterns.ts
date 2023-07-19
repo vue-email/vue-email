@@ -17,7 +17,7 @@ export const patterns = {
   nestedBlockQuote: /^>( .+?(?:\n|$))+/gm,
   codeBlocks: /```(?:[\s\S]*?\n)?([\s\S]*?)\n```/g,
   codeInline: /(?<!`)(`{1,2})(?!`)(.*?)(?<!`)\1(?!`)/g,
-  br: /{2}\n/g,
+  br: / {2}\n/g,
   hr: /^-{3,}$/gm,
   table: /((?:^|\n)(?:\|[^\n]*?)+\|\n)((?:^|\n)(?:\|(?:[\s\S]*?[^\\])?\|[^\n]*)+\|\n)+/gm,
   strikethrough: /~~(.+?)~~/g

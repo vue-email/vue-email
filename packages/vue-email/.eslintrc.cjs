@@ -20,7 +20,6 @@ module.exports = {
     "arrow-parens": ["error", "as-needed"],
     "comma-dangle": "off",
     "space-before-function-paren": "off",
-    "max-len": [1, { code: 140 }],
     "require-jsdoc": 0,
     "no-invalid-this": 0,
     "import/no-absolute-path": "off",
