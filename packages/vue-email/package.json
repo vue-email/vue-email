@@ -2,7 +2,7 @@
   "name": "vue-email",
   "version": "0.4.0",
   "description": "💌 Write email templates with Vue",
-  "author": "David Arenas <> (https://github.com/Dave136/), Younes Barrad <younesbarraddev@gmail.com> (https://github.com/Flowko)",
+  "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
   "keywords": [
     "vue",
     "vue 3",
@@ -14,7 +14,7 @@
   "maintainers": [
     {
       "name": "Dave136",
-      "email": "",
+      "email": "davejs136@gmail.com",
       "url": "https://github.com/Dave136"
     },
     {
@@ -43,12 +43,13 @@
     },
     "./*": "./*"
   },
-  "main": "./dist/tres.js",
-  "module": "./dist/tres.js",
+  "main": "./dist/vue-email.js",
+  "module": "./dist/vue-email.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "*.d.ts"
+    "*.d.ts",
+    "nuxt.mjs"
   ],
   "sideEffects": false,
   "publishConfig": {

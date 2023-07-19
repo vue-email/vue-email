@@ -40,7 +40,9 @@ export default defineConfig({
     banner({
       content: `/**\n * name: ${pkg.name}\n * version: v${pkg.version}\n * (c) ${new Date().getFullYear()}\n * description: ${
         pkg.description
-      }\n * author: ${pkg.author}\n */`
+      }\n * maintainers: ${
+        pkg.maintainers.map(({ name, email, url }) => `${name} (${email})${url ? ` - ${url}` : ""}`).join(", ") || "none"
+      }\n */`
     }),
     Inspect()
   ],

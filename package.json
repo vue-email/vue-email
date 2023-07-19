@@ -1,7 +1,7 @@
 {
   "name": "root",
   "private": false,
-  "author": "David Arenas (https://github.com/Dave136/)",
+  "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
   "homepage": "https://vue-email.vercel.app/",
   "description": "💌 Build and send emails using Vue",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "demo:build": "pnpm -C demo run build",
     "lint": "eslint --ext .js,.ts,.vue .",
     "lint:email": "eslint --ext .js,.ts,.vue,.mjs ./packages/vue-email",
-    "test": "cd packages/vue-email && pnpm test",
+    "test": "pnpm -C packages/vue-email run test",
     "changeset": "changeset",
     "version:prod": "changeset version",
     "publish:prod": "changeset publish",
