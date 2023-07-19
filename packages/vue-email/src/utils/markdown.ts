@@ -5,7 +5,7 @@ import type { CSSProperties } from 'vue'
 import type { StylesType } from '../types/markdown'
 
 // hook to handle target="_blank" in all links
-DOMPurify.addHook('afterSanitizeAttributes', (node) => {
+DOMPurify.addHook('afterSanitizeAttributes', node => {
   if ('target' in node) {
     node.setAttribute('target', '_blank')
   }
@@ -58,7 +58,7 @@ export function parseMarkdownToVueEmailJSX(
     (_, codeContent: string) => {
       const indentedCodeContent = codeContent
         .split('\n')
-        .map((line) => `  ${line}`)
+        .map(line => `  ${line}`)
         .join('\n')
 
       return `<pre${
@@ -155,22 +155,22 @@ export function parseMarkdownToVueEmailJSX(
     const headers = rows[0]
       .split('|')
       .slice(1, -1)
-      .map((cell) => cell.trim())
+      .map(cell => cell.trim())
     const alignments = rows[1]
       .split('|')
       .slice(1, -1)
-      .map((cell) => {
+      .map(cell => {
         const align = cell.trim().toLowerCase()
 
         return align === ':--' ? 'left' : align === '--:' ? 'right' : 'center'
       })
     const body = rows
       .slice(2)
-      .map((row) => {
+      .map(row => {
         const cells = row
           .split('|')
           .slice(1, -1)
-          .map((cell) => cell.trim())
+          .map(cell => cell.trim())
 
         return `<tr${
           parseCssInJsToInlineCss(finalStyles.tr) !== ''
@@ -268,10 +268,10 @@ export function parseMarkdownToVueEmailJSX(
   )
 
   // Handle lists (ordered)
-  vueMailTemplate = vueMailTemplate.replace(patterns.ol, (match) => {
+  vueMailTemplate = vueMailTemplate.replace(patterns.ol, match => {
     const listItems = match
       .split('\n')
-      .map((line) => {
+      .map(line => {
         const listItemContent = line.replace(/^\d+\.\s+/, '')
 
         return listItemContent
