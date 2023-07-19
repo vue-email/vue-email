@@ -13,44 +13,23 @@
     "url": "git+https://github.com/davejs136/vue-email.git"
   },
   "scripts": {
-    "preinstall": "npm exec only-allow pnpm",
-    "postinstall": "simple-git-hooks",
-    "dev": "cd packages/vue-email && pnpm dev",
+    "dev": "pnpm -C packages/vue-email run dev",
     "docs": "pnpm -C docs run dev",
     "demo": "pnpm -C demo run dev",
     "build": "pnpm -C packages/vue-email run build",
     "docs:build": "pnpm -C docs run build",
     "demo:build": "pnpm -C demo run build",
     "lint": "eslint --ext .js,.ts,.vue .",
-    "lint:email": "eslint --ext .js,.ts,.vue,.mjs ./packages/vue-email",
+    "lint:email": "pnpm -C packages/vue-email run lint",
     "test": "pnpm -C packages/vue-email run test",
-    "changeset": "changeset",
-    "version:prod": "changeset version",
-    "publish:prod": "changeset publish",
-    "version:snapshot": "changeset version --snapshot dev",
-    "publish:snapshot": "changeset publish --no-git-tag --snapshot --tag dev",
-    "changeset:status": "pnpm -r --workspace-concurrency=1 tsx .scripts/changesetStatus.js"
+    "test:ci": "pnpm -C packages/vue-email run test:ci",
+    "release": "pnpm -C packages/vue-email run release"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.4.8",
-    "@changesets/cli": "^2.26.2",
-    "@indielayer/eslint-config-vue": "^3.2.0",
-    "eslint": "^8.44.0",
-    "lint-staged": "^13.2.3",
-    "only-allow": "^1.1.1",
-    "simple-git-hooks": "^2.8.1",
-    "tsx": "^3.12.7"
-  },
-  "lint-staged": {
-    "*.{cjs,js,jsx,ts,tsx,vue}": [
-      "eslint --cache --fix"
-    ]
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm -r --workspace-concurrency=1 lint-staged --concurrent false",
-    "commit-msg": "pnpm -r --workspace-concurrency=1 tsx .scripts/verifyCommit.ts $1"
+    "eslint": "^8.45.0"
   },
   "volta": {
     "node": "20.4.0"
-  }
+  },
+  "packageManager": "pnpm@8.6.7"
 }

@@ -37,7 +37,7 @@ const links = computed(() => (emails.value ? emails.value : []))
     </aside>
     <div class="w-[calc(100%_-_275px)] bg-gray-800">
       <main class="">
-        <slot></slot>
+        <slot />
       </main>
     </div>
     <UNotifications />

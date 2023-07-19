@@ -30,11 +30,10 @@ export function useEmail() {
 
   const getEmail = async (name: string) => {
     if (emails.value && emails.value.length) {
-      const emailObj = emails.value.find((email) => email.label === name)
+      const emailObj = emails.value.find(email => email.label === name)
 
-      if (emailObj) {
+      if (emailObj)
         email.value = emailObj
-      }
     }
 
     return null
@@ -45,16 +44,16 @@ export function useEmail() {
       $fetch<string>(`/api/markup/${name}`),
     )
 
-    if (data.value) return data.value
+    if (data.value)
+      return data.value
 
     return ''
   }
 
   const sendTestEmail = async (to: string, subject: string, markup: string) => {
     try {
-      if (!email || !subject) {
+      if (!email || !subject)
         return
-      }
 
       sending.value = true
 
@@ -78,14 +77,16 @@ export function useEmail() {
           icon: 'i-ph-bell-bold',
         })
       }
-    } catch (error) {
+    }
+    catch (error) {
       useToast().add({
         title: 'Error',
         description: 'Something went wrong. Please try again.',
         color: 'red',
         icon: 'i-ph-bell-bold',
       })
-    } finally {
+    }
+    finally {
       sending.value = false
     }
   }

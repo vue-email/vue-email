@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  titleTemplate: (title) =>
+  titleTemplate: title =>
     title && title.includes('Vue Email') ? title : `${title} - Vue Email`,
   meta: [
     {
