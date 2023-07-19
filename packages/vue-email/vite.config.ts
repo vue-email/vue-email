@@ -78,7 +78,8 @@ export default defineConfig({
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
-          vue: "Vue"
+          vue: "Vue",
+          "isomorphic-dompurify": "isomorphic-dompurify"
           // '@vueuse/core': 'VueUseCore',
         }
       }
