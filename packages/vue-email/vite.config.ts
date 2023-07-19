@@ -13,13 +13,14 @@ import copy from "rollup-plugin-copy";
  */ /* import { visualizer } from 'rollup-plugin-visualizer' */
 import { resolve } from "pathe";
 
-import { lightGreen, yellow, gray, bold, blue } from "kolorist";
+import { lightGreen, gray, bold, blue } from "kolorist";
 
-// @ts-ignore
 import pkg from "./package.json";
 
 // eslint-disable-next-line no-console
-console.log(`${lightGreen("🎉")} ${gray("💌")} ${bold(blue("Vue Email"))} v${pkg.version}`);
+console.log(
+  `${lightGreen("🎉")} ${gray("💌")} ${bold(blue("Vue Email"))} v${pkg.version}`
+);
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
@@ -33,10 +34,17 @@ export default defineConfig({
       insertTypesEntry: true
     }),
     banner({
-      content: `/**\n * name: ${pkg.name}\n * version: v${pkg.version}\n * (c) ${new Date().getFullYear()}\n * description: ${
+      content: `/**\n * name: ${pkg.name}\n * version: v${
+        pkg.version
+      }\n * (c) ${new Date().getFullYear()}\n * description: ${
         pkg.description
       }\n * maintainers: ${
-        pkg.maintainers.map(({ name, email, url }) => `${name} (${email})${url ? ` - ${url}` : ""}`).join(", ") || "none"
+        pkg.maintainers
+          .map(
+            ({ name, email, url }) =>
+              `${name} (${email})${url ? ` - ${url}` : ""}`
+          )
+          .join(", ") || "none"
       }\n */`
     }),
     Inspect()
@@ -59,7 +67,9 @@ export default defineConfig({
     rollupOptions: {
       plugins: [
         copy({
-          targets: [{ src: "src/types/vue-email-components.d.ts", dest: "dist/types" }]
+          targets: [
+            { src: "src/types/vue-email-components.d.ts", dest: "dist/types" }
+          ]
         })
         /*   analyze(), */
         /*    visualizer({

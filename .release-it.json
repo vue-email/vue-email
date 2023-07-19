@@ -1,10 +1,14 @@
 {
   "git": {
-      "commitMessage": "chore: release v${version}"
+      "commitMessage": "chore: release v${version}",
+      "requireCleanWorkingDir": false
   },
   "github": {
       "release": true,
-      "releaseName": "v${version}"
+      "releaseName": "v${version}",
+      "comments": {
+        "submit": true
+      }
   },
   "plugins": {
       "@release-it/conventional-changelog": {
