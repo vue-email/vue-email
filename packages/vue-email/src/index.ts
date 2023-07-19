@@ -2,6 +2,8 @@ import type { App } from "vue";
 export * from "./composables";
 import * as components from "./components";
 export * from "./types";
+export * from "./utils";
+export * from "./components";
 
 export interface VueEmailOptions {
   extends?: Record<string, unknown>;
