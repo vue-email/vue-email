@@ -18,7 +18,7 @@
     "dev": "cd packages/vue-email && pnpm dev",
     "docs": "pnpm -C docs run dev",
     "demo": "pnpm -C demo run dev",
-    "build": "cd packages/vue-email && pnpm build:prod",
+    "build": "pnpm -C packages/vue-email run build",
     "docs:build": "pnpm -C docs run build",
     "demo:build": "pnpm -C demo run build",
     "lint": "eslint --ext .js,.ts,.vue .",
