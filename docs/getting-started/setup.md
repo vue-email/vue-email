@@ -10,15 +10,19 @@ This guide will walk you through the steps to get started with `vue-email`.
 ## Step 1: Install `vue-email`
 
 ::: code-group
-  ```bash [pnpm]
-  pnpm add -D vue-email
-  ```
-  ```bash [yarn]
-  yarn add -D vue-email
-  ```
-  ```bash [npm]
-  npm install -D vue-email
-  ```
+
+```bash [pnpm]
+pnpm add -D vue-email
+```
+
+```bash [yarn]
+yarn add -D vue-email
+```
+
+```bash [npm]
+npm install -D vue-email
+```
+
 :::
 
 ## Step 2: Create an email template
@@ -41,9 +45,16 @@ Create a new email template in wherever you want to have your templates, for thi
           height="50"
         />
         <e-text :style="paragraph">{{ name }}, welcome to vue-email</e-text>
-        <e-text :style="paragraph">A Vue component library for building responsive emails</e-text>
+        <e-text :style="paragraph"
+          >A Vue component library for building responsive emails</e-text
+        >
         <e-section :style="btnContainer">
-          <e-button :px="12" :py="12" :style="button" href="https://github.com/Dave136/vue-email">
+          <e-button
+            px="12"
+            py="12"
+            :style="button"
+            href="https://github.com/Dave136/vue-email"
+          >
             View on GitHub
           </e-button>
         </e-section>
@@ -55,7 +66,17 @@ Create a new email template in wherever you want to have your templates, for thi
   </e-html>
 </template>
 <script lang="ts" setup>
-import { EButton, EContainer, EHead, EHr, EHtml, EImg, EPreview, ESection, EText } from 'vue-email';
+import {
+  EButton,
+  EContainer,
+  EHead,
+  EHr,
+  EHtml,
+  EImg,
+  EPreview,
+  ESection,
+  EText,
+} from "vue-email";
 
 defineProps<{ name: string }>();
 
@@ -63,51 +84,51 @@ const fontFamily =
   '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
 
 const main = {
-  backgroundColor: '#ffffff',
+  backgroundColor: "#ffffff",
 };
 
 const container = {
-  margin: '0 auto',
-  width: '100%',
-  padding: '20px 0 48px',
+  margin: "0 auto",
+  width: "100%",
+  padding: "20px 0 48px",
 };
 
 const logo = {
-  margin: '0 auto',
-  height: '6em',
-  width: '6em',
+  margin: "0 auto",
+  height: "6em",
+  width: "6em",
 };
 
 const paragraph = {
   fontFamily,
-  fontSize: '16px',
-  lineHeight: '26px',
+  fontSize: "16px",
+  lineHeight: "26px",
 };
 
 const btnContainer = {
-  textAlign: 'center' as const,
+  textAlign: "center" as const,
 };
 
 const button = {
   fontFamily,
-  backgroundColor: '#41b883',
-  borderRadius: '3px',
-  color: '#fff',
-  fontSize: '16px',
-  textDecoration: 'none',
-  textAlign: 'center' as const,
-  display: 'block',
+  backgroundColor: "#41b883",
+  borderRadius: "3px",
+  color: "#fff",
+  fontSize: "16px",
+  textDecoration: "none",
+  textAlign: "center" as const,
+  display: "block",
 };
 
 const hr = {
-  borderColor: '#cccccc',
-  margin: '20px 0',
+  borderColor: "#cccccc",
+  margin: "20px 0",
 };
 
 const footer = {
   fontFamily,
-  color: '#8898aa',
-  fontSize: '12px',
+  color: "#8898aa",
+  fontSize: "12px",
 };
 </script>
 ```
@@ -122,7 +143,6 @@ We can use the `render` function. The value is an object with the following prop
   - `options.plainText`: Whether to render the plain text version (default: `false` for HTML)
   - `options.pretty`: Whether to pretty print the HTML output (default: `false`)
 
-
 ```vue
 // `pages/index.vue`
 <template>
@@ -132,18 +152,18 @@ We can use the `render` function. The value is an object with the following prop
 </template>
 
 <script lang="ts" setup>
-import { useRender } from 'vue-email';
-import WelcomeTemplate from '~/components/emails/welcome.vue';
+import { useRender } from "vue-email";
+import WelcomeTemplate from "~/components/emails/welcome.vue";
 
 // props to pass to the template
-const name = ref('Dave');
+const name = ref("Dave");
 
 // send email function
 const sendEmail = async () => {
   const template = await useRender(WelcomeTemplate, { name: name.value });
   // call your API endpoint to send the email
-  const data = await $fetch('/api/email', {
-    method: 'post',
+  const data = await $fetch("/api/email", {
+    method: "post",
     body: {
       template,
     },

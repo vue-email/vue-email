@@ -9,7 +9,7 @@ export function cleanCss(css: string) {
   const newCss = css
     .replace(/\\/g, '')
     // find all css selectors and look ahead for opening and closing curly braces
-    .replace(SELETORS_REGEX, (m) => {
+    .replace(SELETORS_REGEX, m => {
       return m.replace(/(?<=.)[:#\!\-[\\\]\/\.%]+/g, '_')
     })
     .replace(/font-family(?<value>[^;\r\n]+)/g, (m, value) => {
@@ -46,7 +46,7 @@ export function getMediaQueryCss(css: string) {
 
   return (
     css
-      .replace(mediaQueryRegex, (m) => {
+      .replace(mediaQueryRegex, m => {
         return m.replace(/([^{]+\{)([\s\S]+?)(\}\s*\})/gm, (_, start, content, end) => {
           const newContent = (content as string).replace(
             /(?:[\s\r\n]*)?(?<prop>[\w-]+)\s*:\s*(?<value>[^};\r\n]+)/gm,
@@ -82,7 +82,7 @@ export const styleToObject = (style: string): Record<string, string> => {
   const styles: { [key: string]: string; } = {}
   const stylePairs = style.split(';')
 
-  stylePairs.forEach((pair) => {
+  stylePairs.forEach(pair => {
     const keyValue = pair.split(':')
 
     if (keyValue.length === 2) {

@@ -1,4 +1,9 @@
 module.exports = {
   root: true,
-  extends: ['@indielayer'],
-}
+  ignorePatterns: [
+    "playground/**/*",
+    "**/*.spec.ts",
+    "packages/**/dist",
+    "package.json",
+  ],
+};

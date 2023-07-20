@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { ActiveView, ActiveLang, Template } from '@/types/email'
+import type { ActiveLang, ActiveView, Template } from '@/types/email'
 
-const props = defineProps({
+defineProps({
   slug: {
     type: String,
     required: true,
@@ -14,10 +14,10 @@ const props = defineProps({
 
 const router = useRouter()
 const route = useRoute()
-const { getEmail, sendTestEmail, sending, refresh } = useEmail()
+const { sendTestEmail, sending, refresh } = useEmail()
 const query = route.query as {
-  view?: ActiveView;
-  lang?: ActiveLang;
+  view?: ActiveView
+  lang?: ActiveLang
 }
 
 const activeView = ref<ActiveView>('desktop')
@@ -29,27 +29,29 @@ const emailSubject = ref('Testing Vue Email')
 function handleView(view: ActiveView) {
   activeView.value = view
   router.push(`${route.path}?view=${view}`)
-  if (iframeUpdate.value >= 100) iframeUpdate.value = 0
+  if (iframeUpdate.value >= 100)
+    iframeUpdate.value = 0
   iframeUpdate.value++
 }
 
 async function updateIframe() {
   refresh.value = !refresh.value
 
-  if (iframeUpdate.value >= 100) iframeUpdate.value = 0
+  if (iframeUpdate.value >= 100)
+    iframeUpdate.value = 0
   iframeUpdate.value++
 }
 
-const setlang = (lang: ActiveLang) => {
+function setlang(lang: ActiveLang) {
   activeLang.value = lang
   router.push(`${route.path}?view=source&lang=${lang}`)
 }
 
 watchEffect(() => {
   if (
-    query.view === 'source' ||
-    query.view === 'desktop' ||
-    query.view === 'mobile'
+    query.view === 'source'
+    || query.view === 'desktop'
+    || query.view === 'mobile'
   )
     activeView.value = query.view
 
@@ -163,10 +165,10 @@ watchEffect(() => {
             <UButton
               color="primary"
               :disabled="
-                !sending &&
-                  (!emailTo || !emailSubject) &&
-                  (emailSubject.trim().length === 0 ||
-                    emailTo.trim().length === 0)
+                !sending
+                  && (!emailTo || !emailSubject)
+                  && (emailSubject.trim().length === 0
+                    || emailTo.trim().length === 0)
               "
               :loading="sending"
               variant="solid"
@@ -191,7 +193,7 @@ watchEffect(() => {
         }"
         frameborder="0"
         :width="activeView === 'desktop' ? '100%' : 425"
-      ></iframe>
+      />
     </div>
     <div v-else class="flex gap-6 mx-auto p-6 max-w-screen-xl">
       <CodeContainer

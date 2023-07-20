@@ -15,12 +15,13 @@ const emailFile: any = email.value
   ? resolveComponent(email.value.component)
   : null
 
-watch(refresh, async (value) => {
+watch(refresh, async () => {
   await loadMarkups()
 })
 
 async function loadMarkups() {
-  if (!emailFile) return
+  if (!emailFile)
+    return
   const vue = await getVueCode(email.value.label)
   const html = await useRender(emailFile, null, { pretty: true })
   const plainText = await useRender(emailFile, null, { plainText: true })
