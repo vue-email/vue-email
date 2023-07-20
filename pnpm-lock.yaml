@@ -159,6 +159,9 @@ importers:
       vue:
         specifier: ^3.3.4
         version: 3.3.4
+      vue-email:
+        specifier: workspace:^
+        version: link:../packages/vue-email
       vue-router:
         specifier: ^4.2.4
         version: 4.2.4(vue@3.3.4)

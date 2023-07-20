@@ -25,8 +25,5 @@ export default defineConfig({
     }),
   ],
   resolve: {
-    alias: {
-      'vue-email': resolve(__dirname, '../packages/vue-email/src/index.ts')
-    }
   }
 })

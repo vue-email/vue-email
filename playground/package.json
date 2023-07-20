@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
+    "vue-router": "^4.2.4",
+    "vue-email": "workspace:^"
   },
   "devDependencies": {
     "vite": "^4.4.4",

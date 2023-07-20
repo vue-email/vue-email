@@ -9,29 +9,25 @@ import dts from "vite-plugin-dts";
 
 import copy from "rollup-plugin-copy";
 
-/* import analyze from 'rollup-plugin-analyzer'
- */ /* import { visualizer } from 'rollup-plugin-visualizer' */
 import { resolve } from "pathe";
 
 import { lightGreen, gray, bold, blue } from "kolorist";
 
 import pkg from "./package.json";
 
-// eslint-disable-next-line no-console
 console.log(
   `${lightGreen("🎉")} ${gray("💌")} ${bold(blue("Vue Email"))} v${pkg.version}`
 );
-// https://vitejs.dev/config/
+
 export default defineConfig({
-  server: {
-    port: 5174
-  },
   plugins: [
     vue({
       isProduction: false
     }),
     dts({
-      insertTypesEntry: true
+      insertTypesEntry: true,
+      // rollupTypes: true,
+      copyDtsFiles: true
     }),
     banner({
       content: `/**\n * name: ${pkg.name}\n * version: v${
@@ -55,6 +51,7 @@ export default defineConfig({
     threads: false
   },
   build: {
+    target: 'esnext',
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "vue-email",
@@ -63,36 +60,25 @@ export default defineConfig({
     watch: {
       include: [resolve(__dirname, "src")]
     },
-    copyPublicDir: false,
     rollupOptions: {
       plugins: [
         copy({
           targets: [
-            { src: "src/types/vue-email-components.d.ts", dest: "dist/types" }
+            { src: "./nuxt.mjs", dest: "./dist/" }
           ]
         })
-        /*   analyze(), */
-        /*    visualizer({
-          open: true,
-          gzipSize: true,
-          brotliSize: true,
-        }), */
       ],
 
-      external: ["vue", "isomorphic-dompurify"],
+      external: ["vue", "isomorphic-dompurify", 'html-to-text', 'pretty'],
       output: {
         exports: "named",
-        // Provide global variables to use in the UMD build
-        // for externalized deps
         globals: {
           vue: "Vue",
-          "isomorphic-dompurify": "isomorphic-dompurify"
-          // '@vueuse/core': 'VueUseCore',
+          "isomorphic-dompurify": "isomorphic-dompurify",
+          'html-to-text': 'html-to-text',
+          'pretty': 'pretty'
         }
       }
     }
   },
-  optimizeDeps: {
-    exclude: ["vue"]
-  }
 });

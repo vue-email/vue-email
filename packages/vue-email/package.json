@@ -27,7 +27,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/vue-email.js"
+      "import": "./dist/vue-email.js",
+      "require": "./dist/vue-email.umd.cjs"
     },
     "./components": {
       "types": "./dist/components/index.d.ts"
@@ -43,13 +44,12 @@
     },
     "./*": "./*"
   },
-  "main": "./dist/vue-email.js",
+  "type": "module",
+  "main": "./dist/vue-email.umd.cjs",
   "module": "./dist/vue-email.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "*.d.ts",
-    "nuxt.mjs"
+    "dist/**"
   ],
   "sideEffects": false,
   "publishConfig": {
