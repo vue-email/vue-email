@@ -26,8 +26,6 @@ export default defineConfig({
     }),
     dts({
       insertTypesEntry: true,
-      // rollupTypes: true,
-      copyDtsFiles: true
     }),
     banner({
       content: `/**\n * name: ${pkg.name}\n * version: v${
