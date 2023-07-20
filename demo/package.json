@@ -17,7 +17,7 @@
     "@types/node": "^20",
     "eslint": "8.45.0",
     "eslint-plugin-tailwindcss": "^3.13.0",
-    "nuxt": "^3.6.3",
+    "nuxt": "^3.6.5",
     "scule": "^1.0.0",
     "vue-email": "workspace:*",
     "vue3-code-block": "^2.2.11"
