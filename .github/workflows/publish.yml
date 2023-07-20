@@ -1,13 +1,16 @@
-name: Run Tests
-on: [push]
+name: Publish To Npm
+
+on:
+  release:
+    types: [created]
 
 env:
   PNPM_CACHE_FOLDER: .pnpm-store
   HUSKY: 0 # Bypass husky commit hook for CI
 
 jobs:
-  test:
-    name: Unit Test
+  lib-publish:
+    name: Publish Lib
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -24,7 +27,16 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
+          registry-url: "https://registry.npmjs.org"
       - name: Install dependencies
-        run: pnpm install
-      - name: Run Unit Tests
-        run: pnpm run test
+        run: pnpm install --no-frozen-lockfile
+      - name: Run linter
+        run: pnpm lint
+      - name: Run tests
+        run: pnpm test
+      - name: Build Lib
+        run: pnpm build
+      - name: Publish package to npm registry
+        run: pnpm publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
