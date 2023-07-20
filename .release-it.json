@@ -1,0 +1,24 @@
+{
+  "git": {
+    "commitMessage": "chore(release): ${version}",
+    "requireCleanWorkingDir": false
+  },
+  "github": {
+    "release": true,
+    "web": true
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "conventionalcommits",
+      "infile": "CHANGELOG.md",
+      "header": "# Changelog",
+      "ignoreRecommendedBump": true
+    }
+  },
+  "hooks": {
+    "before:init": ["pnpm run lint", "pnpm test:ci"],
+    "after:bump": "pnpm run build",
+    "after:git:release": "echo After git push, before github release",
+    "after:release": "echo Successfully released ${name} ${version} to ${repo.repository}."
+  }
+}

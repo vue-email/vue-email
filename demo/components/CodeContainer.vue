@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ActiveLang, MarkupProps } from '@/types/email'
+import type { ActiveLang, MarkupProps } from '@/types/email'
 
 const props = defineProps({
   markups: {
@@ -12,15 +12,13 @@ const props = defineProps({
   },
 })
 
-defineEmits({
-  setlang: (lang: ActiveLang) => true,
-})
+defineEmits(['setlang'])
 
 const toast = useToast()
 
 function handleDownload() {
   const value = props.markups.filter(
-    (markup) => markup.language === props.activeLang,
+    markup => markup.language === props.activeLang,
   )[0]
   const file = new File([value.content], `email.${value.language}`)
   const url = URL.createObjectURL(file)
@@ -46,7 +44,7 @@ const languageMap = {
 
 async function handleClipboard() {
   const value = props.markups.filter(
-    (markup) => markup.language === props.activeLang,
+    markup => markup.language === props.activeLang,
   )[0]
 
   await copyTextToClipboard(value.content)
@@ -79,7 +77,7 @@ async function handleClipboard() {
           <span
             v-if="activeLang === markup.language"
             class="absolute left-0 right-0 top-0 bottom-0 border-b border-b-sky-400"
-          ></span>
+          />
 
           {{ languageMap[markup.language] }}
         </button>

@@ -68,7 +68,7 @@ const render = defineComponent(() => {
 
       if (v.props && typeof v.props.style === 'object') {
         currentStyles = Object.keys(v.props.style)
-          .map((key) => {
+          .map(key => {
             return `${key}: ${v.props?.style[key]};`
           })
           .join(' ')
@@ -162,7 +162,7 @@ const render = defineComponent(() => {
       {
         ...attrs,
       },
-      $default.map((vnode) => helper(vnode)),
+      $default.map(vnode => helper(vnode)),
     )
 })
 </script>

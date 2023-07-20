@@ -1,32 +1,3 @@
-<template>
-  <EHtml>
-    <EHead />
-    <EPreview> Markdown email preview </EPreview>
-    <EBody>
-      <EContainer>
-        <ESection>
-          <EMarkdown
-            :custom-styles="{
-              h1: { color: 'red' },
-              h2: {
-                color: 'blue',
-              },
-              codeInline: {
-                background: 'grey',
-              },
-            }"
-            :container-styles="{
-              padding: '12px',
-              border: 'solid 1px black',
-            }"
-            :source="md"
-          />
-        </ESection>
-      </EContainer>
-    </EBody>
-  </EHtml>
-</template>
-
 <script setup lang="ts">
 const md = ref(`Hi [Recipient's Name],
 
@@ -82,3 +53,32 @@ hello_world()
 \`\`\`\
 `)
 </script>
+
+<template>
+  <EHtml>
+    <EHead />
+    <EPreview> Markdown email preview </EPreview>
+    <EBody>
+      <EContainer>
+        <ESection>
+          <EMarkdown
+            :custom-styles="{
+              h1: { color: 'red' },
+              h2: {
+                color: 'blue',
+              },
+              codeInline: {
+                background: 'grey',
+              },
+            }"
+            :container-styles="{
+              padding: '12px',
+              border: 'solid 1px black',
+            }"
+            :source="md"
+          />
+        </ESection>
+      </EContainer>
+    </EBody>
+  </EHtml>
+</template>

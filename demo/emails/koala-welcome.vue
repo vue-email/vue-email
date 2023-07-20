@@ -1,40 +1,3 @@
-<template>
-  <EHtml>
-    <EHead />
-    <EPreview>
-      The sales intelligence platform that helps you uncover qualified leads.
-    </EPreview>
-    <EBody :style="main">
-      <EContainer :style="container">
-        <EImg
-          src="/koala-logo.png"
-          width="170"
-          height="50"
-          alt="Koala"
-          :style="logo"
-        />
-        <EText :style="paragraph">Hi {{ userFirstname }},</EText>
-        <EText :style="paragraph">
-          Welcome to Koala, the sales intelligence platform that helps you
-          uncover qualified leads and close deals faster.
-        </EText>
-        <ESection :style="btnContainer">
-          <EButton px="12" py="12" :style="button" href="https://getkoala.com">
-            Get started
-          </EButton>
-        </ESection>
-        <EText :style="paragraph">
-          Best,
-          <br />
-          The Koala team
-        </EText>
-        <EHr :style="hr" />
-        <EText :style="footer">408 Warren Rd - San Mateo, CA 94402</EText>
-      </EContainer>
-    </EBody>
-  </EHtml>
-</template>
-
 <script setup>
 defineProps({
   userFirstname: {
@@ -87,3 +50,44 @@ const footer = {
   fontSize: '12px',
 }
 </script>
+
+<template>
+  <EHtml>
+    <EHead />
+    <EPreview>
+      The sales intelligence platform that helps you uncover qualified leads.
+    </EPreview>
+    <EBody :style="main">
+      <EContainer :style="container">
+        <EImg
+          src="/koala-logo.png"
+          width="170"
+          height="50"
+          alt="Koala"
+          :style="logo"
+        />
+        <EText :style="paragraph">
+          Hi {{ userFirstname }},
+        </EText>
+        <EText :style="paragraph">
+          Welcome to Koala, the sales intelligence platform that helps you
+          uncover qualified leads and close deals faster.
+        </EText>
+        <ESection :style="btnContainer">
+          <EButton px="12" py="12" :style="button" href="https://getkoala.com">
+            Get started
+          </EButton>
+        </ESection>
+        <EText :style="paragraph">
+          Best,
+          <br>
+          The Koala team
+        </EText>
+        <EHr :style="hr" />
+        <EText :style="footer">
+          408 Warren Rd - San Mateo, CA 94402
+        </EText>
+      </EContainer>
+    </EBody>
+  </EHtml>
+</template>

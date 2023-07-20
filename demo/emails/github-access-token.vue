@@ -1,39 +1,3 @@
-<template>
-  <EHtml>
-    <EHead />
-    <EPreview>A fine-grained personal access token has been added to your
-      account</EPreview>
-    <EBody :style="main">
-      <EContainer :style="container">
-        <EImg width="32" height="32" src="/github.png" alt="Github" />
-        <EText :style="title">
-          <strong>@{{ username }}</strong>, a personal access was created on your account.
-        </EText>
-
-        <ESection :style="section">
-          <EText :style="text">
-            Hey <strong>{{ username }}</strong>!
-          </EText>
-          <EText :style="text">
-            A fine-grained personal access token (<ELink href="#">resend</ELink>) was recently added to your account.
-          </EText>
-
-          <EButton href="#" :style="button">View your token</EButton>
-        </ESection>
-        <EText :style="links">
-          <ELink href="#" :style="link">Your security audit log</ELink>
-          ・
-          <ELink href="#" :style="link">Contact support</ELink>
-        </EText>
-
-        <EText :style="footer">
-          GitHub, Inc. ・88 Colin P Kelly Jr Street ・San Francisco, CA 94107
-        </EText>
-      </EContainer>
-    </EBody>
-  </EHtml>
-</template>
-
 <script setup lang="ts">
 import type { CSSProperties } from 'vue'
 
@@ -99,3 +63,49 @@ const footer = {
   marginTop: '60px',
 } as CSSProperties
 </script>
+
+<template>
+  <EHtml>
+    <EHead />
+    <EPreview>
+      A fine-grained personal access token has been added to your
+      account
+    </EPreview>
+    <EBody :style="main">
+      <EContainer :style="container">
+        <EImg width="32" height="32" src="/github.png" alt="Github" />
+        <EText :style="title">
+          <strong>@{{ username }}</strong>, a personal access was created on your account.
+        </EText>
+
+        <ESection :style="section">
+          <EText :style="text">
+            Hey <strong>{{ username }}</strong>!
+          </EText>
+          <EText :style="text">
+            A fine-grained personal access token (<ELink href="#">
+              resend
+            </ELink>) was recently added to your account.
+          </EText>
+
+          <EButton href="#" :style="button">
+            View your token
+          </EButton>
+        </ESection>
+        <EText :style="links">
+          <ELink href="#" :style="link">
+            Your security audit log
+          </ELink>
+          ・
+          <ELink href="#" :style="link">
+            Contact support
+          </ELink>
+        </EText>
+
+        <EText :style="footer">
+          GitHub, Inc. ・88 Colin P Kelly Jr Street ・San Francisco, CA 94107
+        </EText>
+      </EContainer>
+    </EBody>
+  </EHtml>
+</template>

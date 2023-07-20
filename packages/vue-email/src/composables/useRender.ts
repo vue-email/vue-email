@@ -4,8 +4,8 @@ import { createApp, h, type Component } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 
 export interface Options {
-  pretty: boolean;
-  plainText: boolean;
+  pretty?: boolean
+  plainText?: boolean
 }
 
 // TODO: Used only in tests, find a way to merge this with useRender later
