@@ -1,3 +1,15 @@
+<script setup lang="ts">
+const icons = [
+  'heroicons:chevron-up-down',
+  'mdi:account-circle',
+  'tabler:3d-rotate',
+  'solar:adhesive-plaster-2-outline',
+  'ph:address-book-thin',
+  'ph:apple-logo-light',
+  'twemoji:astronaut-light-skin-tone',
+]
+</script>
+
 <template>
   <EHtml>
     <EHead />
@@ -5,11 +17,9 @@
     <EBody>
       <EContainer>
         <ESection>
-          <EIcon name="heroicons:chevron-up-down" />
+          <EIcon v-for="icon in icons" :key="icon" :name="icon" />
         </ESection>
       </EContainer>
     </EBody>
   </EHtml>
 </template>
-
-<script setup lang="ts"></script>

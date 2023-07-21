@@ -24,7 +24,8 @@
     "lint:email": "pnpm -C packages/vue-email run lint",
     "test": "pnpm -C packages/vue-email run test",
     "test:ci": "pnpm -C packages/vue-email run test:ci",
-    "release": "pnpm -C packages/vue-email run release"
+    "release": "pnpm -C packages/vue-email run release",
+    "clean": "pnpm recursive exec -- rm -rf node_modules && rm -rf node_modules"
   },
   "devDependencies": {
     "eslint": "^8.45.0",

@@ -66,7 +66,6 @@ export default defineConfig({
           ]
         })
       ],
-
       external: ["vue", "isomorphic-dompurify", 'html-to-text', 'pretty'],
       output: {
         exports: "named",

@@ -12,7 +12,7 @@
     "editor.defaultFormatter": "Vue.volar"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "[typescript]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
@@ -23,5 +23,5 @@
   "testing.automaticallyOpenPeekView": "never",
   "files.associations": {
     "*.mdx": "markdown"
-  },
+  }
 }

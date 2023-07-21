@@ -5,6 +5,7 @@ export * from "./types";
 export * from "./utils";
 export * from "./components";
 
+
 export interface VueEmailOptions {
   extends?: Record<string, unknown>;
 }
@@ -14,12 +15,12 @@ export interface VueEmailPlugin {
 }
 
 const plugin: VueEmailPlugin = {
-  install(app: App) {
+  install(app: App) {    
     const Components = Object.keys(components).map(key => components[key as keyof object]);
-
     // Register core components
     Components.forEach((component: any) => {
       app.component(component.name, component);
+      
     });
   }
 };
