@@ -162,9 +162,6 @@ importers:
       '@octokit/rest':
         specifier: 19.0.7
         version: 19.0.7
-      '@react-email/render':
-        specifier: 0.0.6
-        version: 0.0.6
       chokidar:
         specifier: 3.5.3
         version: 3.5.3
@@ -325,8 +322,8 @@ importers:
         specifier: 0.5.0
         version: link:../../vue-email
       vue-email-cli:
-        specifier: workspace:*
-        version: link:../../vue-email-cli/dist
+        specifier: C:/Users/youne/Documents/coding/projects/vue-email/packages/vue-email-cli
+        version: link:../../vue-email-cli
 
   playground:
     dependencies:
