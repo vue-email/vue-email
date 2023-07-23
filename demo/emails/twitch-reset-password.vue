@@ -81,7 +81,7 @@ const link = {
       <EBody :style="main">
         <EContainer :style="container">
           <ESection :style="logo">
-            <EImg width="114" src="/twitch-logo.png" />
+            <EImg width="114" src="/static/twitch-logo.png" />
           </ESection>
           <ESection :style="sectionsBorders">
             <ERow>
@@ -131,10 +131,10 @@ const link = {
         <ESection :style="footer">
           <ERow>
             <EColumn align="right" style="width: 50%; padding-right: 8px">
-              <EImg src="/twitch-icon-twitter.png" />
+              <EImg src="/static/twitch-icon-twitter.png" />
             </EColumn>
             <EColumn align="left" style="width: 50%; padding-left: 8px">
-              <EImg src="/twitch-icon-facebook.png" />
+              <EImg src="/static/twitch-icon-facebook.png" />
             </EColumn>
           </ERow>
           <EText style="text-align: center; color: #706a7b">

@@ -1,0 +1,8 @@
+node_modules
+dist
+.next
+
+# for testing
+.vue-email
+emails
+static

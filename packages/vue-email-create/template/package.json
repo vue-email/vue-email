@@ -1,0 +1,16 @@
+{
+  "name": "emails",
+  "version": "0.0.18",
+  "private": true,
+  "workspaces": [
+    ".vue-email"
+  ],
+  "scripts": {
+    "dev": "vue-email dev",
+    "export": "vue-email export"
+  },
+  "dependencies": {
+    "vue-email": "0.5.0",
+    "vue-email-cli": "C:/Users/youne/Documents/coding/projects/vue-email/packages/vue-email-cli"
+  }
+}
