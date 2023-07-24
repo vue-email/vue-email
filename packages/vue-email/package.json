@@ -61,7 +61,8 @@
     "vue": "^3.3.4",
     "html-to-text": "^9.0.5",
     "pretty": "^2.0.0",
-    "isomorphic-dompurify": "^1.8.0"
+    "isomorphic-dompurify": "^1.8.0",
+    "tw-to-css": "^0.0.11"
   },
   "peerDependenciesMeta": {
     "@nuxt/kit": {
@@ -91,7 +92,6 @@
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-visualizer": "^5.9.2",
-    "tw-to-css": "^0.0.11",
     "typescript": "~5.1.6",
     "vite": "^4.4.7",
     "vite-plugin-banner": "^0.7.0",
