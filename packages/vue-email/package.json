@@ -59,6 +59,8 @@
     "@nuxt/kit": "^3.6.5",
     "html-to-text": "^9.0.5",
     "pretty": "^2.0.0",
+    "isomorphic-dompurify": "^1.8.0",
+    "tw-to-css": "^0.0.11",
     "vue": "^3.3.4"
   },
   "peerDependenciesMeta": {
@@ -67,8 +69,6 @@
     }
   },
   "devDependencies": {
-    "isomorphic-dompurify": "^1.8.0",
-    "tw-to-css": "^0.0.11",
     "@types/html-to-text": "^9.0.1",
     "@types/node": "^20",
     "@types/pretty": "^2.0.1",
