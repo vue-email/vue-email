@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.5.3
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.5.2...v0.5.3)
+
+### 🩹 Fixes
+
+- Updated package built files ([12980a8](https://github.com/Dave136/vue-email/commit/12980a8))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.5.2
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.5.1...v0.5.2)
