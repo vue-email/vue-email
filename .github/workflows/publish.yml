@@ -36,6 +36,8 @@ jobs:
         run: pnpm test
       - name: Build Lib
         run: pnpm build
+      - name: CD into lib folder
+        run: cd packages/vue-email
       - name: Publish package to npm registry
         run: pnpm publish --access public --no-git-checks
         env:
