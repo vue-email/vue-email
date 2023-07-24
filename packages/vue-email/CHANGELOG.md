@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.5.6
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.5.5...v0.5.6)
+
+### 🩹 Fixes
+
+- Tw-to-css missing ([5259000](https://github.com/Dave136/vue-email/commit/5259000))
+
+### 🏡 Chore
+
+- Update lock ([abe1f51](https://github.com/Dave136/vue-email/commit/abe1f51))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.5.5
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.5.4...v0.5.5)
