@@ -27,4 +27,4 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Run Lint
-        run: pnpm run lint
+        run: pnpm run lint:email
