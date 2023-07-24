@@ -32,7 +32,7 @@ const previewText = `Join ${props.invitedByUsername} on Vercel`
         >
           <ESection class="mt-[32px]">
             <EImg
-              src="/static/vercel-logo.png"
+              src="/vercel-logo.png"
               width="40"
               height="37"
               alt="Vercel"
@@ -63,14 +63,14 @@ const previewText = `Join ${props.invitedByUsername} on Vercel`
               <EColumn align="right">
                 <EImg
                   class="rounded-full"
-                  src="/static/vercel-user.png"
+                  src="/vercel-user.png"
                   width="64"
                   height="64"
                 />
               </EColumn>
               <EColumn align="center">
                 <EImg
-                  src="/static/vercel-arrow.png"
+                  src="/vercel-arrow.png"
                   width="12"
                   height="9"
                   alt="invited you to"
@@ -79,7 +79,7 @@ const previewText = `Join ${props.invitedByUsername} on Vercel`
               <EColumn align="left">
                 <EImg
                   class="rounded-full"
-                  src="/static/vercel-team.png"
+                  src="/vercel-team.png"
                   width="64"
                   height="64"
                 />

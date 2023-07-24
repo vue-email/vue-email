@@ -1,5 +1,4 @@
 {
-  "name": "demo",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -9,16 +8,14 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "0.39.8",
     "@iconify-json/heroicons": "^1.1.11",
     "@iconify-json/ph": "^1.1.5",
     "@nuxt/devtools": "latest",
     "@nuxthq/ui": "^2.6.0",
     "@types/node": "^20",
-    "eslint": "8.45.0",
     "nuxt": "^3.6.5",
     "scule": "^1.0.0",
-    "vue-email": "workspace:*",
+    "vue-email": "0.5.0",
     "vue3-code-block": "^2.2.12"
   }
 }

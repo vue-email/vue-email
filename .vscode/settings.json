@@ -9,7 +9,7 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[vue]": {
-    "editor.defaultFormatter": "Vue.volar"
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -23,5 +23,5 @@
   "testing.automaticallyOpenPeekView": "never",
   "files.associations": {
     "*.mdx": "markdown"
-  },
+  }
 }

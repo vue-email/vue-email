@@ -69,12 +69,7 @@ const footer = {
             You can view your payments and a variety of other information about
             your account right from your dashboard.
           </EText>
-          <EButton
-            px="10"
-            py="10"
-            :style="button"
-            href="https://dashboard.stripe.com/login"
-          >
+          <EButton px="10" py="10" :style="button" href="https://dashboard.stripe.com/login">
             View your Stripe Dashboard
           </EButton>
           <EHr :style="hr" />
@@ -88,10 +83,7 @@ const footer = {
           <EText :style="paragraph">
             Once you're ready to start accepting payments, you'll just need to
             use your live
-            <ELink
-              :style="anchor"
-              href="https://dashboard.stripe.com/login?redirect=%2Fapikeys"
-            >
+            <ELink :style="anchor" href="https://dashboard.stripe.com/login?redirect=%2Fapikeys">
               API keys
             </ELink>
             instead of your test API keys. Your account can simultaneously be
@@ -104,10 +96,7 @@ const footer = {
           </EText>
           <EText :style="paragraph">
             Finally, we've put together a
-            <ELink
-              :style="anchor"
-              href="https://stripe.com/docs/checklist/website"
-            >
+            <ELink :style="anchor" href="https://stripe.com/docs/checklist/website">
               quick checklist
             </ELink>
             to ensure your website conforms to card network standards.

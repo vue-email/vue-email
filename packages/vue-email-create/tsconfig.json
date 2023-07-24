@@ -1,0 +1,7 @@
+{
+  "extends": "@tsconfig/node20/tsconfig.json",
+  "include": ["src/index.ts", "src/utils/**/*"],
+  "compilerOptions": {
+    "strict": false
+  }
+}

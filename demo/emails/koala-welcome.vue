@@ -59,13 +59,7 @@ const footer = {
     </EPreview>
     <EBody :style="main">
       <EContainer :style="container">
-        <EImg
-          src="/koala-logo.png"
-          width="170"
-          height="50"
-          alt="Koala"
-          :style="logo"
-        />
+        <EImg src="/static/koala-logo.png" width="170" height="50" alt="Koala" :style="logo" />
         <EText :style="paragraph">
           Hi {{ userFirstname }},
         </EText>

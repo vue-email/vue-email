@@ -79,11 +79,11 @@ const containerImageFooter = {
     <EBody :style="main">
       <EContainer>
         <ESection :style="logo">
-          <EImg src="/static/yelp-logo.png" />
+          <EImg src="/yelp-logo.png" />
         </ESection>
 
         <ESection :style="content">
-          <EImg width="620" src="/static/yelp-header.png" />
+          <EImg width="620" src="/yelp-header.png" />
 
           <ERow
             :style="{
@@ -149,7 +149,7 @@ const containerImageFooter = {
         </ESection>
 
         <ESection :style="containerImageFooter">
-          <EImg width="620" src="/static/yelp-footer.png" />
+          <EImg width="620" src="/yelp-footer.png" />
         </ESection>
 
         <EText

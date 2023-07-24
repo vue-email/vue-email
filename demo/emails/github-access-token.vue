@@ -73,7 +73,7 @@ const footer = {
     </EPreview>
     <EBody :style="main">
       <EContainer :style="container">
-        <EImg width="32" height="32" src="/github.png" alt="Github" />
+        <EImg width="32" height="32" src="/static/github.png" alt="Github" />
         <EText :style="title">
           <strong>@{{ username }}</strong>, a personal access was created on your account.
         </EText>
