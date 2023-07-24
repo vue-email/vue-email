@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.5.5
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.5.4...v0.5.5)
+
+### 🩹 Fixes
+
+- Failing tests ([0c005b9](https://github.com/Dave136/vue-email/commit/0c005b9))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.5.4
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.5.3...v0.5.4)
