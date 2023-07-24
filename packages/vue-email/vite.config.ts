@@ -29,7 +29,7 @@ export default defineConfig({
     },
     rollupOptions: {
       // preserveModules: true,
-      external: ['vue'],
+      external: ['vue', 'tw-to-css', 'html-to-text', 'pretty', 'isomorphic-dompurify'],
       output: {
         exports: 'named',
         globals: {

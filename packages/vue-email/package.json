@@ -49,7 +49,7 @@
     "dev": "vite build --watch",
     "build": "vite build  && pnpm gen-types",
     "gen-types": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.vitest.json --composite false",
-    "test": "vitest",
+    "test": "vitest --environment jsdom",
     "test:ci": "vitest run",
     "test:ui": "vitest --ui",
     "release": "changelogen --release --push",
@@ -58,7 +58,10 @@
   },
   "peerDependencies": {
     "@nuxt/kit": "^3.6.5",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "html-to-text": "^9.0.5",
+    "pretty": "^2.0.0",
+    "isomorphic-dompurify": "^1.8.0"
   },
   "peerDependenciesMeta": {
     "@nuxt/kit": {
@@ -84,10 +87,7 @@
     "@vue/tsconfig": "^0.4.0",
     "changelogen": "^0.5.4",
     "eslint-plugin-cypress": "^2.13.3",
-    "html-to-text": "^9.0.5",
-    "isomorphic-dompurify": "^1.8.0",
     "jsdom": "^22.1.0",
-    "pretty": "^2.0.0",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-visualizer": "^5.9.2",
