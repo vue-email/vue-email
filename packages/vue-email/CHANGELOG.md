@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.5.9
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.5.8...v0.5.9)
+
+### 🏡 Chore
+
+- Added back external libs ([61ec574](https://github.com/Dave136/vue-email/commit/61ec574))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.5.8
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.5.7...v0.5.8)
