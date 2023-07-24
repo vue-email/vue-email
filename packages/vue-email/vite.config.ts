@@ -7,8 +7,6 @@ import banner from "vite-plugin-banner";
 import Inspect from "vite-plugin-inspect";
 import dts from "vite-plugin-dts";
 
-import copy from "rollup-plugin-copy";
-
 import { resolve } from "pathe";
 
 import { lightGreen, gray, bold, blue } from "kolorist";
@@ -59,14 +57,11 @@ export default defineConfig({
       include: [resolve(__dirname, "src")]
     },
     rollupOptions: {
-      external: ["vue", "isomorphic-dompurify", 'html-to-text', 'pretty'],
+      external: ["vue"],
       output: {
         exports: "named",
         globals: {
           vue: "Vue",
-          "isomorphic-dompurify": "isomorphic-dompurify",
-          'html-to-text': 'html-to-text',
-          'pretty': 'pretty'
         }
       }
     }
