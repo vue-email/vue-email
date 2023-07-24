@@ -28,7 +28,7 @@
       "import": "./dist/vue-email.js",
       "require": "./dist/vue-email.umd.cjs"
     },
-    "./nuxt": "./dist/nuxt.js"
+    "./nuxt": "./nuxt.js"
   },
   "type": "module",
   "main": "./dist/vue-email.umd.cjs",
@@ -38,7 +38,8 @@
     "dist",
     "src",
     "*.d.ts",
-    "README.md"
+    "README.md",
+    "nuxt.js"
   ],
   "sideEffects": false,
   "publishConfig": {

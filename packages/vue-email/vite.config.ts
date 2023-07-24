@@ -18,7 +18,6 @@ console.log(
 );
 
 export default defineConfig({
-  publicDir: './src/exports',
   plugins: [
     vue({
       isProduction: false

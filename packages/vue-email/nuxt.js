@@ -12,16 +12,16 @@ export default defineNuxtModule({
     const { resolve } = createResolver(import.meta.url);
 
     nuxt.hook("prepare:types", ({ references }) => {
-      references.push({ types: "../src/types" });
+      references.push({ types: "./src/types" });
     });
 
     // nuxt install
     addComponentsDir({
-      path: fileURLToPath(new URL("../src/components", import.meta.url)),
+      path: fileURLToPath(new URL("./src/components", import.meta.url)),
       extensions: ["vue", "tsx"],
       prefix: "E"
     });
 
-    addImportsDir(resolve("../src/composables"));
+    addImportsDir(resolve("./src/composables"));
   }
 });
