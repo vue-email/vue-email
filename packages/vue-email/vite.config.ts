@@ -1,69 +1,46 @@
 /// <reference types="vitest" />
+import { fileURLToPath, URL } from 'url'
+import path from 'path'
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
-import { defineConfig } from "vite";
-
-import vue from "@vitejs/plugin-vue";
-import banner from "vite-plugin-banner";
-import Inspect from "vite-plugin-inspect";
-import dts from "vite-plugin-dts";
-
-import { resolve } from "pathe";
-
-import { lightGreen, gray, bold, blue } from "kolorist";
-
-import pkg from "./package.json";
-
-console.log(
-  `${lightGreen("🎉")} ${gray("💌")} ${bold(blue("Vue Email"))} v${pkg.version}`
-);
-
+// https://vitejs.dev/config/
 export default defineConfig({
+  publicDir: './src/exports',
   plugins: [
-    vue({
-      isProduction: false
-    }),
-    dts({
-      insertTypesEntry: true,
-    }),
-    banner({
-      content: `/**\n * name: ${pkg.name}\n * version: v${
-        pkg.version
-      }\n * (c) ${new Date().getFullYear()}\n * description: ${
-        pkg.description
-      }\n * maintainers: ${
-        pkg.maintainers
-          .map(
-            ({ name, email, url }) =>
-              `${name} (${email})${url ? ` - ${url}` : ""}`
-          )
-          .join(", ") || "none"
-      }\n */`
-    }),
-    Inspect()
+    vue(),
+    vueJsx(),
   ],
-  test: {
-    environment: "jsdom",
-    globals: true,
-    threads: false
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
   },
   build: {
-    target: 'esnext',
+    outDir: 'lib',
     lib: {
-      entry: resolve(__dirname, "src/index.ts"),
-      name: "vue-email",
-      fileName: "vue-email"
-    },
-    watch: {
-      include: [resolve(__dirname, "src")]
+      entry: path.resolve(__dirname, 'src/index.ts'),
+      name: 'VueEmail',
+      formats: ['es', 'cjs'],
+      fileName: format => {
+        return `[name].${format}.js`
+      },
     },
     rollupOptions: {
-      external: ["vue"],
+      // preserveModules: true,
+      external: ['vue'],
       output: {
-        exports: "named",
+        exports: 'named',
         globals: {
-          vue: "Vue",
-        }
-      }
-    }
+          vue: 'Vue',
+        },
+      },
+    },
   },
-});
+  test: {
+    transformMode: {
+      web: [/\.[jt]sx$/],
+    },
+  },
+})

@@ -10,6 +10,9 @@ export default defineNuxtModule({
   meta: {
     name: "vue-email",
     configKey: "vueEmail",
+    compatibility: {
+      nuxt: "^3.0.0-rc.1",
+    },
   },
   defaults: {},
   setup(options, nuxt) {
@@ -17,16 +20,16 @@ export default defineNuxtModule({
     const { resolve } = createResolver(import.meta.url);
 
     nuxt.hook("prepare:types", ({ references }) => {
-      references.push({ types: "./dist/types" });
+      references.push({ types: "../src/types" });
     });
 
     // nuxt install
     addComponentsDir({
-      path: fileURLToPath(new URL("./dist/components", import.meta.url)),
+      path: fileURLToPath(new URL("../src/components", import.meta.url)),
       extensions: ["vue", "tsx"],
       prefix: "E",
     });
 
-    addImportsDir(resolve("./dist/composables"));
+    addImportsDir(resolve("../src/composables"));
   },
 });
