@@ -14,9 +14,6 @@ importers:
       eslint:
         specifier: ^8.45.0
         version: 8.45.0
-      pathe:
-        specifier: ^1.1.1
-        version: 1.1.1
 
   demo:
     devDependencies:
@@ -51,8 +48,8 @@ importers:
         specifier: 0.5.6
         version: link:../packages/vue-email
       vue3-code-block:
-        specifier: ^2.2.11
-        version: 2.2.11
+        specifier: ^2.2.12
+        version: 2.2.12
 
   docs:
     devDependencies:
@@ -193,6 +190,9 @@ importers:
         specifier: ^4.2.4
         version: 4.2.4(vue@3.3.4)
     devDependencies:
+      pathe:
+        specifier: ^1.1.1
+        version: 1.1.1
       unocss:
         specifier: ^0.53.5
         version: 0.53.5(postcss@8.4.27)(vite@4.4.4)
@@ -11398,9 +11398,8 @@ packages:
       typescript: 5.1.6
     dev: true
 
-  /vue3-code-block@2.2.11:
-    resolution: {integrity: sha512-oOYzZWmgKqQh2oudesRU9wsIdhKZKl5w2MqOd//NFTIeKzh0zJbvtgtpqiih3/uuz1tf+1esiua4CTlwd9z7TA==}
-    engines: {node: ^19.0.1}
+  /vue3-code-block@2.2.12:
+    resolution: {integrity: sha512-tvpr1GJDv7Zfln7I56U/OHUlgHQeVWpeyEictgedZV4EIQzsdXfTKmi8jCHpkEmMm9wq4iSN1qpUUZVd8eATtg==}
     dependencies:
       highlight.js: 11.8.0
       prismjs: 1.29.0

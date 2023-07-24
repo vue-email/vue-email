@@ -28,7 +28,6 @@
   },
   "devDependencies": {
     "eslint": "^8.45.0",
-    "pathe": "^1.1.1",
     "@vitejs/plugin-vue": "^4.2.3"
   },
   "volta": {

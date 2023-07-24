@@ -19,7 +19,7 @@
     "nuxt": "^3.6.5",
     "scule": "^1.0.0",
     "vue-email": "0.5.6",
-    "vue3-code-block": "^2.2.11"
+    "vue3-code-block": "^2.2.12"
   },
   "eslintConfig": {
     "extends": [
