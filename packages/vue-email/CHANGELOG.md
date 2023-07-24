@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.5.10
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.5.9...v0.5.10)
+
+### 🏡 Chore
+
+- **release:** V0.5.9 ([cce43c2](https://github.com/Dave136/vue-email/commit/cce43c2))
+- Removed tw-to-css from external libs ([2001669](https://github.com/Dave136/vue-email/commit/2001669))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.5.9
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.5.8...v0.5.9)
