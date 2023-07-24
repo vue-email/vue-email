@@ -23,46 +23,44 @@
       "url": "https://github.com/Flowko"
     }
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/vue-email.js",
+      "require": "./dist/vue-email.umd.cjs"
+    },
+    "./nuxt": "./dist/nuxt.js"
+  },
   "type": "module",
-  "packageManager": "pnpm@8.6.7",
+  "main": "./dist/vue-email.umd.cjs",
+  "module": "./dist/vue-email.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "lib",
+    "dist",
     "src",
     "*.d.ts",
     "README.md"
   ],
-  "main": "lib/index.cjs.js",
-  "module": "lib/index.es.js",
-  "typings": "lib/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./lib/index.es.js",
-      "require": "./lib/index.cjs.js"
-    },
-    "./nuxt": "./lib/nuxt.js"
-  },
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "dev": "vite build --watch",
-    "build": "vite build  && pnpm gen-types",
-    "gen-types": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.vitest.json --composite false",
-    "test": "vitest --environment jsdom",
+    "build": "vite build",
+    "test": "vitest",
     "test:ci": "vitest run",
     "test:ui": "vitest --ui",
-    "release": "changelogen --release --push",
+    "release": "changelogen --release",
     "coverage": "vitest run --coverage",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.vue"
   },
   "peerDependencies": {
     "@nuxt/kit": "^3.6.5",
-    "vue": "^3.3.4",
     "html-to-text": "^9.0.5",
-    "pretty": "^2.0.0",
     "isomorphic-dompurify": "^1.8.0",
-    "tw-to-css": "^0.0.11"
+    "pretty": "^2.0.0",
+    "tw-to-css": "^0.0.11",
+    "vue": "^3.3.4"
   },
   "peerDependenciesMeta": {
     "@nuxt/kit": {
@@ -70,46 +68,28 @@
     }
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.3.2",
-    "@typescript-eslint/eslint-plugin": "^6.1.0",
-    "@indielayer/stylelint-config": "^1.0.0",
-    "@typescript-eslint/parser": "^6.1.0",
-    "eslint": "^8.45.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-vue": "^9.15.1",
-    "@tsconfig/node20": "^20.1.0",
     "@types/html-to-text": "^9.0.1",
-    "@types/jsdom": "^20",
-    "@types/node": "^20.2.3",
+    "@types/node": "^20",
     "@types/pretty": "^2.0.1",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
     "@vitest/coverage-c8": "^0.33.0",
     "@vitest/ui": "^0.33.0",
     "@vue/test-utils": "^2.4.1",
-    "@vue/tsconfig": "^0.4.0",
     "changelogen": "^0.5.4",
-    "eslint-plugin-cypress": "^2.13.3",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-vue": "^9.15.1",
     "jsdom": "^22.1.0",
-    "rollup-plugin-analyzer": "^4.0.0",
-    "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-visualizer": "^5.9.2",
-    "typescript": "~5.1.6",
     "vite": "^4.4.7",
     "vite-plugin-banner": "^0.7.0",
     "vite-plugin-dts": "3.3.1",
     "vite-plugin-inspect": "^0.7.33",
     "vite-plugin-require-transform": "^1.0.21",
     "vitest": "^0.33.0",
-    "vue": "^3.3.4",
-    "vue-tsc": "^1.8.6",
-    "@vitejs/plugin-vue": "^4.2.3",
-    "@vitejs/plugin-vue-jsx": "^3.0.1",
-    "@indielayer/eslint-config-vue": "^3.2.0"
+    "vue": "^3.3.4"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
   "bugs": {
     "url": "https://github.com/Dave136/vue-email/issues"
   },

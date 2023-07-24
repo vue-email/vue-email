@@ -1,16 +1,13 @@
-name: Publish To Npm
-
-on:
-  release:
-    types: [created]
+name: Run linters
+on: [push]
 
 env:
   PNPM_CACHE_FOLDER: .pnpm-store
   HUSKY: 0 # Bypass husky commit hook for CI
 
 jobs:
-  lib-publish:
-    name: Publish Lib
+  lint:
+    name: Lint
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -27,16 +24,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
-          registry-url: "https://registry.npmjs.org"
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
-      - name: Run linter
-        run: pnpm lint
-      - name: Run tests
-        run: pnpm test
-      - name: Build Lib
-        run: pnpm build
-      - name: Publish package to npm registry
-        run: cd ./packages/vue-email && pnpm publish --access public --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+        run: pnpm install
+      - name: Run Lint
+        run: pnpm run lint
