@@ -4,10 +4,6 @@ on:
   release:
     types: [created]
 
-env:
-  PNPM_CACHE_FOLDER: .pnpm-store
-  HUSKY: 0 # Bypass husky commit hook for CI
-
 jobs:
   lib-publish:
     name: Publish Lib
@@ -21,7 +17,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 8.6.9
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -31,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
       - name: Run linter
-        run: pnpm lint
+        run: pnpm lint:ui
       - name: Run tests
         run: pnpm test
       - name: Build Lib
