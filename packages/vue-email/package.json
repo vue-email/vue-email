@@ -62,7 +62,7 @@
     "test": "vitest",
     "test:ci": "vitest run",
     "test:ui": "vitest --ui",
-    "release": "changelogen --release",
+    "release": "changelogen --release --push",
     "coverage": "vitest run --coverage",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.vue"
   },
