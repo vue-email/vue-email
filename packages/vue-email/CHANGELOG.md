@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.5.4
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.5.3...v0.5.4)
+
+### 🩹 Fixes
+
+- Minor fixes to package build ([90bd8cc](https://github.com/Dave136/vue-email/commit/90bd8cc))
+- Updated build process ([78283a1](https://github.com/Dave136/vue-email/commit/78283a1))
+- Temp fix for nuxt ([42a0cf7](https://github.com/Dave136/vue-email/commit/42a0cf7))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.5.3
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.5.2...v0.5.3)
