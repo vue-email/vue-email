@@ -59,14 +59,6 @@ export default defineConfig({
       include: [resolve(__dirname, "src")]
     },
     rollupOptions: {
-      plugins: [
-        copy({
-          targets: [
-            { src: "./nuxt.mjs", dest: "./dist/" }
-          ]
-        })
-      ],
-
       external: ["vue", "isomorphic-dompurify", 'html-to-text', 'pretty'],
       output: {
         exports: "named",
