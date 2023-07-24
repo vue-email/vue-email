@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.5.2
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.5.1...v0.5.2)
+
+### 🩹 Fixes
+
+- Nuxt integration - external libraries ([1576f2b](https://github.com/Dave136/vue-email/commit/1576f2b))
+
+### 🏡 Chore
+
+- Updated publish workflow ([a340167](https://github.com/Dave136/vue-email/commit/a340167))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.5.1
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.5.0...v0.5.1)
