@@ -1,9 +1,16 @@
+import { resolve } from 'node:path'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  alias: {
+    'vue-email': resolve(__dirname, '../packages/vue-email/src/index.ts'),
+    'vue-email/nuxt': resolve(__dirname, '../packages/vue-email/src/nuxt.mjs'),
+  },
   modules: ['@nuxthq/ui', 'vue-email/nuxt'],
   typescript: {
     shim: false,
+    includeWorkspace: true,
   },
   ui: {
     global: true,
