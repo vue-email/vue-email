@@ -1,5 +1,4 @@
-import { addComponent } from "@nuxt/kit";
-import { defineNuxtModule, addImportsSources } from "@nuxt/kit";
+import { defineNuxtModule, addImportsSources, addComponent } from "@nuxt/kit";
 
 const components = [
   'EBody',
@@ -28,10 +27,10 @@ export default defineNuxtModule({
     configKey: "vueEmail"
   },
   defaults: {},
-  setup(options, nuxt) {
+  setup() {
     components.forEach(component => {
       addComponent({
-        name: options.componentNames?.[component] ?? component,
+        name: component,
         export: component,
         filePath: 'vue-email',
       });
@@ -39,11 +38,7 @@ export default defineNuxtModule({
 
     addImportsSources({
       from: 'vue-email',
-      imports: [
-        {
-          name: 'useRender',
-        }
-      ]
+      imports: ['useRender']
     })
   }
 });
