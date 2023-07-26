@@ -44,9 +44,6 @@ importers:
       scule:
         specifier: ^1.0.0
         version: 1.0.0
-      vue-email:
-        specifier: workspace:*
-        version: link:../packages/vue-email
       vue3-code-block:
         specifier: ^2.2.12
         version: 2.2.12
