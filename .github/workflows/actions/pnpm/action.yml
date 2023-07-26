@@ -23,5 +23,5 @@ runs:
       shell: bash
 
     - name: install dependencies
-      run: pnpm install --shamefully-hoist
+      run: pnpm install --force --shamefully-hoist
       shell: bash
