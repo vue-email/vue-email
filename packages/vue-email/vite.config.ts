@@ -19,9 +19,7 @@ console.log(
 
 export default defineConfig({
   plugins: [
-    vue({
-      isProduction: false
-    }),
+    vue(),
     dts({
       insertTypesEntry: true,
     }),
@@ -44,7 +42,6 @@ export default defineConfig({
     threads: false
   },
   build: {
-    target: 'esnext',
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "vue-email",
@@ -54,17 +51,11 @@ export default defineConfig({
       include: [resolve(__dirname, "src")]
     },
     rollupOptions: {
-      external: ["vue", "isomorphic-dompurify",'html-to-text', 'pretty',
-      // 'tw-to-css'
-      ],
+      external: ["vue", 'html-to-text', 'pretty', 'isomorphic-dompurify'],
       output: {
         exports: "named",
         globals: {
           vue: "Vue",
-          "isomorphic-dompurify": "DOMPurify",
-          'html-to-text': 'htmlToText',
-          'pretty': 'pretty',
-          // 'tw-to-css': 'twToCss'
         }
       }
     }
