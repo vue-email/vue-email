@@ -1,5 +1,29 @@
 # Changelog
 
+## v0.5.12
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.5.11...v0.5.12)
+
+### 🩹 Fixes
+
+- Removed lock ([65d8244](https://github.com/Dave136/vue-email/commit/65d8244))
+- Fixed demo nuxt issues ([2c2bd0c](https://github.com/Dave136/vue-email/commit/2c2bd0c))
+- Added alias to nuxt config ([1df2f20](https://github.com/Dave136/vue-email/commit/1df2f20))
+
+### 🏡 Chore
+
+- **release:** V0.5.11 ([a5d9b95](https://github.com/Dave136/vue-email/commit/a5d9b95))
+- Added --force to actions ([aef878b](https://github.com/Dave136/vue-email/commit/aef878b))
+- Update lock ([ba84b9c](https://github.com/Dave136/vue-email/commit/ba84b9c))
+- Added vue-email in nuxt demo ([02652c2](https://github.com/Dave136/vue-email/commit/02652c2))
+- Removed lock ([0aa78e2](https://github.com/Dave136/vue-email/commit/0aa78e2))
+- Added lock ([d92b4bc](https://github.com/Dave136/vue-email/commit/d92b4bc))
+- Updated package ([a3c255c](https://github.com/Dave136/vue-email/commit/a3c255c))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.5.11
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.5.10...v0.5.11)
