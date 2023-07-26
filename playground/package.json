@@ -19,6 +19,7 @@
     "unplugin-auto-import": "^0.16.6",
     "unocss": "^0.53.5",
     "unplugin": "^1.4.0",
-    "unplugin-vue-components": "^0.25.1"
+    "unplugin-vue-components": "^0.25.1",
+    "pathe": "^1.1.1"
   }
 }

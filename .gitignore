@@ -89,6 +89,3 @@ sw.*
 # Vim swap files
 *.swp
 starter
-
-# local vue demo
-vue-demo

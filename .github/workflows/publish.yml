@@ -31,12 +31,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
       - name: Run linter
-        run: pnpm lint
+        run: pnpm lint:email
       - name: Run tests
         run: pnpm test
       - name: Build Lib
         run: pnpm build
       - name: Publish package to npm registry
-        run: pnpm publish --access public --no-git-checks
+        run: cd ./packages/vue-email && pnpm publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}

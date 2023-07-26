@@ -1,5 +1,25 @@
-import { defineNuxtModule, createResolver, addComponentsDir, addImportsDir } from "@nuxt/kit";
-import { fileURLToPath } from "node:url";
+import { defineNuxtModule, addImportsSources, addComponent } from "@nuxt/kit";
+
+const components = [
+  'EBody',
+  'EButton',
+  'EColumn',
+  'EContainer',
+  'EFont',
+  'EHead',
+  'EHeading',
+  'EHr',
+  'EHtml',
+  'EImg',
+  'ELink',
+  'EPreview',
+  'ERow',
+  'ESection',
+  'EText',
+  'ETailwind',
+  'EMarkdown'
+];
+
 
 export default defineNuxtModule({
   meta: {
@@ -7,21 +27,18 @@ export default defineNuxtModule({
     configKey: "vueEmail"
   },
   defaults: {},
-  setup(options, nuxt) {
-    // Create resolver to resolve relative paths
-    const { resolve } = createResolver(import.meta.url);
-
-    nuxt.hook("prepare:types", ({ references }) => {
-      references.push({ types: "./src/types" });
+  setup() {
+    components.forEach(component => {
+      addComponent({
+        name: component,
+        export: component,
+        filePath: 'vue-email',
+      });
     });
 
-    // nuxt install
-    addComponentsDir({
-      path: fileURLToPath(new URL("./src/components", import.meta.url)),
-      extensions: ["vue", "tsx"],
-      prefix: "E"
-    });
-
-    addImportsDir(resolve("./src/composables"));
+    addImportsSources({
+      from: 'vue-email',
+      imports: ['useRender']
+    })
   }
 });

@@ -7,8 +7,6 @@ import banner from "vite-plugin-banner";
 import Inspect from "vite-plugin-inspect";
 import dts from "vite-plugin-dts";
 
-import copy from "rollup-plugin-copy";
-
 import { resolve } from "pathe";
 
 import { lightGreen, gray, bold, blue } from "kolorist";
@@ -21,25 +19,20 @@ console.log(
 
 export default defineConfig({
   plugins: [
-    vue({
-      isProduction: false
-    }),
+    vue(),
     dts({
       insertTypesEntry: true,
     }),
     banner({
-      content: `/**\n * name: ${pkg.name}\n * version: v${
-        pkg.version
-      }\n * (c) ${new Date().getFullYear()}\n * description: ${
-        pkg.description
-      }\n * maintainers: ${
-        pkg.maintainers
+      content: `/**\n * name: ${pkg.name}\n * version: v${pkg.version
+        }\n * (c) ${new Date().getFullYear()}\n * description: ${pkg.description
+        }\n * maintainers: ${pkg.maintainers
           .map(
             ({ name, email, url }) =>
               `${name} (${email})${url ? ` - ${url}` : ""}`
           )
           .join(", ") || "none"
-      }\n */`
+        }\n */`
     }),
     Inspect()
   ],
@@ -49,7 +42,6 @@ export default defineConfig({
     threads: false
   },
   build: {
-    target: 'esnext',
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "vue-email",
@@ -59,22 +51,11 @@ export default defineConfig({
       include: [resolve(__dirname, "src")]
     },
     rollupOptions: {
-      plugins: [
-        copy({
-          targets: [
-            { src: "./nuxt.mjs", dest: "./dist/" }
-          ]
-        })
-      ],
-
-      external: ["vue", "isomorphic-dompurify", 'html-to-text', 'pretty'],
+      external: ["vue", 'html-to-text', 'pretty', 'isomorphic-dompurify'],
       output: {
         exports: "named",
         globals: {
           vue: "Vue",
-          "isomorphic-dompurify": "isomorphic-dompurify",
-          'html-to-text': 'html-to-text',
-          'pretty': 'pretty'
         }
       }
     }

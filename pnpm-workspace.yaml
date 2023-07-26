@@ -1,5 +1,5 @@
 packages:
-  - 'packages/**'
-  - 'docs'
-  - 'demo'
-  - 'playground'
+  - "packages/**"
+  - "docs"
+  - "demo"
+  - "playground"

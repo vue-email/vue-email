@@ -1,6 +1,6 @@
 {
   "name": "vue-email",
-  "version": "0.5.0",
+  "version": "0.5.12",
   "description": "💌 Write email templates with Vue",
   "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
   "keywords": [
@@ -23,33 +23,24 @@
       "url": "https://github.com/Flowko"
     }
   ],
-  "packageManager": "pnpm@8.6.7",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
       "import": "./dist/vue-email.js",
-      "require": "./dist/vue-email.umd.cjs"
+      "require": "./dist/vue-email.umd.cjs",
+      "types": "./dist/index.d.ts"
     },
-    "./components": {
-      "types": "./dist/components/index.d.ts"
-    },
-    "./composables": {
-      "types": "./dist/composables/index.d.ts"
-    },
-    "./types": {
-      "types": "./dist/types/index.d.ts"
-    },
-    "./utils": {
-      "types": "./dist/utils/index.d.ts"
-    },
-    "./*": "./*"
+    "./nuxt": "./nuxt.mjs"
   },
   "type": "module",
   "main": "./dist/vue-email.umd.cjs",
   "module": "./dist/vue-email.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist/**"
+    "dist",
+    "*.d.ts",
+    "README.md",
+    "nuxt.mjs",
+    "LICENSE"
   ],
   "sideEffects": false,
   "publishConfig": {
@@ -65,8 +56,13 @@
     "coverage": "vitest run --coverage",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.vue"
   },
+  "dependencies": {
+    "html-to-text": "^9.0.5",
+    "pretty": "^2.0.0",
+    "isomorphic-dompurify": "^1.8.0"
+  },
   "peerDependencies": {
-    "@nuxt/kit": "^3.6.3",
+    "@nuxt/kit": "^3.6.5",
     "vue": "^3.3.4"
   },
   "peerDependenciesMeta": {
@@ -76,26 +72,21 @@
   },
   "devDependencies": {
     "@types/html-to-text": "^9.0.1",
-    "@types/node": "^20",
     "@types/pretty": "^2.0.1",
-    "@typescript-eslint/eslint-plugin": "^6.1.0",
-    "@typescript-eslint/parser": "^6.1.0",
+    "tw-to-css": "^0.0.11",
+    "@types/node": "^20",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
     "@vitest/coverage-c8": "^0.33.0",
     "@vitest/ui": "^0.33.0",
-    "@vue/test-utils": "^2.4.0",
+    "@vue/test-utils": "^2.4.1",
     "changelogen": "^0.5.4",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-vue": "^9.15.1",
-    "html-to-text": "^9.0.5",
-    "isomorphic-dompurify": "^1.8.0",
     "jsdom": "^22.1.0",
-    "pretty": "^2.0.0",
-    "rollup-plugin-analyzer": "^4.0.0",
-    "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-visualizer": "^5.9.2",
-    "tw-to-css": "^0.0.11",
-    "vite": "^4.4.4",
+    "vite": "^4.4.7",
     "vite-plugin-banner": "^0.7.0",
     "vite-plugin-dts": "3.3.1",
     "vite-plugin-inspect": "^0.7.33",
