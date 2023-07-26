@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.5.11
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.5.10...v0.5.11)
+
+### 🩹 Fixes
+
+- Resolved auto imports for nuxt ([cc57bb5](https://github.com/Dave136/vue-email/commit/cc57bb5))
+- Disabled nuxt demo for now ([05b2c25](https://github.com/Dave136/vue-email/commit/05b2c25))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.5.10
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.5.9...v0.5.10)
