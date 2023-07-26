@@ -1,6 +1,5 @@
 {
   "name": "demo",
-  "private": true,
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -18,7 +17,8 @@
     "eslint-plugin-tailwindcss": "^3.13.0",
     "nuxt": "^3.6.5",
     "scule": "^1.0.0",
-    "vue3-code-block": "^2.2.12"
+    "vue3-code-block": "^2.2.12",
+    "vue-email": "workspace:*"
   },
   "eslintConfig": {
     "extends": [
