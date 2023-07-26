@@ -45,7 +45,7 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       vue-email:
-        specifier: workspace:*
+        specifier: 0.5.11
         version: link:../packages/vue-email
       vue3-code-block:
         specifier: ^2.2.12
