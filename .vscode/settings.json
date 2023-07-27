@@ -1,27 +1,17 @@
 {
-  "search.exclude": {
-    "packages/ui/lib": true,
-    "pnpm-lock.yaml": true
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[vue]": {
-    "editor.defaultFormatter": "Vue.volar"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-  },
-  "scss.lint.unknownAtRules": "ignore",
-  "css.lint.unknownAtRules": "ignore",
-  "eslint.workingDirectories": ["demo/", "packages/"],
-  "testing.automaticallyOpenPeekView": "never",
-  "files.associations": {
-    "*.mdx": "markdown"
-  }
+	"search.exclude": {
+		"pnpm-lock.yaml": true
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true
+	},
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+	"scss.lint.unknownAtRules": "ignore",
+	"css.lint.unknownAtRules": "ignore",
+	"eslint.workingDirectories": ["demo/", "packages/"],
+	"testing.automaticallyOpenPeekView": "never",
+	"files.associations": {
+		"*.mdx": "markdown"
+	}
 }
