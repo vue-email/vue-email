@@ -24,15 +24,18 @@ export function cleanCss(css: string) {
 export function makeCssMap(css: string) {
 	const cssNoMedia = css.replace(/@media[^{]+\{(?<content>[\s\S]+?)\}\s*\}/gm, '')
 
-	const cssMap = cssNoMedia.split('}').reduce((acc, cur) => {
-		const [key, value] = cur.split('{')
+	const cssMap = cssNoMedia.split('}').reduce(
+		(acc, cur) => {
+			const [key, value] = cur.split('{')
 
-		if (key && value) {
-			acc[key] = value
-		}
+			if (key && value) {
+				acc[key] = value
+			}
 
-		return acc
-	}, {} as Record<string, string>)
+			return acc
+		},
+		{} as Record<string, string>,
+	)
 
 	return cssMap
 }

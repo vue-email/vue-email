@@ -13,5 +13,8 @@
 	"testing.automaticallyOpenPeekView": "never",
 	"files.associations": {
 		"*.mdx": "markdown"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
 	}
 }

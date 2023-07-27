@@ -34,26 +34,24 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "import": "./dist/vue-email.js",
+      "require": "./dist/vue-email.umd.cjs",
+      "types": "./dist/index.d.ts"
     },
-    "./nuxt": {
-      "types": "./dist/nuxt.d.ts",
-      "require": "./dist/nuxt.cjs",
-      "import": "./dist/nuxt.mjs"
-    }
+    "./nuxt": "./nuxt.mjs"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/vue-email.umd.cjs",
+  "module": "./dist/vue-email.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist/**/*",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "nuxt.mjs"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && pnpm build:client",
+    "build:client": "nuxi generate client",
     "dev": "vite build --watch",
     "release": "changelogen --release",
     "lint": "eslint --ext .js,.vue,.ts,.tsx .",
@@ -80,6 +78,8 @@
     "@antfu/eslint-config": "^0.39.8",
     "@nuxt/kit": "^3.6.5",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@types/html-to-text": "^9.0.1",
+    "@types/pretty": "^2.0.1",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vitest/coverage-c8": "^0.33.0",
     "@vue/test-utils": "^2.4.1",
@@ -87,14 +87,16 @@
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.9.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "kolorist": "^1.8.0",
     "prettier": "^3.0.0",
     "rollup-plugin-copy": "^3.4.0",
     "tw-to-css": "^0.0.11",
     "typescript": "^5.1.6",
-    "unbuild": "^1.2.1",
     "vite": "4.4.7",
+    "vite-plugin-banner": "^0.7.0",
     "vite-plugin-dts": "^3.3.1",
     "vitest": "^0.33.0",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "nuxt": "^3.6.5"
   }
 }

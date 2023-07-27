@@ -1,0 +1,15 @@
+{
+    "private": true,
+    "scripts": {
+        "build": "nuxt prepare && nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview"
+    },
+    "dependencies": {
+        "@nuxt/devtools-ui-kit": "^0.7.1"
+    },
+    "devDependencies": {
+        "nuxt": "^3.6.5"
+    }
+}

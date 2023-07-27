@@ -1,8 +1,10 @@
 // Plugin
 export { VueEmailPlugin } from './plugin'
 
-// Typings
+// Imports
 export * from './types'
+export * from './utils'
+export * from './components'
 
 // Composables
 export { useRender } from './composables/render'
