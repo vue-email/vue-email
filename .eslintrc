@@ -8,8 +8,12 @@
 		"dist/**/*",
 		".output/**/*",
 		".nuxt/**/*",
+		"coverage/**/*",
+		"archive/**/*",
+		"docs/.vitepress/cache/**/*",
 		"*.css",
-		"*.md"
+		"*.md",
+		"*.yml"
 	],
 	"extends": [
 		"@nuxtjs/eslint-config-typescript",
