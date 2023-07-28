@@ -62,7 +62,11 @@
     "__": "__",
     "dev:nuxt": "pnpm -C playgrounds/nuxt run dev",
     "build:nuxt": "pnpm -C playgrounds/nuxt run build",
-    "generate:nuxt": "pnpm -C playgrounds/nuxt run generate"
+    "generate:nuxt": "pnpm -C playgrounds/nuxt run generate",
+    "preview:nuxt": "pnpm -C playgrounds/nuxt run preview",
+    "dev:docs": "pnpm -C docs run dev",
+    "build:docs": "pnpm -C docs run build",
+    "preview:docs": "pnpm -C docs run serve"
   },
   "peerDependencies": {
     "@nuxt/kit": "^3.6.5",
