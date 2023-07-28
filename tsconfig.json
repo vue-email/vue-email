@@ -27,6 +27,27 @@
       "vue-email/nuxt": [
         "./src/nuxt/module"
       ],
+      "#app": [
+        "./node_modules/nuxt/dist/app"
+      ],
+      "#app/*": [
+        "./node_modules/nuxt/dist/app/*"
+      ],
+      "#components": [
+        ".nuxt/components"
+      ],
+      "#vue-router": [
+        ".nuxt/vue-router"
+      ],
+      "#imports": [
+        ".nuxt/imports"
+      ],
+      "#build": [
+        ".nuxt"
+      ],
+      "#build/*": [
+        ".nuxt/*"
+      ],
     }
   },
   "include": [
