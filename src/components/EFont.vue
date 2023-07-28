@@ -2,9 +2,9 @@
 import { defineComponent, h } from 'vue'
 
 const props = withDefaults(defineProps<FontProps>(), {
-	fallbackFontFamily: 'Arial',
-	fontStyle: 'normal',
-	fontWeight: 400,
+  fallbackFontFamily: 'Arial',
+  fontStyle: 'normal',
+  fontWeight: 400,
 })
 
 type FallbackFont = 'Arial' | 'Helvetica' | 'Verdana' | 'Georgia' | 'Times New Roman'
@@ -15,14 +15,14 @@ type FontWeight = 'normal' | 'bold' | 'bolder' | 'lighter' | number
 type FontStyle = 'normal' | 'italic' | 'oblique'
 
 interface FontProps {
-	fontFamily: string
-	fallbackFontFamily: FallbackFont | FallbackFont[]
-	webFont?: {
-		url: string
-		format: FontFormat
-	}
-	fontStyle?: FontStyle
-	fontWeight?: FontWeight
+  fontFamily: string
+  fallbackFontFamily: FallbackFont | FallbackFont[]
+  webFont?: {
+    url: string
+    format: FontFormat
+  }
+  fontStyle?: FontStyle
+  fontWeight?: FontWeight
 }
 
 const src = props.webFont ? `src: url(${props.webFont.url}) format("${props.webFont.format}");` : ''
@@ -40,13 +40,13 @@ font-family: "${props.fontFamily}", ${Array.isArray(props.fallbackFontFamily) ? 
 }`
 
 const render = defineComponent(() => {
-	return () =>
-		h('style', undefined, {
-			default: () => styles,
-		})
+  return () =>
+    h('style', undefined, {
+      default: () => styles,
+    })
 })
 </script>
 
 <template>
-	<render />
+  <render />
 </template>
