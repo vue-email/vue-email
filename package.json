@@ -38,20 +38,19 @@
       "require": "./dist/vue-email.umd.cjs",
       "types": "./dist/index.d.ts"
     },
-    "./nuxt": "./nuxt.mjs"
+    "./nuxt": "./nuxt/index.mjs"
   },
   "main": "./dist/vue-email.umd.cjs",
   "module": "./dist/vue-email.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist/**/*",
+    "nuxt/**/*",
     "LICENSE",
-    "README.md",
-    "nuxt.mjs"
+    "README.md"
   ],
   "scripts": {
-    "build": "vite build && pnpm build:client",
-    "build:client": "nuxt generate client",
+    "build": "vite build",
     "dev": "vite build --watch",
     "release": "changelogen --release",
     "lint": "eslint --ext .js,.vue,.ts,.tsx .",
@@ -60,13 +59,15 @@
     "test:coverage": "vitest run --coverage",
     "test": "pnpm test:unit && pnpm test:coverage",
     "__": "__",
-    "dev:nuxt": "pnpm -C playgrounds/nuxt run dev",
-    "build:nuxt": "pnpm -C playgrounds/nuxt run build",
-    "generate:nuxt": "pnpm -C playgrounds/nuxt run generate",
-    "preview:nuxt": "pnpm -C playgrounds/nuxt run preview",
+    "dev:nuxt": "nuxt dev playgrounds/nuxt",
+    "build:nuxt": "nuxt build playgrounds/nuxt",
+    "generate:nuxt": "nuxt generate playgrounds/nuxt",
+    "preview:nuxt": "nuxt preview playgrounds/nuxt",
     "dev:docs": "pnpm -C docs run dev",
     "build:docs": "pnpm -C docs run build",
-    "preview:docs": "pnpm -C docs run serve"
+    "preview:docs": "pnpm -C docs run serve",
+    "dev:client": "nuxt dev client",
+    "build:client": "nuxt generate client"
   },
   "peerDependencies": {
     "@nuxt/kit": "^3.6.5",
@@ -100,6 +101,7 @@
     "prettier": "^3.0.0",
     "tw-to-css": "^0.0.11",
     "typescript": "^5.1.6",
+    "ufo": "^1.1.2",
     "vite": "4.4.7",
     "vite-plugin-banner": "^0.7.0",
     "vite-plugin-dts": "^3.3.1",

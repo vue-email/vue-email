@@ -23,13 +23,19 @@ export async function useRender(
 		plainText: false,
 	},
 ) {
-	if (options.plainText) {
-		return renderAsText(component)
-	}
-
 	const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
 	const app = createApp({ render: () => h(component) }, props)
 	const markup = await renderToString(app)
+
+	if (options.plainText) {
+		return convert(markup, {
+			selectors: [
+				{ selector: 'img', format: 'skip' },
+				{ selector: '#__vue-email-preview', format: 'skip' },
+			],
+		})
+	}
+
 	const doc = `${doctype}${replaceString(markup)}`
 
 	if (options.pretty) {
@@ -37,17 +43,6 @@ export async function useRender(
 	}
 
 	return doc
-}
-
-async function renderAsText(component: Component) {
-	const markup = await renderToString(h(component))
-
-	return convert(markup, {
-		selectors: [
-			{ selector: 'img', format: 'skip' },
-			{ selector: '#__vue-email-preview', format: 'skip' },
-		],
-	})
 }
 
 function replaceString(str: string) {

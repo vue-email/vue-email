@@ -10,6 +10,13 @@
         "@nuxt/devtools-ui-kit": "^0.7.1"
     },
     "devDependencies": {
-        "nuxt": "^3.6.5"
+        "nuxt": "^3.6.5",
+        "@iconify-json/heroicons": "^1.1.11",
+        "@iconify-json/ph": "^1.1.5",
+        "@nuxt/devtools": "latest",
+        "@nuxthq/ui": "^2.6.0",
+        "scule": "^1.0.0",
+        "vue3-code-block": "^2.2.12",
+        "vue-email": "workspace:~"
     }
 }

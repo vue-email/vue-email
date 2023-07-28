@@ -2,10 +2,12 @@ import { resolve } from 'node:path'
 
 export default defineNuxtConfig({
 	ssr: false,
-	modules: ['@nuxt/devtools-ui-kit'],
-	experimental: {
-		reactivityTransform: true,
+	devtools: { enabled: false },
+	alias: {
+		'vue-email': resolve(__dirname, '../src/index.ts'),
+		'vue-email/nuxt': resolve(__dirname, '../src/nuxt.mjs'),
 	},
+	modules: ['@nuxt/devtools-ui-kit', '@nuxthq/ui', 'vue-email/nuxt'],
 	nitro: {
 		output: {
 			publicDir: resolve(__dirname, '../dist/client'),
@@ -22,5 +24,17 @@ export default defineNuxtConfig({
 		build: {
 			target: 'esnext',
 		},
+	},
+	ui: {
+		global: true,
+		icons: ['heroicons', 'ph'],
+	},
+	tailwindcss: {
+		exposeConfig: true,
+		viewer: false,
+	},
+	colorMode: {
+		preference: 'dark',
+		fallback: 'dark',
 	},
 })
