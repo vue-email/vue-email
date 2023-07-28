@@ -1,6 +1,0 @@
-dist
-**.spec.js
-**.spec.ts
-**.spec.js
-**.cy.js
-**/cypress/**

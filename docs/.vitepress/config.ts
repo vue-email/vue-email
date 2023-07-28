@@ -1,10 +1,8 @@
 import { defineConfig } from 'vitepress'
 import type { DefaultTheme } from 'vitepress'
-import { description } from '../../package.json'
-import { name, version } from '../../packages/vue-email/package.json'
-import { github, ogImage, ogUrl, releases } from './meta'
+import { description, name, version } from '../../package.json'
 
-const url = new URL(ogUrl)
+import { github, ogImage, ogUrl, releases } from './meta'
 
 const components = [
   {
@@ -107,7 +105,7 @@ const integrations = [
 export default defineConfig({
   lang: 'en-US',
   title: name,
-  description: description,
+  description,
   head: [
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
     ['meta', { property: 'og:type', content: 'website' }],

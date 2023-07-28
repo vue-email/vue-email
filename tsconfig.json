@@ -1,28 +1,64 @@
 {
+  "extends": "./playgrounds/nuxt/.nuxt/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "rootDir": ".",
-    "moduleResolution": "node",
-    "target": "es2017",
-    "module": "esnext",
-    "lib": ["esnext", "es2017", "dom"],
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-    "noImplicitAny": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "preserve",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "skipLibCheck": true,
     "strict": true,
-    "strictNullChecks": true,
-    "strictBindCallApply": true,
-    "strictFunctionTypes": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "typeRoots": ["node_modules/@types"],
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "noEmit": true,
     "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "node",
+      "csstype",
+      "vitest",
+      "vitest/globals",
+      "vite/client"
+    ],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["packages/*/src"]
-    },
+      "vue-email": [
+        "./src/index"
+      ],
+      "vue-email/nuxt": [
+        "./src/nuxt/module"
+      ],
+      "#components": [
+        ".nuxt/components"
+      ],
+      "#vue-router": [
+        ".nuxt/vue-router"
+      ],
+      "#imports": [
+        ".nuxt/imports"
+      ],
+      "#build": [
+        ".nuxt"
+      ],
+      "#build/*": [
+        ".nuxt/*"
+      ],
+    }
   },
-  "include": ["packages/*/src", "packages/*/tests"]
+  "include": [
+    "./env.d.ts",
+    "docs/**/*",
+    "src/**/*",
+    "tests/**/*",
+    "docs/**/*",
+    "playgrounds/**/*"
+  ],
+  "exclude": [
+    "../dist",
+    "../.output"
+  ],
+  // "vueCompilerOptions": {
+  //   "plugins": [
+  //     "pinceau/volar"
+  //   ]
+  // }
 }

@@ -4,9 +4,6 @@ on:
   release:
     types: [created]
 
-env:
-  PNPM_CACHE_FOLDER: .pnpm-store
-  HUSKY: 0 # Bypass husky commit hook for CI
 
 jobs:
   lib-publish:
@@ -18,25 +15,32 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 8
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
           registry-url: "https://registry.npmjs.org"
+          cache: "pnpm"
+
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
-      - name: Run linter
-        run: pnpm lint:email
-      - name: Run tests
+
+      - name: Lint project
+        run: pnpm lint
+
+      - name: Test project
         run: pnpm test
-      - name: Build Lib
+
+      - name: Build project
         run: pnpm build
+
       - name: Publish package to npm registry
-        run: cd ./packages/vue-email && pnpm publish --access public --no-git-checks
+        run: pnpm publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}

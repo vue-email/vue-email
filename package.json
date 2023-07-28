@@ -1,37 +1,111 @@
 {
-  "name": "root",
-  "private": false,
+  "name": "vue-email",
+  "type": "module",
+  "version": "0.5.12",
+  "description": "💌 Write email templates with Vue",
   "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
-  "homepage": "https://vue-email.vercel.app/",
-  "description": "💌 Build and send emails using Vue",
+  "maintainers": [
+    {
+      "name": "Dave136",
+      "email": "davejs136@gmail.com",
+      "url": "https://github.com/Dave136"
+    },
+    {
+      "name": "Flowko",
+      "email": "younesbarraddev@gmail.com",
+      "url": "https://github.com/Flowko"
+    }
+  ],
   "license": "MIT",
+  "homepage": "https://vue-email.vercel.app/",
+  "repository": "https://github.com/Dave136/vue-email",
   "bugs": {
-    "url": "https://github.com/davejs136/vue-email/issues"
+    "url": "https://github.com/Dave136/vue-email/issues"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/davejs136/vue-email.git"
+  "keywords": [
+    "vue",
+    "vue 3",
+    "email",
+    "components",
+    "html",
+    "template",
+    "nuxt",
+    "nuxt 3"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/vue-email.js",
+      "require": "./dist/vue-email.umd.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./nuxt": "./nuxt/index.mjs"
   },
+  "main": "./dist/vue-email.umd.cjs",
+  "module": "./dist/vue-email.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "nuxt/**/*",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
-    "dev": "pnpm -C packages/vue-email run dev",
-    "playground": "pnpm -C playground run dev",
-    "docs": "pnpm -C docs run dev",
-    "demo": "pnpm -C demo run dev",
-    "build": "pnpm -C packages/vue-email run build",
-    "docs:build": "pnpm -C docs run build",
-    "demo:build": "pnpm -C demo run build",
-    "lint": "eslint --ext .js,.ts,.vue .",
-    "lint:email": "pnpm -C packages/vue-email run lint",
-    "test": "pnpm -C packages/vue-email run test",
-    "test:ci": "pnpm -C packages/vue-email run test:ci",
-    "release": "pnpm -C packages/vue-email run release"
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "release": "changelogen --release",
+    "lint": "eslint --ext .js,.vue,.ts,.tsx .",
+    "lint:fix": "eslint --ext .js,.vue,.ts,.tsx . --fix",
+    "test:unit": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test": "pnpm test:unit && pnpm test:coverage",
+    "__": "__",
+    "dev:nuxt": "nuxt dev playgrounds/nuxt",
+    "build:nuxt": "nuxt build playgrounds/nuxt",
+    "generate:nuxt": "nuxt generate playgrounds/nuxt",
+    "preview:nuxt": "nuxt preview playgrounds/nuxt",
+    "dev:docs": "pnpm -C docs run dev",
+    "build:docs": "pnpm -C docs run build",
+    "preview:docs": "pnpm -C docs run serve",
+    "dev:client": "nuxt dev client",
+    "build:client": "nuxt generate client"
+  },
+  "peerDependencies": {
+    "@nuxt/kit": "^3.6.5",
+    "vue": ">=3.0.0"
+  },
+  "dependencies": {
+    "html-to-text": "^9.0.5",
+    "isomorphic-dompurify": "^1.8.0",
+    "pretty": "^2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@nuxt/kit": {
+      "optional": true
+    }
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.39.8",
+    "@nuxt/kit": "^3.6.5",
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@types/html-to-text": "^9.0.1",
+    "@types/pretty": "^2.0.1",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitest/coverage-v8": "^0.33.0",
+    "changelogen": "^0.5.4",
     "eslint": "^8.45.0",
-    "@vitejs/plugin-vue": "^4.2.3"
-  },
-  "volta": {
-    "node": "20.4.0"
-  },
-  "packageManager": "pnpm@8.6.7"
+    "eslint-config-prettier": "^8.9.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "happy-dom": "^10.5.2",
+    "kolorist": "^1.8.0",
+    "nuxt": "^3.6.5",
+    "prettier": "^3.0.0",
+    "tw-to-css": "^0.0.11",
+    "typescript": "^5.1.6",
+    "ufo": "^1.1.2",
+    "vite": "4.4.7",
+    "vite-plugin-banner": "^0.7.0",
+    "vite-plugin-dts": "^3.3.1",
+    "vitest": "^0.33.0",
+    "vue": "^3.3.4"
+  }
 }
