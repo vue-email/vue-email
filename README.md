@@ -18,7 +18,9 @@
 - 📨 [Integrates with many email providers](https://vue-email.vercel.app/integrations/nodemailer.html)
 - 🧪 Tested against popular email clients
 - 🎨 [Supports Tailwind CSS](https://vue-email.vercel.app/components/tailwind.html)
-- 📦 [Supports Nuxt.js](https://nuxt.com/modules/vue-email)
+- 🚚 First-class support for Nuxt 3
+- ✨ Written in TypeScript
+
 
 ## Setup
 
