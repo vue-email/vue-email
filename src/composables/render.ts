@@ -31,7 +31,7 @@ export async function useRender(
 	component: Component,
 	props?: any,
 	options: Options = {
-		pretty: true,
+		pretty: false,
 		plainText: false,
 	},
 ) {

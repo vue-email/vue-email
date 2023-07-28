@@ -26,9 +26,7 @@ export default defineConfig({
 		}),
 	],
 	test: {
-		environment: 'jsdom',
-		globals: true,
-		threads: false,
+		environment: 'happy-dom',
 	},
 	build: {
 		lib: {

@@ -25,18 +25,18 @@ interface FontProps {
 	fontWeight?: FontWeight
 }
 
-const src = props.webFont ? `src: url(${props.webFont.url}) format('${props.webFont.format}');` : ''
+const src = props.webFont ? `src: url(${props.webFont.url}) format("${props.webFont.format}");` : ''
 
 const styles = `@font-face {
-font-family: '${props.fontFamily}';
+font-family: "${props.fontFamily}";
 font-style: ${props.fontStyle};
 font-weight: ${props.fontWeight};
-mso-font-alt: '${Array.isArray(props.fallbackFontFamily) ? props.fallbackFontFamily[0] : props.fallbackFontFamily}';
+mso-font-alt: "${Array.isArray(props.fallbackFontFamily) ? props.fallbackFontFamily[0] : props.fallbackFontFamily}";
 ${src}
 }
 
 * {
-font-family: '${props.fontFamily}', ${Array.isArray(props.fallbackFontFamily) ? props.fallbackFontFamily.join(', ') : props.fallbackFontFamily};
+font-family: "${props.fontFamily}", ${Array.isArray(props.fallbackFontFamily) ? props.fallbackFontFamily.join(', ') : props.fallbackFontFamily};
 }`
 
 const render = defineComponent(() => {

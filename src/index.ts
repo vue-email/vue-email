@@ -7,4 +7,4 @@ export * from './utils'
 export * from './components'
 
 // Composables
-export { useRender } from './composables/render'
+export { useRender, useRenderClient } from './composables/render'
