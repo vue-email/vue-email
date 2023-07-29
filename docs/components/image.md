@@ -21,6 +21,10 @@ import { EImg } from 'vue-email';
 All email clients can display `.png`, `.gif`, and `.jpg` images. Unfortunately, `.svg` images are not well supported, regardless of how they’re referenced, so avoid using these. See <u>[Can I Email](https://www.caniemail.com/features/image-svg/)</u> for more information.
 :::
 
+::: info
+To have a global base URL for all images, set the `baseUrl` option in your Vue Email configuration. See <u>[Configuration](/getting-started/config)</u> for more information.
+:::
+
 ### Props
 | Name     |  type  |         Description        |
 | ----     | :---:  |  :-----------------------: |

@@ -1,4 +1,4 @@
-import type { type Plugin } from 'vue'
+import type { Plugin } from 'vue'
 
 import * as components from '../components'
 import type { VueEmailPLuginOptions } from '../types'
