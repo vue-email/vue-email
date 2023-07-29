@@ -4,7 +4,7 @@ import { renderToString } from 'vue/server-renderer'
 import * as $compiler from 'vue/compiler-sfc'
 import type { SFCDescriptor, SFCScriptBlock } from 'vue/compiler-sfc'
 import { createInitConfig } from './config'
-import { cleanup, getFilesRecusively, readFile, writeFile } from '$src/utils'
+import { cleanup, getFilesRecursively, readFile, writeFile } from '$src/utils'
 
 import type { DefineConfig, Options, RenderOptions } from '$src/types'
 
@@ -114,7 +114,7 @@ async function _templateRender(name: string, options?: RenderOptions, config?: O
 export const defineConfig: DefineConfig = (config: Options) => {
   const defaultConfig = createInitConfig(config)
   const dir = config?.dir ?? defaultConfig?.dir
-  const files = getFilesRecusively(dir)
+  const files = getFilesRecursively(dir)
 
   for (const path of files) {
     compileTemplate(path, defaultConfig)
