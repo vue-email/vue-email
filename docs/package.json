@@ -1,11 +1,20 @@
 {
   "private": true,
-  "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
-    "serve": "vitepress serve"
-  },
   "devDependencies": {
-    "vitepress": "1.0.0-beta.6"
+    "@iconify-json/heroicons": "latest",
+    "@iconify-json/simple-icons": "latest",
+    "@nuxt-themes/ui-kit": "npm:@nuxt-themes/ui-kit-edge@0.0.1-28177244.dca5e05",
+    "@nuxt/content": "^2.7.2",
+    "@nuxt/devtools": "^0.7.1",
+    "@nuxthq/studio": "^0.13.4",
+    "@nuxtjs/fontaine": "^0.4.1",
+    "@nuxtjs/google-fonts": "^3.0.2",
+    "@nuxtjs/plausible": "^0.2.1",
+    "@vueuse/nuxt": "^10.2.1",
+    "nuxt": "^3.6.5",
+    "nuxt-component-meta": "^0.5.3",
+    "nuxt-lodash": "^2.5.0",
+    "typescript": "^5.1.6",
+    "@nuxthq/ui": "^2.6.0"
   }
 }

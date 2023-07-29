@@ -1,0 +1,48 @@
+import { createResolver } from '@nuxt/kit'
+import pkg from '../package.json'
+
+const { resolve } = createResolver(import.meta.url)
+
+export default defineNuxtConfig({
+  extends: '@nuxt-themes/ui-kit',
+  modules: ['@nuxt/content', '@nuxt/devtools', '@nuxthq/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt', 'nuxt-component-meta', 'nuxt-lodash'],
+  runtimeConfig: {
+    public: {
+      version: pkg.version,
+    },
+  },
+  ui: {
+    global: true,
+    icons: ['heroicons', 'simple-icons'],
+  },
+  googleFonts: {
+    families: {
+      Inter: [400, 500, 600, 700],
+    },
+  },
+  routeRules: {
+    '/': { redirect: '/getting-started', prerender: false },
+  },
+  nitro: {
+    prerender: {
+      routes: ['/getting-started'],
+    },
+  },
+  experimental: {
+    payloadExtraction: false,
+  },
+  componentMeta: {
+    globalsOnly: true,
+    exclude: [resolve('./components'), resolve('@nuxt-themes/ui-kit/components')],
+    metaFields: {
+      props: true,
+      slots: false,
+      events: false,
+      exposed: false,
+    },
+  },
+  typescript: {
+    strict: false,
+    includeWorkspace: true,
+  },
+})

@@ -1,7 +1,0 @@
-.dark [img-light] {
-  display: none;
-}
-
-html:not(.dark) [img-dark] {
-  display: none;
-}
