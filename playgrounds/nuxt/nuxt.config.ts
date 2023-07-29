@@ -46,4 +46,7 @@ export default defineNuxtConfig({
       },
     ],
   },
+  vueEmail: {
+    baseUrl: 'http://localhost:3000',
+  },
 })
