@@ -1,6 +1,6 @@
-import { resolve } from 'path'
-import { defineConfig } from '../compiler'
+import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
+import { defineConfig } from '$src/compiler'
 
 describe('compiler', () => {
   const path = resolve(__dirname, './templates')
@@ -43,8 +43,8 @@ describe('compiler', () => {
 
     const template = await vuemail.render('ScriptSetup', {
       props: {
-        name: 'John Doe'
-      }
+        name: 'John Doe',
+      },
     })
 
     console.log(template)
