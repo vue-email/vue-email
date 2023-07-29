@@ -1,4 +1,5 @@
 import { normalize } from 'node:path'
+import { createHash } from 'node:crypto'
 import { type Component, createSSRApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import * as $compiler from 'vue/compiler-sfc'
@@ -181,10 +182,8 @@ function isUseInlineTemplate(descriptor: SFCDescriptor, isProd: boolean): boolea
   return isProd && !!descriptor.scriptSetup && !descriptor.template?.src
 }
 
-function generateId(filename: string) {
-  const uuid = crypto.randomUUID()
-
-  return `${filename}-${uuid}`
+function generateId(text: string) {
+  return createHash('sha256').update(text).digest('hex').substring(0, 8)
 }
 
 // If the script is js/ts and has no external src, it can be directly placed
