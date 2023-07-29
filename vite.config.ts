@@ -25,6 +25,11 @@ export default defineConfig({
       }\n */`,
     }),
   ],
+  resolve: {
+    alias: {
+      $src: resolve(__dirname, 'src'),
+    },
+  },
   test: {
     environment: 'happy-dom',
     include: ['./tests/**/*.spec.ts'],

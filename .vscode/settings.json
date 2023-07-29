@@ -21,4 +21,9 @@
 	"[vue]": {
 		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
 	},
+<<<<<<< HEAD
+=======
+  // Prevent default prettier extension if exists
+  "prettier.enable": false,
+>>>>>>> 1d7e035 (feat: add src alias)
 }
