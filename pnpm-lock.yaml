@@ -124,6 +124,9 @@ importers:
       '@iconify-json/heroicons':
         specifier: latest
         version: 1.1.11
+      '@iconify-json/ph':
+        specifier: ^1.1.5
+        version: 1.1.5
       '@iconify-json/simple-icons':
         specifier: latest
         version: 1.1.62
