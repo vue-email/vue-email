@@ -42,6 +42,9 @@ export default defineNuxtConfig({
     prerender: {
       routes: ['/getting-started'],
     },
+    output: {
+      dir: resolve(__dirname, 'dist'),
+    },
   },
   experimental: {
     payloadExtraction: false,
