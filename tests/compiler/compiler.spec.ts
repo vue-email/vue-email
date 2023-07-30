@@ -21,20 +21,19 @@ describe('compiler', () => {
   //   expect(template).toBe('<h1>Hi Dave</h1>')
   // })
 
-  // it('Should render defineComponent setup', async () => {
+  it('Should render defineComponent setup', async () => {
+    const vuemail = defineConfig({
+      dir: path,
+    })
 
-  //   const vuemail = defineConfig({
-  //     dir: path,
-  //   })
+    const template = await vuemail.render('DefineComponentSetup', {
+      props: {
+        count: 2,
+      },
+    })
 
-  //   const template = await vuemail.render('setup-simple', {
-  //     props: {
-  //       name: 'John'
-  //     }
-  //   })
-
-  //   expect(template).toBe('<h1>Hi John</h1> <p>Welcome to my app John</p>')
-  // })
+    expect(template).toBe('<section><p>Count: 2</p><p>Double: 4</p></section>')
+  })
 
   it('Should compile and render component defined using script setup', async () => {
     const vuemail = defineConfig({
