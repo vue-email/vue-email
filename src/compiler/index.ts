@@ -9,7 +9,7 @@ export const defineConfig: DefineConfig = (config: Options) => {
   const dir = config?.dir ?? defaultConfig?.dir
   const files = getFilesRecursively(dir)
 
-  for (const path of files) {
+  for (const path of files.filter((file) => !file.includes('.vuemail'))) {
     compileTemplate(path, defaultConfig)
   }
 
