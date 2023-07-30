@@ -5,21 +5,19 @@ import { defineConfig } from '$src/compiler'
 describe('compiler', () => {
   const path = resolve(__dirname, './templates')
 
-  // it('It should compile vue files', async () => {
+  it('It should compile vue files', async () => {
+    const vuemail = defineConfig({
+      dir: path,
+    })
 
-  //   const vuemail = defineConfig({
-  //     dir: path,
-  //   })
+    const template = await vuemail.render('DefineComponent', {
+      props: {
+        name: 'Dave',
+      },
+    })
 
-  //   const template = await vuemail.render('example', {
-  //     props: {
-  //       show: true,
-  //       name: 'Dave'
-  //     }
-  //   })
-
-  //   expect(template).toBe('<h1>Hi Dave</h1>')
-  // })
+    expect(template).toBe('<h1>Hi! My name is Dave</h1>')
+  })
 
   it('Should render defineComponent setup', async () => {
     const vuemail = defineConfig({
