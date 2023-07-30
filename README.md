@@ -63,7 +63,6 @@ const user = ref('Dave');
 2. Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
 3. Install dependencies using `pnpm install`
 
-
 ## Contributors
 
 <a href="https://github.com/Dave136/vue-email/graphs/contributors">
