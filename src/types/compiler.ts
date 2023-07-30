@@ -1,3 +1,10 @@
+// Extend the descriptor so we can store the scopedId on it
+declare module 'vue/compiler-sfc' {
+  interface SFCDescriptor {
+    id: string
+  }
+}
+
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export declare namespace NodeJS {
   interface ProcessEnv {

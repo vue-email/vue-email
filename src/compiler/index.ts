@@ -9,13 +9,6 @@ import { cleanup, getFilesRecursively, readFile, writeFile } from '$src/utils'
 
 import type { DefineConfig, Options, RenderOptions } from '$src/types'
 
-// Extend the descriptor so we can store the scopedId on it
-declare module 'vue/compiler-sfc' {
-  interface SFCDescriptor {
-    id: string
-  }
-}
-
 const scriptIdentifier = `_sfc_main`
 const isProd = process.env.NODE_ENV === 'production'
 
