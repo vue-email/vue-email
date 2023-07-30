@@ -47,8 +47,6 @@ describe('compiler', () => {
       },
     })
 
-    console.log(template)
-
-    expect(true).toBe(true)
+    expect(template).toBe('<section><h1>Welcome John Doe</h1></section>')
   })
 })
