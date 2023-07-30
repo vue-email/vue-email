@@ -82,8 +82,7 @@ useSeoMeta({
       <template #right>
         <ColorModeButton />
 
-        <UButtonsSocialButton to="https://twitter.com/nuxtlabs" target="_blank" icon="i-simple-icons-twitter" class="hidden lg:inline-flex" />
-        <UButtonsSocialButton to="https://github.com/nuxtlabs/ui" target="_blank" icon="i-simple-icons-github" class="hidden lg:inline-flex" />
+        <UButtonsSocialButton to="https://github.com/Dave136/vue-email" target="_blank" icon="i-simple-icons-github" class="hidden lg:inline-flex" />
       </template>
 
       <template #links>

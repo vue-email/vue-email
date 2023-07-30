@@ -18,8 +18,8 @@ export default defineNuxtConfig({
     'vue-email/nuxt',
   ],
   alias: {
-    'vue-email': resolve(__dirname, '../../src/index.ts'),
-    'vue-email/nuxt': resolve(__dirname, '../../nuxt/index.mjs'),
+    'vue-email': resolve(__dirname, '../src/index.ts'),
+    'vue-email/nuxt': resolve(__dirname, '../nuxt/index.mjs'),
   },
   runtimeConfig: {
     public: {
