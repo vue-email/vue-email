@@ -5,12 +5,13 @@ import { renderToString } from 'vue/server-renderer'
 import * as $compiler from 'vue/compiler-sfc'
 import type { SFCDescriptor, SFCScriptBlock } from 'vue/compiler-sfc'
 import { createInitConfig } from './config'
+import { env } from './utils'
 import { cleanup, getFilesRecursively, readFile, writeFile } from '$src/utils'
 
 import type { DefineConfig, Options, RenderOptions } from '$src/types'
 
 const scriptIdentifier = `_sfc_main`
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = env('NODE_ENV') === 'production'
 
 function convertScriptSetup(descriptor: SFCDescriptor) {
   const attachedProps: [string, string][] = []
