@@ -19,6 +19,7 @@ export function createDescriptor(filename: string, source: string, { root, isPro
   return { descriptor, errors }
 }
 
+// Generate a unique identifier for each template
 function generateId(text: string) {
   return createHash('sha256').update(text).digest('hex').substring(0, 8)
 }
