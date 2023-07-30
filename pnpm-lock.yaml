@@ -127,20 +127,17 @@ importers:
       '@iconify-json/simple-icons':
         specifier: latest
         version: 1.1.62
-      '@nuxt-themes/ui-kit':
-        specifier: npm:@nuxt-themes/ui-kit-edge@0.0.1-28177244.dca5e05
-        version: /@nuxt-themes/ui-kit-edge@0.0.1-28177244.dca5e05(@nuxt/content@2.7.2)(@nuxthq/ui@2.6.0)(vue@3.3.4)
       '@nuxt/content':
         specifier: ^2.7.2
         version: 2.7.2
       '@nuxt/devtools':
-        specifier: ^0.7.1
-        version: 0.7.1(nuxt@3.6.5)(vite@4.4.7)
+        specifier: ^0.6.7
+        version: 0.6.7(nuxt@3.6.5)(vite@4.4.7)
       '@nuxthq/studio':
         specifier: ^0.13.4
         version: 0.13.4
       '@nuxthq/ui':
-        specifier: ^2.6.0
+        specifier: 2.6.0
         version: 2.6.0(vue@3.3.4)(webpack@5.88.2)
       '@nuxtjs/fontaine':
         specifier: ^0.4.1
@@ -151,9 +148,15 @@ importers:
       '@nuxtjs/plausible':
         specifier: ^0.2.1
         version: 0.2.1
+      '@vueuse/core':
+        specifier: ^10.2.1
+        version: 10.2.1(vue@3.3.4)
       '@vueuse/nuxt':
         specifier: ^10.2.1
         version: 10.2.1(nuxt@3.6.5)(vue@3.3.4)
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
       nuxt:
         specifier: ^3.6.5
         version: 3.6.5(@types/node@20.4.5)(eslint@8.45.0)(typescript@5.1.6)
@@ -163,9 +166,9 @@ importers:
       nuxt-lodash:
         specifier: ^2.5.0
         version: 2.5.0
-      typescript:
-        specifier: ^5.1.6
-        version: 5.1.6
+      vue-email:
+        specifier: workspace:~
+        version: link:..
 
   playgrounds/nuxt:
     devDependencies:
@@ -1358,21 +1361,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@nuxt-themes/ui-kit-edge@0.0.1-28177244.dca5e05(@nuxt/content@2.7.2)(@nuxthq/ui@2.6.0)(vue@3.3.4):
-    resolution: {integrity: sha512-AhjAIINdgNCa5ywqAW+dEbsL/eqKNPxBLOcyO+IkErjhFdgxuXur9HSlIYcWogfCsroMMyR0uHzkiFDqvtkDxA==}
-    peerDependencies:
-      '@nuxt/content': ^2.7.2
-      '@nuxthq/ui': npm:@nuxthq/ui-edge@latest
-    dependencies:
-      '@nuxt/content': 2.7.2
-      '@nuxthq/ui': 2.6.0(vue@3.3.4)(webpack@5.88.2)
-      '@vueuse/core': 10.2.1(vue@3.3.4)
-      lodash-es: 4.17.21
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-    dev: true
-
   /@nuxt/content@2.7.2:
     resolution: {integrity: sha512-fP0nrnyjtFbluKltKUtC7jSMFc1xAH+bwweZyLwXb3gkIap2EHlVL+e9ptGt39+4HIkRkLgME7TNr/fUO+CHug==}
     dependencies:
@@ -1430,6 +1418,22 @@ packages:
 
   /@nuxt/devalue@2.0.2:
     resolution: {integrity: sha512-GBzP8zOc7CGWyFQS6dv1lQz8VVpz5C2yRszbXufwG/9zhStTIH50EtD87NmWbTMwXDvZLNg8GIpb1UFdH93JCA==}
+
+  /@nuxt/devtools-kit@0.6.7(nuxt@3.6.5)(vite@4.4.7):
+    resolution: {integrity: sha512-DEJBLspLRr3zFu/DAHs8Q1o9tgzELt24qDqsuqTEKqcw/2j1iu1TefvUdmXkJo6s8Qk3GI6e3QxrvtEE3mwKqA==}
+    peerDependencies:
+      nuxt: ^3.6.1
+      vite: '*'
+    dependencies:
+      '@nuxt/kit': 3.6.5
+      '@nuxt/schema': 3.6.5
+      execa: 7.2.0
+      nuxt: 3.6.5(@types/node@20.4.5)(eslint@8.45.0)(typescript@5.1.6)
+      vite: 4.4.7(@types/node@20.4.5)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
 
   /@nuxt/devtools-kit@0.7.1(nuxt@3.6.5)(vite@4.4.7):
     resolution: {integrity: sha512-g7OgrU0VlW9fibLdHmhad4tEQzkS4g8yxaqDD/Kri/i3mEOeS7w9E8x7kkA/56FmmnXe6F6lCcLqG6u3FYW6WA==}
@@ -1495,6 +1499,23 @@ packages:
       - webpack
     dev: false
 
+  /@nuxt/devtools-wizard@0.6.7:
+    resolution: {integrity: sha512-dN+3UVxsGk3Vx0T6tN+UQ1b7FjWHk3N4WWmnKOACa4pHt77RYHFzndk60KDlKq9I/bn905pghsqwvXmPfbSpJA==}
+    hasBin: true
+    dependencies:
+      consola: 3.2.3
+      diff: 5.1.0
+      execa: 7.2.0
+      global-dirs: 3.0.1
+      magicast: 0.2.10
+      pathe: 1.1.1
+      picocolors: 1.0.0
+      pkg-types: 1.0.3
+      prompts: 2.4.2
+      rc9: 2.1.1
+      semver: 7.5.4
+    dev: true
+
   /@nuxt/devtools-wizard@0.7.1:
     resolution: {integrity: sha512-WZ8kdb9yfqgXn77ors9ojykb0wh0/+OdvgLEQt1xmwZxbWP5PPMqS/mcCUtKEuoYF2SM5aMBSPoXz90TJ/DfHQ==}
     hasBin: true
@@ -1510,6 +1531,57 @@ packages:
       prompts: 2.4.2
       rc9: 2.1.1
       semver: 7.5.4
+
+  /@nuxt/devtools@0.6.7(nuxt@3.6.5)(vite@4.4.7):
+    resolution: {integrity: sha512-ATjkNfceG+8DQ8kR6O3UC9MjFfUd39aeFgKA+Z6pjG8Z7e3vwK92oZCSeQ8DQRi4/2kwa/UPjN8pNclyc6FlbQ==}
+    hasBin: true
+    peerDependencies:
+      nuxt: ^3.6.1
+      vite: '*'
+    dependencies:
+      '@nuxt/devtools-kit': 0.6.7(nuxt@3.6.5)(vite@4.4.7)
+      '@nuxt/devtools-wizard': 0.6.7
+      '@nuxt/kit': 3.6.5
+      birpc: 0.2.12
+      boxen: 7.1.1
+      consola: 3.2.3
+      execa: 7.2.0
+      fast-folder-size: 2.1.0
+      fast-glob: 3.3.1
+      get-port-please: 3.0.1
+      global-dirs: 3.0.1
+      h3: 1.7.1
+      hookable: 5.5.3
+      image-meta: 0.1.1
+      is-installed-globally: 0.4.0
+      launch-editor: 2.6.0
+      local-pkg: 0.4.3
+      magicast: 0.2.10
+      nuxt: 3.6.5(@types/node@20.4.5)(eslint@8.45.0)(typescript@5.1.6)
+      nypm: 0.2.2
+      pacote: 15.2.0
+      pathe: 1.1.1
+      perfect-debounce: 1.0.0
+      picocolors: 1.0.0
+      pkg-types: 1.0.3
+      rc9: 2.1.1
+      semver: 7.5.4
+      sirv: 2.0.3
+      unimport: 3.1.0(rollup@3.26.3)
+      vite: 4.4.7(@types/node@20.4.5)
+      vite-plugin-inspect: 0.7.33(vite@4.4.7)
+      vite-plugin-vue-inspector: 3.5.0(vite@4.4.7)
+      wait-on: 7.0.1
+      which: 3.0.1
+      ws: 8.13.0
+    transitivePeerDependencies:
+      - bluebird
+      - bufferutil
+      - debug
+      - rollup
+      - supports-color
+      - utf-8-validate
+    dev: true
 
   /@nuxt/devtools@0.7.1(nuxt@3.6.5)(vite@4.4.7):
     resolution: {integrity: sha512-fwtsfv6vezD8AAKZO2rCwMc+jBsylP1AWF7WncCjr6KeOLoTjS38aOelO03XvrR61B1t4Vt44S/3afUPkmIEFQ==}
@@ -6504,6 +6576,7 @@ packages:
   /iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
     engines: {node: '>=0.10.0'}
+    requiresBuild: true
     dependencies:
       safer-buffer: 2.1.2
 
@@ -9955,6 +10028,7 @@ packages:
 
   /safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
+    requiresBuild: true
 
   /saxes@6.0.0:
     resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}

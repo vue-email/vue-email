@@ -1,3 +1,5 @@
+import { isClient } from '@vueuse/core'
+
 const useComponentsMetaState = () => useState('components-meta', () => ({}))
 
 export async function fetchComponentMeta(name: string) {
@@ -14,7 +16,7 @@ export async function fetchComponentMeta(name: string) {
   // Store promise to avoid multiple calls
 
   // add to nitro prerender
-  if (process.server) {
+  if (!isClient) {
     const event = useRequestEvent()
     event.node.res.setHeader('x-nitro-prerender', [event.node.res.getHeader('x-nitro-prerender'), `/api/component-meta/${name}.json`].filter(Boolean).join(','))
   }

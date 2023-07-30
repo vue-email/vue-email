@@ -4,8 +4,23 @@ import pkg from '../package.json'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
-  extends: '@nuxt-themes/ui-kit',
-  modules: ['@nuxt/content', '@nuxt/devtools', '@nuxthq/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt', 'nuxt-component-meta', 'nuxt-lodash'],
+  modules: [
+    '@nuxt/content',
+    '@nuxt/devtools',
+    // '@nuxthq/studio',
+    '@nuxthq/ui',
+    '@nuxtjs/fontaine',
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/plausible',
+    '@vueuse/nuxt',
+    'nuxt-component-meta',
+    'nuxt-lodash',
+    'vue-email/nuxt',
+  ],
+  alias: {
+    'vue-email': resolve(__dirname, '../../src/index.ts'),
+    'vue-email/nuxt': resolve(__dirname, '../../nuxt/index.mjs'),
+  },
   runtimeConfig: {
     public: {
       version: pkg.version,
@@ -33,7 +48,7 @@ export default defineNuxtConfig({
   },
   componentMeta: {
     globalsOnly: true,
-    exclude: [resolve('./components'), resolve('@nuxt-themes/ui-kit/components')],
+    exclude: [resolve('./components')],
     metaFields: {
       props: true,
       slots: false,
@@ -44,5 +59,19 @@ export default defineNuxtConfig({
   typescript: {
     strict: false,
     includeWorkspace: true,
+  },
+  css: ['~/assets/css/scrollbars.css'],
+  content: {
+    highlight: {
+      theme: {
+        light: 'material-theme-lighter',
+        default: 'material-theme',
+        dark: 'material-theme-palenight',
+      },
+      preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'ini'],
+    },
+    navigation: {
+      fields: ['icon'],
+    },
   },
 })

@@ -15,9 +15,7 @@ const items = [
 const accountForm = reactive({ name: 'Benjamin', username: 'benjamincanac' })
 const passwordForm = reactive({ currentPassword: '', newPassword: '' })
 
-function onSubmit(form) {
-  console.log('Submitted form:', form)
-}
+function onSubmit(form) {}
 </script>
 
 <template>

@@ -44,6 +44,8 @@ const people = [
   },
 ]
 
+const selected = ref([people[1]])
+
 function select(row) {
   const index = selected.value.findIndex((item) => item.id === row.id)
   if (index === -1) {
@@ -52,8 +54,6 @@ function select(row) {
     selected.value.splice(index, 1)
   }
 }
-
-const selected = ref([people[1]])
 </script>
 
 <template>

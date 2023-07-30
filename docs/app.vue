@@ -1,8 +1,10 @@
-<!-- eslint-disable vue/no-v-html -->
 <script setup lang="ts">
 const colorMode = useColorMode()
 
-const { data: navigation } = await useAsyncData('navigation', () => fetchContentNavigation())
+const { data: links } = await useAsyncData('navigation', () => fetchContentNavigation(), {
+  transform: (navigation) => mapContentLinks(navigation),
+})
+
 const { data: files } = await useLazyAsyncData(
   'files',
   () =>
@@ -12,7 +14,7 @@ const { data: files } = await useLazyAsyncData(
   { default: () => [] },
 )
 
-provide('navigation', navigation)
+provide('links', links)
 
 const anchors = [
   {
@@ -23,13 +25,13 @@ const anchors = [
   {
     label: 'Playground',
     icon: 'i-simple-icons-stackblitz',
-    to: 'https://stackblitz.com/edit/nuxtlabs-ui?file=app.config.ts,app.vue',
+    to: 'https://vue-email-demo.vercel.app/',
     target: '_blank',
   },
   {
     label: 'Releases',
     icon: 'i-heroicons-rocket-launch-solid',
-    to: 'https://github.com/nuxtlabs/ui/releases',
+    to: 'https://github.com/Dave136/vue-email/releases',
     target: '_blank',
   },
 ]
@@ -41,7 +43,7 @@ const color = computed(() => (colorMode.value === 'dark' ? '#18181b' : 'white'))
 // Head
 
 useHead({
-  titleTemplate: (title) => (title && title.includes('NuxtLabs UI') ? title : `${title} - NuxtLabs UI`),
+  titleTemplate: (title) => (title && title.includes('VueEmail') ? title : `${title} - Build and send emails using Vue`),
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
     { key: 'theme-color', name: 'theme-color', content: color },
@@ -49,6 +51,9 @@ useHead({
   link: [{ rel: 'icon', type: 'image/svg+xml', href: '/icon.svg' }],
   htmlAttrs: {
     lang: 'en',
+  },
+  bodyAttrs: {
+    class: 'antialiased font-sans text-foreground bg-background',
   },
 })
 
@@ -64,9 +69,9 @@ useSeoMeta({
     <UHeader>
       <template #left>
         <NuxtLink to="/getting-started" class="flex items-end gap-1.5 font-bold text-xl text-gray-900 dark:text-white">
-          <Logo class="w-8 h-8 text-primary-500 dark:text-primary-400" />
+          <Logo class="w-8 h-8" />
 
-          <span class="hidden sm:block">NuxtLabs</span><span class="sm:text-primary-500 dark:sm:text-primary-400">UI</span>
+          <span class="hidden sm:block"><span class="sm:text-primary-500 dark:sm:text-primary-400">Vue</span>Email</span>
         </NuxtLink>
       </template>
 
@@ -75,26 +80,32 @@ useSeoMeta({
       </template>
 
       <template #right>
-        <UColorModeButton />
+        <ColorModeButton />
 
-        <USocialButton to="https://twitter.com/nuxtlabs" target="_blank" icon="i-simple-icons-twitter" class="hidden lg:inline-flex" />
-        <USocialButton to="https://github.com/nuxtlabs/ui" target="_blank" icon="i-simple-icons-github" class="hidden lg:inline-flex" />
+        <UButtonsSocialButton to="https://twitter.com/nuxtlabs" target="_blank" icon="i-simple-icons-twitter" class="hidden lg:inline-flex" />
+        <UButtonsSocialButton to="https://github.com/nuxtlabs/ui" target="_blank" icon="i-simple-icons-github" class="hidden lg:inline-flex" />
       </template>
 
       <template #links>
-        <UDocsAsideAnchors :links="anchors" />
-        <UDocsAsideLinks :links="navigation" />
+        <UAsideAnchors :links="anchors" />
+        <UAsideLinks :links="links" />
       </template>
     </UHeader>
 
-    <UContainer>
-      <UDocsLayout :links="navigation" :anchors="anchors">
-        <NuxtPage />
-      </UDocsLayout>
-    </UContainer>
+    <UMain>
+      <UContainer>
+        <UPage>
+          <template #left>
+            <UAside :links="links" :anchors="anchors" />
+          </template>
+
+          <NuxtPage />
+        </UPage>
+      </UContainer>
+    </UMain>
 
     <ClientOnly>
-      <UDocsSearch :files="files" :links="navigation" />
+      <UDocsSearch :files="files" :links="links" />
     </ClientOnly>
 
     <UNotifications>
