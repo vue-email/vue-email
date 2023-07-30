@@ -14,17 +14,11 @@ const scriptIdentifier = '_sfc_main'
 export function compileTemplate(path: string, config: Options): void {
   const $path = _path.normalize(path)
   const component = compile($path)
-  const normalizedDir = _path.normalize(config?.input?.templates?.dir ?? '')
-
-  let name = path.substring(path.indexOf(normalizedDir) + normalizedDir.length + 1)
-
-  if (name.includes('.vuemail/')) {
-    name = name.split('/')[1]
-  }
-
+  // const normalizedDir = _path.normalize(config?.input?.templates?.dir ?? '')
+  const name = path.split('/')[path.split('/').length - 1]
   const finalPath = _path.normalize(`${config?.output?.dir}/${name.replace('.vue', '.js')}`)
 
-  writeFile(finalPath, component)
+  writeFile(finalPath, component.trim())
 }
 
 export async function templateRender(name: string, options?: RenderOptions, config?: Options): Promise<string> {
@@ -40,6 +34,7 @@ function compile(path: string) {
   const source = readFile(path)
   const splittedPath = path.split('/')
   const filename = splittedPath[splittedPath.length - 1]
+  let styles: compiler.SFCStyleCompileResults | null = null
 
   const { descriptor, errors } = createDescriptor(filename, source, {
     compiler,
@@ -56,12 +51,14 @@ function compile(path: string) {
     genDefaultAs: scriptIdentifier,
   })
 
-  const styles = compiler.compileStyle({
-    id: `data-v-${descriptor.id}`,
-    filename,
-    source: descriptor.styles[0].content,
-    scoped: descriptor.styles.some((s) => s.scoped),
-  })
+  if (descriptor.styles.length) {
+    styles = compiler.compileStyle({
+      id: `data-v-${descriptor.id}`,
+      filename,
+      source: descriptor.styles[0].content,
+      scoped: descriptor.styles.some((s) => s.scoped),
+    })
+  }
 
   const template = compiler.compileTemplate({
     filename,
@@ -76,10 +73,10 @@ function compile(path: string) {
   ${template.code}\n
   ${script.content}
 
-  const styles = \`${styles.code}\`
+  ${styles ? `const styles = \`${styles.code}\`` : ''}
 
   ${scriptIdentifier}.render = render
-  ${scriptIdentifier}.style = styles
+  ${styles ? `${scriptIdentifier}.style = styles` : ''}
   export default _sfc_main
   `
 
