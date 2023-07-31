@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { transformContent } from '@nuxt/content/transformers'
 
+// import { EBody, EButton, EColumn, EContainer, EFont, EHead, EHeading, EHr,
+// EHtml, EImg, ELink, EMarkdown, EPreview, ERow, ESection, ETailwind, EText } from 'vue-email'
+
 const props = defineProps({
   slug: {
     type: String,
@@ -60,7 +63,7 @@ const route = useRoute()
 
 const slug = props.slug || route.params.slug[1]
 const camelName = useCamelCase(slug)
-const name = `U${useUpperFirst(camelName)}`
+const name = `E${useUpperFirst(camelName)}`
 
 const meta = await fetchComponentMeta(name)
 

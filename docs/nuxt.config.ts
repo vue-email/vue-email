@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/devtools',
     // '@nuxthq/studio',
+    'vue-email/nuxt',
     '@nuxthq/ui',
     '@nuxtjs/fontaine',
     '@nuxtjs/google-fonts',
@@ -15,7 +16,6 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-component-meta',
     'nuxt-lodash',
-    'vue-email/nuxt',
   ],
   alias: {
     'vue-email': resolve(__dirname, '../src/index.ts'),

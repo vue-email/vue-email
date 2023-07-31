@@ -5,7 +5,7 @@ const config = useRuntimeConfig().public
 <template>
   <footer class="flex items-center gap-1.5 mt-12">
     <div class="flex-1 flex items-baseline gap-1.5 text-sm text-gray-600 dark:text-gray-300 leading-6">
-      Made by
+      Made With
       <NuxtLink to="https://ui.nuxtlabs.com/getting-started" aria-label="NuxtUi"> Nuxt UI </NuxtLink>
     </div>
 

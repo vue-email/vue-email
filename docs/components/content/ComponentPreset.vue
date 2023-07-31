@@ -13,7 +13,7 @@ const route = useRoute()
 
 const slug = props.slug || route.params.slug[1]
 const camelName = useCamelCase(slug)
-const name = `U${useUpperFirst(camelName)}`
+const name = `E${useUpperFirst(camelName)}`
 
 const preset = appConfig.ui[camelName]
 

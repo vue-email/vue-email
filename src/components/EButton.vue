@@ -3,25 +3,25 @@ import type { CSSProperties } from 'vue'
 import { convertStyleStringToObj, pxToPt } from '../utils'
 
 const props = withDefaults(defineProps<Props>(), {
-  px: '0',
-  py: '0',
+  px: 0,
+  py: 0,
   target: '_blank',
   href: '#',
 })
 
 interface Props {
-  px?: string
-  py?: string
+  px?: string | number
+  py?: string | number
   target?: string
   href: string
   style?: CSSProperties
 }
 
-const y = Number.parseInt(props.py) * 2
+const y = Number.parseInt(`${props.py}`) * 2
 const textRaise = pxToPt(y.toString())
 const styles = typeof props.style === 'string' ? convertStyleStringToObj(props.style) : props.style
 
-function buttonStyle(py = '0', px = '0') {
+function buttonStyle(py: string | number = 0, px: string | number = 0) {
   return {
     ...styles,
     lineHeight: '100%',
@@ -32,7 +32,7 @@ function buttonStyle(py = '0', px = '0') {
   }
 }
 
-function buttonTextStyle(py = '0') {
+function buttonTextStyle(py: string | number = 0) {
   return {
     ...styles,
     maxWidth: '100%',

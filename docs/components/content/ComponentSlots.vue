@@ -10,7 +10,7 @@ const route = useRoute()
 
 const slug = props.slug || route.params.slug[1]
 const camelName = useCamelCase(slug)
-const name = `U${useUpperFirst(camelName)}`
+const name = `E${useUpperFirst(camelName)}`
 
 const meta = await fetchComponentMeta(name)
 </script>
