@@ -1,6 +1,20 @@
 # Changelog
 
 
+## v0.5.15
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.5.14...v0.5.15)
+
+### 📖 Documentation
+
+- Moving from vitepress to nuxt content ([#32](https://github.com/Dave136/vue-email/pull/32))
+- Fixed lint issue ([e8db881](https://github.com/Dave136/vue-email/commit/e8db881))
+- Updated readme og image ([0bb2be9](https://github.com/Dave136/vue-email/commit/0bb2be9))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.5.14
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.5.13...v0.5.14)
