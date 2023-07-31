@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.5.14
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.5.13...v0.5.14)
+
+### 🚀 Enhancements
+
+- Added image baseurl config ([#31](https://github.com/Dave136/vue-email/pull/31))
+
+### 🩹 Fixes
+
+- Added old releases back to changelog ([fbcb1bb](https://github.com/Dave136/vue-email/commit/fbcb1bb))
+
+### 🏡 Chore
+
+- Update README.md ([b95ee33](https://github.com/Dave136/vue-email/commit/b95ee33))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.5.13
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.5.12...v0.5.13)
