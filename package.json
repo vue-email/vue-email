@@ -63,9 +63,9 @@
     "build:nuxt": "nuxt build playgrounds/nuxt",
     "generate:nuxt": "nuxt generate playgrounds/nuxt",
     "preview:nuxt": "nuxt preview playgrounds/nuxt",
-    "dev:docs": "pnpm -C docs run dev",
-    "build:docs": "pnpm -C docs run build",
-    "preview:docs": "pnpm -C docs run serve",
+    "dev:docs": "nuxt dev docs",
+    "build:docs": "nuxt build docs",
+    "preview:docs": "nuxt preview docs",
     "dev:client": "nuxt dev client",
     "build:client": "nuxt generate client"
   },

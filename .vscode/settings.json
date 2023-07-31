@@ -12,9 +12,16 @@
 	"eslint.workingDirectories": ["demo/", "packages/"],
 	"testing.automaticallyOpenPeekView": "never",
 	"files.associations": {
-		"*.mdx": "markdown"
+		"*.mdx": "markdown",
+		"*.css": "tailwindcss"
 	},
 	"[javascript]": {
 		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-	}
+	},
+	"[vue]": {
+		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+	},
+	"editor.quickSuggestions": {
+		"strings": true
+	},
 }

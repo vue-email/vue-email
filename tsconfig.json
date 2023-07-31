@@ -25,7 +25,7 @@
         "./src/index"
       ],
       "vue-email/nuxt": [
-        "./src/nuxt/module"
+        "./nuxt/index.mjs"
       ],
       "#components": [
         ".nuxt/components"
@@ -41,6 +41,21 @@
       ],
       "#build/*": [
         ".nuxt/*"
+      ],
+      "#app": [
+        "./node_modules/nuxt/dist/app"
+      ],
+      "#app/*": [
+        "./node_modules/nuxt/dist/app/*"
+      ],
+      "#color-mode-options": [
+        "./docs/.nuxt/color-mode-options"
+      ],
+      "#nuxt-component-meta": [
+        "./docs/.nuxt/component-meta.mjs"
+      ],
+      "#nuxt-component-meta/types": [
+        "./docs/.nuxt/component-meta.d.ts"
       ],
     }
   },
