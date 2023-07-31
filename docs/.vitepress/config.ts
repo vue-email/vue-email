@@ -198,6 +198,10 @@ function sidebar(): DefaultTheme.SidebarItem[] {
           text: 'Nuxt Setup',
           link: '/getting-started/nuxt',
         },
+        {
+          text: 'Configuration',
+          link: '/getting-started/config',
+        },
       ],
     },
     {
