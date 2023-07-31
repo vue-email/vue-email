@@ -1,14 +1,17 @@
 import type { Plugin } from 'vue'
+
 import * as components from '../components'
+import type { VueEmailPLuginOptions } from '../types'
+import { config } from '../config'
+import { assign } from '../utils/assign-deep'
 
 export const VueEmailPlugin: Plugin = {
-  install(app) {
-    // Register components
-    const Components = Object.keys(components).map((key) => components[key as keyof object])
+  install(app, options: VueEmailPLuginOptions = {}) {
+    if (options) assign(config, options)
 
-    // Register core components
-    Components.forEach((component: any) => {
-      app.component(component.name, component)
+    // Register components
+    Object.entries(components).forEach(([name, component]) => {
+      app.component(name, component)
     })
   },
 }

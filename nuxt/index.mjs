@@ -1,4 +1,4 @@
-import { addComponent, addImportsSources, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addComponent, addImportsSources, addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit'
 
 const components = [
   'EBody',
@@ -78,6 +78,10 @@ export default defineNuxtModule({
     // 		},
     // 	})
     // })
+
+    nuxt.options.runtimeConfig.public.vueEmailOptions = options
+
+    addPlugin(resolve('./index.plugin.mjs'))
 
     components.forEach((component) => {
       addComponent({
