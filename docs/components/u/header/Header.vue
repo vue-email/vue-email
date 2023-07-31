@@ -27,7 +27,7 @@ watch(
         <div class="lg:flex-1 flex items-center gap-1.5">
           <slot name="left">
             <NuxtLink to="/" class="flex-shrink-0 font-bold text-xl text-gray-900 dark:text-white flex items-end gap-1.5">
-              <slot name="logo"> Nuxt UI Kit </slot>
+              <slot name="logo"> VueEmail </slot>
             </NuxtLink>
           </slot>
         </div>
@@ -58,7 +58,7 @@ watch(
               <div class="lg:flex-1 flex items-center gap-1.5">
                 <slot name="left">
                   <NuxtLink to="/" class="flex-shrink-0 font-bold text-xl text-gray-900 dark:text-white flex items-end gap-1.5">
-                    <slot name="logo"> Nuxt UI Kit </slot>
+                    <slot name="logo"> VueEmail </slot>
                   </NuxtLink>
                 </slot>
               </div>

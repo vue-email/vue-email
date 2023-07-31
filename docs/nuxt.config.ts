@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxtjs/plausible',
     '@vueuse/nuxt',
-    'nuxt-component-meta',
+    // 'nuxt-component-meta',
     'nuxt-lodash',
   ],
   alias: {
