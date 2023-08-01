@@ -131,7 +131,7 @@ const containerImageFooter = {
           </ERow>
           <ERow :style="{ ...boxInfos, paddingTop: '0' }">
             <EColumn :style="containerButton" col-span="{2}">
-              <EButton href="#" :style="button"> Learn More </EButton>
+              <EText :style="button"> Learn More </EText>
             </EColumn>
           </ERow>
         </ESection>

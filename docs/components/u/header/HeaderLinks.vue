@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { omit } from 'lodash-es'
+import type { HeaderLink } from 'types'
 
 defineProps<{
   links?: HeaderLink[]

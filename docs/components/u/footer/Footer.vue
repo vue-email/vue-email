@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { FooterLink } from 'types'
+
 defineProps<{
   links?: FooterLink[]
 }>()

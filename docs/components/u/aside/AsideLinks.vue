@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { omit } from 'lodash-es'
+import type { Link } from 'types'
 
 const props = withDefaults(
   defineProps<{

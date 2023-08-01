@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Dialog, DialogPanel, TransitionRoot } from '@headlessui/vue'
+import type { HeaderLink } from 'types'
 
 defineProps<{
   links?: HeaderLink[]
@@ -26,7 +27,7 @@ watch(
       <div class="flex items-center justify-between gap-3" :class="[ui.height]">
         <div class="lg:flex-1 flex items-center gap-1.5">
           <slot name="left">
-            <NuxtLink to="/" class="flex-shrink-0 font-bold text-xl text-gray-900 dark:text-white flex items-end gap-1.5">
+            <NuxtLink to="/getting-started" class="flex-shrink-0 font-bold text-xl text-gray-900 dark:text-white flex items-end gap-1.5">
               <slot name="logo"> VueEmail </slot>
             </NuxtLink>
           </slot>
@@ -57,7 +58,7 @@ watch(
             <div class="flex items-center justify-between gap-3" :class="[ui.height]">
               <div class="lg:flex-1 flex items-center gap-1.5">
                 <slot name="left">
-                  <NuxtLink to="/" class="flex-shrink-0 font-bold text-xl text-gray-900 dark:text-white flex items-end gap-1.5">
+                  <NuxtLink to="/getting-started" class="flex-shrink-0 font-bold text-xl text-gray-900 dark:text-white flex items-end gap-1.5">
                     <slot name="logo"> VueEmail </slot>
                   </NuxtLink>
                 </slot>

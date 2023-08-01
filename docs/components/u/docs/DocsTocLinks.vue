@@ -23,7 +23,7 @@ watch(
 )
 
 function scrollToHeading(id: string) {
-  router.push(`#${id}`)
+  router.push(`#${id.trim()}`)
   emit('move', id)
 }
 </script>
@@ -32,7 +32,7 @@ function scrollToHeading(id: string) {
   <ul class="space-y-2">
     <li v-for="link in links" :key="link.text" :class="{ 'ml-3': link.depth === 3 }" class="space-y-2">
       <a
-        :href="link.id ? `#${link.id}` : null"
+        :href="link.id ? `#${link.id.trim()}` : null"
         class="block text-sm truncate"
         :class="[activeHeadings.includes(link.id) ? 'text-primary-500 dark:text-primary-400' : 'hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300']"
         @click.prevent="scrollToHeading(link.id)"

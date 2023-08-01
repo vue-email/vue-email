@@ -26,7 +26,6 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: ['/getting-started'],
-      failOnError: false,
     },
   },
   routeRules: {
