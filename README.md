@@ -15,9 +15,9 @@
 ## Features
 
 - 🧩 Build email templates with Vue components
-- 📨 [Integrates with many email providers](https://vue-email.vercel.app/integrations/nodemailer.html)
+- 📨 [Integrates with many email providers](https://vue-email.vercel.app/integrations/nodemailer)
 - 🧪 Tested against popular email clients
-- 🎨 [Supports Tailwind CSS](https://vue-email.vercel.app/components/tailwind.html)
+- 🎨 [Supports Tailwind CSS](https://vue-email.vercel.app/components/tailwind)
 - 🚚 First-class support for Nuxt 3
 - ✨ Written in TypeScript
 
