@@ -7,7 +7,10 @@ useHead({
       content: 'width=device-width, initial-scale=1, maximum-scale=1',
     },
   ],
-  link: [{ rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' }],
+  link: [
+    { rel: 'icon', type: 'image/x-icon', href: '/icon.svg' },
+    { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' },
+  ],
   htmlAttrs: {
     lang: 'en',
   },
