@@ -1,45 +1,86 @@
-import { kebabCase } from 'scule'
+import { kebabCase, pascalCase } from 'scule'
 import type { Email } from '@/types/email'
 
 export function useEmail() {
-  const components = useNuxtApp().vueApp._context.components
   const emails = useState<Email[]>('emails')
   const email = useState<Email>('email')
   const sending = useState<boolean>('sending', () => false)
   const refresh = useState<boolean>('refresh', () => false)
 
   const getEmails = async () => {
-    const componentNames = Object.keys(components)
-      .filter((key) => {
-        return key.startsWith('Emails')
-      })
-      .map((key) => {
-        const name = key.replace('Emails', '')
-        const label = kebabCase(name)
+    const { data, error } = await useFetch('/api/emails')
 
-        return {
-          label,
-          component: key,
-          to: `/preview/${label}`,
-          icon: 'i-ph-file-dotted',
+    if (error && error.value) {
+      console.error(error)
+      return
+    }
+
+    if (data && data.value) {
+      const emailTemplates = data.value.reduce((acc, email) => {
+        const emailName = email.replace('.vue', '')
+        const resComponent = `Emails${pascalCase(emailName.replace(':', '-'))}`
+
+        const parts = emailName.split(':')
+        const name = kebabCase(parts[1] || parts[0])
+
+        if (parts.length === 1) {
+          acc.push({ label: name, to: `/preview/${parts[0]}`, component: email, resComponent })
+        } else {
+          const folder = parts[0]
+
+          const folderObj = acc.find((item) => item.label === folder)
+
+          if (folderObj) {
+            folderObj.children = [...(folderObj.children || []), { label: name, to: `/preview/${emailName}`, component: email, resComponent }]
+          } else {
+            acc.push({ label: folder, children: [{ label: name, to: `/preview/${emailName}`, component: email, resComponent }] })
+          }
         }
-      })
 
-    emails.value = componentNames
+        return acc
+      }, [] as Email[])
+
+      emails.value = emailTemplates
+    }
   }
 
   const getEmail = async (name: string) => {
     if (emails.value && emails.value.length) {
-      const emailObj = emails.value.find((email) => email.label === name)
+      name = `${name}.vue`
+      let foundEmail = null
 
-      if (emailObj) email.value = emailObj
+      const directMatch = emails.value.find((email) => email.component === name)
+      if (directMatch) {
+        foundEmail = directMatch
+      }
+
+      // If no direct match, search in the children array recursively
+      const findInChildren = (children: Email[]): Email | null => {
+        for (const child of children) {
+          if (child.component === name) {
+            return child
+          }
+
+          if (child.children && child.children.length) {
+            const nestedMatch = findInChildren(child.children)
+            if (nestedMatch) {
+              return nestedMatch
+            }
+          }
+        }
+        return null
+      }
+
+      foundEmail = findInChildren(emails.value)
+
+      if (foundEmail) email.value = foundEmail
     }
 
     return null
   }
 
   const getVueCode = async (name: string) => {
-    const { data } = await useAsyncData('markup', () => $fetch<string>(`/api/markup/${name}`))
+    const { data } = await useFetch<string>(`/api/markup/${name}`)
 
     if (data.value) return data.value
 
