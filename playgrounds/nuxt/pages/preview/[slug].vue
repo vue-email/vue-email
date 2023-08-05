@@ -38,5 +38,7 @@ useHead({
 </script>
 
 <template>
-  <EmailPreview v-if="email" :slug="email.label" :template="emailTemplate" />
+  <ClientOnly>
+    <EmailPreview v-if="email" :slug="email.label" :template="emailTemplate" />
+  </ClientOnly>
 </template>

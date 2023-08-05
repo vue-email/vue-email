@@ -18,24 +18,25 @@ export function useEmail() {
     if (data && data.value) {
       const emailTemplates = data.value.reduce((acc, email) => {
         const emailName = email.replace('.vue', '')
-        const resComponent = `Emails${pascalCase(emailName.replace(':', '-'))}`
+        const resComponent = `Emails${pascalCase(emailName.replaceAll(':', '-'))}`
 
         const parts = emailName.split(':')
-        const name = kebabCase(parts[1] || parts[0])
-
-        if (parts.length === 1) {
-          acc.push({ label: name, to: `/preview/${parts[0]}`, component: email, resComponent })
-        } else {
-          const folder = parts[0]
-
-          const folderObj = acc.find((item) => item.label === folder)
+        const name = kebabCase(parts[parts.length - 1])
+        let targetArray = acc
+        for (let i = 0; i < parts.length - 1; i++) {
+          const folder = parts[i]
+          const folderObj = targetArray.find((item) => item.label === folder)
 
           if (folderObj) {
-            folderObj.children = [...(folderObj.children || []), { label: name, to: `/preview/${emailName}`, component: email, resComponent }]
+            targetArray = folderObj.children || []
           } else {
-            acc.push({ label: folder, children: [{ label: name, to: `/preview/${emailName}`, component: email, resComponent }] })
+            const newFolderObj = { label: folder, children: [] }
+            targetArray.push(newFolderObj)
+            targetArray = newFolderObj.children
           }
         }
+
+        targetArray.push({ label: name, to: `/preview/${emailName}`, component: email, resComponent, icon: 'i-ph-file-bold' })
 
         return acc
       }, [] as Email[])
@@ -49,12 +50,6 @@ export function useEmail() {
       name = `${name}.vue`
       let foundEmail = null
 
-      const directMatch = emails.value.find((email) => email.component === name)
-      if (directMatch) {
-        foundEmail = directMatch
-      }
-
-      // If no direct match, search in the children array recursively
       const findInChildren = (children: Email[]): Email | null => {
         for (const child of children) {
           if (child.component === name) {
@@ -71,9 +66,17 @@ export function useEmail() {
         return null
       }
 
-      foundEmail = findInChildren(emails.value)
+      const directMatch = emails.value.find((email) => email.component === name)
+      if (directMatch) {
+        foundEmail = directMatch
+      } else {
+        // If no direct match, search recursively in the children array
+        foundEmail = findInChildren(emails.value)
+      }
 
-      if (foundEmail) email.value = foundEmail
+      if (foundEmail) {
+        email.value = foundEmail
+      }
     }
 
     return null

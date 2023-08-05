@@ -4,6 +4,7 @@ export interface Email {
   children?: Email[]
   component?: string
   resComponent?: string
+  icon?: string
 }
 
 export type ActiveView = 'desktop' | 'mobile' | 'source'
