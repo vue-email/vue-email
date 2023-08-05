@@ -15,23 +15,7 @@ const links = computed(() => (emails.value ? emails.value : []))
           <UIcon name="i-ph-folder-duotone" class="text-xl mr-2" />
           All Emails
         </p>
-        <UVerticalNavigation
-          :links="links"
-          :ui="{
-            wrapper: 'border-s border-gray-800 space-y-2 ml-3',
-            base: 'group flex items-center gap-x-1 border-s -ms-px lg:leading-6',
-            padding: 'ps-4',
-            rounded: '',
-            font: '',
-            ring: '',
-            icon: {
-              base: 'text-xl',
-              active: 'text-primary-400',
-            },
-            active: 'text-primary-400 border-current font-semibold',
-            inactive: 'border-transparent hover:border-gray-500 text-gray-400 hover:text-gray-300',
-          }"
-        />
+        <Navigation :links="links" />
       </nav>
     </aside>
     <main class="w-[calc(100%_-_275px)] bg-gray-800">

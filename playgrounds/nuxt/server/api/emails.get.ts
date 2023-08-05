@@ -1,8 +1,6 @@
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
   try {
-    const file = event.context.params && event.context.params.file ? event.context.params.file : null
-
-    const template = await useStorage('assets:emails').getItem(`${file}`)
+    const template = await useStorage('assets:emails').getKeys()
 
     if (!template) {
       throw createError({
