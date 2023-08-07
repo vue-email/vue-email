@@ -46,4 +46,18 @@ describe('compiler', () => {
 
     expect(template).toBe('<section><h1>Welcome John Doe</h1></section>')
   })
+
+  it('It should render GithubAccessToken template', async () => {
+    const vuemail = defineConfig({
+      dir: path,
+    })
+
+    const template = await vuemail.render('GithubAccessToken', {
+      props: {
+        username: 'John Doe',
+      },
+    })
+
+    expect(true).toBe(true)
+  })
 })
