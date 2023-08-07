@@ -1,6 +1,6 @@
 import { deepmerge } from './deepmerge'
 import { MissingConfigurationOptionError } from './errors'
-import type { Options } from '$src/types'
+import type { Options } from './types'
 
 export function createInitConfig(options: Options) {
   const config = deepmerge<Options>(

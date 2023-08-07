@@ -1,4 +1,4 @@
-import type { Options } from '$src/types'
+import type { Options } from './types'
 
 export class MissingConfigurationOptionError extends Error {
   constructor(missing: (keyof Options)[]) {
