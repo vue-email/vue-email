@@ -38,6 +38,11 @@
       "require": "./dist/vue-email.umd.cjs",
       "types": "./dist/index.d.ts"
     },
+    "./compiler": {
+      "import": "./compiler/compiler.mjs",
+      "require": "./compiler/compiler.cjs",
+      "types": "./compiler/compiler.d.ts"
+    },
     "./nuxt": "./nuxt/index.mjs"
   },
   "main": "./dist/vue-email.umd.cjs",
@@ -46,11 +51,13 @@
   "files": [
     "dist/**/*",
     "nuxt/**/*",
+    "compiler/**/*",
     "LICENSE",
     "README.md"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && pnpm build:compiler",
+    "build:compiler": "node buildCompiler.mjs",
     "dev": "vite build --watch",
     "release": "changelogen --release",
     "lint": "eslint --ext .js,.vue,.ts,.tsx .",
@@ -104,6 +111,7 @@
     "tw-to-css": "^0.0.11",
     "typescript": "^5.1.6",
     "ufo": "^1.1.2",
+    "unbuild": "^1.2.1",
     "vite": "4.4.7",
     "vite-plugin-banner": "^0.7.0",
     "vite-plugin-dts": "^3.3.1",
