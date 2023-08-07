@@ -5,9 +5,9 @@ import { createSSRApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import { createDescriptor } from './descriptor'
 import { isProd } from './utils'
-import { readFile, writeFile } from '$src/utils'
+import { readFile, writeFile } from './file'
 
-import type { Options, RenderOptions } from '$src/types'
+import type { Options, RenderOptions } from './types'
 
 const scriptIdentifier = '_sfc_main'
 

@@ -1,8 +1,8 @@
 import { createInitConfig } from './config'
 import { compileTemplate, templateRender } from './template'
-import { getFilesRecursively } from '$src/utils'
+import { getFilesRecursively } from './file'
 
-import type { DefineConfig, Options, RenderOptions } from '$src/types'
+import type { DefineConfig, Options, RenderOptions } from './types'
 
 export const defineConfig: DefineConfig = (config: Options) => {
   const defaultConfig = createInitConfig(config)
