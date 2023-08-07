@@ -104,3 +104,6 @@ Temporary Items
 archive
 
 *.tgz
+
+# compiler dist
+compiler
