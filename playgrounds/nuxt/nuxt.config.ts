@@ -2,7 +2,7 @@ import { resolve } from 'node:path'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: true, componentInspector: false, viteInspect: false },
   alias: {
     'vue-email': resolve(__dirname, '../../src/index.ts'),
     'vue-email/nuxt': resolve(__dirname, '../../nuxt/index.mjs'),
@@ -42,5 +42,8 @@ export default defineNuxtConfig({
         dir: '../emails',
       },
     ],
+  },
+  vueEmail: {
+    baseUrl: 'https://vue-email-demo.vercel.app/',
   },
 })

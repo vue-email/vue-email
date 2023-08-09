@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { h, mergeProps, useSlots } from 'vue'
+import { h, useSlots } from 'vue'
 import { type TailwindConfig, tailwindToCSS } from 'tw-to-css'
 import { renderToString } from 'vue/server-renderer'
 import { parse } from 'node-html-parser'
@@ -19,6 +19,7 @@ const $default = slots.default()
 
 const { twi } = tailwindToCSS({ config: props.config })
 const fullHTML = await renderToString(h('div', $default)).then((html) => html.replace(/^<div[^>]*>|<\/div>$/g, ''))
+
 const tailwindCss = twi(fullHTML, {
   merge: false,
   ignoreMediaQueries: false,
@@ -35,49 +36,50 @@ if (hasResponsiveStyles && (!hasHTML || !hasHead)) {
   throw new Error('Tailwind: To use responsive styles you must have a <html> and <head> element in your template.')
 }
 
-// parse fullHTML to get a structured object
 const parsedHTML = parse(fullHTML)
 
 parsedHTML.querySelectorAll('*').forEach((domNode) => {
   if (domNode.nodeType === 1) {
-    // Check if the node is an Element
     if (hasResponsiveStyles && hasHead && domNode.tagName === 'head') {
-      const props = mergeProps(domNode.attributes)
-
-      const newDomNode = parse(
-        `<head ${props}>
-          ${domNode.childNodes}
-          <style>${headStyle}</style>
-        </head>`,
-      )
-
-      domNode.replaceWith(newDomNode)
+      domNode.appendChild(parse(`<style>${headStyle}</style>`))
     }
 
     if (domNode.attributes.class) {
       const cleanRegex = /[:#\!\-[\]\/\.%]+/g
       const cleanTailwindClasses = domNode.attributes.class.replace(cleanRegex, '_')
 
-      const currentStyles = domNode.attributes.style ? `${domNode.attributes.style};` : ''
+      const currentStyles = domNode.attributes.style || ''
+
       const tailwindStyles = cleanTailwindClasses
         .split(' ')
         .map((className) => {
           return cssMap[`.${className}`]
         })
+        .filter((style) => style)
         .join(';')
-      domNode.attributes.style = `${currentStyles} ${tailwindStyles}`
 
-      domNode.attributes.class = domNode.attributes.class
-        .split(' ')
-        .filter((className) => className.search(/^.{2}:/) !== -1)
-        .join(' ')
-        .replace(cleanRegex, '_')
-      if (!domNode.attributes.class) delete domNode.attributes.class
+      domNode.setAttribute('style', `${currentStyles} ${tailwindStyles}`)
+
+      domNode.setAttribute(
+        'class',
+        domNode.attributes.class
+          .split(' ')
+          .filter((className) => className.search(/^.{2}:/) !== -1)
+          .join(' ')
+          .replace(cleanRegex, '_'),
+      )
+
+      if (!domNode.attributes.class) domNode.removeAttribute('class')
     }
   }
 })
+
+const html = parsedHTML.toString()
+function render() {
+  return h('template', { innerHTML: html })
+}
 </script>
 
 <template>
-  <template v-html="fullHTML" />
+  <render />
 </template>

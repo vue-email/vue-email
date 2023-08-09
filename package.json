@@ -77,7 +77,8 @@
   "dependencies": {
     "html-to-text": "^9.0.5",
     "isomorphic-dompurify": "^1.8.0",
-    "pretty": "^2.0.0"
+    "pretty": "^2.0.0",
+    "node-html-parser": "^6.1.5"
   },
   "peerDependenciesMeta": {
     "@nuxt/kit": {
@@ -98,7 +99,6 @@
     "eslint-plugin-prettier": "^5.0.0",
     "happy-dom": "^10.5.2",
     "kolorist": "^1.8.0",
-    "node-html-parser": "^6.1.5",
     "nuxt": "^3.6.5",
     "prettier": "^3.0.0",
     "tw-to-css": "^0.0.11",
