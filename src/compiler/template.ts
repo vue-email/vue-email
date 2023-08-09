@@ -1,4 +1,5 @@
 import * as _path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import * as compiler from 'vue/compiler-sfc'
 import type { Component } from 'vue'
 import { createSSRApp } from 'vue'
@@ -10,6 +11,8 @@ import { readFile, writeFile } from './file'
 import type { Options, RenderOptions } from './types'
 
 const scriptIdentifier = '_sfc_main'
+
+const root = _path.dirname(fileURLToPath(import.meta.url))
 
 export function compileTemplate(path: string, config: Options): void {
   const $path = _path.normalize(path)
@@ -38,7 +41,7 @@ function compile(path: string) {
 
   const { descriptor, errors } = createDescriptor(filename, source, {
     compiler,
-    root: __dirname,
+    root,
     isProd,
   })
 
