@@ -75,7 +75,8 @@
     "generate:docs": "nuxt generate docs",
     "preview:docs": "nuxt preview docs",
     "dev:client": "nuxt dev client",
-    "build:client": "nuxt generate client"
+    "build:client": "nuxt generate client",
+    "prepublish": "pnpm run build"
   },
   "peerDependencies": {
     "@nuxt/kit": "^3.6.5",

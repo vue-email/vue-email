@@ -1,9 +1,10 @@
 import * as _path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import * as compiler from 'vue/compiler-sfc'
-import type { Component } from 'vue'
 import { createApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
+import type { Component } from 'vue'
+import { VueEmailPlugin } from '../'
 import { createDescriptor } from './descriptor'
 import { isProd } from './utils'
 import { readFile, writeFile } from './file'
@@ -28,6 +29,7 @@ export async function templateRender(name: string, options?: RenderOptions, conf
   const component: Component = (await import(`${config?.dir}/.vuemail/${name}.js`)).default
 
   const app = createApp(component, options?.props)
+  app.use(VueEmailPlugin)
   const content = await renderToString(app)
 
   return content
