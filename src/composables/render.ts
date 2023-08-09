@@ -23,7 +23,8 @@ export async function useRender(
     plainText: false,
   },
 ) {
-  const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
+  const doctype =
+    '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n<meta http-equiv="Content-Type" content="text/html charset=UTF-8" />'
   const app = createApp({ render: () => h(component) }, props)
   const markup = await renderToString(app)
 
