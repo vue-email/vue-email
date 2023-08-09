@@ -4,12 +4,13 @@ import * as compiler from 'vue/compiler-sfc'
 import { createApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import type { Component } from 'vue'
-import { VueEmailPlugin } from '../'
+
 import { createDescriptor } from './descriptor'
 import { isProd } from './utils'
 import { readFile, writeFile } from './file'
 
 import type { Options, RenderOptions } from './types'
+import { VueEmailPlugin } from 'vue-email'
 
 const scriptIdentifier = '_sfc_main'
 
