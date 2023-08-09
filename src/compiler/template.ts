@@ -25,7 +25,7 @@ export function compileTemplate(path: string, config: Options): void {
 }
 
 export async function templateRender(name: string, options?: RenderOptions, config?: Options): Promise<string> {
-  const component: Component = (await import(`${config?.dir}/.vuemail/${name}`)).default
+  const component: Component = (await import(`${config?.dir}/.vuemail/${name}.js`)).default
 
   const app = createSSRApp(component, options?.props)
   const content = await renderToString(app)
