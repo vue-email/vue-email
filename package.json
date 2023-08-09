@@ -57,7 +57,7 @@
     "lint:fix": "eslint --ext .js,.vue,.ts,.tsx . --fix",
     "test:unit": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test": "pnpm test:unit && pnpm test:coverage",
+    "test": "pnpm test:unit",
     "__": "__",
     "dev:nuxt": "nuxt dev playgrounds/nuxt",
     "build:nuxt": "nuxt build playgrounds/nuxt",

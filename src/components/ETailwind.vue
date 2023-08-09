@@ -40,7 +40,7 @@ const parsedHTML = parse(fullHTML)
 
 parsedHTML.querySelectorAll('*').forEach((domNode) => {
   if (domNode.nodeType === 1) {
-    if (hasResponsiveStyles && hasHead && domNode.tagName === 'head') {
+    if (hasResponsiveStyles && hasHead && domNode.tagName === 'HEAD') {
       domNode.appendChild(parse(`<style>${headStyle}</style>`))
     }
 
