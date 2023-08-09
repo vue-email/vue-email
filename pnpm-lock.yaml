@@ -14,6 +14,9 @@ importers:
       isomorphic-dompurify:
         specifier: ^1.8.0
         version: 1.8.0
+      node-html-parser:
+        specifier: ^6.1.5
+        version: 6.1.5
       pretty:
         specifier: ^2.0.0
         version: 2.0.0
@@ -57,9 +60,6 @@ importers:
       kolorist:
         specifier: ^1.8.0
         version: 1.8.0
-      node-html-parser:
-        specifier: ^6.1.5
-        version: 6.1.5
       nuxt:
         specifier: ^3.6.5
         version: 3.6.5(@types/node@20.4.5)(eslint@8.45.0)(typescript@5.1.6)
@@ -6438,7 +6438,6 @@ packages:
   /he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
-    dev: true
 
   /highlight.js@11.8.0:
     resolution: {integrity: sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg==}
@@ -8363,7 +8362,7 @@ packages:
     dependencies:
       css-select: 5.1.0
       he: 1.2.0
-    dev: true
+    dev: false
 
   /node-releases@2.0.13:
     resolution: {integrity: sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ==}
@@ -10632,7 +10631,7 @@ packages:
       postcss-load-config: 4.0.1(postcss@8.4.27)
       postcss-nested: 6.0.1(postcss@8.4.27)
       postcss-selector-parser: 6.0.13
-      resolve: 1.22.2
+      resolve: 1.22.3
       sucrase: 3.34.0
     transitivePeerDependencies:
       - ts-node
@@ -11617,7 +11616,7 @@ packages:
       '@vue/compiler-dom': 3.3.4
       esno: 0.16.3
       kolorist: 1.8.0
-      magic-string: 0.30.1
+      magic-string: 0.30.2
       shell-quote: 1.8.1
       vite: 4.4.7(@types/node@20.4.5)
     transitivePeerDependencies:
