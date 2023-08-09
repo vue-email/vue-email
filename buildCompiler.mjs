@@ -22,5 +22,5 @@ build('.', false, {
       ext: 'cjs',
     },
   ],
-  externals: ['vue', 'vue/compiler-sfc', 'vue/server-renderer'],
+  externals: ['vue', 'vue/compiler-sfc', 'vue/server-renderer', 'vue-email'],
 }).catch(console.error)
