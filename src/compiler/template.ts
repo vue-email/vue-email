@@ -19,7 +19,6 @@ const root = _path.dirname(fileURLToPath(import.meta.url))
 export function compileTemplate(path: string, config: Options): void {
   const $path = _path.normalize(path)
   const component = compile($path)
-  // const normalizedDir = _path.normalize(config?.input?.templates?.dir ?? '')
   const name = path.split('/')[path.split('/').length - 1]
   const finalPath = _path.normalize(`${config?.output?.dir}/${name.replace('.vue', '.js')}`)
 
@@ -27,7 +26,7 @@ export function compileTemplate(path: string, config: Options): void {
 }
 
 export async function templateRender(name: string, options?: RenderOptions, config?: Options): Promise<string> {
-  const component: Component = (await import(`${config?.dir}/.vuemail/${name}.js`)).default
+  const component: Component = (await import(`${config?.output?.dir}/${name}.js`)).default
 
   const app = createApp(component, options?.props)
   app.use(VueEmailPlugin)
