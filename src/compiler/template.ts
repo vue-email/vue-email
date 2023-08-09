@@ -2,7 +2,7 @@ import * as _path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import * as compiler from 'vue/compiler-sfc'
 import type { Component } from 'vue'
-import { createSSRApp } from 'vue'
+import { createApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import { createDescriptor } from './descriptor'
 import { isProd } from './utils'
@@ -27,7 +27,7 @@ export function compileTemplate(path: string, config: Options): void {
 export async function templateRender(name: string, options?: RenderOptions, config?: Options): Promise<string> {
   const component: Component = (await import(`${config?.dir}/.vuemail/${name}.js`)).default
 
-  const app = createSSRApp(component, options?.props)
+  const app = createApp(component, options?.props)
   const content = await renderToString(app)
 
   return content
