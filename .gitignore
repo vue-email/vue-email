@@ -106,4 +106,4 @@ archive
 *.tgz
 
 # compiler dist
-compiler
+compiler/*

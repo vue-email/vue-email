@@ -5,6 +5,7 @@ build('.', false, {
   outDir: 'compiler',
   rollup: {
     emitCJS: true,
+    inlineDependencies: true,
   },
   entries: [
     {
