@@ -46,7 +46,7 @@ function compile(path: string, verbose = false) {
   let styles: compiler.SFCStyleCompileResults | null = null
 
   if (verbose) {
-    console.warn(`${lightGreen('💌')} ${bold(blue('Compiling'))} ${bold(lightGreen(filename))} ${bold(blue('file'))}`)
+    console.warn(`${lightGreen('🚧')} ${bold(blue('Compiling'))} ${bold(lightGreen(filename))} ${bold(blue('file'))}`)
   }
 
   const { descriptor, errors } = createDescriptor(filename, source, {
