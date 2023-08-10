@@ -2,31 +2,26 @@ import * as _path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import * as compiler from 'vue/compiler-sfc'
 import { createApp } from 'vue'
-import { renderToString } from 'vue/server-renderer'
 import type { Component } from 'vue'
+import { renderToString } from 'vue/server-renderer'
+import { importFromStringSync } from 'module-from-string'
 
+import { VueEmailPlugin } from 'vue-email'
 import { createDescriptor } from './descriptor'
 import { isProd } from './utils'
-import { readFile, writeFile } from './file'
+import { readFile } from './file'
 
 import type { Options, RenderOptions } from './types'
-import { VueEmailPlugin } from 'vue-email'
 
 const scriptIdentifier = '_sfc_main'
 
 const root = _path.dirname(fileURLToPath(import.meta.url))
 
-export function compileTemplate(path: string, config: Options): void {
-  const $path = _path.normalize(path)
-  const component = compile($path)
-  const name = path.split('/')[path.split('/').length - 1]
-  const finalPath = _path.normalize(`${config?.output?.dir}/${name.replace('.vue', '.js')}`)
-
-  writeFile(finalPath, component.trim())
-}
-
 export async function templateRender(name: string, options?: RenderOptions, config?: Options): Promise<string> {
-  const component: Component = (await import(`${config?.output?.dir}/${name}.js`)).default
+  const output = compile(`${config?.dir}/${name}`)
+  const component: Component = importFromStringSync(output, {
+    transformOptions: { loader: 'ts' },
+  }).default
 
   const app = createApp(component, options?.props)
   app.use(VueEmailPlugin)
