@@ -63,6 +63,12 @@ export default defineNuxtModule({
       method: 'get',
       lazy: true,
     })
+    addServerHandler({
+      handler: resolve('./runtime/server/api/compile/[file].get.ts'),
+      route: '/api/compile/:file',
+      method: 'get',
+      lazy: true,
+    })
 
     // Adds the emails directory as a global components directory
     addComponentsDir({
