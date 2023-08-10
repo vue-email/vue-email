@@ -1,148 +1,85 @@
 <script setup lang="ts">
-import { type VNode, defineComponent, h, ref, useAttrs, useSlots } from 'vue'
+import { h, useSlots } from 'vue'
 import { type TailwindConfig, tailwindToCSS } from 'tw-to-css'
+import { renderToString } from 'vue/server-renderer'
+import { parse } from 'node-html-parser'
 import { cleanCss, getMediaQueryCss, makeCssMap } from '../utils/css'
-
-const props = defineProps<Props>()
 
 interface Props {
   config?: TailwindConfig
 }
-const render = defineComponent(() => {
-  const attrs = useAttrs()
-  const slots = useSlots()
 
-  const { twi } = tailwindToCSS({ config: props.config })
-  const hasHTML = ref(false)
-  const hasHead = ref(false)
-  const hasResponsiveStyles = ref(false)
-  const classes = ref<string[]>([])
-  const css = ref<string>('')
-  const tailwindCss = ref<string>('')
-  const cssMap = ref<Record<string, string>>({})
-  const headStyle = ref<string>('')
+const props = defineProps<Props>()
+const slots = useSlots()
+if (!slots.default || !slots.default()) {
+  throw new Error('ETailwind component must have a default slot')
+}
 
-  if (!slots.default || !slots.default()) {
-    throw new Error('You must insert at least one code')
-  }
+const $default = slots.default()
 
-  const $default = slots.default()
-  const headNamePattern = /^(head|e-head|ehead)$/i
+const { twi } = tailwindToCSS({ config: props.config })
+const fullHTML = await renderToString(h('div', $default)).then((html) => html.replace(/^<div[^>]*>|<\/div>$/g, ''))
 
-  const vName = (v: VNode) => {
-    return typeof v.type === 'string'
-      ? v.type.toLowerCase()
-      : typeof v.type === 'object' && v.type !== null && 'name' in v.type
-      ? (v.type as { name: string }).name.toLowerCase()
-      : ''
-  }
+const tailwindCss = twi(fullHTML, {
+  merge: false,
+  ignoreMediaQueries: false,
+})
+const css = cleanCss(tailwindCss)
+const cssMap = makeCssMap(css)
+const headStyle = getMediaQueryCss(css)
+const hasResponsiveStyles = /@media[^{]+\{(?<content>[\s\S]+?)\}\s*\}/gm.test(headStyle)
 
-  const helper = (v: any) => {
-    const typeName = vName(v)
+const hasHTML = /<html[^>]*>/gm.test(fullHTML)
+const hasHead = /<head[^>]*>/gm.test(fullHTML)
 
-    if (hasHead.value && hasResponsiveStyles.value && typeName && headNamePattern.test(typeName)) {
-      v.children = [h('style', headStyle.value)]
+if (hasResponsiveStyles && (!hasHTML || !hasHead)) {
+  throw new Error('Tailwind: To use responsive styles you must have a <html> and <head> element in your template.')
+}
+
+const parsedHTML = parse(fullHTML)
+
+parsedHTML.querySelectorAll('*').forEach((domNode) => {
+  if (domNode.nodeType === 1) {
+    if (hasResponsiveStyles && hasHead && domNode.tagName === 'HEAD') {
+      domNode.appendChild(parse(`<style>${headStyle}</style>`))
     }
 
-    if (v.props && v.props.class) {
-      const cleanRegex = /[:#\\!\-[\]\\/\\.%]+/g
+    if (domNode.attributes.class) {
+      const cleanRegex = /[:#\!\-[\]\/\.%]+/g
+      const cleanTailwindClasses = domNode.attributes.class.replace(cleanRegex, '_')
 
-      const cleanTailwindClasses = v.props.class.replace(cleanRegex, '_')
-
-      let currentStyles = ''
-
-      if (v.props && typeof v.props.style === 'object') {
-        currentStyles = Object.keys(v.props.style)
-          .map((key) => {
-            return `${key}: ${v.props?.style[key]};`
-          })
-          .join(' ')
-      }
+      const currentStyles = domNode.attributes.style || ''
 
       const tailwindStyles = cleanTailwindClasses
         .split(' ')
-        .map((className: any) => {
-          return cssMap.value[`.${className}`]
+        .map((className) => {
+          return cssMap[`.${className}`]
         })
+        .filter((style) => style)
         .join(';')
 
-      v.props.style = `${currentStyles} ${tailwindStyles}`.trim()
+      domNode.setAttribute('style', `${currentStyles} ${tailwindStyles}`)
 
-      v.props.class = v.props.class
-        .split(' ')
-        .filter((className: any) => className.search(/^.{2}:/) !== -1)
-        .join(' ')
-        .replace(cleanRegex, '_')
+      domNode.setAttribute(
+        'class',
+        domNode.attributes.class
+          .split(' ')
+          .filter((className) => className.search(/^.{2}:/) !== -1)
+          .join(' ')
+          .replace(cleanRegex, '_'),
+      )
 
-      if (v.props.class === '') {
-        delete v.props.class
-      }
-    }
-
-    if (v.children) {
-      const defaultChildren = v.children.default?.()
-
-      if (defaultChildren && Array.isArray(defaultChildren) && defaultChildren.length) {
-        v.children.default = () => defaultChildren.map((vnode: VNode) => helper(vnode))
-      } else if (v.children && Array.isArray(v.children)) {
-        v.children = v.children.map((vnode: VNode) => helper(vnode))
-      }
-    }
-
-    return h(v)
-  }
-
-  const $forEachHelper = (vnode: any) => {
-    if (vnode.props && vnode.props.class) {
-      classes.value.push(vnode.props.class)
-    }
-
-    const typeName = vName(vnode)
-
-    if (typeName && typeName.includes('html')) {
-      hasHTML.value = true
-    }
-
-    if (typeName && headNamePattern.test(typeName)) {
-      hasHead.value = true
-    }
-
-    if (typeof vnode.children === 'object' && vnode.children) {
-      const defaultChildren = vnode.children.default?.()
-
-      if (defaultChildren && Array.isArray(defaultChildren) && defaultChildren.length) {
-        defaultChildren.forEach($forEachHelper)
-      } else if (vnode.children && Array.isArray(vnode.children)) {
-        vnode.children.forEach($forEachHelper)
-      }
+      if (!domNode.attributes.class) domNode.removeAttribute('class')
     }
   }
-
-  $default.forEach($forEachHelper)
-
-  tailwindCss.value = twi(classes.value.join(' '), {
-    merge: false,
-    ignoreMediaQueries: false,
-  })
-
-  css.value = cleanCss(tailwindCss.value)
-  cssMap.value = makeCssMap(css.value)
-  headStyle.value = getMediaQueryCss(css.value)
-  hasResponsiveStyles.value = /@media[^{]+\{(?<content>[\s\S]+?)\}\s*\}/gm.test(headStyle.value)
-
-  return () =>
-    h(
-      'div',
-      {
-        ...attrs,
-      },
-      $default.map((vnode) => helper(vnode)),
-    )
 })
+
+const html = parsedHTML.toString()
+function render() {
+  return h('template', { innerHTML: html })
+}
 </script>
 
 <template>
-  <render>
-    <slot></slot>
-  </render>
+  <render />
 </template>

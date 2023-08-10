@@ -57,7 +57,7 @@
     "lint:fix": "eslint --ext .js,.vue,.ts,.tsx . --fix",
     "test:unit": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test": "pnpm test:unit && pnpm test:coverage",
+    "test": "pnpm test:unit",
     "__": "__",
     "dev:nuxt": "nuxt dev playgrounds/nuxt",
     "build:nuxt": "nuxt build playgrounds/nuxt",
@@ -77,7 +77,8 @@
   "dependencies": {
     "html-to-text": "^9.0.5",
     "isomorphic-dompurify": "^1.8.0",
-    "pretty": "^2.0.0"
+    "pretty": "^2.0.0",
+    "node-html-parser": "^6.1.5"
   },
   "peerDependenciesMeta": {
     "@nuxt/kit": {
