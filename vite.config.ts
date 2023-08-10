@@ -18,6 +18,7 @@ export default defineConfig({
     vue(),
     dts({
       insertTypesEntry: true,
+      include: 'src/**/*.ts',
     }),
     banner({
       content: `/**\n * name: ${pkg.name}\n * version: v${pkg.version}\n * (c) ${new Date().getFullYear()}\n * description: ${pkg.description}\n * maintainers: ${

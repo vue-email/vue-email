@@ -1,8 +1,10 @@
 export interface Email {
   label: string
-  component: string
-  to: string
-  icon: string
+  to?: string
+  children?: Email[]
+  component?: string
+  resComponent?: string
+  icon?: string
 }
 
 export type ActiveView = 'desktop' | 'mobile' | 'source'

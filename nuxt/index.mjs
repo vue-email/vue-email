@@ -1,4 +1,6 @@
-import { addComponent, addImportsSources, addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addComponent, addComponentsDir, addImportsSources, addPlugin, addServerHandler, createResolver, defineNuxtModule } from '@nuxt/kit'
+import sirv from 'sirv'
+import { pathExists } from 'fs-extra'
 
 const components = [
   'EBody',
@@ -20,9 +22,8 @@ const components = [
   'EMarkdown',
 ]
 
-// const PATH = '/__vue_email__'
-// const PATH_ENTRY = `${PATH}/entry`
-// const PATH_PLAYGROUND = `${PATH}/client`
+const PATH = '/__vue_email__'
+const PATH_PLAYGROUND = `${PATH}/client`
 
 export default defineNuxtModule({
   meta: {
@@ -34,50 +35,57 @@ export default defineNuxtModule({
     const { resolve } = createResolver(import.meta.url)
 
     // TODO: add devtools support
-    // const playgroundDir = resolve('../dist/client')
+    const playgroundDir = resolve('../dist/client')
 
-    // nuxt.hook('vite:serverCreated', async (server) => {
-    // 	if (await pathExists(playgroundDir)) server.middlewares.use(PATH_PLAYGROUND, sirv(playgroundDir, { single: true, dev: true }))
-    // })
+    nuxt.hook('vite:serverCreated', async (server) => {
+      if (await pathExists(playgroundDir)) server.middlewares.use(PATH_PLAYGROUND, sirv(playgroundDir, { single: true, dev: true }))
+    })
 
-    // // Add entry to nitro config
-    // nuxt.hook('nitro:config', (config) => {
-    // 	config.serverAssets = config.serverAssets || []
-    // 	config.serverAssets.push({
-    // 		baseName: 'emails',
-    // 		dir: '../emails',
-    // 	})
-    // })
+    // Add entry to nitro config
+    nuxt.hook('nitro:config', (config) => {
+      config.serverAssets = config.serverAssets || []
+      config.serverAssets.push({
+        baseName: 'emails',
+        dir: '../emails',
+      })
+    })
 
-    // // add API handler
-    // addServerHandler({
-    // 	handler: resolve('./runtime/server/api/markup/[file].get.ts'),
-    // 	route: '/api/markup/:file',
-    // 	method: 'get',
-    // 	lazy: true,
-    // })
+    // add API handler
+    addServerHandler({
+      handler: resolve('./runtime/server/api/markup/[file].get.ts'),
+      route: '/api/markup/:file',
+      method: 'get',
+      lazy: true,
+    })
+    addServerHandler({
+      handler: resolve('./runtime/server/api/emails.get.ts'),
+      route: '/api/emails',
+      method: 'get',
+      lazy: true,
+    })
 
-    // // Adds the emails directory as a global components directory
-    // addComponentsDir({
-    // 	path: '~/emails',
-    // 	extensions: ['vue'],
-    // 	global: true,
-    // 	prefix: 'Emails',
-    // 	preload: true,
-    // 	prefetch: true,
-    // 	watch: true,
-    // })
-    // nuxt.hook('devtools:customTabs', (iframeTabs) => {
-    // 	iframeTabs.push({
-    // 		name: 'vueemail',
-    // 		title: 'Vue Email',
-    // 		icon: 'twemoji:incoming-envelope',
-    // 		view: {
-    // 			type: 'iframe',
-    // 			src: PATH_PLAYGROUND,
-    // 		},
-    // 	})
-    // })
+    // Adds the emails directory as a global components directory
+    addComponentsDir({
+      path: '~/emails',
+      extensions: ['vue'],
+      global: true,
+      prefix: 'Emails',
+      preload: true,
+      prefetch: true,
+      watch: true,
+    })
+
+    nuxt.hook('devtools:customTabs', (iframeTabs) => {
+      iframeTabs.push({
+        name: 'vueemail',
+        title: 'Vue Email',
+        icon: 'twemoji:incoming-envelope',
+        view: {
+          type: 'iframe',
+          src: PATH_PLAYGROUND,
+        },
+      })
+    })
 
     nuxt.options.runtimeConfig.public.vueEmailOptions = options
 

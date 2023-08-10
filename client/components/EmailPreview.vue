@@ -76,9 +76,11 @@ watchEffect(() => {
             @click="activeView === 'source' ? null : handleView('source')"
           />
         </UTooltip>
-        <UTooltip text="Refresh Frame">
-          <UButton icon="i-heroicons-arrow-path" size="sm" color="primary" variant="solid" @click="updateIframe" />
-        </UTooltip>
+        <DevOnly>
+          <UTooltip text="Refresh Frame">
+            <UButton icon="i-heroicons-arrow-path" size="sm" color="primary" variant="solid" @click="updateIframe" />
+          </UTooltip>
+        </DevOnly>
       </div>
       <UPopover
         :ui="{

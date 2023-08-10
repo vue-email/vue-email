@@ -20,28 +20,9 @@ export default defineNuxtConfig({
     exposeConfig: true,
     viewer: false,
   },
-  components: {
-    dirs: [
-      '~/components/',
-      {
-        path: '~/emails',
-        extensions: ['vue'],
-        global: true,
-        prefix: 'Emails',
-      },
-    ],
-  },
   colorMode: {
     preference: 'dark',
     fallback: 'dark',
-  },
-  nitro: {
-    serverAssets: [
-      {
-        baseName: 'emails',
-        dir: '../emails',
-      },
-    ],
   },
   vueEmail: {
     baseUrl: 'https://vue-email-demo.vercel.app/',

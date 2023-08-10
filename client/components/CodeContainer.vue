@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import type { ActiveLang, MarkupProps } from '@/types/email'
-import { copyTextToClipboard } from '@/util/copy-text-to-clipboard'
 
 const props = defineProps({
   markups: {

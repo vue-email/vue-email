@@ -1,51 +1,94 @@
-import { kebabCase } from 'scule'
-import { useDevtoolsClient } from '@nuxt/devtools-kit/iframe-client'
+import { kebabCase, pascalCase } from 'scule'
 import type { Email } from '@/types/email'
 import { host } from '@/util/logic'
 
 export function useEmail() {
-  const components = useDevtoolsClient().value?.host?.nuxt.vueApp._context.components
   const emails = useState<Email[]>('emails')
   const email = useState<Email>('email')
   const sending = useState<boolean>('sending', () => false)
   const refresh = useState<boolean>('refresh', () => false)
 
   const getEmails = async () => {
-    const componentNames = Object.keys(components)
-      .filter((key) => {
-        return key.startsWith('Emails')
-      })
-      .map((key) => {
-        const name = key.replace('Emails', '')
-        const label = kebabCase(name)
+    const { data, error } = await useFetch<string[]>('/api/emails', {
+      baseURL: host.value,
+    })
 
-        return {
-          label,
-          component: key,
-          to: `/preview/${label}`,
-          icon: 'i-ph-file-dotted',
+    if (error && error.value) {
+      console.error(error)
+      return
+    }
+
+    if (data && data.value) {
+      const emailTemplates = data.value.reduce((acc, email) => {
+        const emailName = email.replace('.vue', '')
+        const resComponent = `Emails${pascalCase(emailName.replaceAll(':', '-'))}`
+
+        const parts = emailName.split(':')
+        const name = kebabCase(parts[parts.length - 1])
+        let targetArray = acc
+        for (let i = 0; i < parts.length - 1; i++) {
+          const folder = parts[i]
+          const folderObj = targetArray.find((item) => item.label === folder)
+
+          if (folderObj) {
+            targetArray = folderObj.children || []
+          } else {
+            const newFolderObj = { label: folder, children: [] }
+            targetArray.push(newFolderObj)
+            targetArray = newFolderObj.children
+          }
         }
-      })
 
-    emails.value = componentNames
+        targetArray.push({ label: name, to: `/preview/${emailName}`, component: email, resComponent, icon: 'i-ph-file-bold' })
+
+        return acc
+      }, [] as Email[])
+
+      emails.value = emailTemplates
+    }
   }
 
   const getEmail = async (name: string) => {
     if (emails.value && emails.value.length) {
-      const emailObj = emails.value.find((email) => email.label === name)
+      name = `${name}.vue`
+      let foundEmail = null
 
-      if (emailObj) email.value = emailObj
+      const findInChildren = (children: Email[]): Email | null => {
+        for (const child of children) {
+          if (child.component === name) {
+            return child
+          }
+
+          if (child.children && child.children.length) {
+            const nestedMatch = findInChildren(child.children)
+            if (nestedMatch) {
+              return nestedMatch
+            }
+          }
+        }
+        return null
+      }
+
+      const directMatch = emails.value.find((email) => email.component === name)
+      if (directMatch) {
+        foundEmail = directMatch
+      } else {
+        // If no direct match, search recursively in the children array
+        foundEmail = findInChildren(emails.value)
+      }
+
+      if (foundEmail) {
+        email.value = foundEmail
+      }
     }
 
     return null
   }
 
   const getVueCode = async (name: string) => {
-    const { data } = await useAsyncData('markup', () =>
-      $fetch<string>(`/api/markup/${name}`, {
-        baseURL: host.value,
-      }),
-    )
+    const { data } = await useFetch<string>(`/api/markup/${name}`, {
+      baseURL: host.value,
+    })
 
     if (data.value) return data.value
 
