@@ -1,5 +1,4 @@
 import path from 'node:path'
-import { createHash } from 'node:crypto'
 import type * as _compiler from 'vue/compiler-sfc'
 
 interface ResolvedOptions {
@@ -14,12 +13,7 @@ export function createDescriptor(filename: string, source: string, { root, isPro
   })
 
   const normalizedPath = path.normalize(path.relative(root, filename))
-  descriptor.id = generateId(normalizedPath + (isProd ? source : ''))
+  descriptor.id = filename.toLowerCase() + normalizedPath + (isProd ? source : '')
 
   return { descriptor, errors }
-}
-
-// Generate a unique identifier for each template
-function generateId(text: string) {
-  return createHash('sha256').update(text).digest('hex').substring(0, 8)
 }

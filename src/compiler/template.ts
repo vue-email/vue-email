@@ -1,5 +1,5 @@
-import * as _path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import fs from 'node:fs'
+import { resolve } from 'pathe'
 import * as compiler from 'vue/compiler-sfc'
 import { createApp } from 'vue'
 import type { Component } from 'vue'
@@ -8,14 +8,12 @@ import { importFromStringSync } from 'module-from-string'
 
 import { VueEmailPlugin } from 'vue-email'
 import { createDescriptor } from './descriptor'
-import { isProd } from './utils'
-import { readFile } from './file'
 
 import type { Options, RenderOptions } from './types'
 
 const scriptIdentifier = '_sfc_main'
 
-const root = _path.dirname(fileURLToPath(import.meta.url))
+const root = resolve(__dirname)
 
 export async function templateRender(name: string, options?: RenderOptions, config?: Options): Promise<string> {
   const output = compile(`${config?.dir}/${name}`)
@@ -23,9 +21,13 @@ export async function templateRender(name: string, options?: RenderOptions, conf
     transformOptions: { loader: 'ts' },
   }).default
 
+  console.warn(`Generating ${name}`)
+
   const app = createApp(component, options?.props)
   app.use(VueEmailPlugin)
   const content = await renderToString(app)
+
+  console.warn(`Rendering ${name} template`)
 
   return content
 }
@@ -36,10 +38,12 @@ function compile(path: string) {
   const filename = splittedPath[splittedPath.length - 1]
   let styles: compiler.SFCStyleCompileResults | null = null
 
+  console.warn(`Compiling ${filename} file`)
+
   const { descriptor, errors } = createDescriptor(filename, source, {
     compiler,
     root,
-    isProd,
+    isProd: import.meta.env.PROD,
   })
 
   if (errors.length) {
@@ -79,4 +83,13 @@ function compile(path: string) {
   `
 
   return output
+}
+
+/**
+ * Returns the content of a file at path.
+ *
+ * @param path
+ */
+function readFile(path: string): string {
+  return fs.readFileSync(path, 'utf-8').toString()
 }

@@ -18,15 +18,6 @@ export interface Options {
    * @default true
    */
   verbose?: boolean
-  input?: {
-    templates?: {
-      /**
-       * Templates directory
-       * @default {dir}/templates
-       */
-      dir?: string
-    }
-  }
 }
 
 export interface RenderOptions {
