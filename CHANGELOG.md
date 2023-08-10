@@ -1,6 +1,37 @@
 # Changelog
 
 
+## v0.5.16
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.5.15...v0.5.16)
+
+### 🚀 Enhancements
+
+- Add icon to playground header ([#35](https://github.com/Dave136/vue-email/pull/35))
+- Add folder structure to nuxt preview ([#37](https://github.com/Dave136/vue-email/pull/37))
+
+### 🩹 Fixes
+
+- Broken docs ([7fcc49f](https://github.com/Dave136/vue-email/commit/7fcc49f))
+- **docs:** Tailwind component ([8c348fe](https://github.com/Dave136/vue-email/commit/8c348fe))
+- **docs:** Tailwind component remove no needed default value ([0b302fb](https://github.com/Dave136/vue-email/commit/0b302fb))
+- Bug tailwind support ([#39](https://github.com/Dave136/vue-email/pull/39))
+
+### 📖 Documentation
+
+- Updated readme ([ed4e614](https://github.com/Dave136/vue-email/commit/ed4e614))
+- Fixed prerender issues ([08d188b](https://github.com/Dave136/vue-email/commit/08d188b))
+
+### 🏡 Chore
+
+- Update pnpm-lock ([ba74f7a](https://github.com/Dave136/vue-email/commit/ba74f7a))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+- Christian Preston ([@cpreston321](http://github.com/cpreston321))
+- David Arenas <davejs136@gmail.com>
+
 ## v0.5.15
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.5.14...v0.5.15)
