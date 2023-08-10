@@ -6,19 +6,15 @@ export function createInitConfig(options: Options) {
   const config = deepmerge<Options>(
     {
       dir: options.dir,
-      verbose: false,
+      verbose: true,
       input: {
         templates: {
           dir: `${options.dir}/templates`,
         },
       },
-      output: {
-        auto: true,
-        dir: `${options.dir}/.vuemail`,
-      },
     },
     options,
-  ) as Options
+  ) satisfies Options
 
   return config
 }
