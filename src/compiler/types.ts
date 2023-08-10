@@ -13,6 +13,10 @@ export type DefineConfig = (config: Options) => DefineConfigFunctions
 
 export interface Options {
   dir: string
+  /**
+   * Show library logger
+   * @default true
+   */
   verbose?: boolean
   input?: {
     templates?: {
@@ -22,22 +26,6 @@ export interface Options {
        */
       dir?: string
     }
-  }
-  output?: {
-    /**
-     * Output directory
-     * @default {dir}/.vuemail
-     */
-    dir?: string
-    /**
-     * Instantly generate all templates found in the templates directory.
-     * If this is set to false, generate your templates with:
-     *   - vuemail.compile(directory: string) - Generates all templates in directory.
-     *     or
-     *   - vuemail.compileTemplate(filename: string) - Generates a single template.
-     * @default true
-     */
-    auto?: boolean
   }
 }
 
