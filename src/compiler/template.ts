@@ -19,29 +19,35 @@ const scriptIdentifier = '_sfc_main'
 const root = resolve(import.meta.url)
 
 export async function templateRender(name: string, options?: RenderOptions, config?: Options): Promise<string> {
-  const output = compile(`${config?.dir}/${name}`)
+  const output = compile(`${config?.dir}/${name}`, config?.verbose)
   const component: Component = importFromStringSync(output, {
     transformOptions: { loader: 'ts' },
   }).default
 
-  console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
+  if (config?.verbose) {
+    console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
+  }
 
   const app = createApp(component, options?.props)
   app.use(VueEmailPlugin)
   const content = await renderToString(app)
 
-  console.warn(`${lightGreen('🎉')} ${bold(blue('Rendering template'))} ${bold(lightGreen(name))}`)
+  if (config?.verbose) {
+    console.warn(`${lightGreen('🎉')} ${bold(blue('Rendering template'))} ${bold(lightGreen(name))}`)
+  }
 
   return content
 }
 
-function compile(path: string) {
+function compile(path: string, verbose = false) {
   const source = readFile(path)
   const splittedPath = path.split('/')
   const filename = splittedPath[splittedPath.length - 1]
   let styles: compiler.SFCStyleCompileResults | null = null
 
-  console.warn(`${lightGreen('💌')} ${bold(blue('Compiling'))} ${bold(lightGreen(filename))} ${bold(blue('file'))}`)
+  if (verbose) {
+    console.warn(`${lightGreen('💌')} ${bold(blue('Compiling'))} ${bold(lightGreen(filename))} ${bold(blue('file'))}`)
+  }
 
   const { descriptor, errors } = createDescriptor(filename, source, {
     compiler,
