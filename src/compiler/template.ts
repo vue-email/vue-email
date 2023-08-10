@@ -1,15 +1,18 @@
 import fs from 'node:fs'
+import { env } from 'node:process'
 import { resolve } from 'pathe'
 import * as compiler from 'vue/compiler-sfc'
 import { createApp } from 'vue'
 import type { Component } from 'vue'
 import { renderToString } from 'vue/server-renderer'
+import { blue, bold, lightGreen } from 'kolorist'
+
 import { importFromStringSync } from 'module-from-string'
 
+import { VueEmailPlugin } from 'vue-email'
 import { createDescriptor } from './descriptor'
 
 import type { Options, RenderOptions } from './types'
-import { VueEmailPlugin } from 'vue-email'
 
 const scriptIdentifier = '_sfc_main'
 
@@ -21,13 +24,13 @@ export async function templateRender(name: string, options?: RenderOptions, conf
     transformOptions: { loader: 'ts' },
   }).default
 
-  console.warn(`Generating ${name}`)
+  console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
 
   const app = createApp(component, options?.props)
   app.use(VueEmailPlugin)
   const content = await renderToString(app)
 
-  console.warn(`Rendering ${name} template`)
+  console.warn(`${lightGreen('🎉')} ${bold(blue('Rendering template'))} ${bold(lightGreen(name))}`)
 
   return content
 }
@@ -38,12 +41,12 @@ function compile(path: string) {
   const filename = splittedPath[splittedPath.length - 1]
   let styles: compiler.SFCStyleCompileResults | null = null
 
-  console.warn(`Compiling ${filename} file`)
+  console.warn(`${lightGreen('💌')} ${bold(blue('Compiling'))} ${bold(lightGreen(filename))} ${bold(blue('file'))}`)
 
   const { descriptor, errors } = createDescriptor(filename, source, {
     compiler,
     root,
-    isProd: import.meta.env.PROD,
+    isProd: env.NODE_ENV === 'production',
   })
 
   if (errors.length) {
