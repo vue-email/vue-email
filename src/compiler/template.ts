@@ -6,14 +6,14 @@ import type { Component } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import { importFromStringSync } from 'module-from-string'
 
-import { VueEmailPlugin } from 'vue-email'
 import { createDescriptor } from './descriptor'
 
 import type { Options, RenderOptions } from './types'
+import { VueEmailPlugin } from 'vue-email'
 
 const scriptIdentifier = '_sfc_main'
 
-const root = resolve(__dirname)
+const root = resolve(import.meta.url)
 
 export async function templateRender(name: string, options?: RenderOptions, config?: Options): Promise<string> {
   const output = compile(`${config?.dir}/${name}`)
