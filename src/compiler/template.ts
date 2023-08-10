@@ -77,9 +77,7 @@ function compile(path: string) {
   const output = `
   ${template.code}\n
   ${script.content}
-
   ${styles ? `const styles = \`${styles.code}\`` : ''}
-
   ${scriptIdentifier}.render = render
   ${styles ? `${scriptIdentifier}.style = styles` : ''}
   export default _sfc_main
