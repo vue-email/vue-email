@@ -87,7 +87,8 @@
     "isomorphic-dompurify": "^1.8.0",
     "module-from-string": "^3.3.0",
     "node-html-parser": "^6.1.5",
-    "pretty": "^2.0.0"
+    "pretty": "^2.0.0",
+    "vue-email": "workspace:^"
   },
   "peerDependenciesMeta": {
     "@nuxt/kit": {
