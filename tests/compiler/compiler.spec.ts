@@ -1,16 +1,16 @@
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { defineConfig } from '$src/compiler'
+import { config } from '../../src/compiler'
 
 describe('compiler', () => {
   const path = resolve(__dirname, './templates')
 
   it('It should compile vue files', async () => {
-    const vuemail = defineConfig({
+    const vuemail = config({
       dir: path,
     })
 
-    const template = await vuemail.render('DefineComponent', {
+    const template = await vuemail.render('DefineComponent.vue', {
       props: {
         name: 'Dave',
       },
@@ -20,11 +20,11 @@ describe('compiler', () => {
   })
 
   it('Should render defineComponent setup', async () => {
-    const vuemail = defineConfig({
+    const vuemail = config({
       dir: path,
     })
 
-    const template = await vuemail.render('DefineComponentSetup', {
+    const template = await vuemail.render('DefineComponentSetup.vue', {
       props: {
         count: 2,
       },
@@ -34,11 +34,11 @@ describe('compiler', () => {
   })
 
   it('Should compile and render component defined using script setup', async () => {
-    const vuemail = defineConfig({
+    const vuemail = config({
       dir: path,
     })
 
-    const template = await vuemail.render('ScriptSetup', {
+    const template = await vuemail.render('ScriptSetup.vue', {
       props: {
         name: 'John Doe',
       },
@@ -48,15 +48,17 @@ describe('compiler', () => {
   })
 
   it('It should render GithubAccessToken template', async () => {
-    const vuemail = defineConfig({
+    const vuemail = config({
       dir: path,
     })
 
-    const template = await vuemail.render('GithubAccessToken', {
+    const template = await vuemail.render('GithubAccessToken.vue', {
       props: {
         username: 'John Doe',
       },
     })
+
+    console.log(template)
 
     expect(true).toBe(true)
   })
