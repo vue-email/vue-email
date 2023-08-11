@@ -1,12 +1,5 @@
 import type { VueEmailPLuginOptions } from './index'
 
-// Extend the descriptor so we can store the scopedId on it
-declare module 'vue/compiler-sfc' {
-  interface SFCDescriptor {
-    id: string
-  }
-}
-
 export interface DefineConfigFunctions {
   render: (name: string, options?: RenderOptions) => Promise<string>
 }
