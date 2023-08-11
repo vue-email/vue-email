@@ -29,7 +29,7 @@ Start by building your email template in a `.vue` file.
 
 
 ```vue
-// `welcome.vue`
+// `/emails/welcome.vue`
 <template>
   <e-html lang="en">
     <e-button :href="url">
@@ -52,12 +52,15 @@ Import the email template you just built, convert into a HTML string, and use th
 
 ```ts [Nuxt 3]
 // server/api/send-email.post.ts
+import { useCompiler } from '#vue-email'
 import sendgrid from '@sendgrid/mail';
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody(event);
+  const template = await useCompiler('welcome.vue', {
+    url: 'https://vue-email.vercel.app/',
+  })
 
   const options = {
     from: 'you@example.com',
@@ -74,15 +77,21 @@ export default defineEventHandler(async (event) => {
 ```ts [NodeJs]
 import express from 'express';
 import sendgrid from '@sendgrid/mail';
+import { config } from "vue-email/compiler";
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 const app = express();
+const vueEmail = config("./emails");
 
 app.use(express.json());
 
 app.post('/api/send-email', async (req, res) => {
-  const { template } = req.body;
+  const template = await vueEmail.render("welcome.vue", {
+      props: {
+        url: 'https://vue-email.vercel.app/',
+      },
+    });
 
   const options = {
     from: 'you@example.com',
