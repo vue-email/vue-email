@@ -1,8 +1,8 @@
-import { build } from 'unbuild'
+import { defineBuildConfig } from 'unbuild'
 
-build('.', false, {
+export default defineBuildConfig({
   declaration: true,
-  outDir: 'compiler',
+  clean: false,
   rollup: {
     emitCJS: true,
     inlineDependencies: true,
@@ -10,18 +10,18 @@ build('.', false, {
   entries: [
     {
       input: 'src/compiler/index.ts',
-      outDir: 'compiler',
+      outDir: 'dist',
       name: 'compiler',
       format: 'esm',
-      ext: 'js',
+      ext: 'mjs',
     },
     {
       input: 'src/compiler/index.ts',
-      outDir: 'compiler',
+      outDir: 'dist',
       name: 'compiler',
       format: 'cjs',
       ext: 'cjs',
     },
   ],
   externals: ['vue', 'vue/compiler-sfc', 'vue/server-renderer', 'vue-email'],
-}).catch(console.error)
+})

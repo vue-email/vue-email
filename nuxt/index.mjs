@@ -1,4 +1,5 @@
-import { addComponent, addImportsSources, addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addComponent, addImportsSources, addPlugin, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
+import defu from 'defu'
 
 const components = [
   'EBody',
@@ -40,14 +41,25 @@ export default defineNuxtModule({
     // 	if (await pathExists(playgroundDir)) server.middlewares.use(PATH_PLAYGROUND, sirv(playgroundDir, { single: true, dev: true }))
     // })
 
-    // // Add entry to nitro config
-    // nuxt.hook('nitro:config', (config) => {
-    // 	config.serverAssets = config.serverAssets || []
-    // 	config.serverAssets.push({
-    // 		baseName: 'emails',
-    // 		dir: '../emails',
-    // 	})
-    // })
+    // Add entry to nitro config
+    nuxt.hook('nitro:config', (nitroConfig) => {
+      nitroConfig.alias = nitroConfig.alias || {}
+      nitroConfig.externals = defu(typeof nitroConfig.externals === 'object' ? nitroConfig.externals : {}, {
+        inline: [resolve('./runtime')],
+      })
+      nitroConfig.alias['#vue-email'] = resolve('./runtime/server/services')
+
+      nitroConfig.serverAssets = nitroConfig.serverAssets || []
+      nitroConfig.serverAssets.push({
+        baseName: 'emails',
+        dir: '../emails',
+      })
+    })
+
+    addTemplate({
+      filename: 'types/vue-email-server.d.ts',
+      getContents: () => ["declare module '#vue-email' {", `  const useCompiler: typeof import('${resolve('./runtime/server/services')}').useCompiler`, '}'].join('\n'),
+    })
 
     // // add API handler
     // addServerHandler({

@@ -1,6 +1,3 @@
-import fs from 'node:fs'
-import { env } from 'node:process'
-import { resolve } from 'pathe'
 import * as compiler from 'vue/compiler-sfc'
 import { createApp } from 'vue'
 import type { Component } from 'vue'
@@ -9,17 +6,13 @@ import { blue, bold, lightGreen } from 'kolorist'
 
 import { importFromStringSync } from 'module-from-string'
 
+import type { Options, RenderOptions } from '../types/compiler'
 import { VueEmailPlugin } from 'vue-email'
-import { createDescriptor } from './descriptor'
-
-import type { Options, RenderOptions } from './types'
 
 const scriptIdentifier = '_sfc_main'
 
-const root = resolve(import.meta.url)
-
-export async function templateRender(name: string, options?: RenderOptions, config?: Options): Promise<string> {
-  const output = compile(`${config?.dir}/${name}`, config?.verbose)
+export async function templateRender(name: string, source: string, options?: RenderOptions, config?: Options): Promise<string> {
+  const output = compile(name, source, config?.verbose)
   const component: Component = importFromStringSync(output, {
     transformOptions: { loader: 'ts' },
   }).default
@@ -29,7 +22,7 @@ export async function templateRender(name: string, options?: RenderOptions, conf
   }
 
   const app = createApp(component, options?.props)
-  app.use(VueEmailPlugin)
+  app.use(VueEmailPlugin, config?.options)
   const content = await renderToString(app)
 
   if (config?.verbose) {
@@ -39,20 +32,15 @@ export async function templateRender(name: string, options?: RenderOptions, conf
   return content
 }
 
-function compile(path: string, verbose = false) {
-  const source = readFile(path)
-  const splittedPath = path.split('/')
-  const filename = splittedPath[splittedPath.length - 1]
+function compile(filename: string, source: string, verbose = false) {
   let styles: compiler.SFCStyleCompileResults | null = null
 
   if (verbose) {
     console.warn(`${lightGreen('🚧')} ${bold(blue('Compiling'))} ${bold(lightGreen(filename))} ${bold(blue('file'))}`)
   }
 
-  const { descriptor, errors } = createDescriptor(filename, source, {
-    compiler,
-    root,
-    isProd: env.NODE_ENV === 'production',
+  const { descriptor, errors } = compiler.parse(source, {
+    filename,
   })
 
   if (errors.length) {
@@ -60,13 +48,13 @@ function compile(path: string, verbose = false) {
   }
 
   const script = compiler.compileScript(descriptor, {
-    id: descriptor.id,
+    id: descriptor.filename,
     genDefaultAs: scriptIdentifier,
   })
 
   if (descriptor.styles.length) {
     styles = compiler.compileStyle({
-      id: `data-v-${descriptor.id}`,
+      id: descriptor.filename,
       filename,
       source: descriptor.styles[0].content,
       scoped: descriptor.styles.some((s) => s.scoped),
@@ -75,7 +63,7 @@ function compile(path: string, verbose = false) {
 
   const template = compiler.compileTemplate({
     filename,
-    id: descriptor.id,
+    id: descriptor.filename,
     source: descriptor.template!.content,
     compilerOptions: {
       bindingMetadata: script.bindings,
@@ -92,13 +80,4 @@ function compile(path: string, verbose = false) {
   `
 
   return output
-}
-
-/**
- * Returns the content of a file at path.
- *
- * @param path
- */
-function readFile(path: string): string {
-  return fs.readFileSync(path, 'utf-8').toString()
 }

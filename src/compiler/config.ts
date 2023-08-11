@@ -1,4 +1,4 @@
-import type { Options } from './types'
+import type { Options } from '../types/compiler'
 
 /**
  * Checks if item is an object.
@@ -47,6 +47,7 @@ export function createInitConfig(options: Options) {
     {
       dir: options.dir,
       verbose: true,
+      options: options.options,
     },
     options,
   ) satisfies Options

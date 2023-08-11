@@ -39,9 +39,9 @@
       "types": "./dist/index.d.ts"
     },
     "./compiler": {
-      "import": "./compiler/compiler.mjs",
-      "require": "./compiler/compiler.cjs",
-      "types": "./compiler/compiler.d.ts"
+      "import": "./dist/compiler.mjs",
+      "require": "./dist/compiler.cjs",
+      "types": "./dist/compiler.d.ts"
     },
     "./nuxt": "./nuxt/index.mjs"
   },
@@ -51,13 +51,11 @@
   "files": [
     "dist/**/*",
     "nuxt/**/*",
-    "compiler/**/*",
     "LICENSE",
     "README.md"
   ],
   "scripts": {
-    "build": "vite build && pnpm build:compiler",
-    "build:compiler": "node buildCompiler.mjs",
+    "build": "vite build && unbuild",
     "dev": "vite build --watch",
     "release": "changelogen --release",
     "lint": "eslint --ext .js,.vue,.ts,.tsx .",

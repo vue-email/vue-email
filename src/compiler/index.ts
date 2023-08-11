@@ -1,12 +1,29 @@
+import { resolve } from 'node:path'
+import { readFileSync } from 'node:fs'
+import type { DefineConfig, Options, RenderOptions } from '../types/compiler'
 import { createInitConfig } from './config'
 import { templateRender } from './template'
 
-import type { DefineConfig, Options, RenderOptions } from './types'
+export { templateRender } from './template'
 
 export const config: DefineConfig = (config: Options) => {
   const defaultConfig = createInitConfig(config)
 
   return {
-    render: (name: string, options?: RenderOptions): Promise<string> => templateRender(name, options, defaultConfig),
+    render: (name: string, options?: RenderOptions): Promise<string> => {
+      const path = config?.dir ? resolve(config?.dir, name) : name
+      const source = readFile(path)
+
+      return templateRender(name, source, options, defaultConfig)
+    },
   }
+}
+
+/**
+ * Returns the content of a file at path.
+ *
+ * @param path
+ */
+function readFile(path: string): string {
+  return readFileSync(path, 'utf-8').toString()
 }

@@ -4,12 +4,11 @@ import { config } from '../../src/compiler'
 
 describe('compiler', () => {
   const path = resolve(__dirname, './templates')
+  const vuemail = config({
+    dir: path,
+  })
 
   it('It should compile vue files', async () => {
-    const vuemail = config({
-      dir: path,
-    })
-
     const template = await vuemail.render('DefineComponent.vue', {
       props: {
         name: 'Dave',
@@ -20,10 +19,6 @@ describe('compiler', () => {
   })
 
   it('Should render defineComponent setup', async () => {
-    const vuemail = config({
-      dir: path,
-    })
-
     const template = await vuemail.render('DefineComponentSetup.vue', {
       props: {
         count: 2,
@@ -34,10 +29,6 @@ describe('compiler', () => {
   })
 
   it('Should compile and render component defined using script setup', async () => {
-    const vuemail = config({
-      dir: path,
-    })
-
     const template = await vuemail.render('ScriptSetup.vue', {
       props: {
         name: 'John Doe',

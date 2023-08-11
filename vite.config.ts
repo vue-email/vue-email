@@ -15,9 +15,13 @@ console.warn(`${lightGreen('🎉')} ${gray('💌')} ${bold(blue('Vue Email'))} v
 
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      exclude: ['src/compiler/**/*'],
+    }),
     dts({
       insertTypesEntry: true,
+      include: ['src/**/*'],
+      exclude: ['src/compiler/**/*'],
     }),
     banner({
       content: `/**\n * name: ${pkg.name}\n * version: v${pkg.version}\n * (c) ${new Date().getFullYear()}\n * description: ${pkg.description}\n * maintainers: ${
