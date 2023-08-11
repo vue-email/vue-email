@@ -1,11 +1,11 @@
 import * as compiler from 'vue/compiler-sfc'
 import { createApp } from 'vue'
-import { VueEmailPlugin } from 'vue-email'
 import { renderToString } from 'vue/server-renderer'
 import { blue, bold, lightGreen } from 'kolorist'
 import { importFromStringSync } from 'module-from-string'
 import type { Component } from 'vue'
 import type { Options, RenderOptions } from '../types/compiler'
+import { VueEmailPlugin } from 'vue-email'
 
 const scriptIdentifier = '_sfc_main'
 
