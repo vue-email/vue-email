@@ -34,18 +34,9 @@ function deepmerge<T extends Record<string, any>>(target: T, ...sources: T[]): T
   return deepmerge(target, ...sources)
 }
 
-class MissingConfigurationOptionError extends Error {
-  constructor(missing: (keyof Options)[]) {
-    super(`The following required configuration options are missing: ${missing.join(', ')}`)
-
-    this.name = 'MissingConfiguration'
-  }
-}
-
 export function createInitConfig(options: Options) {
   const config = deepmerge<Options>(
     {
-      dir: options.dir,
       verbose: true,
       options: options.options,
     },
@@ -53,14 +44,4 @@ export function createInitConfig(options: Options) {
   ) satisfies Options
 
   return config
-}
-
-export function validate(config: Options): void {
-  const required: (keyof Options)[] = ['dir'] // Required options.
-  const missing = required.filter((r) => !config[r])
-
-  if (missing.length) {
-    // At least one required option is missing.
-    throw new MissingConfigurationOptionError(missing)
-  }
 }

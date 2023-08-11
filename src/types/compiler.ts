@@ -4,10 +4,9 @@ export interface DefineConfigFunctions {
   render: (name: string, options?: RenderOptions) => Promise<string>
 }
 
-export type DefineConfig = (config: Options) => DefineConfigFunctions
+export type DefineConfig = (dir: string, config?: Options) => DefineConfigFunctions
 
 export interface Options {
-  dir?: string
   /**
    * Show library logger
    * @default true

@@ -6,8 +6,8 @@ import { blue, bold, lightGreen } from 'kolorist'
 
 import { importFromStringSync } from 'module-from-string'
 
-import type { Options, RenderOptions } from '../types/compiler'
 import { VueEmailPlugin } from 'vue-email'
+import type { Options, RenderOptions } from '../types/compiler'
 
 const scriptIdentifier = '_sfc_main'
 

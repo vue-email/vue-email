@@ -6,12 +6,12 @@ import { templateRender } from './template'
 
 export { templateRender } from './template'
 
-export const config: DefineConfig = (config: Options) => {
+export const config: DefineConfig = (dir: string, config: Options = {}) => {
   const defaultConfig = createInitConfig(config)
 
   return {
     render: (name: string, options?: RenderOptions): Promise<string> => {
-      const path = config?.dir ? resolve(config?.dir, name) : name
+      const path = dir ? resolve(dir, name) : name
       const source = readFile(path)
 
       return templateRender(name, source, options, defaultConfig)

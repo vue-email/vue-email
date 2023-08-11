@@ -4,9 +4,7 @@ import { config } from '../../src/compiler'
 
 describe('compiler', () => {
   const path = resolve(__dirname, './templates')
-  const vuemail = config({
-    dir: path,
-  })
+  const vuemail = config(path)
 
   it('It should compile vue files', async () => {
     const template = await vuemail.render('DefineComponent.vue', {
