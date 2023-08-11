@@ -15,6 +15,7 @@
 ## Features
 
 - 🧩 Build email templates with Vue components
+- 🛤️ [SSR support](https://vue-email.vercel.app/getting-started/ssr), Runs on the server and client
 - 📨 [Integrates with many email providers](https://vue-email.vercel.app/integrations/nodemailer)
 - 🧪 Tested against popular email clients
 - 🎨 [Supports Tailwind CSS](https://vue-email.vercel.app/components/tailwind)
@@ -56,6 +57,36 @@ const user = ref('Dave');
 </script>
 ```
 > You can see the full example [here](https://github.com/Dave136/vue-email/getting-started/setup.html)
+
+## Advanced Usage - SSR
+
+> [📖 Read the SSR documentation](https://vue-email.vercel.app/getting-started/ssr)
+
+```js
+import express from "express";
+import { config } from "vue-email/compiler";
+
+const app = express();
+
+const vueEmail = config("./templates", {
+  verbose: false,
+  options: {
+    baseUrl: "https://vue-email-demo.vercel.app/",
+  },
+});
+
+app.get("/", async function (req, res) {
+  const template = await vueEmail.render("WelcomeEmail.vue", {
+    props: {
+      name: "John Doe",
+    },
+  });
+  res.send(template);
+});
+
+app.listen(3000);
+
+```
 
 ## 💻 Development
 
