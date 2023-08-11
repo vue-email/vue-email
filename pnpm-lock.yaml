@@ -23,9 +23,6 @@ importers:
       pretty:
         specifier: ^2.0.0
         version: 2.0.0
-      vue-email:
-        specifier: workspace:^
-        version: 'link:'
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^0.39.8
@@ -99,6 +96,9 @@ importers:
       vue:
         specifier: ^3.3.4
         version: 3.3.4
+      vue-email:
+        specifier: workspace:*
+        version: 'link:'
 
   client:
     dependencies:
