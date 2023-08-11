@@ -142,6 +142,9 @@ importers:
       '@iconify-json/simple-icons':
         specifier: latest
         version: 1.1.65
+      '@iconify-json/twemoji':
+        specifier: latest
+        version: 1.1.12
       '@nuxt/content':
         specifier: ^2.7.2
         version: 2.7.2(rollup@3.26.3)
@@ -1176,6 +1179,12 @@ packages:
     dependencies:
       '@iconify/types': 2.0.0
     dev: false
+
+  /@iconify-json/twemoji@1.1.12:
+    resolution: {integrity: sha512-8F3z+0+NYO/qeCiyjeWJ9ozkBvPmXsK+4pkQynUuILyXDIi8ddBHb1DJ6O2Qp5M23LzaA/Gkg8/8CQwgGslGmQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
 
   /@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
