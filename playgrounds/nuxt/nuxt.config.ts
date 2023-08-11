@@ -6,7 +6,8 @@ export default defineNuxtConfig({
   alias: {
     'vue-email': resolve(__dirname, '../../src/index.ts'),
     'vue-email/nuxt': resolve(__dirname, '../../nuxt/index.mjs'),
-    'vue-email/compiler': resolve(__dirname, '../../dist/compiler.mjs'),
+    // 'vue-email/compiler': resolve(__dirname, '../../dist/compiler.mjs'),
+    // '#vue-email': resolve(__dirname, '../../nuxt/runtime/server/services/index.mjs'),
   },
   modules: ['@nuxthq/ui', 'vue-email/nuxt'],
   typescript: {
