@@ -1,5 +1,6 @@
 import { addComponent, addImportsSources, addPlugin, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
 import defu from 'defu'
+import type { VueEmailPLuginOptions } from '../types'
 
 const components = [
   'EBody',
@@ -21,10 +22,16 @@ const components = [
   'EMarkdown',
 ]
 
-export default defineNuxtModule({
+export interface ModuleOptions extends VueEmailPLuginOptions {}
+
+export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'vue-email',
     configKey: 'vueEmail',
+    compatibility: {
+      nuxt: '^3.0.0',
+      bridge: false,
+    },
   },
   defaults: {},
   setup(options, nuxt) {
@@ -51,7 +58,7 @@ export default defineNuxtModule({
       getContents: () => ["declare module '#vue-email' {", `  const useCompiler: typeof import('${resolve('./runtime/server/services')}').useCompiler`, '}'].join('\n'),
     })
 
-    addPlugin(resolve('./index.plugin.mjs'))
+    addPlugin(resolve('./runtime/templates/vue-email'))
 
     components.forEach((component) => {
       addComponent({
@@ -67,3 +74,19 @@ export default defineNuxtModule({
     })
   },
 })
+
+
+interface ModulePublicRuntimeConfig {}
+
+interface ModulePrivateRuntimeConfig {}
+
+declare module '@nuxt/schema' {
+  interface ConfigSchema {
+    publicRuntimeConfig?: {
+      vueEmailOptions: ModulePublicRuntimeConfig
+    }
+    privateRuntimeConfig?: {
+      vueEmailOptions: ModulePrivateRuntimeConfig
+    }
+  }
+}

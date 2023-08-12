@@ -4,7 +4,16 @@ import pkg from '../package.json'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/content', '@nuxt/devtools', 'vue-email/nuxt', '@nuxthq/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt', 'nuxt-lodash'],
+  modules: [
+    '@nuxt/content',
+    '@nuxt/devtools',
+    // 'vue-email/nuxt',
+    '@nuxthq/ui',
+    '@nuxtjs/fontaine',
+    '@nuxtjs/google-fonts',
+    '@vueuse/nuxt',
+    'nuxt-lodash',
+  ],
   alias: {
     'vue-email': resolve(__dirname, '../src/index.ts'),
     'vue-email/nuxt': resolve(__dirname, '../nuxt/index.mjs'),

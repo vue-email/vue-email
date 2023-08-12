@@ -1,16 +1,7 @@
-<script lang="ts" setup>
-import { defineComponent, h } from 'vue'
-
-const props = withDefaults(defineProps<FontProps>(), {
-  fallbackFontFamily: 'Arial',
-  fontStyle: 'normal',
-  fontWeight: 400,
-})
+import { defineComponent, defineProps, h, withDefaults } from 'vue'
 
 type FallbackFont = 'Arial' | 'Helvetica' | 'Verdana' | 'Georgia' | 'Times New Roman'
-
 type FontFormat = 'woff' | 'woff2' | 'truetype' | 'opentype' | 'embedded-opentype' | 'svg'
-
 type FontWeight = 'normal' | 'bold' | 'bolder' | 'lighter' | number
 type FontStyle = 'normal' | 'italic' | 'oblique'
 
@@ -25,9 +16,18 @@ interface FontProps {
   fontWeight?: FontWeight
 }
 
-const src = props.webFont ? `src: url(${props.webFont.url}) format("${props.webFont.format}");` : ''
+export default defineComponent({
+  name: 'EFont',
+  setup(_) {
+    const props = withDefaults(defineProps<FontProps>(), {
+      fallbackFontFamily: 'Arial',
+      fontStyle: 'normal',
+      fontWeight: 400,
+    })
 
-const styles = `@font-face {
+    const src = props.webFont ? `src: url(${props.webFont.url}) format("${props.webFont.format}");` : ''
+
+    const styles = `@font-face {
 font-family: "${props.fontFamily}";
 font-style: ${props.fontStyle};
 font-weight: ${props.fontWeight};
@@ -39,14 +39,10 @@ ${src}
 font-family: "${props.fontFamily}", ${Array.isArray(props.fallbackFontFamily) ? props.fallbackFontFamily.join(', ') : props.fallbackFontFamily};
 }`
 
-const render = defineComponent(() => {
-  return () =>
-    h('style', undefined, {
-      default: () => styles,
-    })
+    return () => {
+      return h('style', undefined, {
+        default: () => styles,
+      })
+    }
+  },
 })
-</script>
-
-<template>
-  <render />
-</template>
