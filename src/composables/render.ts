@@ -52,6 +52,7 @@ function replaceString(str: string) {
     .replace(/ data-v-inspector="[^"]*"/g, '')
     .replace(/<!--\[-->/g, '')
     .replace(/<!--]-->/g, '')
+    .replace(/<!---->/g, '')
     .replace(/<template>/g, '')
     .replace(/<\/template>/g, '')
 }

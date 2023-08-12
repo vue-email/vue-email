@@ -1,29 +1,35 @@
-import { defineComponent, defineProps, h, withDefaults } from 'vue'
+import { PropType, defineComponent, defineProps, h, withDefaults } from 'vue'
 
 type FallbackFont = 'Arial' | 'Helvetica' | 'Verdana' | 'Georgia' | 'Times New Roman'
 type FontFormat = 'woff' | 'woff2' | 'truetype' | 'opentype' | 'embedded-opentype' | 'svg'
 type FontWeight = 'normal' | 'bold' | 'bolder' | 'lighter' | number
 type FontStyle = 'normal' | 'italic' | 'oblique'
 
-interface FontProps {
-  fontFamily: string
-  fallbackFontFamily: FallbackFont | FallbackFont[]
-  webFont?: {
-    url: string
-    format: FontFormat
-  }
-  fontStyle?: FontStyle
-  fontWeight?: FontWeight
-}
-
 export default defineComponent({
   name: 'EFont',
-  setup(_) {
-    const props = withDefaults(defineProps<FontProps>(), {
-      fallbackFontFamily: 'Arial',
-      fontStyle: 'normal',
-      fontWeight: 400,
-    })
+  props: {
+    fontFamily: {
+      type: String,
+      required: true,
+    },
+    fallbackFontFamily: {
+      type: [String, Array] as PropType<FallbackFont | FallbackFont[]>,
+      default: 'Arial',
+    },
+    webFont: {
+      type: Object as PropType<{ url: string; format: FontFormat }>,
+      default: undefined,
+    },
+    fontStyle: {
+      type: String as PropType<FontStyle>,
+      default: 'normal',
+    },
+    fontWeight: {
+      type: [String, Number] as PropType<FontWeight>,
+      default: 400,
+    },
+  },
+  setup(props) {
 
     const src = props.webFont ? `src: url(${props.webFont.url}) format("${props.webFont.format}");` : ''
 

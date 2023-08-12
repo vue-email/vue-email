@@ -10,31 +10,31 @@ export default defineComponent({
       default: 'h1',
     },
     m: {
-      type: String,
+      type: [String, Number] as PropType<string | number>,
       default: undefined,
     },
     mx: {
-      type: String,
+      type: [String, Number] as PropType<string | number>,
       default: undefined,
     },
     my: {
-      type: String,
+      type: [String, Number] as PropType<string | number>,
       default: undefined,
     },
     mt: {
-      type: String,
+      type: [String, Number] as PropType<string | number>,
       default: undefined,
     },
     mr: {
-      type: String,
+      type: [String, Number] as PropType<string | number>,
       default: undefined,
     },
     mb: {
-      type: String,
+      type: [String, Number] as PropType<string | number>,
       default: undefined,
     },
     ml: {
-      type: String,
+      type: [String, Number] as PropType<string | number>,
       default: undefined,
     },
     style: {

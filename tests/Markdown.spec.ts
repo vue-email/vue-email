@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
-import { EMarkdown, useRender } from 'src'
+import { EMarkdown, useRender } from '../src'
 
 describe('Markdown component renders correctly', () => {
   it('renders the markdown in the correct format for browsers', async () => {

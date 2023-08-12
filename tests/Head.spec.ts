@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
-import { EHead, useRender } from 'src'
+import { EHead, useRender } from '../src'
 
 describe('render', () => {
   it('renders the <Head> component', async () => {

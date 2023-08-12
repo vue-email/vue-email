@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
-import { EHtml, useRender } from 'src'
+import { EHtml, useRender } from '../src'
 
 describe('render', () => {
   it('renders the <Html> component', async () => {

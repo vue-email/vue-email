@@ -21,10 +21,10 @@ export default defineComponent({
     style: Object,
   },
   setup(props, { slots }) {
-    const px = ref(Number.parseInt(`${props.px}`))
-    const py = ref(Number.parseInt(`${props.py}`))
+    const px = props.px
+    const py = props.py
 
-    const textRaise = pxToPt((py.value * 2).toString())
+    const textRaise = pxToPt(Number.parseInt(py.toString()) * 2)
     const styles = typeof props.style === 'string' ? convertStyleStringToObj(props.style) : props.style
 
     const buttonStyle = computed(() => ({
@@ -33,7 +33,7 @@ export default defineComponent({
       textDecoration: 'none',
       display: 'inline-block',
       maxWidth: '100%',
-      padding: `${py.value}px ${px.value}px`,
+      padding: `${py}px ${px}px`,
     }))
 
     const buttonTextStyle = computed(() => ({
@@ -44,11 +44,11 @@ export default defineComponent({
       textDecoration: 'none',
       textTransform: 'none',
       msoPaddingAlt: '0px',
-      msoTextRaise: pxToPt(py.value.toString()),
+      msoTextRaise: pxToPt(py.toString()),
     }))
 
-    const firstSpan = `<!--[if mso]><i style="letter-spacing: ${px.value}px;mso-font-width:-100%;mso-text-raise:${textRaise}" hidden>&nbsp;</i><![endif]-->`
-    const secondSpan = `<!--[if mso]><i style="letter-spacing: ${px.value}px;mso-font-width:-100%" hidden>&nbsp;</i><![endif]-->`
+    const firstSpan = `<!--[if mso]><i style="letter-spacing: ${px}px;mso-font-width:-100%;mso-text-raise:${textRaise}" hidden>&nbsp;</i><![endif]-->`
+    const secondSpan = `<!--[if mso]><i style="letter-spacing: ${px}px;mso-font-width:-100%" hidden>&nbsp;</i><![endif]-->`
 
     return () => {
       return h(

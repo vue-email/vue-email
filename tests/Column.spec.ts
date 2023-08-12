@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
-import { EColumn, useRender } from 'src'
+import { EColumn, useRender } from '../src'
 
 describe('render', () => {
   it('renders the <Column> component', async () => {

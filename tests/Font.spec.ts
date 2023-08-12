@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
-import { EFont, useRender } from 'src'
+import { EFont, useRender } from '../src'
 
 describe('render', () => {
   it('renders the <Font> component', async () => {
