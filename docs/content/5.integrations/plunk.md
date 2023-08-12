@@ -29,7 +29,7 @@ Start by building your email template in a `.vue` file.
 
 
 ```vue
-// `welcome.vue`
+// `/emails/welcome.vue`
 <template>
   <e-html lang="en">
     <e-button :href="url">
@@ -52,17 +52,20 @@ Import the email template you just built, convert into a HTML string, and use th
 
 ```ts [Nuxt 3]
 // server/api/send-email.post.ts
+import { useCompiler } from '#vue-email'
 import Plunk from '@plunk/node';
 
 const plunk = new Plunk(process.env.PLUNK_API_KEY);
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody(event);
+  const template = await useCompiler('welcome.vue', {
+    url: 'https://vue-email.vercel.app/',
+  })
 
   await plunk.emails.send({
     to: "hello@useplunk.com",
     subject: "Hello world",
-    body: body.template,
+    body: template,
   });
 
   return { message: 'Email sent' };
@@ -72,15 +75,21 @@ export default defineEventHandler(async (event) => {
 ```ts [NodeJs]
 import express from 'express';
 import Plunk from '@plunk/node';
+import { config } from "vue-email/compiler";
 
 const plunk = new Plunk(process.env.PLUNK_API_KEY);
 
 const app = express();
+const vueEmail = config("./emails");
 
 app.use(express.json());
 
 app.post('/api/send-email', async (req, res) => {
-  const { template } = req.body;
+  const template = await vueEmail.render("welcome.vue", {
+      props: {
+        url: 'https://vue-email.vercel.app/',
+      },
+    });
 
   await plunk.emails.send({
     to: "hello@useplunk.com",

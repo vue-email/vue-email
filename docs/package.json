@@ -4,6 +4,7 @@
     "@iconify-json/heroicons": "latest",
     "@iconify-json/ph": "^1.1.5",
     "@iconify-json/simple-icons": "latest",
+    "@iconify-json/twemoji": "latest",
     "@nuxt/content": "^2.7.2",
     "@nuxt/devtools": "^0.6.7",
     "@nuxthq/studio": "^0.13.4",

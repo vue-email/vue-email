@@ -29,7 +29,7 @@ Start by building your email template in a `.vue` file.
 
 
 ```vue
-// `welcome.vue`
+// `/emails/welcome.vue`
 <template>
   <e-html lang="en">
     <e-button :href="url">
@@ -51,7 +51,8 @@ Import the email template you just built, convert into a HTML string, and use th
 ::code-group
 
 ```ts [Nuxt 3]
-
+// server/api/send-email.post.ts
+import { useCompiler } from '#vue-email'
 import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
 
 const mailerSend = new MailerSend({
@@ -65,13 +66,15 @@ const recipients = [
 
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody(event);
+  const template = await useCompiler('welcome.vue', {
+    url: 'https://vue-email.vercel.app/',
+  })
 
   const emailParams = new EmailParams()
   .setFrom(sentFrom)
   .setTo(recipients)
   .setSubject("This is a Subject")
-  .setHtml(body.template)
+  .setHtml(template)
 
 
   await mailerSend.email.send(options);
@@ -82,22 +85,28 @@ export default defineEventHandler(async (event) => {
 ```ts [NodeJs]
 import express from 'express';
 import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
+import { config } from "vue-email/compiler";
 
 const mailerSend = new MailerSend({
   apiKey: process.env.MAILERSEND_API_KEY || '',
 });
-
 const sentFrom = new Sender("you@yourdomain.com", "Your name");
 const recipients = [
   new Recipient("your@client.com", "Your Client")
 ];
 
 const app = express();
+const vueEmail = config("./emails");
 
 app.use(express.json());
 
 app.post('/api/send-email', async (req, res) => {
-  const { template } = req.body;
+
+  const template = await vueEmail.render("welcome.vue", {
+      props: {
+        url: 'https://vue-email.vercel.app/',
+      },
+    });
 
   const emailParams = new EmailParams()
   .setFrom(sentFrom)

@@ -1,25 +1,25 @@
 ---
-title: SendGrid
-description: Learn how to send an email using Vue Email and the SendGrid Node.js SDK.
+title: Resend
+description: Learn how to send an email using Vue Email and the Resend Node.js SDK.
 links:
   - label: NPM
     icon: i-simple-icons-npm
-    to: https://www.npmjs.com/package/@sendgrid/mail
+    to: https://www.npmjs.com/package/resend
 ---
 
 ## 1. Install dependencies
 
-Get the [SendGrid Node.js SDK](https://www.npmjs.com/package/@sendgrid/mail).
+Get the [resend](https://www.npmjs.com/package/resend) packages.
 
 ::code-group
 ```sh [pnpm]
-pnpm add @sendgrid/mail
+pnpm add resend
 ```
 ```sh [yarn]
-yarn add @sendgrid/mail
+yarn add resend
 ```
 ```sh [npm]
-npm install @sendgrid/mail
+npm install resend
 ```
 ::
 
@@ -29,7 +29,7 @@ Start by building your email template in a `.vue` file.
 
 
 ```vue
-// `welcome.vue`
+// `/emails/welcome.vue`
 <template>
   <e-html lang="en">
     <e-button :href="url">
@@ -52,37 +52,15 @@ Import the email template you just built, convert into a HTML string, and use th
 
 ```ts [Nuxt 3]
 // server/api/send-email.post.ts
-import sendgrid from '@sendgrid/mail';
+import { useCompiler } from '#vue-email'
+import { Resend } from 'resend';
 
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+const resend = new Resend('re_123456789');
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody(event);
-
-  const options = {
-    from: 'you@example.com',
-    to: 'user@gmail.com',
-    subject: 'hello world',
-    html: body.template,
-  };
-
-  await sendgrid.send(options);
-  return { message: 'Email sent' };
-});
-```
-
-```ts [NodeJs]
-import express from 'express';
-import sendgrid from '@sendgrid/mail';
-
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
-
-const app = express();
-
-app.use(express.json());
-
-app.post('/api/send-email', async (req, res) => {
-  const { template } = req.body;
+  const template = await useCompiler('welcome.vue', {
+    url: 'https://vue-email.vercel.app/',
+  })
 
   const options = {
     from: 'you@example.com',
@@ -91,7 +69,36 @@ app.post('/api/send-email', async (req, res) => {
     html: template,
   };
 
-  await sendgrid.send(options);
+  await resend.emails.send(options);
+  return { message: 'Email sent' };
+});
+```
+
+```ts [NodeJs]
+import express from 'express';
+import { Resend } from 'resend';
+import { config } from "vue-email/compiler";
+
+const app = express();
+const vueEmail = config("./emails");
+
+app.use(express.json());
+
+app.post('/api/send-email', async (req, res) => {
+  const template = await vueEmail.render("welcome.vue", {
+      props: {
+        url: 'https://vue-email.vercel.app/',
+      },
+    });
+
+  const options = {
+    from: 'you@example.com',
+    to: 'user@gmail.com',
+    subject: 'hello world',
+    html: template,
+  };
+
+  await resend.emails.send(options);
 
   return res.json({ message: "Email sent" });
 });

@@ -1,25 +1,25 @@
 ---
-title: NodeMailer
-description: Learn how to send an email using Vue Email and Nodemailer.
+title: SendGrid
+description: Learn how to send an email using Vue Email and the SendGrid Node.js SDK.
 links:
   - label: NPM
     icon: i-simple-icons-npm
-    to: https://www.npmjs.com/package/nodemailer
+    to: https://www.npmjs.com/package/@sendgrid/mail
 ---
 
 ## 1. Install dependencies
 
-Get the [nodemailer](https://www.npmjs.com/package/nodemailer) package.
+Get the [SendGrid Node.js SDK](https://www.npmjs.com/package/@sendgrid/mail).
 
 ::code-group
 ```sh [pnpm]
-pnpm add nodemailer
+pnpm add @sendgrid/mail
 ```
 ```sh [yarn]
-yarn add nodemailer
+yarn add @sendgrid/mail
 ```
 ```sh [npm]
-npm install nodemailer
+npm install @sendgrid/mail
 ```
 ::
 
@@ -29,7 +29,7 @@ Start by building your email template in a `.vue` file.
 
 
 ```vue
-// `welcome.vue`
+// `/emails/welcome.vue`
 <template>
   <e-html lang="en">
     <e-button :href="url">
@@ -52,22 +52,15 @@ Import the email template you just built, convert into a HTML string, and use th
 
 ```ts [Nuxt 3]
 // server/api/send-email.post.ts
-import nodemailer from 'nodemailer';
+import { useCompiler } from '#vue-email'
+import sendgrid from '@sendgrid/mail';
+
+sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody(event);
-
-  const testAccount = await nodemailer.createTestAccount();
-
-  const transporter = nodemailer.createTransport({
-    host: process.env.HOST || 'smtp.ethereal.email',
-    port: 587,
-    secure: false,
-    auth: {
-      user: testAccount.user,
-      pass: testAccount.pass,
-    },
-  });
+  const template = await useCompiler('welcome.vue', {
+    url: 'https://vue-email.vercel.app/',
+  })
 
   const options = {
     from: 'you@example.com',
@@ -76,33 +69,29 @@ export default defineEventHandler(async (event) => {
     html: body.template,
   };
 
-  await transporter.sendMail(options);
+  await sendgrid.send(options);
   return { message: 'Email sent' };
 });
 ```
 
 ```ts [NodeJs]
 import express from 'express';
-import nodemailer from 'nodemailer';
+import sendgrid from '@sendgrid/mail';
+import { config } from "vue-email/compiler";
+
+sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 const app = express();
+const vueEmail = config("./emails");
 
 app.use(express.json());
 
 app.post('/api/send-email', async (req, res) => {
-  const { template } = req.body;
-
-  const testAccount = await nodemailer.createTestAccount();
-
-  const transporter = nodemailer.createTransport({
-    host: process.env.HOST || 'smtp.ethereal.email',
-    port: 587,
-    secure: false,
-    auth: {
-      user: testAccount.user,
-      pass: testAccount.pass,
-    },
-  });
+  const template = await vueEmail.render("welcome.vue", {
+      props: {
+        url: 'https://vue-email.vercel.app/',
+      },
+    });
 
   const options = {
     from: 'you@example.com',
@@ -111,7 +100,7 @@ app.post('/api/send-email', async (req, res) => {
     html: template,
   };
 
-  await transporter.sendMail(options);
+  await sendgrid.send(options);
 
   return res.json({ message: "Email sent" });
 });

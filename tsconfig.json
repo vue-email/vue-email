@@ -57,6 +57,8 @@
       "#nuxt-component-meta/types": [
         "./docs/.nuxt/component-meta.d.ts"
       ],
+      "$src": ["./src"],
+      "$src/*": ["./src/*"]
     }
   },
   "include": [
