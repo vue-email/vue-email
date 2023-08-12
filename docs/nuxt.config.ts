@@ -1,5 +1,6 @@
 import { createResolver } from '@nuxt/kit'
 import pkg from '../package.json'
+import vueEmailModule from '../src/nuxt/module'
 
 const { resolve } = createResolver(import.meta.url)
 
@@ -7,7 +8,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxt/devtools',
-    // 'vue-email/nuxt',
+    vueEmailModule,
     '@nuxthq/ui',
     '@nuxtjs/fontaine',
     '@nuxtjs/google-fonts',
