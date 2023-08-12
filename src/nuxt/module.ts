@@ -75,7 +75,6 @@ export default defineNuxtModule<ModuleOptions>({
   },
 })
 
-
 interface ModulePublicRuntimeConfig {}
 
 interface ModulePrivateRuntimeConfig {}
