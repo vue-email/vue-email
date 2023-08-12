@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.6.0
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.5.16...v0.6.0)
+
+### 🚀 Enhancements
+
+- Server side compiler ([#21](https://github.com/Dave136/vue-email/pull/21))
+
+### ❤️  Contributors
+
+- David Arenas
+
 ## v0.5.16
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.5.15...v0.5.16)
