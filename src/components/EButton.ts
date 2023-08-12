@@ -1,5 +1,5 @@
 import type { PropType } from 'vue'
-import { computed, defineComponent, h, ref } from 'vue'
+import { computed, defineComponent, h } from 'vue'
 import { convertStyleStringToObj, pxToPt } from '../utils'
 
 export default defineComponent({

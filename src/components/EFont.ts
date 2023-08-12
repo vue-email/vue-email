@@ -1,4 +1,5 @@
-import { PropType, defineComponent, defineProps, h, withDefaults } from 'vue'
+import type { PropType } from 'vue'
+import { defineComponent, h } from 'vue'
 
 type FallbackFont = 'Arial' | 'Helvetica' | 'Verdana' | 'Georgia' | 'Times New Roman'
 type FontFormat = 'woff' | 'woff2' | 'truetype' | 'opentype' | 'embedded-opentype' | 'svg'
@@ -30,7 +31,6 @@ export default defineComponent({
     },
   },
   setup(props) {
-
     const src = props.webFont ? `src: url(${props.webFont.url}) format("${props.webFont.format}");` : ''
 
     const styles = `@font-face {
