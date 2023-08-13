@@ -30,9 +30,6 @@ export async function templateRender(name: string, source: string, options?: Ren
 
   const app = createApp(component, options?.props)
   app.use(VueEmailPlugin, config?.options)
-  const markup = await renderToString(app)
-  const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
-  const doc = `${doctype}${replaceString(markup)}`
 
   const locale = options?.locale || config?.i18n?.defaultLocale
   if (locale && vueI18n) {
@@ -55,6 +52,10 @@ export async function templateRender(name: string, source: string, options?: Ren
   if (config?.verbose) {
     console.warn(`${lightGreen('🎉')} ${bold(blue('Rendering template'))} ${bold(lightGreen(name))}`)
   }
+
+  const markup = await renderToString(app)
+  const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
+  const doc = `${doctype}${replaceString(markup)}`
 
   return doc
 }
