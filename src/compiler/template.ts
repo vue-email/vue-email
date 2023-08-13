@@ -90,6 +90,6 @@ function replaceString(str: string) {
     .replace(/<!--\[-->/g, '')
     .replace(/<!--]-->/g, '')
     .replace(/<template>/g, '')
-    .replace(/<template name="[^"]*"/g, '')
+    .replace(/<template[^>]*>/g, '')
     .replace(/<\/template>/g, '')
 }
