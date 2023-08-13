@@ -13,6 +13,32 @@ export interface Options {
    */
   verbose?: boolean
   /**
+   * Provide translations for your templates.
+   * @see
+   */
+  i18n?: {
+    /**
+     * The default locale if none is provided.
+     * It is also used as fallback if translation does not exist in requested locale.
+     */
+    defaultLocale: string
+    /**
+     * @see https://vue-i18n.intlify.dev/
+     * @example
+     * ```ts
+     * translations: {
+     *   en: {
+     *     hello: "Hello"
+     *   },
+     *   sv: {
+     *     hello: "Hej"
+     *   }
+     * }
+     * ```
+     */
+    translations?: Record<string, Record<string, string>>
+  }
+  /**
    * VueEmailPlugin options
    * @default {}
    * @see
