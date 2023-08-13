@@ -78,7 +78,6 @@ export default defineBuildConfig({
     'pretty',
     'isomorphic-dompurify',
     'node-html-parser',
-    'kolorist',
     'ufo',
     '@vue/compiler-core',
     'tw-to-css',
