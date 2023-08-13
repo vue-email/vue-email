@@ -19,8 +19,8 @@ export default defineComponent({
       default: undefined,
     },
   },
-  setup(props) {
-    const parsedMarkdown = parseMarkdownToVueEmailJSX(props.source, props.customStyles)
+  async setup(props) {
+    const parsedMarkdown = await parseMarkdownToVueEmailJSX(props.source, props.customStyles)
 
     return () => {
       return h('div', {

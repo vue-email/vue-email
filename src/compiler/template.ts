@@ -5,7 +5,7 @@ import { blue, bold, lightGreen } from 'kolorist'
 import { importFromStringSync } from 'module-from-string'
 import type { Component } from 'vue'
 import type { Options, RenderOptions } from '../types/compiler'
-import VueEmailPlugin from '../plugin'
+import { VueEmailPlugin } from '../plugin'
 
 const scriptIdentifier = '_sfc_main'
 

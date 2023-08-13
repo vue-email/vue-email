@@ -1,5 +1,3 @@
-import { convert } from 'html-to-text'
-import pretty from 'pretty'
 import { type Component, createApp, h } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 
@@ -28,6 +26,8 @@ export async function useRender(
   const markup = await renderToString(app)
 
   if (options.plainText) {
+    const { convert } = await import('html-to-text')
+
     return convert(markup, {
       selectors: [
         { selector: 'img', format: 'skip' },
@@ -39,6 +39,7 @@ export async function useRender(
   const doc = `${doctype}${replaceString(markup)}`
 
   if (options.pretty) {
+    const pretty = (await import('pretty')).default
     return pretty(doc)
   }
 

@@ -5,6 +5,9 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
     inlineDependencies: true,
+    esbuild: {
+      target: 'es2020',
+    },
   },
   entries: [
     // Plugin
@@ -78,5 +81,7 @@ export default defineBuildConfig({
     'kolorist',
     'ufo',
     '@vue/compiler-core',
+    'tw-to-css',
+    'deepmerge',
   ],
 })

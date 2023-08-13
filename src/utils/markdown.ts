@@ -1,15 +1,7 @@
-import DOMPurify from 'isomorphic-dompurify'
 import type { CSSProperties } from 'vue'
 import type { StylesType } from '../types/markdown'
 import { styles } from './styles'
 import { patterns } from './patterns'
-
-// hook to handle target="_blank" in all links
-DOMPurify.addHook('afterSanitizeAttributes', (node) => {
-  if ('target' in node) {
-    node.setAttribute('target', '_blank')
-  }
-})
 
 export function camelToKebabCase(str: string): string {
   return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
@@ -23,10 +15,19 @@ export function parseCssInJsToInlineCss(cssProperties: CSSProperties | undefined
     .join(';')
 }
 
-export function parseMarkdownToVueEmailJSX(markdown: string, customStyles: StylesType = {}, withDataAttr = true): string {
+export async function parseMarkdownToVueEmailJSX(markdown: string, customStyles: StylesType = {}, withDataAttr = true): Promise<string> {
   if (markdown === undefined || markdown === null || markdown === '' || typeof markdown !== 'string') {
     return ''
   }
+
+  const { addHook, sanitize } = await (await import('isomorphic-dompurify')).default
+
+  // hook to handle target="_blank" in all links
+  addHook('afterSanitizeAttributes', (node) => {
+    if ('target' in node) {
+      node.setAttribute('target', '_blank')
+    }
+  })
 
   const finalStyles = { ...styles, ...customStyles }
   let vueMailTemplate = ''
@@ -222,7 +223,7 @@ export function parseMarkdownToVueEmailJSX(markdown: string, customStyles: Style
     `<hr${withDataAttr ? ' data-id="vue-email-hr"' : ''}${parseCssInJsToInlineCss(finalStyles.hr) !== '' ? ` style="${parseCssInJsToInlineCss(finalStyles.hr)}"` : ''}/>`,
   )
 
-  return DOMPurify.sanitize(vueMailTemplate, {
+  return sanitize(vueMailTemplate, {
     USE_PROFILES: { html: true },
   })
 }
