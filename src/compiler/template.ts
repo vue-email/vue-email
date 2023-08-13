@@ -1,22 +1,13 @@
 import * as compiler from 'vue/compiler-sfc'
 import { createApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
-import { blue, bold, lightGreen, red } from 'kolorist'
+import { blue, bold, lightGreen, red, white } from 'kolorist'
 import { importFromStringSync } from 'module-from-string'
 import type { Component } from 'vue'
 import type { Options, RenderOptions } from '../types/compiler'
 import { VueEmailPlugin } from 'vue-email'
 
 const scriptIdentifier = '_sfc_main'
-
-async function importDependency(moduleName: string) {
-  try {
-    const module = await import(moduleName)
-    return module
-  } catch (error) {
-    console.error(`${lightGreen(':x:')} ${bold(red(`Missing dependency, please install it using pnpm i ${moduleName}`))}`)
-  }
-}
 
 export async function templateRender(name: string, source: string, options?: RenderOptions, config?: Options): Promise<string> {
   let vueI18n
@@ -25,8 +16,13 @@ export async function templateRender(name: string, source: string, options?: Ren
     transformOptions: { loader: 'ts' },
   }).default
 
-  if (config?.i18n) {
-    vueI18n = await importDependency('vue-i18n')
+  try {
+    if (config?.i18n) {
+      // @ts-expect-error this should be installed for the user
+      vueI18n = await import('vue-i18n')
+    }
+  } catch (error) {
+    throw new Error(`${lightGreen('❌')} ${bold(red(`Missing vue-i18n dependency`))} ${white('please install it using: ')} ${bold(white('npm i vue-i18n@9'))}`)
   }
 
   if (config?.verbose) {
