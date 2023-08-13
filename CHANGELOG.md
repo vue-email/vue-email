@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.6.1
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.6.0...v0.6.1)
+
+### 🩹 Fixes
+
+- Tailwind compiled html showing nothing ([#44](https://github.com/Dave136/vue-email/pull/44))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.6.0
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.5.16...v0.6.0)
