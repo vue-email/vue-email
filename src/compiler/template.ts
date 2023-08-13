@@ -1,19 +1,33 @@
 import * as compiler from 'vue/compiler-sfc'
 import { createApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
-import { blue, bold, lightGreen } from 'kolorist'
+import { blue, bold, lightGreen, red } from 'kolorist'
 import { importFromStringSync } from 'module-from-string'
 import type { Component } from 'vue'
 import type { Options, RenderOptions } from '../types/compiler'
-import { VueEmailPlugin } from '../plugin'
+import { VueEmailPlugin } from 'vue-email'
 
 const scriptIdentifier = '_sfc_main'
 
+async function importDependency(moduleName: string) {
+  try {
+    const module = await import(moduleName)
+    return module
+  } catch (error) {
+    console.error(`${lightGreen(':x:')} ${bold(red(`Missing dependency, please install it using pnpm i ${moduleName}`))}`)
+  }
+}
+
 export async function templateRender(name: string, source: string, options?: RenderOptions, config?: Options): Promise<string> {
+  let vueI18n
   const output = compile(name, source, config?.verbose)
   const component: Component = importFromStringSync(output, {
     transformOptions: { loader: 'ts' },
   }).default
+
+  if (config?.i18n) {
+    vueI18n = await importDependency('vue-i18n')
+  }
 
   if (config?.verbose) {
     console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
@@ -24,6 +38,24 @@ export async function templateRender(name: string, source: string, options?: Ren
   const markup = await renderToString(app)
   const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
   const doc = `${doctype}${replaceString(markup)}`
+
+  const locale = options?.locale || config?.i18n?.defaultLocale
+  if (locale) {
+    if (config?.verbose) {
+      console.warn(`${lightGreen('🌐')} ${bold(blue('Injecting translations'))}`)
+    }
+
+    const i18n = vueI18n.createI18n({
+      locale,
+      fallbackLocale: config?.i18n?.defaultLocale,
+      messages: options?.translations || config?.i18n?.translations,
+      silentFallbackWarn: !config?.verbose,
+      silentTranslationWarn: !config?.verbose,
+      warnHtmlInMessage: 'off',
+    })
+
+    app.use(i18n)
+  }
 
   if (config?.verbose) {
     console.warn(`${lightGreen('🎉')} ${bold(blue('Rendering template'))} ${bold(lightGreen(name))}`)
