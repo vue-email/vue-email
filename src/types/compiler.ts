@@ -48,6 +48,8 @@ export interface Options {
 }
 
 export interface RenderOptions {
+  locale?: string
+  translations?: Record<string, Record<string, string>>
   props?: Record<string, unknown>
 }
 
