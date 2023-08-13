@@ -21,13 +21,15 @@ export async function templateRender(name: string, source: string, options?: Ren
 
   const app = createApp(component, options?.props)
   app.use(VueEmailPlugin, config?.options)
-  const content = await renderToString(app)
+  const markup = await renderToString(app)
+  const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
+  const doc = `${doctype}${replaceString(markup)}`
 
   if (config?.verbose) {
     console.warn(`${lightGreen('🎉')} ${bold(blue('Rendering template'))} ${bold(lightGreen(name))}`)
   }
 
-  return content
+  return doc
 }
 
 function compile(filename: string, source: string, verbose = false) {
@@ -78,4 +80,16 @@ function compile(filename: string, source: string, verbose = false) {
   `
 
   return output
+}
+
+function replaceString(str: string) {
+  if (!str || typeof str !== 'string') return str
+
+  return str
+    .replace(/ data-v-inspector="[^"]*"/g, '')
+    .replace(/<!--\[-->/g, '')
+    .replace(/<!--]-->/g, '')
+    .replace(/<template>/g, '')
+    .replace(/<template name="[^"]*"/g, '')
+    .replace(/<\/template>/g, '')
 }

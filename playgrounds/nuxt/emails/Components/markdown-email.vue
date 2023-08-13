@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 const md = ref(`Hi [Recipient's Name],
 
 I hope this email finds you **well**. I wanted to reach out and share some exciting news with you!
