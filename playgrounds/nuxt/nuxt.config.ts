@@ -38,5 +38,20 @@ export default defineNuxtConfig({
   },
   vueEmail: {
     baseUrl: 'https://vue-email-demo.vercel.app/',
+<<<<<<< HEAD
+=======
+    verbose: true,
+    i18n: {
+      defaultLocale: 'en',
+      translations: {
+        en: {
+          message: 'Welcome to dashboard {user}',
+        },
+        es: {
+          message: 'Bienvenido al panel {user}',
+        },
+      },
+    },
+>>>>>>> 329ec2a (add: i18n for useCompiler fn)
   },
 })
