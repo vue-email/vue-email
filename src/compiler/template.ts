@@ -18,7 +18,6 @@ export async function templateRender(name: string, source: string, options?: Ren
 
   try {
     if (config?.i18n) {
-      // @ts-expect-error this should be installed for the user
       vueI18n = await import('vue-i18n')
     }
   } catch (error) {
@@ -36,7 +35,7 @@ export async function templateRender(name: string, source: string, options?: Ren
   const doc = `${doctype}${replaceString(markup)}`
 
   const locale = options?.locale || config?.i18n?.defaultLocale
-  if (locale) {
+  if (locale && vueI18n) {
     if (config?.verbose) {
       console.warn(`${lightGreen('🌐')} ${bold(blue('Injecting translations'))}`)
     }
