@@ -39,4 +39,26 @@ describe('compiler', () => {
       '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><section><h1>Welcome John Doe</h1></section>',
     )
   })
+
+  it('Should translate template content', async () => {
+    const vuemail = config(path, {
+      i18n: {
+        defaultLocale: 'en',
+        translations: {
+          en: {
+            message: 'Hello world!',
+          },
+          es: {
+            message: 'Hola mundo!',
+          },
+        },
+      },
+    })
+
+    const templateEn = await vuemail.render('Translate.vue', { locale: 'en' })
+    const templateEs = await vuemail.render('Translate.vue', { locale: 'es' })
+
+    expect(templateEn.includes('Hello world!')).toBe(true)
+    expect(templateEs.includes('Hola mundo!')).toBe(true)
+  })
 })

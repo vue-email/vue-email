@@ -97,6 +97,12 @@ importers:
       vue:
         specifier: ^3.3.4
         version: 3.3.4
+      vue-email:
+        specifier: workspace:*
+        version: 'link:'
+      vue-i18n:
+        specifier: '9'
+        version: 9.2.2(vue@3.3.4)
 
   client:
     dependencies:
@@ -142,7 +148,7 @@ importers:
         version: 1.1.6
       '@iconify-json/simple-icons':
         specifier: latest
-        version: 1.1.65
+        version: 1.1.63
       '@iconify-json/twemoji':
         specifier: latest
         version: 1.1.12
@@ -1175,8 +1181,8 @@ packages:
       '@iconify/types': 2.0.0
     dev: false
 
-  /@iconify-json/simple-icons@1.1.65:
-    resolution: {integrity: sha512-pCL5nF80e5YrvnR9VFt7EROEcWE6vvtBaThx+hC1Xaw3e1DkCTc4JioiNnYrON/p2iNVvncAQAgQP1Us/XPInw==}
+  /@iconify-json/simple-icons@1.1.63:
+    resolution: {integrity: sha512-aIbo99YLjwZ53XxU9HC+CO9Br9H0vRuGmq8b0TOaGA1g7HX2ZlpmzPvWAte5xbmbohfRzAMX/OVsFhOT+CL+Aw==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
@@ -1207,6 +1213,44 @@ packages:
       local-pkg: 0.4.3
     transitivePeerDependencies:
       - supports-color
+
+  /@intlify/core-base@9.2.2:
+    resolution: {integrity: sha512-JjUpQtNfn+joMbrXvpR4hTF8iJQ2sEFzzK3KIESOx+f+uwIjgw20igOyaIdhfsVVBCds8ZM64MoeNSx+PHQMkA==}
+    engines: {node: '>= 14'}
+    dependencies:
+      '@intlify/devtools-if': 9.2.2
+      '@intlify/message-compiler': 9.2.2
+      '@intlify/shared': 9.2.2
+      '@intlify/vue-devtools': 9.2.2
+    dev: true
+
+  /@intlify/devtools-if@9.2.2:
+    resolution: {integrity: sha512-4ttr/FNO29w+kBbU7HZ/U0Lzuh2cRDhP8UlWOtV9ERcjHzuyXVZmjyleESK6eVP60tGC9QtQW9yZE+JeRhDHkg==}
+    engines: {node: '>= 14'}
+    dependencies:
+      '@intlify/shared': 9.2.2
+    dev: true
+
+  /@intlify/message-compiler@9.2.2:
+    resolution: {integrity: sha512-IUrQW7byAKN2fMBe8z6sK6riG1pue95e5jfokn8hA5Q3Bqy4MBJ5lJAofUsawQJYHeoPJ7svMDyBaVJ4d0GTtA==}
+    engines: {node: '>= 14'}
+    dependencies:
+      '@intlify/shared': 9.2.2
+      source-map: 0.6.1
+    dev: true
+
+  /@intlify/shared@9.2.2:
+    resolution: {integrity: sha512-wRwTpsslgZS5HNyM7uDQYZtxnbI12aGiBZURX3BTR9RFIKKRWpllTsgzHWvj3HKm3Y2Sh5LPC1r0PDCKEhVn9Q==}
+    engines: {node: '>= 14'}
+    dev: true
+
+  /@intlify/vue-devtools@9.2.2:
+    resolution: {integrity: sha512-+dUyqyCHWHb/UcvY1MlIpO87munedm3Gn6E9WWYdWrMuYLcoIoOEVDWSS8xSwtlPU+kA+MEQTP6Q1iI/ocusJg==}
+    engines: {node: '>= 14'}
+    dependencies:
+      '@intlify/core-base': 9.2.2
+      '@intlify/shared': 9.2.2
+    dev: true
 
   /@ioredis/commands@1.2.0:
     resolution: {integrity: sha512-Sx1pU8EM64o2BrqNpEO1CNLtKQwyhuXuqyfH7oGKCk+1a33d2r5saW8zNwm3j6BTExtjrv2BxTgzzkMwts6vGg==}
@@ -1443,6 +1487,7 @@ packages:
 
   /@nuxt/devtools-ui-kit@0.8.0(@nuxt/devtools@0.8.0)(nuxt@3.6.5)(postcss@8.4.27)(rollup@3.28.0)(vite@4.4.9)(vue@3.3.4)(webpack@5.88.2):
     resolution: {integrity: sha512-bOA94l/Q0QGimrbRS6MKgfkO/j79qF2heVB5LTJur0SXqpDM3nEb1E4NrMHXONL3n+jgfP3HRkkHtxxXGaPOcQ==}
+    resolution: {integrity: sha512-g1PXqaIIK76U8Aw2+wRu6ETEKz9hTVvqA4NmqdogzpE4vf0gbO050np4kzZJ8ToPWm8o5WRk5kdn4ZgfTWhcVA==}
     peerDependencies:
       '@nuxt/devtools': 0.8.0
     dependencies:
@@ -1460,6 +1505,20 @@ packages:
       '@unocss/preset-icons': 0.55.0
       '@unocss/preset-mini': 0.55.0
       '@unocss/reset': 0.55.0
+      '@iconify-json/carbon': 1.1.18
+      '@iconify-json/logos': 1.1.33
+      '@iconify-json/ri': 1.1.10
+      '@iconify-json/tabler': 1.1.85
+      '@nuxt/devtools': 0.7.1(nuxt@3.6.5)(rollup@3.26.3)(vite@4.4.7)
+      '@nuxt/devtools-kit': 0.7.1(nuxt@3.6.5)(rollup@3.26.3)(vite@4.4.7)
+      '@nuxt/kit': 3.6.5(rollup@3.26.3)
+      '@nuxtjs/color-mode': 3.3.0(rollup@3.26.3)
+      '@unocss/core': 0.53.6
+      '@unocss/nuxt': 0.53.6(postcss@8.4.27)(rollup@3.28.0)(vite@4.4.9)(webpack@5.88.2)
+      '@unocss/preset-attributify': 0.53.6
+      '@unocss/preset-icons': 0.53.6
+      '@unocss/preset-mini': 0.53.6
+      '@unocss/reset': 0.53.6
       '@vueuse/core': 10.3.0(vue@3.3.4)
       '@vueuse/integrations': 10.3.0(focus-trap@7.5.2)(vue@3.3.4)
       '@vueuse/nuxt': 10.3.0(nuxt@3.6.5)(rollup@3.28.0)(vue@3.3.4)
@@ -1510,7 +1569,7 @@ packages:
     resolution: {integrity: sha512-w48eqZ52NLVB8C0Q1E/eY0xsokMr9diOaxUptO08UYNhyj+MKKBrhIBTePYO7GlxabXOaHM62zi+iN8AT1qXoA==}
     hasBin: true
     peerDependencies:
-      nuxt: ^3.6.5
+      nuxt: ^3.6.1
       vite: '*'
     dependencies:
       '@nuxt/devtools-kit': 0.8.0(nuxt@3.6.5)(rollup@3.28.0)(vite@4.4.9)
@@ -11801,6 +11860,19 @@ packages:
       semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /vue-i18n@9.2.2(vue@3.3.4):
+    resolution: {integrity: sha512-yswpwtj89rTBhegUAv9Mu37LNznyu3NpyLQmozF3i1hYOhwpG8RjcjIFIIfnu+2MDZJGSZPXaKWvnQA71Yv9TQ==}
+    engines: {node: '>= 14'}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      '@intlify/core-base': 9.2.2
+      '@intlify/shared': 9.2.2
+      '@intlify/vue-devtools': 9.2.2
+      '@vue/devtools-api': 6.5.0
+      vue: 3.3.4
     dev: true
 
   /vue-router@4.2.4(vue@3.3.4):
