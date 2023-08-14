@@ -22,5 +22,8 @@
 		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
 	},
   // Prevent default prettier extension if exists
-  "prettier.enable": false,
+"prettier.enable": false,
+"[typescript]": {
+	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+},
 }
