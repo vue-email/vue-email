@@ -1,15 +1,8 @@
-import DOMPurify from 'isomorphic-dompurify'
 import type { CSSProperties } from 'vue'
+import sanitizeHtml from 'sanitize-html'
 import type { StylesType } from '../types/markdown'
 import { styles } from './styles'
 import { patterns } from './patterns'
-
-// hook to handle target="_blank" in all links
-DOMPurify.addHook('afterSanitizeAttributes', (node) => {
-  if ('target' in node) {
-    node.setAttribute('target', '_blank')
-  }
-})
 
 export function camelToKebabCase(str: string): string {
   return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
@@ -222,7 +215,24 @@ export function parseMarkdownToVueEmailJSX(markdown: string, customStyles: Style
     `<hr${withDataAttr ? ' data-id="vue-email-hr"' : ''}${parseCssInJsToInlineCss(finalStyles.hr) !== '' ? ` style="${parseCssInJsToInlineCss(finalStyles.hr)}"` : ''}/>`,
   )
 
-  return DOMPurify.sanitize(vueMailTemplate, {
-    USE_PROFILES: { html: true },
+  return sanitizeHtml(vueMailTemplate, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat(['del', 'blockquote']),
+    allowedAttributes: {
+      h1: ['style', 'data-id'],
+      h2: ['style', 'data-id'],
+      h3: ['style', 'data-id'],
+      h4: ['style', 'data-id'],
+      h5: ['style', 'data-id'],
+      h6: ['style', 'data-id'],
+      a: ['href', 'style', 'target', 'data-id'],
+      p: ['style', 'data-id'],
+      strong: ['style', 'data-id'],
+      td: ['align'],
+      th: ['align'],
+      em: ['style', 'data-id'],
+    },
+    transformTags: {
+      a: sanitizeHtml.simpleTransform('a', { target: '_blank' }),
+    },
   })
 }

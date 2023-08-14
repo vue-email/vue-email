@@ -48,7 +48,7 @@ export default defineConfig({
       include: [resolve(__dirname, 'src')],
     },
     rollupOptions: {
-      external: ['vue', 'html-to-text', 'pretty', 'isomorphic-dompurify', 'node-html-parser'],
+      external: ['vue', 'html-to-text', 'pretty', 'node-html-parser', 'sanitize-html'],
       output: {
         exports: 'named',
         globals: {

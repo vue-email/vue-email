@@ -82,10 +82,10 @@
   },
   "dependencies": {
     "html-to-text": "^9.0.5",
-    "isomorphic-dompurify": "^1.8.0",
     "module-from-string": "^3.3.0",
     "node-html-parser": "^6.1.5",
-    "pretty": "^2.0.0"
+    "pretty": "^2.0.0",
+    "sanitize-html": "^2.11.0"
   },
   "peerDependenciesMeta": {
     "@nuxt/kit": {
@@ -93,12 +93,12 @@
     }
   },
   "devDependencies": {
-    "vue-email": "workspace:*",
     "@antfu/eslint-config": "^0.39.8",
     "@nuxt/kit": "^3.6.5",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@types/html-to-text": "^9.0.1",
     "@types/pretty": "^2.0.1",
+    "@types/sanitize-html": "^2.9.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vitest/coverage-v8": "^0.33.0",
     "changelogen": "^0.5.4",
@@ -117,6 +117,7 @@
     "vite-plugin-banner": "^0.7.0",
     "vite-plugin-dts": "^3.3.1",
     "vitest": "^0.33.0",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue-email": "workspace:*"
   }
 }
