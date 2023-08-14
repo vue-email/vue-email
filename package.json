@@ -87,13 +87,13 @@
   "dependencies": {
     "isomorphic-dompurify": "^1.8.0",
     "module-from-string": "^3.3.0",
-    "node-html-parser": "^6.1.5",
     "@flowko/tw-to-css": "^0.0.6"
   },
   "resolutions": {
     "vue-email": "link:."
   },
   "devDependencies": {
+    "node-html-parser": "^6.1.5",
     "kolorist": "^1.8.0",
     "@antfu/eslint-config": "^0.40.2",
     "@nuxt/kit": "^3.6.5",

@@ -54,7 +54,7 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     if (!nuxt.options.build.transpile) nuxt.options.build.transpile = []
-    const transpileList = ['defu', 'vue-email', 'node-html-parser']
+    const transpileList = ['defu', 'vue-email']
     transpileList.forEach((pkgName) => {
       if (!nuxt.options.build.transpile.includes(pkgName)) nuxt.options.build.transpile.push(pkgName)
     })
