@@ -88,7 +88,7 @@
     "isomorphic-dompurify": "^1.8.0",
     "module-from-string": "^3.3.0",
     "node-html-parser": "^6.1.5",
-    "@flowko/tw-to-css": "^0.0.2"
+    "@flowko/tw-to-css": "^0.0.3"
   },
   "resolutions": {
     "vue-email": "link:."
