@@ -56,9 +56,11 @@ export default defineNuxtModule<ModuleOptions>({
     if (!nuxt.options.build.transpile) nuxt.options.build.transpile = []
     const transpileList = [
       'defu',
-      // 'html-to-text', 'pretty', 'isomorphic-dompurify', 'node-html-parser', 'tw-to-css',
       'vue-email',
-      'node-html-parser',
+      // 'html-to-text', 'pretty', 'isomorphic-dompurify', 'node-html-parser', 'tw-to-css',
+      // 'node-html-parser',
+      // 'isomorphic-dompurify',
+      // 'module-from-string',
     ]
     transpileList.forEach((pkgName) => {
       if (!nuxt.options.build.transpile.includes(pkgName)) nuxt.options.build.transpile.push(pkgName)
