@@ -1,5 +1,4 @@
 import type { CSSProperties } from 'vue'
-import DOMPurify from '../utils/isomorphic-dompurify'
 import type { StylesType } from '../types/markdown'
 import { styles } from './styles'
 import { patterns } from './patterns'
@@ -21,8 +20,10 @@ export async function parseMarkdownToVueEmailJSX(markdown: string, customStyles:
     return ''
   }
 
+  const { addHook, sanitize } = await (await import('isomorphic-dompurify')).default
+
   // hook to handle target="_blank" in all links
-  DOMPurify.addHook('afterSanitizeAttributes', (node) => {
+  addHook('afterSanitizeAttributes', (node: any) => {
     if ('target' in node) {
       node.setAttribute('target', '_blank')
     }
@@ -222,7 +223,7 @@ export async function parseMarkdownToVueEmailJSX(markdown: string, customStyles:
     `<hr${withDataAttr ? ' data-id="vue-email-hr"' : ''}${parseCssInJsToInlineCss(finalStyles.hr) !== '' ? ` style="${parseCssInJsToInlineCss(finalStyles.hr)}"` : ''}/>`,
   )
 
-  return DOMPurify.sanitize(vueMailTemplate, {
+  return sanitize(vueMailTemplate, {
     USE_PROFILES: { html: true },
   })
 }

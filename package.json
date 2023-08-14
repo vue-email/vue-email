@@ -82,8 +82,7 @@
     "@nuxt/kit": "^3.6.5"
   },
   "dependencies": {
-    "@types/dompurify": "^3.0.2",
-    "dompurify": "^3.0.5",
+    "isomorphic-dompurify": "^1.8.0",
     "jsdom": "^22.1.0",
     "module-from-string": "^3.3.0",
     "node-html-parser": "^6.1.5"
@@ -93,7 +92,6 @@
     "@nuxt/kit": "^3.6.5",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@types/html-to-text": "^9.0.1",
-    "@types/jsdom": "^21.1.1",
     "@types/pretty": "^2.0.1",
     "changelogen": "^0.5.4",
     "eslint": "^8.47.0",
