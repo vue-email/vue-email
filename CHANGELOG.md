@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.6.3
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.6.2...v0.6.3)
+
+### 🩹 Fixes
+
+- Node-html-parser brower error ([ec1a504](https://github.com/Dave136/vue-email/commit/ec1a504))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.6.2
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.6.1...v0.6.2)
