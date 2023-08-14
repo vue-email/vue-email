@@ -1,4 +1,4 @@
-import { VueEmailPlugin } from '../../../plugin'
+import { VueEmailPlugin } from 'vue-email'
 import {defineNuxtPlugin, useRuntimeConfig } from "#app"
 
 export default defineNuxtPlugin((nuxtApp) => {

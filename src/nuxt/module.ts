@@ -58,8 +58,7 @@ export default defineNuxtModule<ModuleOptions>({
       'defu',
       'vue-email',
       // 'html-to-text', 'pretty', 'isomorphic-dompurify', 'node-html-parser', 'tw-to-css',
-      // 'node-html-parser',
-      // 'isomorphic-dompurify',
+      'node-html-parser',
       // 'module-from-string',
     ]
     transpileList.forEach((pkgName) => {

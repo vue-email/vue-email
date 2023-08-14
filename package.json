@@ -35,18 +35,15 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
     },
     "./nuxt": {
       "types": "./dist/nuxt/module.d.ts",
-      "import": "./dist/nuxt/module.js",
-      "require": "./dist/nuxt/module.cjs"
+      "import": "./dist/nuxt/module.js"
     },
     "./compiler": {
       "types": "./dist/compiler/index.d.ts",
-      "import": "./dist/compiler/index.js",
-      "require": "./dist/compiler/index.cjs"
+      "import": "./dist/compiler/index.js"
     }
   },
   "types": "./dist/index.d.ts",
@@ -58,7 +55,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsup && npx fix-tsup-cjs && pnpm pack",
+    "build": "tsup && fix-tsup-cjs && pnpm pack",
     "dev": "vite build --watch",
     "release": "changelogen --release",
     "lint": "eslint --ext .js,.vue,.ts,.tsx .",
@@ -85,19 +82,19 @@
     "@nuxt/kit": "^3.6.5"
   },
   "dependencies": {
-    "isomorphic-dompurify": "^1.8.0",
+    "@types/dompurify": "^3.0.2",
+    "dompurify": "^3.0.5",
     "jsdom": "^22.1.0",
     "module-from-string": "^3.3.0",
-    "node-html-parser": "^6.1.5",
-    "sanitize-html": "^2.11.0"
+    "node-html-parser": "^6.1.5"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.40.2",
     "@nuxt/kit": "^3.6.5",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@types/html-to-text": "^9.0.1",
+    "@types/jsdom": "^21.1.1",
     "@types/pretty": "^2.0.1",
-    "@types/sanitize-html": "^2.9.0",
     "changelogen": "^0.5.4",
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",

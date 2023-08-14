@@ -1,5 +1,5 @@
-import type { VueEmailPLuginOptions } from '../../../../types/config'
-import { templateRender } from '../../../../compiler'
+import type { VueEmailPLuginOptions } from 'vue-email'
+import { templateRender } from 'vue-email/compiler'
 import { useRuntimeConfig, useStorage } from '#imports'
 
 export async function useCompiler(filename: string, props: Record<string, unknown> = {}) {

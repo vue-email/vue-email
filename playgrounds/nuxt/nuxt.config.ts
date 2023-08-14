@@ -5,8 +5,8 @@ import vueEmailModule from '../../src/nuxt/module'
 export default defineNuxtConfig({
   devtools: { enabled: true, componentInspector: false, viteInspect: false },
   alias: {
-    'vue-email': resolve(__dirname, '../../src/index.ts'),
-    'vue-email/compiler': resolve(__dirname, '../../src/compiler/index.ts'),
+    'vue-email': resolve(__dirname, '../../dist/index.js'),
+    'vue-email/compiler': resolve(__dirname, '../../dist/compiler/index.js'),
   },
   modules: ['@nuxthq/ui', vueEmailModule],
   typescript: {

@@ -1,10 +1,8 @@
 import { defineComponent, h } from 'vue'
 import { type TailwindConfig, tailwindToCSS } from 'tw-to-css'
 import { renderToString } from 'vue/server-renderer'
-import * as htmlParser from 'node-html-parser'
+import { parse } from 'node-html-parser'
 import { cleanCss, getMediaQueryCss, makeCssMap } from '../utils/css'
-
-const { parse } = htmlParser
 
 export default defineComponent({
   name: 'ETailwind',
