@@ -54,20 +54,18 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     if (!nuxt.options.build.transpile) nuxt.options.build.transpile = []
-    const transpileList = [
-      'defu',
-      'vue-email',
-      // 'html-to-text', 'pretty', 'isomorphic-dompurify', 'node-html-parser', 'tw-to-css',
-      'node-html-parser',
-      // 'module-from-string',
-    ]
+    const transpileList = ['defu', 'vue-email', 'node-html-parser']
     transpileList.forEach((pkgName) => {
       if (!nuxt.options.build.transpile.includes(pkgName)) nuxt.options.build.transpile.push(pkgName)
     })
 
     addTemplate({
-      filename: 'types/vue-email-server.d.ts',
+      filename: 'types/vue-email.d.ts',
       getContents: () => ["declare module '#vue-email' {", `  const useCompiler: typeof import('${resolve('./runtime/server/services')}').useCompiler`, '}'].join('\n'),
+    })
+
+    nuxt.hook('prepare:types', (options) => {
+      options.references.push({ path: resolve(nuxt.options.buildDir, 'types/vue-email.d.ts') })
     })
 
     addPlugin(resolve('./runtime/templates/vue-email'))

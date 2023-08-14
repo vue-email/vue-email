@@ -1,19 +1,13 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig({
-  entryPoints: [
-    'src/index.ts',
-    'src/nuxt/module.ts',
-    'src/compiler/index.ts',
-    'src/nuxt/runtime/server/services/index.ts',
-    'src/nuxt/runtime/server/services/useCompiler.ts',
-    'src/nuxt/runtime/templates/vue-email.ts',
-  ],
+  entryPoints: ['src/index.ts', 'src/compiler/index.ts'],
   clean: true,
+  splitting: false,
   format: 'esm',
   target: 'es2022',
   dts: {
-    entry: ['src/index.ts', 'src/nuxt/module.ts', 'src/compiler/index.ts'],
+    entry: ['src/index.ts', 'src/compiler/index.ts'],
   },
   external: ['#app', '#imports'],
   noExternal: ['node-html-parser'],
