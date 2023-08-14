@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
-import { EHeading, useRender } from 'src'
+import { EHeading, useRender } from '../src'
 
 describe('render', () => {
   it('renders the <Heading> component', async () => {
     const component = h(
       EHeading,
       {
-        mx: '4',
+        mx: 4,
         as: 'h2',
       },
       {

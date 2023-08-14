@@ -1,15 +1,14 @@
 import { resolve } from 'node:path'
+import vueEmailModule from '../../src/nuxt/module'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true, componentInspector: false, viteInspect: false },
   alias: {
     'vue-email': resolve(__dirname, '../../src/index.ts'),
-    'vue-email/nuxt': resolve(__dirname, '../../nuxt/index.mjs'),
-    // 'vue-email/compiler': resolve(__dirname, '../../dist/compiler.mjs'),
-    // '#vue-email': resolve(__dirname, '../../nuxt/runtime/server/services/index.mjs'),
+    'vue-email/compiler': resolve(__dirname, '../../src/compiler/index.ts'),
   },
-  modules: ['@nuxthq/ui', 'vue-email/nuxt'],
+  modules: ['@nuxthq/ui', vueEmailModule],
   typescript: {
     shim: false,
     includeWorkspace: true,
@@ -39,6 +38,5 @@ export default defineNuxtConfig({
   },
   vueEmail: {
     baseUrl: 'https://vue-email-demo.vercel.app/',
-    verbose: true,
   },
 })

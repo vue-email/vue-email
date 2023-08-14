@@ -2,12 +2,53 @@ import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
   declaration: true,
-  clean: false,
+  clean: true,
   rollup: {
     emitCJS: true,
     inlineDependencies: true,
+    esbuild: {
+      target: 'es2022',
+    },
   },
   entries: [
+    // Plugin
+    {
+      input: 'src/index.ts',
+      outDir: 'dist',
+      name: 'index',
+      format: 'esm',
+      ext: 'mjs',
+    },
+    {
+      input: 'src/index.ts',
+      outDir: 'dist',
+      name: 'index',
+      format: 'cjs',
+      ext: 'cjs',
+    },
+    // Nuxt
+    {
+      input: 'src/nuxt/module.ts',
+      outDir: 'dist',
+      name: 'nuxt',
+      format: 'esm',
+      ext: 'mjs',
+    },
+    {
+      input: 'src/nuxt/module.ts',
+      outDir: 'dist',
+      name: 'nuxt',
+      format: 'cjs',
+      ext: 'cjs',
+    },
+    // Copy runtime folder with mkdist
+    {
+      builder: 'mkdist',
+      input: 'src/nuxt/runtime',
+      outDir: 'dist/runtime',
+      declaration: true,
+    },
+    // Compiler
     {
       input: 'src/compiler/index.ts',
       outDir: 'dist',
@@ -23,5 +64,5 @@ export default defineBuildConfig({
       ext: 'cjs',
     },
   ],
-  externals: ['vue', 'vue/compiler-sfc', 'vue/server-renderer', 'vue-email'],
+  externals: ['@nuxt/kit', '@nuxt/schema', 'vue-email'],
 })

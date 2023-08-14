@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
-import { EImg, useRender } from 'src'
+import { EImg, useRender } from '../src'
 
 describe('render', () => {
   it('renders the <Img> component', async () => {

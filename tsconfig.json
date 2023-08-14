@@ -25,7 +25,10 @@
         "./src/index"
       ],
       "vue-email/nuxt": [
-        "./nuxt/index.mjs"
+        "./src/nuxt/module"
+      ],
+      "vue-email/compiler": [
+        "./src/compiler/index"
       ],
       "#components": [
         ".nuxt/components"

@@ -1,7 +1,7 @@
-import { convert } from 'html-to-text'
-import pretty from 'pretty'
 import { type Component, createApp, h } from 'vue'
 import { renderToString } from 'vue/server-renderer'
+import { convert } from 'html-to-text'
+import pretty from 'pretty'
 
 export interface Options {
   pretty?: boolean
@@ -52,6 +52,7 @@ function replaceString(str: string) {
     .replace(/ data-v-inspector="[^"]*"/g, '')
     .replace(/<!--\[-->/g, '')
     .replace(/<!--]-->/g, '')
+    .replace(/<!---->/g, '')
     .replace(/<template>/g, '')
     .replace(/<\/template>/g, '')
 }

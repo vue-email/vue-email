@@ -1,11 +1,11 @@
 export interface Margin {
-  m?: string
-  mx?: string
-  my?: string
-  mt?: string
-  mr?: string
-  mb?: string
-  ml?: string
+  m?: string | number
+  mx?: string | number
+  my?: string | number
+  mt?: string | number
+  mr?: string | number
+  mb?: string | number
+  ml?: string | number
 }
 
 export function withMargin(props: Margin) {
@@ -20,7 +20,7 @@ export function withMargin(props: Margin) {
   ].filter((s) => Object.keys(s).length)[0]
 }
 
-function withSpace(value: string | undefined, properties: string[]) {
+function withSpace(value: string | number | undefined, properties: string[]) {
   return properties.reduce((styles, property) => {
     if (value) {
       return { ...styles, [property]: `${value}px` }

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
-import { ESection, useRender } from 'src'
+import { ESection, useRender } from '../src'
 
 describe('render', () => {
   it('renders the <Section> component', async () => {
