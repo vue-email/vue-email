@@ -20,9 +20,6 @@ importers:
       module-from-string:
         specifier: ^3.3.0
         version: 3.3.0
-      node-html-parser:
-        specifier: ^6.1.5
-        version: 6.1.5
     optionalDependencies:
       '@nuxt/kit':
         specifier: ^3.6.5
@@ -61,6 +58,9 @@ importers:
       kolorist:
         specifier: ^1.8.0
         version: 1.8.0
+      node-html-parser:
+        specifier: ^6.1.5
+        version: 6.1.5
       nuxt:
         specifier: ^3.6.5
         version: 3.6.5(@types/node@20.4.10)(eslint@8.47.0)(rollup@3.28.0)(typescript@5.1.6)
@@ -6523,6 +6523,7 @@ packages:
   /he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
+    dev: true
 
   /highlight.js@11.8.0:
     resolution: {integrity: sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg==}
@@ -8433,7 +8434,7 @@ packages:
     dependencies:
       css-select: 5.1.0
       he: 1.2.0
-    dev: false
+    dev: true
 
   /node-releases@2.0.13:
     resolution: {integrity: sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ==}
