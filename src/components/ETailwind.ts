@@ -1,7 +1,8 @@
 import { defineComponent, h } from 'vue'
-import type { TailwindConfig } from 'tw-to-css'
 import { renderToString } from 'vue/server-renderer'
 import { parse } from 'node-html-parser'
+import { tailwindToCSS } from '@flowko/tw-to-css'
+import type { TailwindConfig } from '@flowko/tw-to-css'
 import { cleanCss, getMediaQueryCss, makeCssMap } from '../utils/css'
 
 export default defineComponent({
@@ -19,7 +20,6 @@ export default defineComponent({
     }
 
     const $default = slots.default()
-    const { tailwindToCSS } = await import('tw-to-css')
     const { twi } = tailwindToCSS({ config: props.config })
     const fullHTML = await renderToString(h('div', $default)).then((html) => html.replace(/^<div[^>]*>|<\/div>$/g, ''))
 
