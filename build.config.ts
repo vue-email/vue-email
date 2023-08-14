@@ -6,8 +6,8 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
     inlineDependencies: true,
-    resolve: {
-      preferBuiltins: false,
+    esbuild: {
+      target: 'es2022',
     },
   },
   entries: [
