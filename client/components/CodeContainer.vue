@@ -37,6 +37,7 @@ function handleDownload() {
 
 const languageMap = {
   html: 'HTML',
+  txt: 'Plain Text',
 }
 
 async function handleClipboard() {

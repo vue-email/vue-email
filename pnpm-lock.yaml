@@ -116,6 +116,12 @@ importers:
       '@nuxthq/ui':
         specifier: ^2.7.0
         version: 2.7.0(rollup@3.28.0)(vue@3.3.4)(webpack@5.88.2)
+      '@nuxtjs/fontaine':
+        specifier: ^0.4.1
+        version: 0.4.1(rollup@3.28.0)
+      '@nuxtjs/google-fonts':
+        specifier: ^3.0.2
+        version: 3.0.2(rollup@3.28.0)
       nuxt:
         specifier: ^3.6.5
         version: 3.6.5(@types/node@20.4.10)(eslint@8.47.0)(rollup@3.28.0)(typescript@5.1.6)

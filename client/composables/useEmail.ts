@@ -1,4 +1,6 @@
 import { kebabCase } from 'scule'
+import pretty from 'pretty'
+import { convert } from 'html-to-text'
 import type { Email } from '@/types/email'
 import { host } from '@/util/logic'
 
@@ -89,9 +91,18 @@ export function useEmail() {
       baseURL: host.value,
     })
 
-    if (data.value) return data.value
+    if (data.value)
+      return {
+        html: pretty(data.value),
+        txt: convert(data.value, {
+          selectors: [
+            { selector: 'img', format: 'skip' },
+            { selector: '#__vue-email-preview', format: 'skip' },
+          ],
+        }),
+      }
 
-    return ''
+    return null
   }
 
   const sendTestEmail = async (to: string, subject: string, markup: string) => {

@@ -7,10 +7,11 @@ export interface Email {
 }
 
 export type ActiveView = 'desktop' | 'mobile' | 'source'
-export type ActiveLang = 'html'
+export type ActiveLang = 'html' | 'txt'
 
 export interface Template {
   html: string
+  txt: string
 }
 
 export interface MarkupProps {

@@ -16,6 +16,8 @@
         "@nuxt/devtools": "latest",
         "@nuxthq/ui": "^2.7.0",
         "scule": "^1.0.0",
-        "vue3-code-block": "^2.2.12"
+        "vue3-code-block": "^2.2.12",
+        "@nuxtjs/fontaine": "^0.4.1",
+        "@nuxtjs/google-fonts": "^3.0.2"
     }
 }

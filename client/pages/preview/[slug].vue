@@ -4,7 +4,10 @@ const slug = route.params.slug as string
 
 const { email, refresh, getEmail, render } = useEmail()
 
-const emailTemplate = ref('')
+const emailTemplate = ref({
+  html: '',
+  txt: '',
+})
 
 await getEmail(slug)
 
@@ -14,9 +17,9 @@ watch(refresh, async () => {
 
 async function loadMarkups() {
   if (!email.value.component) return
-  const html = await render(email.value.component)
+  const content = await render(email.value.component)
 
-  emailTemplate.value = html
+  if (content) emailTemplate.value = content
 }
 
 await loadMarkups()
@@ -27,7 +30,5 @@ useHead({
 </script>
 
 <template>
-  <ClientOnly>
-    <EmailPreview v-if="email" :slug="email.label" :template="emailTemplate" />
-  </ClientOnly>
+  <EmailPreview v-if="email" :slug="email.label" :template="emailTemplate" />
 </template>

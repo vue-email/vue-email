@@ -7,7 +7,10 @@ defineProps({
     required: true,
   },
   template: {
-    type: String,
+    type: Object as PropType<{
+      html: string
+      txt: string
+    }>,
     required: true,
   },
 })
@@ -76,11 +79,9 @@ watchEffect(() => {
             @click="activeView === 'source' ? null : handleView('source')"
           />
         </UTooltip>
-        <DevOnly>
-          <UTooltip text="Refresh Frame">
-            <UButton icon="i-heroicons-arrow-path" size="sm" color="primary" variant="solid" @click="updateIframe" />
-          </UTooltip>
-        </DevOnly>
+        <UTooltip text="Refresh Frame">
+          <UButton icon="i-heroicons-arrow-path" size="sm" color="primary" variant="solid" @click="updateIframe" />
+        </UTooltip>
       </div>
       <UPopover
         :ui="{
@@ -106,7 +107,7 @@ watchEffect(() => {
               :loading="sending"
               variant="solid"
               label="Send"
-              @click="sendTestEmail(emailTo, emailSubject, template)"
+              @click="sendTestEmail(emailTo, emailSubject, template.html)"
             />
           </div>
         </template>
@@ -115,7 +116,7 @@ watchEffect(() => {
     <div v-if="activeView !== 'source'" class="flex justify-center items-center">
       <iframe
         :key="iframeUpdate"
-        :srcdoc="template"
+        :srcdoc="template.html"
         class="h-[calc(100vh_-_70px)]"
         :class="{
           'w-full': activeView === 'desktop',
@@ -131,7 +132,11 @@ watchEffect(() => {
         :markups="[
           {
             language: 'html',
-            content: template,
+            content: template.html,
+          },
+          {
+            language: 'txt',
+            content: template.txt,
           },
         ]"
         @setlang="setlang"

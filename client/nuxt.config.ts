@@ -3,7 +3,7 @@ import { resolve } from 'node:path'
 export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: false },
-  modules: ['@nuxt/devtools-ui-kit', '@nuxthq/ui'],
+  modules: ['@nuxt/devtools-ui-kit', '@nuxthq/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts'],
   nitro: {
     output: {
       publicDir: resolve(__dirname, '../dist/client'),
@@ -24,6 +24,11 @@ export default defineNuxtConfig({
   ui: {
     global: true,
     icons: ['heroicons', 'ph'],
+  },
+  googleFonts: {
+    families: {
+      Inter: [400, 500, 600, 700],
+    },
   },
   tailwindcss: {
     exposeConfig: true,

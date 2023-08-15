@@ -41,6 +41,7 @@ export default defineNuxtModule<ModuleOptions>({
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
     const playgroundDir = resolve('../dist/client')
+    const isDev = process.env.NODE_ENV === 'development' || nuxt.options.dev
 
     nuxt.options.runtimeConfig.public.vueEmailOptions = options
 
@@ -64,36 +65,40 @@ export default defineNuxtModule<ModuleOptions>({
       })
     })
 
-    addServerHandler({
-      handler: resolve('./runtime/server/api/emails.get'),
-      route: '/api/emails',
-      method: 'get',
-      lazy: true,
-    })
-    addServerHandler({
-      handler: resolve('./runtime/server/api/render/[file].get'),
-      route: '/api/render/:file',
-      method: 'get',
-      lazy: true,
-    })
+    // Setup playground. Only available in development
 
-    nuxt.hook('vite:serverCreated', async (server) => {
-      if (await pathExists(playgroundDir)) server.middlewares.use(PATH_PLAYGROUND, sirv(playgroundDir, { single: true, dev: true }))
-    })
-
-    // eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
-    // @ts-ignore runtime type
-    nuxt.hook('devtools:customTabs', (iframeTabs) => {
-      iframeTabs.push({
-        name: 'vueemail',
-        title: 'Vue Email',
-        icon: 'twemoji:incoming-envelope',
-        view: {
-          type: 'iframe',
-          src: PATH_PLAYGROUND,
-        },
+    if (isDev) {
+      addServerHandler({
+        handler: resolve('./runtime/server/api/emails.get'),
+        route: '/api/emails',
+        method: 'get',
+        lazy: true,
       })
-    })
+      addServerHandler({
+        handler: resolve('./runtime/server/api/render/[file].get'),
+        route: '/api/render/:file',
+        method: 'get',
+        lazy: true,
+      })
+
+      nuxt.hook('vite:serverCreated', async (server) => {
+        if (await pathExists(playgroundDir)) server.middlewares.use(PATH_PLAYGROUND, sirv(playgroundDir, { single: true, dev: true }))
+      })
+
+      // eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
+      // @ts-ignore runtime type
+      nuxt.hook('devtools:customTabs', (iframeTabs) => {
+        iframeTabs.push({
+          name: 'vueemail',
+          title: 'Vue Email',
+          icon: 'twemoji:incoming-envelope',
+          view: {
+            type: 'iframe',
+            src: PATH_PLAYGROUND,
+          },
+        })
+      })
+    }
 
     addTemplate({
       filename: 'types/vue-email.d.ts',
