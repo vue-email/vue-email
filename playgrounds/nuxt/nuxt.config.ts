@@ -38,8 +38,6 @@ export default defineNuxtConfig({
   },
   vueEmail: {
     baseUrl: 'https://vue-email-demo.vercel.app/',
-<<<<<<< HEAD
-=======
     verbose: true,
     i18n: {
       defaultLocale: 'en',
@@ -52,6 +50,5 @@ export default defineNuxtConfig({
         },
       },
     },
->>>>>>> 329ec2a (add: i18n for useCompiler fn)
   },
 })
