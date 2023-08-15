@@ -3,11 +3,7 @@ import { resolve } from 'node:path'
 export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: false },
-  alias: {
-    'vue-email': resolve(__dirname, '../src/index.ts'),
-    'vue-email/nuxt': resolve(__dirname, '../src/nuxt.mjs'),
-  },
-  modules: ['@nuxt/devtools-ui-kit', '@nuxthq/ui', 'vue-email/nuxt'],
+  modules: ['@nuxt/devtools-ui-kit', '@nuxthq/ui'],
   nitro: {
     output: {
       publicDir: resolve(__dirname, '../dist/client'),

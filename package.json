@@ -58,7 +58,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "unbuild && pnpm pack",
+    "build": "unbuild && pnpm build:client && pnpm pack",
     "dev": "vite build --watch",
     "release": "changelogen --release",
     "lint": "eslint --ext .js,.vue,.ts,.tsx .",
@@ -87,7 +87,10 @@
   "dependencies": {
     "@flowko/tw-to-css": "^0.0.6",
     "isomorphic-dompurify": "^1.8.0",
-    "module-from-string": "^3.3.0"
+    "module-from-string": "^3.3.0",
+    "fs-extra": "^11.1.1",
+    "@types/fs-extra": "^11.0.1",
+    "sirv": "^2.0.3"
   },
   "resolutions": {
     "vue-email": "link:."

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { ActiveLang, ActiveView, Template } from '@/types/email'
+import type { ActiveLang, ActiveView } from '@/types/email'
 
 defineProps({
   slug: {
@@ -7,7 +7,7 @@ defineProps({
     required: true,
   },
   template: {
-    type: Object as PropType<Template>,
+    type: String,
     required: true,
   },
 })
@@ -21,7 +21,7 @@ const query = route.query as {
 }
 
 const activeView = ref<ActiveView>('desktop')
-const activeLang = ref<ActiveLang>('vue')
+const activeLang = ref<ActiveLang>('html')
 const iframeUpdate = ref(0)
 const emailTo = ref('')
 const emailSubject = ref('Testing Vue Email')
@@ -49,7 +49,7 @@ watchEffect(() => {
   if (query.view === 'source' || query.view === 'desktop' || query.view === 'mobile') activeView.value = query.view
 
   if (query.lang) {
-    if (['vue', 'html', 'txt'].includes(query.lang)) activeLang.value = query.lang
+    if (['html'].includes(query.lang)) activeLang.value = query.lang
   }
 })
 </script>
@@ -76,9 +76,11 @@ watchEffect(() => {
             @click="activeView === 'source' ? null : handleView('source')"
           />
         </UTooltip>
-        <UTooltip text="Refresh Frame">
-          <UButton icon="i-heroicons-arrow-path" size="sm" color="primary" variant="solid" @click="updateIframe" />
-        </UTooltip>
+        <DevOnly>
+          <UTooltip text="Refresh Frame">
+            <UButton icon="i-heroicons-arrow-path" size="sm" color="primary" variant="solid" @click="updateIframe" />
+          </UTooltip>
+        </DevOnly>
       </div>
       <UPopover
         :ui="{
@@ -104,7 +106,7 @@ watchEffect(() => {
               :loading="sending"
               variant="solid"
               label="Send"
-              @click="sendTestEmail(emailTo, emailSubject, template.html)"
+              @click="sendTestEmail(emailTo, emailSubject, template)"
             />
           </div>
         </template>
@@ -113,7 +115,7 @@ watchEffect(() => {
     <div v-if="activeView !== 'source'" class="flex justify-center items-center">
       <iframe
         :key="iframeUpdate"
-        :srcdoc="template.html"
+        :srcdoc="template"
         class="h-[calc(100vh_-_70px)]"
         :class="{
           'w-full': activeView === 'desktop',
@@ -128,16 +130,8 @@ watchEffect(() => {
         :active-lang="activeLang"
         :markups="[
           {
-            language: 'vue',
-            content: template.vue,
-          },
-          {
             language: 'html',
-            content: template.html,
-          },
-          {
-            language: 'txt',
-            content: template.plainText,
+            content: template,
           },
         ]"
         @setlang="setlang"
