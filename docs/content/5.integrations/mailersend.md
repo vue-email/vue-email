@@ -67,7 +67,7 @@ const recipients = [
 
 export default defineEventHandler(async (event) => {
   const template = await useCompiler('welcome.vue', {
-    url: 'https://vue-email.vercel.app/',
+    url: 'https://vuemail.net/',
   })
 
   const emailParams = new EmailParams()
@@ -104,7 +104,7 @@ app.post('/api/send-email', async (req, res) => {
 
   const template = await vueEmail.render("welcome.vue", {
       props: {
-        url: 'https://vue-email.vercel.app/',
+        url: 'https://vuemail.net/',
       },
     });
 

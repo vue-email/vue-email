@@ -59,7 +59,7 @@ const ses = new SES({ region: process.env.AWS_SES_REGION })
 
 export default defineEventHandler(async (event) => {
   const template = await useCompiler('welcome.vue', {
-    url: 'https://vue-email.vercel.app/',
+    url: 'https://vuemail.net/',
   })
 
 
@@ -102,7 +102,7 @@ app.use(express.json());
 app.post('/api/send-email', async (req, res) => {
   const template = await vueEmail.render("welcome.vue", {
       props: {
-        url: 'https://vue-email.vercel.app/',
+        url: 'https://vuemail.net/',
       },
     });
 
