@@ -67,7 +67,7 @@ function mapItems(links: Link[] = []) {
         }"
       >
         <template #default="{ item, open }">
-          <ULinkCustom
+          <ULink
             class="flex items-center gap-2 group mb-3 w-full"
             :class="[level > 0 && 'border-l -ml-px pl-4']"
             active-class="text-primary-500 dark:text-primary-400 border-current"
@@ -81,7 +81,7 @@ function mapItems(links: Link[] = []) {
               class="w-5 h-5 ms-auto transform transition-transform duration-200 text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 flex-shrink-0"
               :class="[open ? 'text-gray-900 dark:text-gray-200' : '-rotate-90']"
             />
-          </ULinkCustom>
+          </ULink>
         </template>
 
         <template v-for="{ to } in group.children" :key="to" #[to]="{ item }">
@@ -95,7 +95,7 @@ function mapItems(links: Link[] = []) {
       </UAccordion>
 
       <template v-else>
-        <ULinkCustom
+        <ULink
           v-for="(link, subIndex) in group.children"
           :key="subIndex"
           v-bind="omit(link, ['label', 'icon', 'iconClass', 'badge', 'children'])"
@@ -111,7 +111,7 @@ function mapItems(links: Link[] = []) {
           <UBadge v-if="link.badge" size="xs" :ui="{ rounded: 'rounded-full' }">
             {{ link.badge }}
           </UBadge>
-        </ULinkCustom>
+        </ULink>
       </template>
     </template>
   </div>
