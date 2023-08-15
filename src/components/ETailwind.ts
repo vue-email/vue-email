@@ -1,6 +1,6 @@
 import { defineComponent, h } from 'vue'
 import { renderToString } from 'vue/server-renderer'
-import { parse } from 'node-html-parser'
+import { load } from 'cheerio'
 import { tailwindToCSS } from '@flowko/tw-to-css'
 import type { TailwindConfig } from '@flowko/tw-to-css'
 import { cleanCss, getMediaQueryCss, makeCssMap } from '../utils/css'
@@ -39,19 +39,22 @@ export default defineComponent({
       throw new Error('Tailwind: To use responsive styles you must have a <html> and <head> element in your template.')
     }
 
-    const parsedHTML = parse(fullHTML)
+    const $ = load(fullHTML, { decodeEntities: false, xmlMode: true })
 
-    parsedHTML.querySelectorAll('*').forEach((domNode) => {
-      if (domNode.nodeType === 1) {
-        if (hasResponsiveStyles && hasHead && domNode.tagName === 'HEAD') {
-          domNode.appendChild(parse(`<style>${headStyle}</style>`))
+    $('*').each((index, domNode) => {
+      if (domNode.type === 'tag') {
+        if (hasResponsiveStyles && hasHead && domNode.name === 'head') {
+          $(domNode).append(`<style>${headStyle}</style>`)
         }
 
-        if (domNode.attributes.class) {
-          const cleanRegex = /[:#\!\-[\]\/\.%]+/g
-          const cleanTailwindClasses = domNode.attributes.class.replace(cleanRegex, '_')
+        const $domNode = $(domNode)
+        const classAttr = $domNode.attr('class')
 
-          const currentStyles = domNode.attributes.style || ''
+        if (classAttr) {
+          const cleanRegex = /[:#\!\-[\]\/\.%]+/g
+          const cleanTailwindClasses = classAttr.replace(cleanRegex, '_')
+
+          const currentStyles = $domNode.attr('style') || ''
 
           const tailwindStyles = cleanTailwindClasses
             .split(' ')
@@ -61,23 +64,24 @@ export default defineComponent({
             .filter((style) => style)
             .join(';')
 
-          domNode.setAttribute('style', `${currentStyles} ${tailwindStyles}`)
+          $domNode.attr('style', `${currentStyles} ${tailwindStyles}`)
 
-          domNode.setAttribute(
-            'class',
-            domNode.attributes.class
-              .split(' ')
-              .filter((className) => className.search(/^.{2}:/) !== -1)
-              .join(' ')
-              .replace(cleanRegex, '_'),
-          )
+          const newClassAttr = classAttr
+            .split(' ')
+            .filter((className) => className.search(/^.{2}:/) !== -1)
+            .join(' ')
+            .replace(cleanRegex, '_')
 
-          if (!domNode.attributes.class) domNode.removeAttribute('class')
+          if (newClassAttr) {
+            $domNode.attr('class', newClassAttr)
+          } else {
+            $domNode.removeAttr('class')
+          }
         }
       }
     })
 
-    const html = parsedHTML.toString()
+    const html = $.html()
 
     return () => {
       return h('template', { innerHTML: html })
