@@ -7,7 +7,7 @@ export default defineBuildConfig({
     emitCJS: true,
     inlineDependencies: true,
     esbuild: {
-      target: 'es2022',
+      target: 'es2020',
     },
   },
   entries: [
@@ -64,5 +64,5 @@ export default defineBuildConfig({
       ext: 'cjs',
     },
   ],
-  externals: ['@nuxt/kit', '@nuxt/schema', 'vue-email'],
+  externals: ['vue', 'vue/compiler-sfc', 'vue/server-renderer', '@nuxt/kit', '@nuxt/schema', 'vue-email'],
 })
