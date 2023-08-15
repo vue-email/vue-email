@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.6.4-0
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.6.3...v0.6.4-0)
+
+### 🩹 Fixes
+
+- Resolve module-from-string issue ([e726e2a](https://github.com/Dave136/vue-email/commit/e726e2a))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.6.3
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.6.2...v0.6.3)

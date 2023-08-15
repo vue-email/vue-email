@@ -6,9 +6,6 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
     inlineDependencies: true,
-    esbuild: {
-      target: 'es2022',
-    },
   },
   entries: [
     // Plugin
@@ -64,5 +61,5 @@ export default defineBuildConfig({
       ext: 'cjs',
     },
   ],
-  externals: ['@nuxt/kit', '@nuxt/schema', 'vue-email'],
+  externals: ['vue', 'vue/compiler-sfc', 'vue/server-renderer', '@nuxt/kit', '@nuxt/schema', 'vue-email'],
 })
