@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.6.4
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.6.4-0...v0.6.4)
+
+### 🏡 Chore
+
+- **release:** V0.6.4-0 ([193f658](https://github.com/Dave136/vue-email/commit/193f658))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.6.4-0
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.6.3...v0.6.4-0)
