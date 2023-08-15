@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.6.5
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.6.4...v0.6.5)
+
+### 🩹 Fixes
+
+- Replaced node-html-parser with cheerio ([#53](https://github.com/Dave136/vue-email/pull/53))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.6.4
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.6.4-0...v0.6.4)
