@@ -272,7 +272,7 @@
 
 - Markdown Integration 🎉
 
-  More about it here: https://vue-email.vercel.app/components/markdown.html
+  More about it here: https://vuemail.net/components/markdown.html
 
 ## 0.3.0
 
