@@ -1,7 +1,7 @@
 {
   "name": "vue-email",
   "type": "module",
-  "version": "0.6.4-5",
+  "version": "0.6.4-7",
   "description": "💌 Write email templates with Vue",
   "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
   "maintainers": [

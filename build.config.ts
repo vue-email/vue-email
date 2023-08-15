@@ -6,9 +6,6 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
     inlineDependencies: true,
-    esbuild: {
-      target: 'es2020',
-    },
   },
   entries: [
     // Plugin
