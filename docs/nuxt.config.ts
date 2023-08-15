@@ -5,10 +5,10 @@ import vueEmailModule from '../src/nuxt/module'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/content', '@nuxt/devtools', vueEmailModule, '@nuxthq/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt', 'nuxt-lodash'],
+  modules: ['@nuxt/content', vueEmailModule, '@nuxthq/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt', 'nuxt-lodash'],
   alias: {
     'vue-email': resolve(__dirname, '../src/index.ts'),
-    'vue-email/compiler': resolve(__dirname, '../../src/compiler/index.ts'),
+    'vue-email/compiler': resolve(__dirname, '../src/compiler/index.ts'),
   },
   runtimeConfig: {
     public: {

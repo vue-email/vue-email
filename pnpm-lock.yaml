@@ -143,9 +143,6 @@ importers:
       '@nuxt/content':
         specifier: ^2.7.2
         version: 2.7.2(rollup@3.28.0)
-      '@nuxt/devtools':
-        specifier: ^0.8.0
-        version: 0.8.0(nuxt@3.6.5)(rollup@3.28.0)(vite@4.4.9)
       '@nuxthq/studio':
         specifier: ^0.13.4
         version: 0.13.4(rollup@3.28.0)
