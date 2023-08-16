@@ -1,7 +1,7 @@
 import { addComponent, addImportsSources, addPlugin, addServerHandler, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
 import defu from 'defu'
-import sirv from 'sirv'
 import { pathExists } from 'fs-extra'
+import sirv from 'sirv'
 import type { VueEmailPluginOptions } from '../types'
 
 const components = [
@@ -23,7 +23,7 @@ const components = [
   'ETailwind',
   'EMarkdown',
 ]
-const PATH = '/__vue_email__'
+const PATH = 'http://localhost:3001/__vue_email__'
 const PATH_PLAYGROUND = `${PATH}/client`
 
 export type ModuleOptions = VueEmailPluginOptions
@@ -37,11 +37,17 @@ export default defineNuxtModule<ModuleOptions>({
       bridge: false,
     },
   },
-  defaults: {},
+  defaults(nuxt) {
+    const isDev = process.env.NODE_ENV === 'development' || nuxt.options.dev
+
+    return {
+      baseUrl: null,
+      playground: isDev,
+    }
+  },
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
     const playgroundDir = resolve('../dist/client')
-    const isDev = process.env.NODE_ENV === 'development' || nuxt.options.dev
 
     nuxt.options.runtimeConfig.public.vueEmailOptions = options
 
@@ -67,7 +73,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Setup playground. Only available in development
 
-    if (isDev) {
+    if (options.playground) {
       addServerHandler({
         handler: resolve('./runtime/server/api/emails.get'),
         route: '/api/emails',

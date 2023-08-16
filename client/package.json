@@ -6,9 +6,7 @@
         "generate": "nuxt generate",
         "preview": "nuxt preview"
     },
-    "dependencies": {
-        "@nuxt/devtools-ui-kit": "^0.8.0"
-    },
+    "dependencies": {},
     "devDependencies": {
         "nuxt": "^3.6.5",
         "@iconify-json/heroicons": "^1.1.12",
@@ -18,6 +16,7 @@
         "scule": "^1.0.0",
         "vue3-code-block": "^2.2.12",
         "@nuxtjs/fontaine": "^0.4.1",
-        "@nuxtjs/google-fonts": "^3.0.2"
+        "@nuxtjs/google-fonts": "^3.0.2",
+        "vue-email": "workspace:~"
     }
 }

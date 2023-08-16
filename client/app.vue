@@ -12,13 +12,11 @@ useHead({
     lang: 'en',
   },
   bodyAttrs: {
-    class: 'antialiased font-sans text-gray-200 bg-gray-900',
+    class: 'antialiased font-sans',
   },
 })
 </script>
 
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <NuxtPage />
 </template>

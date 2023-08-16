@@ -128,6 +128,9 @@ importers:
       scule:
         specifier: ^1.0.0
         version: 1.0.0
+      vue-email:
+        specifier: link:..
+        version: link:..
       vue3-code-block:
         specifier: ^2.2.12
         version: 2.2.12

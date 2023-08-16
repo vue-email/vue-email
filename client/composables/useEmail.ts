@@ -1,4 +1,3 @@
-import { kebabCase } from 'scule'
 import pretty from 'pretty'
 import { convert } from 'html-to-text'
 import type { Email } from '@/types/email'
@@ -11,7 +10,7 @@ export function useEmail() {
   const refresh = useState<boolean>('refresh', () => false)
 
   const getEmails = async () => {
-    const { data, error } = await useFetch<string[]>('/api/emails', {
+    const { data, error } = await useFetch<Email[]>('/api/emails', {
       baseURL: host.value,
     })
 
@@ -20,33 +19,31 @@ export function useEmail() {
       return
     }
 
-    if (data && data.value) {
-      const emailTemplates = data.value.reduce((acc, email) => {
-        const emailName = email.replace('.vue', '')
+    // if (data && data.value) {
+    //   const emailTemplates = data.value.reduce((acc, email) => {
+    //     const emailName = email.replace('.vue', '')
 
-        const parts = emailName.split(':')
-        const name = kebabCase(parts[parts.length - 1])
-        let targetArray = acc
-        for (let i = 0; i < parts.length - 1; i++) {
-          const folder = parts[i]
-          const folderObj = targetArray.find((item) => item.label === folder)
+    //     const parts = emailName.split(':')
+    //     const name = kebabCase(parts[parts.length - 1])
+    //     let targetArray = acc
+    //     for (let i = 0; i < parts.length - 1; i++) {
+    //       const folder = parts[i]
+    //       const folderObj = targetArray.find((item) => item.label === folder)
 
-          if (folderObj) {
-            targetArray = folderObj.children || []
-          } else {
-            const newFolderObj = { label: folder, children: [] }
-            targetArray.push(newFolderObj)
-            targetArray = newFolderObj.children
-          }
-        }
+    //       if (folderObj) {
+    //         targetArray = folderObj.children || []
+    //       } else {
+    //         const newFolderObj = { label: folder, children: [] }
+    //         targetArray.push(newFolderObj)
+    //         targetArray = newFolderObj.children
+    //       }
+    //     }
 
-        targetArray.push({ label: name, to: `/preview/${emailName}`, component: email, icon: 'i-ph-file-bold' })
+    //     targetArray.push({ label: name, to: `/preview/${emailName}`, component: email, icon: 'i-ph-file-bold' })
 
-        return acc
-      }, [] as Email[])
-
-      emails.value = emailTemplates
-    }
+    //     return acc
+    //   }, [] as Email[])
+    if (data && data.value) emails.value = data.value
   }
 
   const getEmail = async (name: string) => {
