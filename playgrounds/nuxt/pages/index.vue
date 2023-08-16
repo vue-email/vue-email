@@ -12,7 +12,7 @@ useHead({
         To start developing your next email template, you can create a
         <code>.vue</code> file under the "emails" folder.
       </p>
-      <UButton to="https://vue-email.vercel.app/" color="black" target="_blank" label="Check the docs" icon="i-ph-graduation-cap" />
+      <UButton to="https://vuemail.net/" color="black" target="_blank" label="Check the docs" icon="i-ph-graduation-cap" />
     </div>
   </div>
 </template>

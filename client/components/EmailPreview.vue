@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { ActiveLang, ActiveView, Template } from '@/types/email'
+import type { ActiveLang, ActiveView } from '@/types/email'
 
 defineProps({
   slug: {
@@ -7,7 +7,10 @@ defineProps({
     required: true,
   },
   template: {
-    type: Object as PropType<Template>,
+    type: Object as PropType<{
+      html: string
+      txt: string
+    }>,
     required: true,
   },
 })
@@ -21,7 +24,7 @@ const query = route.query as {
 }
 
 const activeView = ref<ActiveView>('desktop')
-const activeLang = ref<ActiveLang>('vue')
+const activeLang = ref<ActiveLang>('html')
 const iframeUpdate = ref(0)
 const emailTo = ref('')
 const emailSubject = ref('Testing Vue Email')
@@ -49,7 +52,7 @@ watchEffect(() => {
   if (query.view === 'source' || query.view === 'desktop' || query.view === 'mobile') activeView.value = query.view
 
   if (query.lang) {
-    if (['vue', 'html', 'txt'].includes(query.lang)) activeLang.value = query.lang
+    if (['html'].includes(query.lang)) activeLang.value = query.lang
   }
 })
 </script>
@@ -128,16 +131,12 @@ watchEffect(() => {
         :active-lang="activeLang"
         :markups="[
           {
-            language: 'vue',
-            content: template.vue,
-          },
-          {
             language: 'html',
             content: template.html,
           },
           {
             language: 'txt',
-            content: template.plainText,
+            content: template.txt,
           },
         ]"
         @setlang="setlang"

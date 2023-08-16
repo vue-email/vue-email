@@ -1,4 +1,4 @@
-[![vue-email](https://github.com/Dave136/vue-email/blob/main/docs/public/social-preview.jpg?raw=true)](https://vue-email.vercel.app)
+[![vue-email](https://github.com/Dave136/vue-email/blob/main/docs/public/social-preview.jpg?raw=true)](https://vuemail.net)
 
 # 💌 vue-email
 
@@ -9,23 +9,23 @@
 > Simple way to build email templates in vue.
 
 - [✨ &nbsp;Release Notes](https://github.com/Dave136/vue-email/releases)
-- [📖 &nbsp;Read the documentation](https://vue-email.vercel.app)
+- [📖 &nbsp;Read the documentation](https://vuemail.net)
 - [💚 &nbsp;Nuxt Module](https://nuxt.com/modules/vue-email)
 
 ## Features
 
 - 🧩 Build email templates with Vue components
-- 🛤️ [SSR support](https://vue-email.vercel.app/getting-started/ssr), Runs on the server and client
-- 📨 [Integrates with many email providers](https://vue-email.vercel.app/integrations/nodemailer)
+- 🛤️ [SSR support](https://vuemail.net/getting-started/ssr), Runs on the server and client
+- 📨 [Integrates with many email providers](https://vuemail.net/integrations/nodemailer)
 - 🧪 Tested against popular email clients
-- 🎨 [Supports Tailwind CSS](https://vue-email.vercel.app/components/tailwind)
+- 🎨 [Supports Tailwind CSS](https://vuemail.net/components/tailwind)
 - 🚚 First-class support for Nuxt 3
 - ✨ Written in TypeScript
 
 
 ## Setup
 
-> [📖 Read the documentation](https://vue-email.vercel.app)
+> [📖 Read the documentation](https://vuemail.net)
 
 ```bash
 # pnpm
@@ -37,7 +37,7 @@ npm i -D vue-email
 
 ## Basic Usage
 
-> [📖 Read the documentation](https://vue-email.vercel.app)
+> [📖 Read the documentation](https://vuemail.net)
 
 ```html
 // components/template-email.vue
@@ -60,7 +60,7 @@ const user = ref('Dave');
 
 ## Advanced Usage - SSR
 
-> [📖 Read the SSR documentation](https://vue-email.vercel.app/getting-started/ssr)
+> [📖 Read the SSR documentation](https://vuemail.net/getting-started/ssr)
 
 ```js
 import express from "express";

@@ -2,12 +2,11 @@
 const route = useRoute()
 const slug = route.params.slug as string
 
-const { email, refresh, getEmail, getVueCode } = useEmail()
+const { email, refresh, getEmail, render } = useEmail()
 
 const emailTemplate = ref({
-  vue: '',
   html: '',
-  plainText: '',
+  txt: '',
 })
 
 await getEmail(slug)
@@ -17,20 +16,17 @@ watch(refresh, async () => {
 })
 
 async function loadMarkups() {
-  const component = await resolveComponent(email.value.component)
-  const vue = await getVueCode(email.value.label)
+  if (!email.value.component) return
+  const content = await render(email.value.component)
 
-  const html = await useRender(h(component), null, { pretty: true })
-  const plainText = await useRender(h(component), null, { plainText: true })
-
-  emailTemplate.value = {
-    vue,
-    html,
-    plainText,
-  }
+  if (content) emailTemplate.value = content
 }
 
 await loadMarkups()
+
+useHead({
+  title: email.value ? `${email.value.label}` : 'Email not found',
+})
 </script>
 
 <template>

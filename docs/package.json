@@ -6,7 +6,6 @@
     "@iconify-json/simple-icons": "latest",
     "@iconify-json/twemoji": "latest",
     "@nuxt/content": "^2.7.2",
-    "@nuxt/devtools": "^0.8.0",
     "@nuxthq/studio": "^0.13.4",
     "@nuxthq/ui": "2.7.0",
     "@nuxtjs/fontaine": "^0.4.1",

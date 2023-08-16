@@ -16,7 +16,7 @@ export interface Options {
    * VueEmailPlugin options
    * @default {}
    * @see
-   * https://vue-email.vercel.app/getting-started/installation#options
+   * https://vuemail.net/getting-started/installation#options
    */
   options?: VueEmailPLuginOptions
 }
