@@ -1,4 +1,4 @@
-import type { VueEmailPLuginOptions } from './index'
+import type { VueEmailPluginOptions } from './index'
 
 export interface DefineConfigFunctions {
   render: (name: string, options?: RenderOptions) => Promise<string>
@@ -18,7 +18,7 @@ export interface Options {
    * @see
    * https://vuemail.net/getting-started/installation#options
    */
-  options?: VueEmailPLuginOptions
+  options?: VueEmailPluginOptions
 }
 
 export interface RenderOptions {

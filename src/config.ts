@@ -1,3 +1,3 @@
-import type { VueEmailPLuginOptions } from './types'
+import type { VueEmailPluginOptions } from './types'
 
-export const config: VueEmailPLuginOptions = {}
+export const config: VueEmailPluginOptions = {}
