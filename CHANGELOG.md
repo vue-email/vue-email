@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.6.6
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.6.5...v0.6.6)
+
+### 🚀 Enhancements
+
+- Nuxt devtools integration ([#54](https://github.com/Dave136/vue-email/pull/54))
+
+### 📖 Documentation
+
+- Added auto import note to ssr ([1f560c6](https://github.com/Dave136/vue-email/commit/1f560c6))
+
+### 🤖 CI
+
+- Updated publish job ([ff77938](https://github.com/Dave136/vue-email/commit/ff77938))
+
+### ❤️  Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+
 ## v0.6.5
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.6.4...v0.6.5)
