@@ -60,6 +60,21 @@ export default defineBuildConfig({
       format: 'cjs',
       ext: 'cjs',
     },
+    // Deno Compiler
+    {
+      input: 'src/deno/compiler/index.ts',
+      outDir: 'dist',
+      name: 'deno',
+      format: 'esm',
+      ext: 'mjs',
+    },
+    {
+      input: 'src/deno/compiler/index.ts',
+      outDir: 'dist',
+      name: 'deno',
+      format: 'cjs',
+      ext: 'cjs',
+    },
   ],
   externals: ['vue', 'vue/compiler-sfc', 'vue/server-renderer', '@nuxt/kit', '@nuxt/schema', 'vue-email'],
 })

@@ -47,6 +47,11 @@
       "types": "./dist/compiler.d.ts",
       "import": "./dist/compiler.mjs",
       "require": "./dist/compiler.cjs"
+    },
+    "./deno": {
+      "types": "./dist/deno.d.ts",
+      "import": "./dist/deno.mjs",
+      "require": "./dist/deno.cjs"
     }
   },
   "types": "./dist/index.d.ts",
