@@ -6,6 +6,7 @@ import pretty from 'pretty'
 export interface Options {
   pretty?: boolean
   plainText?: boolean
+  i18n?: boolean
 }
 
 /**
