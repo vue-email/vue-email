@@ -5,7 +5,7 @@
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true
 	},
-	"editor.formatOnSave": true,
+	// "editor.formatOnSave": true,
 	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
 	"scss.lint.unknownAtRules": "ignore",
 	"css.lint.unknownAtRules": "ignore",
@@ -25,5 +25,8 @@
 "prettier.enable": false,
 "[typescript]": {
 	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+},
+"[javascript]": {
+	"editor.defaultFormatter": "vscode.typescript-language-features"
 },
 }

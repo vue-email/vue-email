@@ -86,6 +86,7 @@
     "preview:docs": "nuxt preview docs",
     "dev:client": "nuxt dev client",
     "build:client": "nuxt generate client",
+    "build:denoify": "denoify",
     "prepublish": "pnpm run build"
   },
   "peerDependencies": {
@@ -110,6 +111,7 @@
     "@types/pretty": "^2.0.1",
     "changelogen": "^0.5.4",
     "cheerio": "1.0.0-rc.12",
+    "denoify": "^1.6.1",
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
