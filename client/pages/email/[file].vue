@@ -3,7 +3,7 @@ import { slowRefreshSources } from '~/util/logic'
 
 const route = useRoute()
 
-const { emails, getEmail, email, template } = useEmail()
+const { getEmail, template } = useEmail()
 
 await getEmail(`${route.params.file}`)
 </script>

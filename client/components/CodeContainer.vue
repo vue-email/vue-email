@@ -49,27 +49,12 @@ const items = [
   },
 ]
 
-const options = [
-  [
-    {
-      label: 'Copy Code',
-      icon: 'i-ph-copy-duotone',
-      onClick: handleClipboard,
-    },
-    {
-      label: 'Download Code',
-      icon: 'i-ph-download-simple-duotone',
-      onClick: handleDownload,
-    },
-  ],
-]
-
 const tab = ref('html')
 </script>
 
 <template>
   <UTabs v-model="tab" :items="items">
-    <template #default="{ item, index, selected }">
+    <template #default="{ item, selected }">
       <div class="flex items-center gap-2 relative truncate">
         <UIcon :name="item.icon" class="w-7 h-7 flex-shrink-0" />
 

@@ -1,10 +1,4 @@
 <script setup lang="ts">
-const { emails } = useEmail()
-
-const emailsNumber = computed(() => (emails.value ? `${emails.value.length} email${emails.value.length > 1 ? 's' : ''}` : '0 email'))
-
-const { toggleCommandPallet } = useTool()
-
 useHead({
   title: 'Vue Email Devtools',
   meta: [
