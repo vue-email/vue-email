@@ -18,16 +18,13 @@ export default defineNuxtConfig({
     baseURL: process.env.NODE_ENV === 'development' ? undefined : '/__vue_email__/client',
   },
   vite: {
-    // fixes shiki bug
-    define: {
-      'process.env.VSCODE_TEXTMATE_DEBUG': 'false',
-    },
     build: {
       target: 'esnext',
     },
   },
   ui: {
-    icons: ['heroicons', 'ph'],
+    global: true,
+    icons: ['heroicons', 'simple-icons', 'ph', 'twemoji'],
   },
   googleFonts: {
     families: {
@@ -40,5 +37,6 @@ export default defineNuxtConfig({
   },
   vueEmail: {
     playground: false,
+    baseUrl: 'https://vue-email-demo.vercel.app/',
   },
 })

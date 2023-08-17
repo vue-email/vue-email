@@ -1,11 +1,12 @@
 import { kebabCase, pascalCase } from 'scule'
+import type { Email } from '~/types/email'
 import { createError, defineEventHandler, useStorage } from '#imports'
 
 export default defineEventHandler(async () => {
   try {
     const nitroEmails = await useStorage('assets:emails').getKeys()
 
-    const emails = await Promise.all(
+    const emails: Email[] = await Promise.all(
       nitroEmails.map(async (email) => {
         const data = JSON.stringify(await useStorage('assets:emails').getMeta(email))
         const emailData = JSON.parse(data)

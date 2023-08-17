@@ -7,6 +7,12 @@ export interface Email {
   modified: Date
 }
 
+export interface Directory {
+  label: string
+  email: Email
+  children: Email[]
+}
+
 export type ActiveView = 'desktop' | 'mobile' | 'source'
 export type ActiveLang = 'html' | 'txt'
 

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Email } from '~/types/email'
+
 const router = useRouter()
 
 const { emails } = useEmail()
@@ -10,11 +12,16 @@ const { isCommandPalletOpen } = useTool()
 //   { id: 'new-folder', label: 'Add new folder', icon: 'i-heroicons-folder-plus', click: () => alert('New folder'), shortcuts: ['⌘', 'F'] },
 // ]
 
-const selected = ref([])
+function onSelect(option: Email) {
+  if (option) {
+    router.push(option.filename)
+    isCommandPalletOpen.value = false
+  }
+}
 </script>
 
 <template>
   <UModal v-model="isCommandPalletOpen">
-    <UCommandPalette v-model="selected" :groups="[{ key: 'emails', commands: emails }]" :fuse="{ resultLimit: 6, fuseOptions: { threshold: 0.1 } }" />
+    <UCommandPalette :groups="[{ key: 'emails', commands: emails }]" :fuse="{ resultLimit: 6, fuseOptions: { threshold: 0.1 } }" by="filename" @update:model-value="onSelect" />
   </UModal>
 </template>

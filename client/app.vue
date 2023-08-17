@@ -1,6 +1,12 @@
 <script setup lang="ts">
+const { emails } = useEmail()
+
+const emailsNumber = computed(() => (emails.value ? `${emails.value.length} email${emails.value.length > 1 ? 's' : ''}` : '0 email'))
+
+const { toggleCommandPallet } = useTool()
+
 useHead({
-  titleTemplate: (title) => (title && title.includes('Vue Email') ? title : `${title} - Vue Email`),
+  title: 'Vue Email Devtools',
   meta: [
     {
       name: 'viewport',
@@ -12,11 +18,13 @@ useHead({
     lang: 'en',
   },
   bodyAttrs: {
-    class: 'antialiased font-sans',
+    class: 'antialiased font-sans overflow-hidden',
   },
 })
 </script>
 
 <template>
-  <NuxtPage />
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>

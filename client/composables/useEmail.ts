@@ -8,6 +8,10 @@ export function useEmail() {
   const email = useState<Email>('email')
   const sending = useState<boolean>('sending', () => false)
   const refresh = useState<boolean>('refresh', () => false)
+  const template = useState<{
+    html: string
+    txt: string
+  }>('template')
 
   const getEmails = async () => {
     const { data, error } = await useFetch<Email[]>('/api/emails', {
@@ -46,45 +50,10 @@ export function useEmail() {
     if (data && data.value) emails.value = data.value
   }
 
-  const getEmail = async (name: string) => {
-    if (emails.value && emails.value.length) {
-      name = `${name}.vue`
-      let foundEmail = null
+  const renderEmail = async () => {
+    if (!email.value) return null
 
-      const findInChildren = (children: Email[]): Email | null => {
-        for (const child of children) {
-          if (child.component === name) {
-            return child
-          }
-
-          if (child.children && child.children.length) {
-            const nestedMatch = findInChildren(child.children)
-            if (nestedMatch) {
-              return nestedMatch
-            }
-          }
-        }
-        return null
-      }
-
-      const directMatch = emails.value.find((email) => email.component === name)
-      if (directMatch) {
-        foundEmail = directMatch
-      } else {
-        // If no direct match, search recursively in the children array
-        foundEmail = findInChildren(emails.value)
-      }
-
-      if (foundEmail) {
-        email.value = foundEmail
-      }
-    }
-
-    return null
-  }
-
-  const render = async (name: string) => {
-    const { data } = await useFetch<string>(`/api/render/${name}`, {
+    const { data } = await useFetch<string>(`/api/render/${email.value.filename}`, {
       baseURL: host.value,
     })
 
@@ -100,6 +69,19 @@ export function useEmail() {
       }
 
     return null
+  }
+
+  const getEmail = async (filename: string) => {
+    if (filename && emails.value && emails.value.length) {
+      const found = emails.value.find((email) => email.filename === filename)
+
+      if (found) {
+        email.value = found
+        await renderEmail().then((value) => {
+          if (value) template.value = value
+        })
+      }
+    }
   }
 
   const sendTestEmail = async (to: string, subject: string, markup: string) => {
@@ -147,8 +129,9 @@ export function useEmail() {
     emails,
     sending,
     refresh,
+    template,
     getEmail,
     sendTestEmail,
-    render,
+    renderEmail,
   }
 }
