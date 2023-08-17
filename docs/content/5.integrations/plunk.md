@@ -59,7 +59,7 @@ const plunk = new Plunk(process.env.PLUNK_API_KEY);
 
 export default defineEventHandler(async (event) => {
   const template = await useCompiler('welcome.vue', {
-    url: 'https://vue-email.vercel.app/',
+    url: 'https://vuemail.net/',
   })
 
   await plunk.emails.send({
@@ -87,7 +87,7 @@ app.use(express.json());
 app.post('/api/send-email', async (req, res) => {
   const template = await vueEmail.render("welcome.vue", {
       props: {
-        url: 'https://vue-email.vercel.app/',
+        url: 'https://vuemail.net/',
       },
     });
 

@@ -1,17 +1,17 @@
 export interface Email {
   label: string
-  component: string
-  to: string
-  icon: string
+  to?: string
+  children?: Email[]
+  component?: string
+  icon?: string
 }
 
 export type ActiveView = 'desktop' | 'mobile' | 'source'
-export type ActiveLang = 'vue' | 'html' | 'txt'
+export type ActiveLang = 'html' | 'txt'
 
 export interface Template {
-  vue: string
   html: string
-  plainText: string
+  txt: string
 }
 
 export interface MarkupProps {

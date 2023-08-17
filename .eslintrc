@@ -36,6 +36,7 @@
 		"@typescript-eslint/comma-dangle": ["error"],
 		"comma-dangle": "error",
 		"no-unused-vars": 0,
+		"n/prefer-global/process": "off",
 		"prettier/prettier": [
 			"error",
 			{

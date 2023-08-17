@@ -1,6 +1,8 @@
-import { addComponent, addImportsSources, addPlugin, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addComponent, addImportsSources, addPlugin, addServerHandler, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
 import defu from 'defu'
-import type { VueEmailPLuginOptions } from '../types'
+import sirv from 'sirv'
+import { pathExists } from 'fs-extra'
+import type { VueEmailPluginOptions } from '../types'
 
 const components = [
   'EBody',
@@ -21,8 +23,10 @@ const components = [
   'ETailwind',
   'EMarkdown',
 ]
+const PATH = '/__vue_email__'
+const PATH_PLAYGROUND = `${PATH}/client`
 
-export interface ModuleOptions extends VueEmailPLuginOptions {}
+export type ModuleOptions = VueEmailPluginOptions
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -36,8 +40,16 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {},
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
+    const playgroundDir = resolve('../dist/client')
+    const isDev = process.env.NODE_ENV === 'development' || nuxt.options.dev
 
     nuxt.options.runtimeConfig.public.vueEmailOptions = options
+
+    if (!nuxt.options.build.transpile) nuxt.options.build.transpile = []
+    const transpileList = ['defu', 'vue-email']
+    transpileList.forEach((pkgName) => {
+      if (!nuxt.options.build.transpile.includes(pkgName)) nuxt.options.build.transpile.push(pkgName)
+    })
 
     nuxt.hook('nitro:config', (nitroConfig) => {
       nitroConfig.alias = nitroConfig.alias || {}
@@ -53,11 +65,40 @@ export default defineNuxtModule<ModuleOptions>({
       })
     })
 
-    if (!nuxt.options.build.transpile) nuxt.options.build.transpile = []
-    const transpileList = ['defu', 'vue-email']
-    transpileList.forEach((pkgName) => {
-      if (!nuxt.options.build.transpile.includes(pkgName)) nuxt.options.build.transpile.push(pkgName)
-    })
+    // Setup playground. Only available in development
+
+    if (isDev) {
+      addServerHandler({
+        handler: resolve('./runtime/server/api/emails.get'),
+        route: '/api/emails',
+        method: 'get',
+        lazy: true,
+      })
+      addServerHandler({
+        handler: resolve('./runtime/server/api/render/[file].get'),
+        route: '/api/render/:file',
+        method: 'get',
+        lazy: true,
+      })
+
+      nuxt.hook('vite:serverCreated', async (server) => {
+        if (await pathExists(playgroundDir)) server.middlewares.use(PATH_PLAYGROUND, sirv(playgroundDir, { single: true, dev: true }))
+      })
+
+      // eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
+      // @ts-ignore runtime type
+      nuxt.hook('devtools:customTabs', (iframeTabs) => {
+        iframeTabs.push({
+          name: 'vueemail',
+          title: 'Vue Email',
+          icon: 'twemoji:incoming-envelope',
+          view: {
+            type: 'iframe',
+            src: PATH_PLAYGROUND,
+          },
+        })
+      })
+    }
 
     addTemplate({
       filename: 'types/vue-email.d.ts',
@@ -65,7 +106,9 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     nuxt.hook('prepare:types', (options) => {
-      options.references.push({ path: resolve(nuxt.options.buildDir, 'types/vue-email.d.ts') })
+      options.references.push({
+        path: resolve(nuxt.options.buildDir, 'types/vue-email.d.ts'),
+      })
     })
 
     addPlugin(resolve('./runtime/templates/vue-email'))

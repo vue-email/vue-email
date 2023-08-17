@@ -60,13 +60,13 @@ describe('Markdown component renders correctly', () => {
 
   it('renders links in the correct format for browsers', async () => {
     const component = h(EMarkdown, {
-      source: 'Link to [Vue`-email](https://vue-email.vercel.app/)',
+      source: 'Link to [Vue`-email](https://vuemail.net/)',
     })
 
     const actualOutput = await useRender(component)
 
     expect(actualOutput).toMatchInlineSnapshot(
-      '"<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><div data-id=\\"__vue-email-markdown\\" style=\\"\\"><p data-id=\\"vue-email-text\\">Link to <a href=\\"https://vue-email.vercel.app/\\" style=\\"color:#007bff;text-decoration:underline;background-color:transparent\\" data-id=\\"vue-email-link\\" target=\\"_blank\\">Vue`-email</a></p></div>"',
+      '"<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><div data-id=\\"__vue-email-markdown\\" style=\\"\\"><p data-id=\\"vue-email-text\\">Link to <a href=\\"https://vuemail.net/\\" style=\\"color:#007bff;text-decoration:underline;background-color:transparent\\" data-id=\\"vue-email-link\\" target=\\"_blank\\">Vue`-email</a></p></div>"',
     )
   })
 

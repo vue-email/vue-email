@@ -1,6 +1,7 @@
 import type { Component } from 'vue'
 import type { VueEmailPLuginOptions } from './index'
 
+
 export interface DefineConfigFunctions {
   render: (name: string, options?: RenderOptions) => Promise<string>
 }
@@ -17,9 +18,9 @@ export interface Options {
    * VueEmailPlugin options
    * @default {}
    * @see
-   * https://vue-email.vercel.app/getting-started/installation#options
+   * https://vuemail.net/getting-started/installation#options
    */
-  options?: VueEmailPLuginOptions
+  options?: VueEmailPluginOptions
 }
 
 export interface RenderOptions {
