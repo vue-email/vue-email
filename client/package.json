@@ -16,6 +16,7 @@
         "@nuxtjs/fontaine": "^0.4.1",
         "@nuxtjs/google-fonts": "^3.0.2",
         "@types/splitpanes": "^2.2.1",
+        "@vueuse/core": "^10.3.0",
         "@vueuse/nuxt": "^10.3.0",
         "nuxt": "^3.6.5",
         "scule": "^1.0.0",

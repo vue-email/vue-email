@@ -1,6 +1,5 @@
 import { computed, ref } from 'vue'
 import { withBase } from 'ufo'
-import { useDebounceFn } from '@vueuse/core'
 
 export const base = ref('/')
 export const refreshTime = ref(Date.now())

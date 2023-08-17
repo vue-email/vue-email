@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     'vue-email': resolve(__dirname, '../src/index.ts'),
     'vue-email/compiler': resolve(__dirname, '../src/compiler/index.ts'),
   },
-  modules: [vueEmailModule, '@nuxthq/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts'],
+  modules: [vueEmailModule, '@nuxthq/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
   nitro: {
     output: {
       publicDir: resolve(__dirname, '../dist/client'),

@@ -14,7 +14,7 @@ const { isCommandPalletOpen } = useTool()
 
 function onSelect(option: Email) {
   if (option) {
-    router.push(option.filename)
+    router.push(`/email/${option.filename}`)
     isCommandPalletOpen.value = false
   }
 }

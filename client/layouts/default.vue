@@ -15,11 +15,15 @@ import { version } from '../../package.json'
   >
     <template #header>
       <div class="flex items-center justify-between gap-3 py-3 h-10">
-        <NuxtLink to="/" class="flex items-center gap-2 text-xl">
-          <UIcon name="i-twemoji-incoming-envelope" />
-          <h2 class="font-semibold text-gray-900 dark:text-white leading-tight">Vue Email</h2>
-          <UBadge color="primary" variant="subtle"> v{{ version }} </UBadge>
-        </NuxtLink>
+        <div class="flex items-center gap-2 text-xl">
+          <NuxtLink to="/" class="flex items-center gap-2">
+            <UIcon name="i-twemoji-incoming-envelope" />
+            <h2 class="font-semibold text-gray-900 dark:text-white leading-tight">Vue Email</h2>
+          </NuxtLink>
+          <NuxtLink class="flex items-center gap-2" target="_blank" :to="`https://github.com/Dave136/vue-email/releases/tag/v${version}`">
+            <UBadge color="primary" variant="subtle"> v{{ version }} </UBadge>
+          </NuxtLink>
+        </div>
 
         <HeaderButtons />
       </div>
@@ -37,11 +41,7 @@ import { version } from '../../package.json'
   </UCard>
 
   <CommandPalette />
+  <UNotifications />
 </template>
 
-<style>
-main {
-  /* calculate 100% - 40px */
-  /* height: calc(100vh - 85px); */
-}
-</style>
+<style></style>

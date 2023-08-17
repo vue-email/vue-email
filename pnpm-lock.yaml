@@ -127,6 +127,9 @@ importers:
       '@types/splitpanes':
         specifier: ^2.2.1
         version: 2.2.1
+      '@vueuse/core':
+        specifier: ^10.3.0
+        version: 10.3.0(vue@3.3.4)
       '@vueuse/nuxt':
         specifier: ^10.3.0
         version: 10.3.0(nuxt@3.6.5)(rollup@3.28.0)(vue@3.3.4)

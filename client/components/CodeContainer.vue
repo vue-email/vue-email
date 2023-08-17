@@ -1,14 +1,15 @@
 <script lang="ts" setup>
+import { camelCase } from 'scule'
 import { copyTextToClipboard } from '@/util/copy-text-to-clipboard'
 
 defineEmits(['setlang'])
 
 const toast = useToast()
-const { template } = useEmail()
+const { template, email } = useEmail()
 
-function handleDownload() {
-  const value = props.markups.filter((markup) => markup.language === props.activeLang)[0]
-  const file = new File([value.content], `email.${value.language}`)
+function handleDownload(lang: 'html' | 'txt') {
+  const content = template.value[lang]
+  const file = new File([content], `${camelCase(email.value.label)}.${lang}`)
   const url = URL.createObjectURL(file)
 
   const a = document.createElement('a')
@@ -24,15 +25,8 @@ function handleDownload() {
   })
 }
 
-const languageMap = {
-  html: 'HTML',
-  txt: 'Plain Text',
-}
-
-async function handleClipboard() {
-  const value = props.markups.filter((markup) => markup.language === props.activeLang)[0]
-
-  await copyTextToClipboard(value.content)
+async function handleClipboard(lang: 'html' | 'txt') {
+  await copyTextToClipboard(template.value[lang])
   toast.add({
     title: 'Copied to clipboard',
     description: 'You can now paste it anywhere you want.',
@@ -54,22 +48,47 @@ const items = [
     code: template.value.txt,
   },
 ]
+
+const options = [
+  [
+    {
+      label: 'Copy Code',
+      icon: 'i-ph-copy-duotone',
+      onClick: handleClipboard,
+    },
+    {
+      label: 'Download Code',
+      icon: 'i-ph-download-simple-duotone',
+      onClick: handleDownload,
+    },
+  ],
+]
+
+const tab = ref('html')
 </script>
 
 <template>
-  <UTabs :items="items">
+  <UTabs v-model="tab" :items="items">
     <template #default="{ item, index, selected }">
       <div class="flex items-center gap-2 relative truncate">
         <UIcon :name="item.icon" class="w-7 h-7 flex-shrink-0" />
 
         <span class="truncate">{{ item.label }}</span>
+        <template v-if="selected">
+          <UTooltip text="Copy to clipboard">
+            <UButton class="ml-6" icon="i-ph-copy-duotone" size="xs" square color="gray" variant="solid" @click="handleClipboard(item.key)" />
+          </UTooltip>
+          <UTooltip text="Download file">
+            <UButton icon="i-ph-download-simple-duotone" size="xs" square color="gray" variant="solid" @click="handleDownload(item.key)" />
+          </UTooltip>
+        </template>
 
         <span v-if="selected" class="absolute -right-4 w-2 h-2 rounded-full bg-primary-500 dark:bg-primary-400" />
       </div>
     </template>
 
     <template #item="{ item }">
-      <div class="w-full" v-html="highlight(item.code, item.key)" />
+      <div class="w-full h-full" v-html="highlight(item.code, item.key)" />
     </template>
   </UTabs>
 </template>
@@ -78,6 +97,7 @@ const items = [
 .shiki {
   width: 100%;
   height: 90vh;
+  padding-bottom: 100px;
 
   font-size: 16px;
   outline: none;

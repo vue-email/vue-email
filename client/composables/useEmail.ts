@@ -110,6 +110,15 @@ export function useEmail() {
           icon: 'i-ph-bell-bold',
         })
       }
+
+      if (response.status === 200) {
+        useToast().add({
+          title: 'Success',
+          description: 'Email sent successfully.',
+          color: 'green',
+          icon: 'i-ph-bell-bold',
+        })
+      }
     } catch (error) {
       useToast().add({
         title: 'Error',
