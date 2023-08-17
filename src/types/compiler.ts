@@ -1,3 +1,4 @@
+import type { Component } from 'vue'
 import type { VueEmailPLuginOptions } from './index'
 
 export interface DefineConfigFunctions {
@@ -26,3 +27,7 @@ export interface RenderOptions {
 }
 
 export type DeepRequired<T> = Required<{ [P in keyof T]: DeepRequired<T[P]> }>
+
+export type ImportFromStringFn = (source: string) => Promise<Component>
+
+export type TemplateRenderFn = (name: string, source: string, options?: RenderOptions, config?: Options) => Promise<string>

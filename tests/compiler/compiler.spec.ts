@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { config } from '../../src/compiler'
+import { config } from '../../src/compiler/node'
 
 describe('compiler', () => {
   const path = resolve(__dirname, './templates')

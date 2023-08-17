@@ -1,4 +1,4 @@
-import type { Options } from '../types/compiler'
+import type { Options } from '../../types/compiler'
 
 /**
  * Checks if item is an object.

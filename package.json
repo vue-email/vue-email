@@ -48,10 +48,15 @@
       "import": "./dist/compiler.mjs",
       "require": "./dist/compiler.cjs"
     },
-    "./deno": {
-      "types": "./dist/deno.d.ts",
-      "import": "./dist/deno.mjs",
-      "require": "./dist/deno.cjs"
+    "./compiler/node": {
+      "types": "./dist/compiler.node.d.ts",
+      "import": "./dist/compiler.node.mjs",
+      "require": "./dist/compiler.node.cjs"
+    },
+    "./compiler/deno": {
+      "types": "./dist/compiler.deno.d.ts",
+      "import": "./dist/compiler.deno.mjs",
+      "require": "./dist/compiler.deno.cjs"
     }
   },
   "types": "./dist/index.d.ts",

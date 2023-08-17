@@ -60,18 +60,33 @@ export default defineBuildConfig({
       format: 'cjs',
       ext: 'cjs',
     },
-    // Deno Compiler
+    // Node Compiler
     {
-      input: 'src/deno/compiler/index.ts',
+      input: 'src/compiler/node/index.ts',
       outDir: 'dist',
-      name: 'deno',
+      name: 'compiler.node',
       format: 'esm',
       ext: 'mjs',
     },
     {
-      input: 'src/deno/compiler/index.ts',
+      input: 'src/compiler/node/index.ts',
       outDir: 'dist',
-      name: 'deno',
+      name: 'compiler.node',
+      format: 'cjs',
+      ext: 'cjs',
+    },
+    // Deno Compiler
+    {
+      input: 'src/compiler/deno/index.ts',
+      outDir: 'dist',
+      name: 'compiler.deno',
+      format: 'esm',
+      ext: 'mjs',
+    },
+    {
+      input: 'src/compiler/deno/index.ts',
+      outDir: 'dist',
+      name: 'compiler.deno',
       format: 'cjs',
       ext: 'cjs',
     },

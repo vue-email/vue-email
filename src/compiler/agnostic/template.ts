@@ -1,36 +1,34 @@
+import type { Component } from 'vue'
 import * as compiler from 'vue/compiler-sfc'
 import { createApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import { blue, bold, lightGreen } from 'kolorist'
-import { importFromStringSync } from 'module-from-string'
-import type { Component } from 'vue'
-import type { Options, RenderOptions } from '../types/compiler'
-import { VueEmailPlugin } from '../plugin'
+import { VueEmailPlugin } from '../../plugin'
+import type { ImportFromStringFn, Options, RenderOptions, TemplateRenderFn } from '../../types/compiler'
 
-const scriptIdentifier = '_sfc_main'
+export function createTemplateRenderSetup(importFromStringFn: ImportFromStringFn): TemplateRenderFn {
+  return async function templateRender(name: string, source: string, options?: RenderOptions, config?: Options): Promise<string> {
+    const output = compile(name, source, config?.verbose)
+    const component: Component = await importFromStringFn(output)
 
-export async function templateRender(name: string, source: string, options?: RenderOptions, config?: Options): Promise<string> {
-  const output = compile(name, source, config?.verbose)
-  const component: Component = importFromStringSync(output, {
-    transformOptions: { loader: 'ts' },
-  }).default
+    if (config?.verbose) {
+      console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
+    }
 
-  if (config?.verbose) {
-    console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
+    const app = createApp(component, options?.props)
+    app.use(VueEmailPlugin, config?.options)
+    const markup = await renderToString(app)
+    const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
+    const doc = `${doctype}${replaceString(markup)}`
+
+    if (config?.verbose) {
+      console.warn(`${lightGreen('🎉')} ${bold(blue('Rendering template'))} ${bold(lightGreen(name))}`)
+    }
+
+    return doc
   }
-
-  const app = createApp(component, options?.props)
-  app.use(VueEmailPlugin, config?.options)
-  const markup = await renderToString(app)
-  const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
-  const doc = `${doctype}${replaceString(markup)}`
-
-  if (config?.verbose) {
-    console.warn(`${lightGreen('🎉')} ${bold(blue('Rendering template'))} ${bold(lightGreen(name))}`)
-  }
-
-  return doc
 }
+const scriptIdentifier = '_sfc_main'
 
 function compile(filename: string, source: string, verbose = false) {
   let styles: compiler.SFCStyleCompileResults | null = null
