@@ -38,8 +38,6 @@ Start by building your email template in a `.vue` file.
   </e-html>
 </template>
 <script lang="ts" setup>
-import { EButton, EHtml } from 'vue-email';
-
 defineProps<{ url: string }>();
 </script>
 ```
