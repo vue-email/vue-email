@@ -6,11 +6,17 @@ import pretty from 'pretty'
 export interface Options {
   pretty?: boolean
   plainText?: boolean
-  i18n?: {
-    locale: string
-    defaultLocale: string
-    translations: Record<string, Record<string, string>>
-  }
+}
+
+export interface I18n {
+  locale: string
+  defaultLocale: string
+  translations: Record<string, Record<string, string>>
+}
+
+export interface RenderParams {
+  props?: any
+  i18n?: I18n
 }
 
 /**
@@ -19,20 +25,30 @@ export interface Options {
  * @param props The props passed to the component
  * @param {Options} options The options to convert the template
  * @returns {string}
+ * @example
+ *
+ * await useRender('component.vue', {
+ *  props: {
+ *    name: 'John',
+ *  }
+ *  i18n: {
+ *    locale: 'en'
+ *    translations: {}
+ *  }
+ * })
  */
 export async function useRender(
   component: Component,
-  props?: any,
+  params?: RenderParams,
   options: Options = {
     pretty: false,
     plainText: false,
-    i18n: undefined,
   },
 ) {
   let vueI18n
 
   try {
-    if (options?.i18n) {
+    if (params?.i18n) {
       vueI18n = await import('vue-i18n')
     }
   } catch (error) {
@@ -40,13 +56,13 @@ export async function useRender(
   }
 
   const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
-  const app = createApp({ render: () => h(component) }, props)
+  const app = createApp({ render: () => h(component) }, params?.props)
 
-  if (options?.i18n?.defaultLocale && vueI18n) {
+  if (params?.i18n?.defaultLocale && vueI18n) {
     const i18n = vueI18n.createI18n({
-      locale: options?.i18n?.locale,
-      fallbackLocale: options?.i18n.defaultLocale,
-      messages: options?.i18n.translations,
+      locale: params?.i18n?.locale,
+      fallbackLocale: params?.i18n?.defaultLocale,
+      messages: params?.i18n?.translations,
     })
 
     app.use(i18n)
