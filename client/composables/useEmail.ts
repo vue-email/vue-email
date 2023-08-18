@@ -77,6 +77,7 @@ export function useEmail() {
 
       if (found) {
         email.value = found
+
         await renderEmail().then((value) => {
           if (value) template.value = value
         })
@@ -131,8 +132,6 @@ export function useEmail() {
     }
   }
 
-  getEmails()
-
   return {
     email,
     emails,
@@ -142,5 +141,6 @@ export function useEmail() {
     getEmail,
     sendTestEmail,
     renderEmail,
+    getEmails,
   }
 }

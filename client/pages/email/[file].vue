@@ -1,19 +1,28 @@
 <script setup lang="ts">
-import { slowRefreshSources } from '~/util/logic'
-
 const route = useRoute()
+const isDragging = ref(false)
+const refreshTime = ref(Date.now())
 
 const { getEmail, template } = useEmail()
+const { settings } = useTool()
 
-await getEmail(`${route.params.file}`)
+onMounted(async () => {
+  await getEmail(`${route.params.file}`)
+})
+
+const slowRefreshSources = useDebounceFn(() => {
+  refreshTime.value = Date.now()
+}, 1000)
 </script>
 
 <template>
-  <Splitpanes class="default-theme" @resize="slowRefreshSources">
-    <Pane size="50">
-      <iframe class="w-full h-screen overflow-auto" :srcdoc="template.html" frameborder="0" width="'100%'" />
+  <Splitpanes :horizontal="settings.horizontalSplit" class="default-theme" @resize="isDragging = true" @resized="isDragging = false" @resize="slowRefreshSources">
+    <Pane min-size="20" size="50">
+      <div class="w-full h-full">
+        <iframe class="w-full" :class="[settings.horizontalSplit ? 'h-full' : 'h-screen']" :srcdoc="template.html" frameborder="0" width="'100%'" />
+      </div>
     </Pane>
-    <Pane size="50">
+    <Pane min-size="20" size="50">
       <CodeContainer />
     </Pane>
   </Splitpanes>
@@ -31,12 +40,12 @@ div[role='tabpanel'] {
   background-color: transparent !important;
 }
 .dark .splitpanes.default-theme .splitpanes__splitter {
-  background-color: transparent !important;
-  border-left: 1px solid rgba(156, 163, 175, 0.05);
+  background-color: #646464 !important;
+  border-left: 1px solid #a9a9a9;
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05) 50%, rgba(0, 0, 0, 0));
 }
 .dark .splitpanes.default-theme .splitpanes__splitter:before,
 .splitpanes.default-theme .splitpanes__splitter:after {
-  background-color: rgba(156, 163, 175, 0.3) !important;
+  background-color: white !important;
 }
 </style>

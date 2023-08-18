@@ -63,7 +63,7 @@ const tab = ref('html')
           <UTooltip text="Copy to clipboard">
             <UButton class="ml-6" icon="i-ph-copy-duotone" size="xs" square color="gray" variant="solid" @click="handleClipboard(item.key)" />
           </UTooltip>
-          <UTooltip text="Download file">
+          <UTooltip :text="`Download .${item.key} file`">
             <UButton icon="i-ph-download-simple-duotone" size="xs" square color="gray" variant="solid" @click="handleDownload(item.key)" />
           </UTooltip>
         </template>

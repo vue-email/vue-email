@@ -1,8 +1,4 @@
-<script setup lang="ts">
-const { email } = useEmail()
-
-email.value = null
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div>homepage</div>
