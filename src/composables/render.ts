@@ -39,7 +39,7 @@ export interface RenderParams {
  */
 export async function useRender(
   component: Component,
-  params?: RenderParams,
+  params?: RenderParams | null,
   options: Options = {
     pretty: false,
     plainText: false,
