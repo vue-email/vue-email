@@ -1,12 +1,12 @@
-import type { Settings } from '~/types/settings'
+import { useStorage } from '@vueuse/core'
 
 export function useTool() {
   const isCommandPalletOpen = useState<boolean>('isCommandPalletOpen')
   const isSettingsOpen = useState<boolean>('isSettingsOpen')
-  const settings = useState<Settings>('settings', () => ({
-    horizontalSplit: true,
+  const settings = useStorage('settings', {
+    horizontalSplit: false,
     email: '',
-  }))
+  })
 
   return {
     isCommandPalletOpen,

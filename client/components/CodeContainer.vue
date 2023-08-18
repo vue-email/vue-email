@@ -79,6 +79,7 @@ const tab = ref('html')
 </template>
 
 <style>
+/* TODO: fix content height issues */
 .shiki {
   width: 100%;
   height: 90vh;

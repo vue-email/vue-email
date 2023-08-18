@@ -1,7 +1,5 @@
 <script setup lang="ts">
 const route = useRoute()
-const isDragging = ref(false)
-const refreshTime = ref(Date.now())
 
 const { getEmail, template } = useEmail()
 const { settings } = useTool()
@@ -9,20 +7,14 @@ const { settings } = useTool()
 onMounted(async () => {
   await getEmail(`${route.params.file}`)
 })
-
-const slowRefreshSources = useDebounceFn(() => {
-  refreshTime.value = Date.now()
-}, 1000)
 </script>
 
 <template>
-  <Splitpanes :horizontal="settings.horizontalSplit" class="default-theme" @resize="isDragging = true" @resized="isDragging = false" @resize="slowRefreshSources">
-    <Pane min-size="20" size="50">
-      <div class="w-full h-full">
-        <iframe class="w-full" :class="[settings.horizontalSplit ? 'h-full' : 'h-screen']" :srcdoc="template.html" frameborder="0" width="'100%'" />
-      </div>
+  <Splitpanes v-if="template" :horizontal="settings.horizontalSplit" class="default-theme">
+    <Pane min-size="5" max-size="90" size="50">
+      <iframe class="w-full h-screen" :srcdoc="template.html" frameborder="0" width="100%" height="100%" />
     </Pane>
-    <Pane min-size="20" size="50">
+    <Pane min-size="5" max-size="90" size="50">
       <CodeContainer />
     </Pane>
   </Splitpanes>
@@ -47,5 +39,9 @@ div[role='tabpanel'] {
 .dark .splitpanes.default-theme .splitpanes__splitter:before,
 .splitpanes.default-theme .splitpanes__splitter:after {
   background-color: white !important;
+}
+
+.splitpanes.default-theme.splitpanes--dragging iframe {
+  pointer-events: none;
 }
 </style>

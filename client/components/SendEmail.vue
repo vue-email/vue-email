@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { sending, sendTestEmail, template } = useEmail()
-const emailTo = ref('')
+const { settings } = useTool()
+const emailTo = ref(settings.value.email || '')
 const emailSubject = ref('Testing Vue Email')
 const { metaSymbol } = useShortcuts()
 const sendBtn = ref()

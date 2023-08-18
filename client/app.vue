@@ -15,6 +15,10 @@ useHead({
     class: 'antialiased font-sans overflow-hidden',
   },
 })
+
+const { getEmails } = useEmail()
+
+await getEmails()
 </script>
 
 <template>

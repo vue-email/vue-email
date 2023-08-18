@@ -1,12 +1,8 @@
-<script setup lang="ts">
-const { getEmails } = useEmail()
-
-await getEmails()
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <UCard
-    class="w-full"
+    class="w-full h-full"
     :ui="{
       base: '',
       ring: '',
@@ -19,7 +15,9 @@ await getEmails()
       <TopNav />
     </template>
 
-    <slot />
+    <main class="h-screen">
+      <slot />
+    </main>
 
     <!-- <template #footer>
         <div class="flex items-center justify-center">
