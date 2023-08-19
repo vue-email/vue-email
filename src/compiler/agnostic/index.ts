@@ -1,5 +1,6 @@
-import { resolve } from 'node:path'
-import { readFileSync } from 'node:fs'
+/* eslint-disable unicorn/prefer-node-protocol */
+import { resolve } from 'path'
+import { readFileSync } from 'fs'
 import type { DefineConfig, Options, RenderOptions, TemplateRenderFn } from '../../types/compiler'
 import { createInitConfig } from './config'
 

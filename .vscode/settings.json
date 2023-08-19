@@ -5,7 +5,7 @@
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true
 	},
-	// "editor.formatOnSave": true,
+	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
 	"scss.lint.unknownAtRules": "ignore",
 	"css.lint.unknownAtRules": "ignore",
@@ -24,9 +24,12 @@
   // Prevent default prettier extension if exists
 "prettier.enable": false,
 "[typescript]": {
-	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+	"editor.defaultFormatter": "vscode.typescript-language-features"
 },
 "[javascript]": {
 	"editor.defaultFormatter": "vscode.typescript-language-features"
+},
+"[jsonc]": {
+	"editor.defaultFormatter": "denoland.vscode-deno"
 },
 }
