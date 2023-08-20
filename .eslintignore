@@ -5,3 +5,4 @@ archive/
 node_modules/
 .github/
 docs/.vitepress/cache/
+src/compiler/deno/**/*

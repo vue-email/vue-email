@@ -1,7 +1,12 @@
 {
   "extends": "./playgrounds/nuxt/.nuxt/tsconfig.json",
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
   "compilerOptions": {
     "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": true,
     "jsx": "preserve",
     "target": "ESNext",
     "module": "ESNext",
@@ -29,6 +34,12 @@
       ],
       "vue-email/compiler": [
         "./src/compiler/index"
+      ],
+      "vue-email/compiler/node": [
+        "./src/compiler/node/index"
+      ],
+      "vue-email/compiler/deno": [
+        "./src/compiler/deno/index"
       ],
       "#components": [
         ".nuxt/components"
@@ -62,7 +73,14 @@
       ],
       "$src": ["./src"],
       "$src/*": ["./src/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "typescript-deno-plugin",
+        "include": ["src/compiler/deno/**/*", "tests/deno/**/*"],
+        "exclude": ["node_modules", "**/*spec.ts"]
+      }
+    ]
   },
   "include": [
     "./env.d.ts",
@@ -70,12 +88,13 @@
     "src/**/*",
     "tests/**/*",
     "docs/**/*",
-    "playgrounds/**/*"
+    "playgrounds/**/*",
+    "tests_deno"
   ],
   "exclude": [
     "../dist",
     "../.output"
-  ],
+  ]
   // "vueCompilerOptions": {
   //   "plugins": [
   //     "pinceau/volar"

@@ -1,29 +1,43 @@
 {
-	"search.exclude": {
-		"pnpm-lock.yaml": true
-	},
-	"editor.codeActionsOnSave": {
-		"source.fixAll": true
-	},
-	"editor.formatOnSave": true,
-	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
-	"scss.lint.unknownAtRules": "ignore",
-	"css.lint.unknownAtRules": "ignore",
-	"eslint.workingDirectories": ["demo/", "packages/"],
-	"testing.automaticallyOpenPeekView": "never",
-	"files.associations": {
-		"*.mdx": "markdown",
-		"*.css": "tailwindcss"
-	},
-	"editor.quickSuggestions": {
-		"strings": true
-	},
-	"[vue]": {
-		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-	},
+  "search.exclude": {
+    "pnpm-lock.yaml": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "scss.lint.unknownAtRules": "ignore",
+  "css.lint.unknownAtRules": "ignore",
+  "eslint.workingDirectories": ["demo/", "packages/"],
+  "testing.automaticallyOpenPeekView": "never",
+  "files.associations": {
+    "*.mdx": "markdown",
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
   // Prevent default prettier extension if exists
-"prettier.enable": false,
-"[typescript]": {
-	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-},
+  "prettier.enable": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "deno.enable": true,
+  "deno.lint": true,
+  "deno.unstable": true,
+  "deno.cacheOnSave": true,
+  "deno.enablePaths": [
+    "src/compiler/deno/**/*",
+    "tests_deno/**/*"
+  ]
 }
