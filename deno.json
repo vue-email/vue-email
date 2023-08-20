@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "vue": "npm:vue"
+  },
+  "tasks": {
+    "compile": "deno run -A builder/deno.preview.ts --verbose",
+    "demo": "deno run -A demo.ts"
+  },
+  "test": {
+    "include": [
+      "tests_deno/compiler/compiler.test.ts"
+    ]
+  }
+}

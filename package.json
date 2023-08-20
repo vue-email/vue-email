@@ -68,8 +68,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "pnpm run build:main && pnpm pack",
-    "build:main": "pnpm run @swc-node/register builder/build.cli.ts name=main",
+    "build": "pnpm build:main && pnpm pack",
+    "build:main": "npx ts-node builder/build.cli.ts --name main",
     "build:deno-test": "npx ts-node --esm builder/build.cli.ts --name deno-test",
     "dev": "vite build --watch",
     "release": "changelogen --release",
@@ -77,6 +77,8 @@
     "lint:fix": "eslint --ext .js,.vue,.ts,.tsx . --fix",
     "test:unit": "vitest run",
     "test": "pnpm test:unit",
+    "test:deno-no-build": "deno test -A",
+    "test:deno": "pnpm generate:deno-build-preview && deno test -A",
     "test:watch": "vitest watch",
     "dev:nuxt": "nuxt dev playgrounds/nuxt",
     "build:nuxt": "nuxt build playgrounds/nuxt",
@@ -85,10 +87,10 @@
     "dev:docs": "nuxt dev docs",
     "build:docs": "nuxt build docs",
     "generate:docs": "nuxt generate docs",
+    "generate:deno-build-preview": "pnpm build:deno-test && deno task compile",
     "preview:docs": "nuxt preview docs",
     "dev:client": "nuxt dev client",
     "build:client": "nuxt generate client",
-    "build:denoify": "denoify",
     "prepublish": "pnpm run build"
   },
   "peerDependencies": {

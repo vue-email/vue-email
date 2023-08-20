@@ -15,6 +15,8 @@ export function createTemplateRenderSetup(importFromStringFn: ImportFromStringFn
       console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
     }
 
+    console.warn(JSON.stringify(component, null, 2))
+
     const app = createApp(component, options?.props)
     app.use(VueEmailPlugin, config?.options)
     const markup = await renderToString(app)

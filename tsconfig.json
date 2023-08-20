@@ -77,7 +77,7 @@
     "plugins": [
       {
         "name": "typescript-deno-plugin",
-        "include": ["src/compiler/deno/**/*"],
+        "include": ["src/compiler/deno/**/*", "tests/deno/**/*"],
         "exclude": ["node_modules", "**/*spec.ts"]
       }
     ]
@@ -88,7 +88,8 @@
     "src/**/*",
     "tests/**/*",
     "docs/**/*",
-    "playgrounds/**/*"
+    "playgrounds/**/*",
+    "tests_deno"
   ],
   "exclude": [
     "../dist",
