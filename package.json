@@ -86,17 +86,16 @@
   },
   "dependencies": {
     "@flowko/tw-to-css": "^0.0.6",
+    "@types/fs-extra": "^11.0.1",
+    "fs-extra": "^11.1.1",
     "isomorphic-dompurify": "^1.8.0",
     "module-from-string": "^3.3.0",
-    "fs-extra": "^11.1.1",
-    "@types/fs-extra": "^11.0.1",
     "sirv": "^2.0.3"
   },
   "resolutions": {
     "vue-email": "link:."
   },
   "devDependencies": {
-    "kolorist": "^1.8.0",
     "@antfu/eslint-config": "^0.40.2",
     "@nuxt/kit": "^3.6.5",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
@@ -107,20 +106,21 @@
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "happy-dom": "^10.9.0",
+    "happy-dom": "^10.10.4",
     "html-to-text": "^9.0.5",
+    "kolorist": "^1.8.0",
     "nuxt": "^3.6.5",
-    "prettier": "^3.0.1",
+    "prettier": "^3.0.2",
     "pretty": "^2.0.0",
     "typescript": "^5.1.6",
     "ufo": "^1.2.0",
     "unbuild": "^1.2.1",
     "vite": "4.4.9",
-    "vitest": "^0.34.1",
-    "vue": "^3.3.4",
     "vite-plugin-banner": "^0.7.0",
-    "vite-plugin-dts": "^3.3.1",
+    "vite-plugin-dts": "^3.5.2",
+    "vitest": "^0.34.2",
+    "vue": "^3.3.4",
     "vue-email": "workspace:*",
-    "vue-i18n": "9"
+    "vue-i18n": "^9.2.2"
   }
 }
