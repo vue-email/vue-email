@@ -8,7 +8,7 @@ export function useEmail() {
   const refresh = useState<boolean>('refresh', () => false)
 
   const getEmails = async () => {
-    const { data, error } = await useFetch('/api/emails')
+    const { data, error } = await useFetch<string[]>('/api/emails')
 
     if (error && error.value) {
       console.error(error)

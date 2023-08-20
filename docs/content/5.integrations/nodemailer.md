@@ -57,7 +57,7 @@ import nodemailer from 'nodemailer';
 
 export default defineEventHandler(async (event) => {
   const template = await useCompiler('welcome.vue', {
-    url: 'https://vue-email.vercel.app/',
+    url: 'https://vuemail.net/',
   })
 
   const testAccount = await nodemailer.createTestAccount();
@@ -97,7 +97,7 @@ app.use(express.json());
 app.post('/api/send-email', async (req, res) => {
   const template = await vueEmail.render("welcome.vue", {
       props: {
-        url: 'https://vue-email.vercel.app/',
+        url: 'https://vuemail.net/',
       },
     });
 

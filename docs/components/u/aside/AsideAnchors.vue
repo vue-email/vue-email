@@ -7,7 +7,7 @@ defineProps<{ links?: Link[] }>()
 
 <template>
   <div v-if="links?.length" class="space-y-4 mb-4 lg:mb-8">
-    <ULinkCustom
+    <ULink
       v-for="(link, index) in links"
       :key="index"
       v-slot="{ isActive }"
@@ -29,6 +29,6 @@ defineProps<{ links?: Link[] }>()
       </div>
 
       <span class="text-sm leading-6">{{ link.label }}</span>
-    </ULinkCustom>
+    </ULink>
   </div>
 </template>

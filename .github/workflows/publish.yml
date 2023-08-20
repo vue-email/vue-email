@@ -37,9 +37,6 @@ jobs:
       - name: Test project
         run: pnpm test
 
-      - name: Build project
-        run: pnpm build
-
       - name: Publish package to npm registry
         run: pnpm publish --access public --no-git-checks
         env:
