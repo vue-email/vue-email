@@ -94,6 +94,11 @@ app.listen(3000);
 2. Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
 3. Install dependencies using `pnpm install`
 
+## 🛟 Support
+If you like our work, please feel to free to support us!
+
+- BTC: `1Bwo1Htd47rLRM4PZhydWtoC5ZAR4Fv9KZ`
+- USDT: [binance-qr](https://github.com/Dave136/vue-email/blob/main/docs/public/binance-qr.png?raw=true)
 ## Contributors
 
 <a href="https://github.com/Dave136/vue-email/graphs/contributors">
