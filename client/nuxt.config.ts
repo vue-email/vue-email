@@ -22,6 +22,7 @@ export default defineNuxtConfig({
       target: 'esnext',
     },
   },
+  ignore: ['emails/**/*', 'server/**/*'],
   ui: {
     global: true,
     icons: ['heroicons', 'simple-icons', 'ph', 'twemoji'],

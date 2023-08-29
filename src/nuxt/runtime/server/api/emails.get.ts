@@ -1,17 +1,35 @@
+import { kebabCase, pascalCase } from 'scule'
+import type { Email } from '../../types/email'
 import { createError, defineEventHandler, useStorage } from '#imports'
 
 export default defineEventHandler(async () => {
   try {
-    const template = await useStorage('assets:emails').getKeys()
+    const nitroEmails = await useStorage('assets:emails').getKeys()
 
-    if (!template) {
+    const emails: Email[] = await Promise.all(
+      nitroEmails.map(async (email: string) => {
+        const data = JSON.stringify(await useStorage('assets:emails').getMeta(email))
+        const emailData = JSON.parse(data)
+
+        return {
+          label: pascalCase(kebabCase(email.replace('.vue', '').replace(':', '_')).split('-').join(' ')),
+          filename: email,
+          icon: 'i-heroicons-envelope',
+          size: emailData.size,
+          created: emailData.birthtime,
+          modified: emailData.mtime,
+        }
+      }),
+    )
+
+    if (!emails || !emails.length) {
       throw createError({
         statusCode: 404,
         statusMessage: 'Not Found',
       })
     }
 
-    return template
+    return emails
   } catch (error) {
     throw createError({
       statusCode: 500,

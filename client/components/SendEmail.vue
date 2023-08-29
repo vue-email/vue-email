@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { sending, sendTestEmail, template } = useEmail()
 const { settings } = useTool()
-const emailTo = ref(settings.value.email || '')
+const emailTo = computed(() => settings.value.email || '')
 const emailSubject = ref('Testing Vue Email')
 const { metaSymbol } = useShortcuts()
 const sendBtn = ref()
@@ -29,7 +29,15 @@ defineShortcuts({
     </UTooltip>
     <template #panel>
       <label for="to" class="text-gray-400 text-xs uppercase font-medium mb-2 block">Recipient</label>
-      <UInput id="to" v-model="emailTo" type="email" color="gray" variant="outline" placeholder="you@example.com" />
+      <UInput
+        id="to"
+        :value="emailTo"
+        type="email"
+        color="gray"
+        variant="outline"
+        placeholder="you@example.com"
+        @input="settings.email = ($event.target as HTMLInputElement).value"
+      />
       <label for="to" class="text-gray-400 text-xs uppercase font-medium mt-3 mb-2 block">Subject</label>
       <UInput id="to" v-model="emailSubject" type="text" color="gray" variant="outline" placeholder="My Email" />
 

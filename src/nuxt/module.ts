@@ -23,7 +23,7 @@ const components = [
   'ETailwind',
   'EMarkdown',
 ]
-const PATH = 'http://localhost:3001/__vue_email__'
+const PATH = '/__vue_email__'
 const PATH_PLAYGROUND = `${PATH}/client`
 
 export type ModuleOptions = VueEmailPluginOptions
