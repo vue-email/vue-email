@@ -82,7 +82,7 @@ useSeoMeta({
 
       <template #right>
         <NuxtLink :to="`https://github.com/Dave136/vue-email/releases/tag/v${config.version}`" target="_blank" class="inline-flex">
-          <UBadge :label="`v${config.version}`" />
+          <UBadge :label="`v${config.version}`" variant="subtle" />
         </NuxtLink>
         <ColorModeButton />
         <UButtonsSocialButton to="https://github.com/Dave136/vue-email" target="_blank" icon="i-simple-icons-github" class="hidden lg:inline-flex" />

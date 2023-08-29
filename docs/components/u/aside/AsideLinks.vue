@@ -108,7 +108,7 @@ function mapItems(links: Link[] = []) {
 
           <span class="text-sm leading-6 truncate">{{ link.label }}</span>
 
-          <UBadge v-if="link.badge" size="xs" :ui="{ rounded: 'rounded-full' }">
+          <UBadge v-if="link.badge" size="xs" :ui="{ rounded: 'rounded-full' }" variant="subtle">
             {{ link.badge }}
           </UBadge>
         </ULink>

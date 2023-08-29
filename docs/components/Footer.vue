@@ -10,7 +10,7 @@ const config = useRuntimeConfig().public
     </div>
 
     <NuxtLink :to="`https://github.com/Dave136/vue-email/releases/tag/v${config.version}`" target="_blank" class="inline-flex">
-      <UBadge :label="`v${config.version}`" />
+      <UBadge :label="`v${config.version}`" variant="subtle" />
     </NuxtLink>
 
     <div class="flex-1 flex items-center justify-end gap-1.5 -my-1 lg:hidden">
