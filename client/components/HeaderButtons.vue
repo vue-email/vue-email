@@ -7,6 +7,7 @@ const isEmailRoute = computed(() => route.name === 'email-file')
 
 <template>
   <div class="flex items-center justify-between gap-2">
+    <SearchButton />
     <UTooltip text="Vue Email Settings">
       <UButton icon="i-ph-gear-duotone" size="sm" color="gray" variant="solid" @click="isSettingsOpen = true" />
     </UTooltip>

@@ -25,7 +25,7 @@ export default defineNuxtConfig({
   ignore: ['emails/**/*', 'server/**/*'],
   ui: {
     global: true,
-    icons: ['heroicons', 'simple-icons', 'ph', 'twemoji'],
+    icons: ['heroicons', 'simple-icons', 'ph', 'twemoji', 'fluent'],
   },
   googleFonts: {
     families: {

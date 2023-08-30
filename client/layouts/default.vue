@@ -20,10 +20,10 @@
     </main>
 
     <!-- <template #footer>
-        <div class="flex items-center justify-center">
-          <UBadge color="primary" variant="subtle"> v{{ version }} </UBadge>
-        </div>
-      </template> -->
+      <div class="flex items-center justify-center">
+        <UBadge color="primary" variant="subtle"> v{{ version }} </UBadge>
+      </div>
+    </template> -->
   </UCard>
 
   <CommandPalette />

@@ -11,6 +11,7 @@
         "@iconify-json/ph": "latest",
         "@iconify-json/simple-icons": "latest",
         "@iconify-json/twemoji": "latest",
+        "@iconify-json/fluent": "latest",
         "@nuxt/devtools": "latest",
         "@nuxthq/ui": "^2.7.0",
         "@nuxtjs/fontaine": "^0.4.1",

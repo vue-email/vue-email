@@ -6,6 +6,7 @@ import { host } from '@/util/logic'
 export function useEmail() {
   const emails = useState<Email[]>('emails')
   const email = useState<Email>('email')
+  const directories = useState<any[]>('directories')
   const sending = useState<boolean>('sending', () => false)
   const refresh = useState<boolean>('refresh', () => false)
   const template = useState<{
@@ -23,31 +24,34 @@ export function useEmail() {
       return
     }
 
-    // if (data && data.value) {
-    //   const emailTemplates = data.value.reduce((acc, email) => {
-    //     const emailName = email.replace('.vue', '')
+    if (data && data.value) {
+      const emailTemplates = data.value.reduce((acc, email) => {
+        const emailName = email.filename.replace('.vue', '')
 
-    //     const parts = emailName.split(':')
-    //     const name = kebabCase(parts[parts.length - 1])
-    //     let targetArray = acc
-    //     for (let i = 0; i < parts.length - 1; i++) {
-    //       const folder = parts[i]
-    //       const folderObj = targetArray.find((item) => item.label === folder)
+        const parts = emailName.split(':')
+        let targetArray = acc
+        for (let i = 0; i < parts.length - 1; i++) {
+          const folder = parts[i]
+          const folderObj = targetArray.find((item) => item.label === folder)
 
-    //       if (folderObj) {
-    //         targetArray = folderObj.children || []
-    //       } else {
-    //         const newFolderObj = { label: folder, children: [] }
-    //         targetArray.push(newFolderObj)
-    //         targetArray = newFolderObj.children
-    //       }
-    //     }
+          if (folderObj) {
+            targetArray = folderObj.children || []
+          } else {
+            const newFolderObj = { label: folder, children: [], icon: 'i-heroicons-folder-20-solid' }
+            targetArray.push(newFolderObj)
+            targetArray = newFolderObj.children
+          }
+        }
 
-    //     targetArray.push({ label: name, to: `/preview/${emailName}`, component: email, icon: 'i-ph-file-bold' })
+        targetArray.push({ ...email, icon: 'i-heroicons-document-solid' })
 
-    //     return acc
-    //   }, [] as Email[])
-    if (data && data.value) emails.value = data.value
+        return acc
+      }, [] as any[])
+
+      directories.value = emailTemplates
+
+      emails.value = data.value
+    }
   }
 
   const renderEmail = async () => {
@@ -138,6 +142,7 @@ export function useEmail() {
     sending,
     refresh,
     template,
+    directories,
     getEmail,
     sendTestEmail,
     renderEmail,

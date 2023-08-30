@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>homepage</div>
+  <UContainer>
+    <EmptyState />
+  </UContainer>
 </template>
 
 <style scoped></style>
