@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { isSettingsOpen, settings } = useTool()
+const { isSettingsOpen, email, horizontalSplit, previewMode, previewModes } = useTool()
 </script>
 
 <template>
@@ -10,11 +10,23 @@ const { isSettingsOpen, settings } = useTool()
           <p class="block font-medium text-gray-700 dark:text-gray-200">Horizontal Split</p>
           <p class="text-gray-500 dark:text-gray-400 text-sm">Split the email preview and code editor horizontally</p>
         </div>
-        <UToggle v-model="settings.horizontalSplit" />
+        <UToggle v-model="horizontalSplit" />
+      </div>
+      <div class="flex justify-between items-center">
+        <div class="flex flex-col content-center text-sm">
+          <p class="block font-medium text-gray-700 dark:text-gray-200">Preview Mode</p>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">Choose between the preview modes</p>
+        </div>
+        <USelectMenu v-model="previewMode" :options="previewModes">
+          <template v-if="previewMode" #label>
+            <UIcon v-if="previewMode.icon" :name="previewMode.icon" class="w-4 h-4" />
+            {{ previewMode.label }}
+          </template>
+        </USelectMenu>
       </div>
       <hr class="border-gray-700" />
       <UFormGroup class="" size="sm" label="Sender Email" description="The email address that will be used to send the test email">
-        <UInput v-model="settings.email" placeholder="you@example.com" icon="i-heroicons-envelope"
+        <UInput v-model="email" placeholder="you@example.com" icon="i-heroicons-envelope"
       /></UFormGroup>
     </div>
   </UModal>

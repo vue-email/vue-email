@@ -18,9 +18,7 @@ useHead({
 
 const { getEmails } = useEmail()
 
-onMounted(async () => {
-  await getEmails()
-})
+await getEmails()
 </script>
 
 <template>

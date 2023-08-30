@@ -2,19 +2,23 @@
 const route = useRoute()
 
 const { getEmail, template } = useEmail()
-const { settings } = useTool()
+const { horizontalSplit, previewMode } = useTool()
 
 onMounted(async () => {
   await getEmail(`${route.params.file}`)
 })
+
+const showBoth = computed(() => previewMode.value.id === 'both')
+const showCode = computed(() => previewMode.value.id === 'code' || previewMode.value.id === 'both')
+const showIframe = computed(() => previewMode.value.id === 'iframe' || previewMode.value.id === 'both')
 </script>
 
 <template>
-  <Splitpanes v-if="template" :horizontal="settings.horizontalSplit" class="default-theme">
-    <Pane min-size="5" max-size="90" size="50">
+  <Splitpanes v-if="template" :horizontal="horizontalSplit" class="default-theme">
+    <Pane v-if="showIframe" min-size="5" :max-size="showBoth ? 90 : 100" :size="showBoth ? 50 : 100">
       <iframe class="w-full h-screen" :srcdoc="template.html" frameborder="0" width="100%" height="100%" />
     </Pane>
-    <Pane min-size="5" max-size="90" size="50">
+    <Pane v-if="showCode" min-size="5" :max-size="showBoth ? 90 : 100" :size="showBoth ? 50 : 100">
       <CodeContainer />
     </Pane>
   </Splitpanes>
