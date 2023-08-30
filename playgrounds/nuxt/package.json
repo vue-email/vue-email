@@ -15,7 +15,7 @@
     "@iconify-json/ph": "^1.1.6",
     "@nuxt/devtools": "latest",
     "@nuxthq/ui": "^2.7.0",
-    "nuxt": "^3.6.5",
+    "nuxt": "^3.7.0",
     "scule": "^1.0.0",
     "vue3-code-block": "^2.2.12"
   }

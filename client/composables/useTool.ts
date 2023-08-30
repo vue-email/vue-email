@@ -3,7 +3,6 @@ import { useStorage } from '@vueuse/core'
 export function useTool() {
   const isCommandPalletOpen = useState<boolean>('isCommandPalletOpen')
   const isSettingsOpen = useState<boolean>('isSettingsOpen')
-  const isDirectoryOpen = useState<boolean>('isDirectoryOpen')
   const settings = useStorage('settings', {
     horizontalSplit: false,
     email: '',
@@ -13,6 +12,5 @@ export function useTool() {
     isCommandPalletOpen,
     isSettingsOpen,
     settings,
-    isDirectoryOpen,
   }
 }

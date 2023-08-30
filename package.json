@@ -82,7 +82,7 @@
     "vue": ">=3.0.0"
   },
   "optionalDependencies": {
-    "@nuxt/kit": "^3.6.5"
+    "@nuxt/kit": "^3.7.0"
   },
   "dependencies": {
     "@flowko/tw-to-css": "^0.0.6",
@@ -96,27 +96,27 @@
     "vue-email": "link:."
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.40.2",
-    "@nuxt/kit": "^3.6.5",
-    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@antfu/eslint-config": "^0.41.0",
+    "@nuxt/kit": "^3.7.0",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@types/html-to-text": "^9.0.1",
     "@types/pretty": "^2.0.1",
-    "changelogen": "^0.5.4",
+    "changelogen": "^0.5.5",
     "cheerio": "1.0.0-rc.12",
-    "eslint": "^8.47.0",
+    "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "happy-dom": "^10.9.0",
+    "happy-dom": "^10.11.2",
     "html-to-text": "^9.0.5",
     "kolorist": "^1.8.0",
-    "nuxt": "^3.6.5",
-    "prettier": "^3.0.1",
+    "nuxt": "^3.7.0",
+    "prettier": "^3.0.3",
     "pretty": "^2.0.0",
-    "typescript": "^5.1.6",
-    "ufo": "^1.2.0",
-    "unbuild": "^1.2.1",
+    "typescript": "^5.2.2",
+    "ufo": "^1.3.0",
+    "unbuild": "^2.0.0",
     "vite": "4.4.9",
-    "vitest": "^0.34.1",
+    "vitest": "^0.34.3",
     "vue": "^3.3.4"
   }
 }
