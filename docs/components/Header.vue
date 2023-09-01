@@ -27,6 +27,7 @@ const config = useRuntimeConfig().public
         <UBadge :label="`v${config.version}`" variant="subtle" />
       </NuxtLink>
       <UColorModeButton />
+      <USocialButton to="https://discord.gg/Z2RW7qvS3Q" target="_blank" icon="i-simple-icons-discord" class="hidden lg:inline-flex" />
       <USocialButton to="https://github.com/Dave136/vue-email" target="_blank" icon="i-simple-icons-github" class="hidden lg:inline-flex" />
     </template>
 

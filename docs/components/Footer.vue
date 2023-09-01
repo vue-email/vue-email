@@ -9,6 +9,7 @@ const config = useRuntimeConfig().public
     </NuxtLink>
 
     <div class="flex-1 flex items-center justify-end gap-1.5 -my-1 lg:hidden">
+      <USocialButton to="https://discord.gg/Z2RW7qvS3Q" target="_blank" icon="i-simple-icons-discord" />
       <USocialButton to="https://github.com/Dave136/vue-email" target="_blank" icon="i-simple-icons-github" />
     </div>
   </footer>
