@@ -1,13 +1,17 @@
 {
   "private": true,
+  "dependencies": {
+    "vue-email": "workspace:~",
+    "@nuxthq/ui": "2.7.0"
+  },
   "devDependencies": {
+    "@flowko/docs-template": "0.0.5",
     "@iconify-json/heroicons": "latest",
     "@iconify-json/ph": "latest",
     "@iconify-json/simple-icons": "latest",
     "@iconify-json/twemoji": "latest",
     "@nuxt/content": "^2.8.1",
     "@nuxthq/studio": "^0.13.4",
-    "@nuxthq/ui": "2.7.0",
     "@nuxtjs/fontaine": "^0.4.1",
     "@nuxtjs/google-fonts": "^3.0.2",
     "@nuxtjs/plausible": "^0.2.1",
@@ -16,7 +20,6 @@
     "lodash-es": "^4.17.21",
     "nuxt": "^3.7.0",
     "nuxt-component-meta": "^0.5.3",
-    "nuxt-lodash": "^2.5.0",
-    "vue-email": "workspace:~"
+    "nuxt-lodash": "^2.5.0"
   }
 }

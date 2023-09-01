@@ -5,7 +5,11 @@ import vueEmailModule from '../src/nuxt/module'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/content', vueEmailModule, '@nuxthq/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt', 'nuxt-lodash'],
+  devtools: {
+    enabled: false,
+  },
+  extends: '@flowko/docs-template',
+  modules: ['@nuxt/content', '@nuxthq/ui', vueEmailModule, '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt', 'nuxt-lodash'],
   alias: {
     'vue-email': resolve(__dirname, '../src/index.ts'),
     'vue-email/compiler': resolve(__dirname, '../src/compiler/index.ts'),
@@ -26,31 +30,14 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
-      routes: ['/getting-started'],
+      routes: ['/getting-started', '/api/search.json'],
     },
   },
   routeRules: {
     '/': { redirect: '/getting-started', prerender: false },
   },
-  experimental: {
-    payloadExtraction: false,
-  },
   typescript: {
     strict: false,
     includeWorkspace: true,
-  },
-  css: ['~/assets/css/scrollbars.css'],
-  content: {
-    highlight: {
-      theme: {
-        light: 'material-theme-lighter',
-        default: 'material-theme',
-        dark: 'material-theme-palenight',
-      },
-      preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'ini'],
-    },
-    navigation: {
-      fields: ['icon'],
-    },
   },
 })
