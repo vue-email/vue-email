@@ -120,5 +120,10 @@
     "vite": "4.4.9",
     "vitest": "^0.34.1",
     "vue": "^3.3.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "node-fetch-native": "1.4.0"
+    }
   }
 }
