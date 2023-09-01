@@ -1,6 +1,7 @@
 export interface Email {
   label: string
   filename: string
+  content: string
   icon: string
   size: number
   created: Date
@@ -14,9 +15,10 @@ export interface Directory {
 }
 
 export type ActiveView = 'desktop' | 'mobile' | 'source'
-export type ActiveLang = 'html' | 'txt'
+export type ActiveLang = 'html' | 'txt' | 'vue'
 
 export interface Template {
+  vue: string
   html: string
   txt: string
 }
