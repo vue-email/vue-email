@@ -3,7 +3,8 @@ import { version } from '../../package.json'
 </script>
 
 <template>
-  <div class="flex flex-col md:flex-row items-center justify-between gap-3 py-3 h-auto md:h-10">
+  <div class="flex relative flex-col md:flex-row items-center justify-between gap-3 py-3 h-auto md:h-10">
+    <NuxtLoadingIndicator :throttle="0" :height="5" />
     <div class="flex items-center gap-2 text-xl">
       <NuxtLink to="/" class="flex items-center gap-2">
         <UIcon name="i-twemoji-incoming-envelope" />
