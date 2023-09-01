@@ -5,9 +5,10 @@ import { copyTextToClipboard } from '@/util/copy-text-to-clipboard'
 defineEmits(['setlang'])
 
 const toast = useToast()
+const { editorCode } = useTool()
 const { template, email } = useEmail()
 
-function handleDownload(lang: 'html' | 'txt') {
+function handleDownload(lang: 'html' | 'txt' | 'vue') {
   const content = template.value[lang]
   const file = new File([content], `${camelCase(email.value.label)}.${lang}`)
   const url = URL.createObjectURL(file)
@@ -25,7 +26,7 @@ function handleDownload(lang: 'html' | 'txt') {
   })
 }
 
-async function handleClipboard(lang: 'html' | 'txt') {
+async function handleClipboard(lang: 'html' | 'txt' | 'vue') {
   await copyTextToClipboard(template.value[lang])
   toast.add({
     title: 'Copied to clipboard',
@@ -34,20 +35,55 @@ async function handleClipboard(lang: 'html' | 'txt') {
   })
 }
 
-const items = [
-  {
-    key: 'html',
-    label: 'HTML',
-    icon: 'i-ph-file-html-duotone',
-    code: template.value.html,
-  },
-  {
-    key: 'txt',
-    label: 'Plain Text',
-    icon: 'i-ph-text-t-duotone',
-    code: template.value.txt,
-  },
-]
+const items = computed(() => {
+  let arr = []
+
+  if (editorCode.value.id === 'all') {
+    arr = [
+      {
+        key: 'vue',
+        label: 'Vue',
+        icon: 'i-ph-file-vue-duotone',
+        code: template.value.vue,
+      },
+      {
+        key: 'html',
+        label: 'HTML',
+        icon: 'i-ph-file-html-duotone',
+        code: template.value.html,
+      },
+      {
+        key: 'txt',
+        label: 'Plain Text',
+        icon: 'i-ph-text-t-duotone',
+        code: template.value.txt,
+      },
+    ]
+  } else if (editorCode.value.id === 'html') {
+    arr.push({
+      key: 'html',
+      label: 'HTML',
+      icon: 'i-ph-file-html-duotone',
+      code: template.value.html,
+    })
+  } else if (editorCode.value.id === 'txt') {
+    arr.push({
+      key: 'txt',
+      label: 'Plain Text',
+      icon: 'i-ph-text-t-duotone',
+      code: template.value.txt,
+    })
+  } else if (editorCode.value.id === 'vue') {
+    arr.push({
+      key: 'vue',
+      label: 'Vue',
+      icon: 'i-ph-file-vue-duotone',
+      code: template.value.vue,
+    })
+  }
+
+  return arr
+})
 
 const tab = ref('html')
 </script>

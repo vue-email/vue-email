@@ -9,6 +9,7 @@ export function useEmail() {
   const sending = useState<boolean>('sending', () => false)
   const refresh = useState<boolean>('refresh', () => false)
   const template = useState<{
+    vue: string
     html: string
     txt: string
   }>('template')
@@ -37,6 +38,7 @@ export function useEmail() {
 
     if (data.value)
       return {
+        vue: email.value.content,
         html: pretty(data.value),
         txt: convert(data.value, {
           selectors: [

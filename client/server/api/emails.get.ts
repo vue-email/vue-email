@@ -10,10 +10,12 @@ export default defineEventHandler(async () => {
       nitroEmails.map(async (email) => {
         const data = JSON.stringify(await useStorage('assets:emails').getMeta(email))
         const emailData = JSON.parse(data)
+        const content = (await useStorage('assets:emails').getItem(email)) as string
 
         return {
           label: pascalCase(kebabCase(email.replace('.vue', '').replace(':', '_')).split('-').join(' ')),
           filename: email,
+          content,
           icon: 'i-heroicons-envelope',
           size: emailData.size,
           created: emailData.birthtime,

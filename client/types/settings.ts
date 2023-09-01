@@ -8,3 +8,9 @@ export interface PreviewModes {
   label: string
   icon: string
 }
+
+export interface editorCodes {
+  id: 'all' | 'html' | 'txt' | 'vue'
+  label: string
+  icon: string
+}
