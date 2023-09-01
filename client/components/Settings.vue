@@ -37,8 +37,8 @@ const { isSettingsOpen, email, horizontalSplit, previewMode, previewModes, edito
         </USelectMenu>
       </div>
       <hr class="border-gray-700" />
-      <UFormGroup class="" size="sm" label="Sender Email" description="The email address that will be used to send the test email">
-        <UInput v-model="email" placeholder="you@example.com" icon="i-heroicons-envelope"
+      <UFormGroup class="" size="sm" label="Email" description="The email address that will be used to send the test emails">
+        <UInput v-model="email" class="mt-2" placeholder="you@example.com" icon="i-heroicons-envelope"
       /></UFormGroup>
     </div>
   </UModal>
