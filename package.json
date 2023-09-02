@@ -86,16 +86,17 @@
   },
   "dependencies": {
     "@flowko/tw-to-css": "^0.0.6",
-    "isomorphic-dompurify": "^1.8.0",
-    "module-from-string": "^3.3.0",
-    "fs-extra": "^11.1.1",
     "@types/fs-extra": "^11.0.1",
-    "sirv": "^2.0.3"
+    "fs-extra": "^11.1.1",
+    "isomorphic-dompurify": "^1.8.0",
+    "sirv": "^2.0.3",
+    "esbuild": "^0.19.2"
   },
   "resolutions": {
     "vue-email": "link:."
   },
   "devDependencies": {
+    "nanoid": "^4.0.2",
     "@antfu/eslint-config": "^0.41.0",
     "@nuxt/kit": "^3.7.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
