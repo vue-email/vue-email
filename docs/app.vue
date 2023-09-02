@@ -28,6 +28,11 @@ const anchors = [
     to: 'https://github.com/Dave136/vue-email/releases',
     target: '_blank',
   },
+  {
+    label: 'Changelog',
+    icon: 'i-heroicons-document-text-solid',
+    to: '/changelog',
+  },
 ]
 
 // Computed
@@ -82,7 +87,7 @@ provide('files', files)
           <template #left>
             <UAside :links="anchors">
               <!-- <BranchSelect /> -->
-              <UNavigationTree :links="mapContentNavigation(navigation)" />
+              <UNavigationTree :links="mapContentNavigation(navigation.filter((item) => item._path !== '/changelog'))" />
             </UAside>
           </template>
 

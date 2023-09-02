@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     enabled: false,
   },
   extends: '@flowko/docs-template',
-  modules: ['@nuxt/content', '@nuxthq/ui', vueEmailModule, '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt', 'nuxt-lodash'],
+  modules: ['@nuxt/content', '@nuxthq/ui', '@nuxtlabs/github-module', vueEmailModule, '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt', 'nuxt-lodash'],
   alias: {
     'vue-email': resolve(__dirname, '../src/index.ts'),
     'vue-email/compiler': resolve(__dirname, '../src/compiler/index.ts'),
@@ -39,5 +39,10 @@ export default defineNuxtConfig({
   typescript: {
     strict: false,
     includeWorkspace: true,
+  },
+  github: {
+    owner: 'Dave136',
+    repo: 'vue-email',
+    branch: 'main',
   },
 })
