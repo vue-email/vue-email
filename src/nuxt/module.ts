@@ -43,7 +43,7 @@ export default defineNuxtModule<ModuleOptions>({
     const playgroundDir = resolve('../dist/client')
     const isDev = process.env.NODE_ENV === 'development' || nuxt.options.dev
 
-    nuxt.options.runtimeConfig.public.vueEmailOptions = options
+    nuxt.options.runtimeConfig.public.vueEmailOptions = options || {}
 
     if (!nuxt.options.build.transpile) nuxt.options.build.transpile = []
     const transpileList = ['defu', 'vue-email']

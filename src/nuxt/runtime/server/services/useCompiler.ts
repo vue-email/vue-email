@@ -1,4 +1,5 @@
 import type { VueEmailPluginOptions } from 'vue-email'
+import type { RenderOptions } from '../../../../types/compiler'
 import { templateRender } from 'vue-email/compiler'
 import { useRuntimeConfig, useStorage } from '#imports'
 
@@ -19,22 +20,14 @@ import { useRuntimeConfig, useStorage } from '#imports'
  * })
  * ```
  */
-export async function useCompiler(filename: string, { props = {}, i18n = {} }) {
+export async function useCompiler(filename: string, data: RenderOptions, verbose = false) {
   const vueEmailOptions = useRuntimeConfig().public.vueEmailOptions as VueEmailPluginOptions
   const source = await useStorage('assets:emails').getItem(filename)
 
-  const template = await templateRender(
-    filename,
-    source,
-    {
-      props,
-      ...i18n,
-    },
-    {
-      verbose: false,
-      options: vueEmailOptions,
-    },
-  )
+  const template = await templateRender(filename, source, data, {
+    verbose,
+    options: vueEmailOptions,
+  })
 
   return template
 }

@@ -1,9 +1,9 @@
-import { VueEmailPlugin } from 'vue-email'
+import { VueEmailPlugin, VueEmailPluginOptions } from 'vue-email'
 import {defineNuxtPlugin, useRuntimeConfig } from "#app"
 
 export default defineNuxtPlugin(async (nuxtApp) => {
   const config = useRuntimeConfig()
-  const { i18n: _, pluginOptions } = config
+  const options = config.public['vueEmailOptions'] as VueEmailPluginOptions
 
-  nuxtApp.vueApp.use(VueEmailPlugin, pluginOptions)
+  nuxtApp.vueApp.use(VueEmailPlugin, options)  
 })

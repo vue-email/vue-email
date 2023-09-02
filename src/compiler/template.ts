@@ -4,52 +4,59 @@ import { renderToString } from 'vue/server-renderer'
 import { blue, bold, lightGreen, red, white } from 'kolorist'
 import { importFromStringSync } from 'module-from-string'
 import type { Component } from 'vue'
-import type { Options, RenderOptions } from '../types/compiler'
 import { VueEmailPlugin } from 'vue-email'
+import type { Options, RenderOptions, i18n } from '../types/compiler'
 
 const scriptIdentifier = '_sfc_main'
 
 export async function templateRender(name: string, source: string, options?: RenderOptions, config?: Options): Promise<string> {
   let vueI18n
-  const output = compile(name, source, config?.verbose)
+
+  const verbose = config?.verbose || false
+  const i18nOptions: i18n = {
+    defaultLocale: options?.i18n?.defaultLocale || config?.options?.i18n?.defaultLocale || 'en',
+    translations: options?.i18n?.translations || config?.options?.i18n?.translations,
+  }
+  const props = options?.props || config?.options?.props
+
+  const output = compile(name, source, verbose)
   const component: Component = importFromStringSync(output, {
     transformOptions: { loader: 'ts' },
   }).default
 
-  try {
-    if (config?.i18n) {
-      vueI18n = await import('vue-i18n')
-    }
-  } catch (error) {
-    throw new Error(`${lightGreen('❌')} ${bold(red(`Missing vue-i18n dependency`))} ${white('please install it using: ')} ${bold(white('npm i vue-i18n@9'))}`)
-  }
-
-  if (config?.verbose) {
+  if (verbose) {
     console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
   }
 
-  const app = createApp(component, options?.props)
+  const app = createApp(component, props)
   app.use(VueEmailPlugin, config?.options)
 
-  const locale = options?.locale || config?.i18n?.defaultLocale
-  if (locale && vueI18n) {
-    if (config?.verbose) {
-      console.warn(`${lightGreen('🌐')} ${bold(blue('Injecting translations'))}`)
+  if (i18nOptions) {
+    try {
+      vueI18n = await import('vue-i18n')
+    } catch (error) {
+      throw new Error(`${lightGreen('❌')} ${bold(red(`Missing vue-i18n dependency`))} ${white('please install it using: ')} ${bold(white('npm i vue-i18n@9'))}`)
     }
+    const locale = i18nOptions.defaultLocale
+    if (locale && vueI18n) {
+      if (verbose) {
+        console.warn(`${lightGreen('🌎')} ${bold(blue('Injecting translations'))}`)
+      }
 
-    const i18n = vueI18n.createI18n({
-      locale,
-      fallbackLocale: config?.i18n?.defaultLocale,
-      messages: options?.translations || config?.i18n?.translations,
-      silentFallbackWarn: !config?.verbose,
-      silentTranslationWarn: !config?.verbose,
-      warnHtmlInMessage: 'off',
-    })
+      const i18n = vueI18n.createI18n({
+        locale,
+        fallbackLocale: i18nOptions.defaultLocale,
+        messages: i18nOptions.translations,
+        silentFallbackWarn: !verbose,
+        silentTranslationWarn: !verbose,
+        warnHtmlInMessage: 'off',
+      })
 
-    app.use(i18n)
+      app.use(i18n)
+    }
   }
 
-  if (config?.verbose) {
+  if (verbose) {
     console.warn(`${lightGreen('🎉')} ${bold(blue('Rendering template'))} ${bold(lightGreen(name))}`)
   }
 

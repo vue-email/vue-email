@@ -42,21 +42,23 @@ describe('compiler', () => {
 
   it('Should translate template content', async () => {
     const vuemail = config(path, {
-      i18n: {
-        defaultLocale: 'en',
-        translations: {
-          en: {
-            message: 'Hello world!',
-          },
-          es: {
-            message: 'Hola mundo!',
+      options: {
+        i18n: {
+          defaultLocale: 'en',
+          translations: {
+            en: {
+              message: 'Hello world!',
+            },
+            es: {
+              message: 'Hola mundo!',
+            },
           },
         },
       },
     })
 
-    const templateEn = await vuemail.render('Translate.vue', { locale: 'en' })
-    const templateEs = await vuemail.render('Translate.vue', { locale: 'es' })
+    const templateEn = await vuemail.render('Translate.vue', { i18n: { defaultLocale: 'en' } })
+    const templateEs = await vuemail.render('Translate.vue', { i18n: { defaultLocale: 'es' } })
 
     expect(templateEn.includes('Hello world!')).toBe(true)
     expect(templateEs.includes('Hola mundo!')).toBe(true)

@@ -1,11 +1,33 @@
-export function assign(to, from) {
-  for (const key in from) {
-    if (Object.prototype.hasOwnProperty.call(from, key)) {
-      if (typeof from[key] === 'object' && to[key]) {
-        assign(to[key], from[key])
+/**
+ * Checks if item is an object.
+ *
+ * @param item
+ */
+function isObject(item: unknown): boolean {
+  return !!item && typeof item === 'object' && !Array.isArray(item)
+}
+
+/**
+ * Deep merges two objects.
+ *
+ * @param target
+ * @param sources
+ */
+
+export function deepmerge<T extends Record<string, any>>(target: T, ...sources: T[]): T {
+  if (!sources.length) return target
+  const source = sources.shift()
+
+  if (isObject(target) && isObject(source)) {
+    for (const key in source) {
+      if (isObject(source[key])) {
+        if (!target[key]) Object.assign(target, { [key]: {} })
+        deepmerge(target[key], source[key])
       } else {
-        to[key] = from[key]
+        Object.assign(target, { [key]: source[key] })
       }
     }
   }
+
+  return deepmerge(target, ...sources)
 }
