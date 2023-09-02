@@ -4,8 +4,8 @@ import { renderToString } from 'vue/server-renderer'
 import { blue, bold, lightGreen, red, white } from 'kolorist'
 import { importFromStringSync } from 'module-from-string'
 import type { Component } from 'vue'
-import { VueEmailPlugin } from 'vue-email'
 import type { Options, RenderOptions, i18n } from '../types/compiler'
+import { VueEmailPlugin } from '../plugin'
 
 const scriptIdentifier = '_sfc_main'
 

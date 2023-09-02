@@ -8,6 +8,7 @@ defineProps({
   },
   template: {
     type: Object as PropType<{
+      vue: string
       html: string
       txt: string
     }>,
@@ -130,6 +131,10 @@ watchEffect(() => {
       <CodeContainer
         :active-lang="activeLang"
         :markups="[
+          {
+            language: 'vue',
+            content: template.vue,
+          },
           {
             language: 'html',
             content: template.html,
