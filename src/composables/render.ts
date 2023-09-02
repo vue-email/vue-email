@@ -2,6 +2,7 @@ import { type Component, createApp, h } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import { convert } from 'html-to-text'
 import pretty from 'pretty'
+import { replaceString } from '../utils/compiler'
 
 export interface Options {
   pretty?: boolean
@@ -43,16 +44,4 @@ export async function useRender(
   }
 
   return doc
-}
-
-function replaceString(str: string) {
-  if (!str || typeof str !== 'string') return str
-
-  return str
-    .replace(/ data-v-inspector="[^"]*"/g, '')
-    .replace(/<!--\[-->/g, '')
-    .replace(/<!--]-->/g, '')
-    .replace(/<!---->/g, '')
-    .replace(/<template>/g, '')
-    .replace(/<\/template>/g, '')
 }

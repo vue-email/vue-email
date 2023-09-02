@@ -6,6 +6,7 @@ import type { Component } from 'vue'
 import { importFromStringSync } from '../utils/import-from-string'
 import type { Options, RenderOptions } from '../types/compiler'
 import { VueEmailPlugin } from '../plugin'
+import { replaceString } from '../utils/compiler'
 
 const scriptIdentifier = '_sfc_main'
 
@@ -80,16 +81,4 @@ function compile(filename: string, source: string, verbose = false) {
   `
 
   return output
-}
-
-function replaceString(str: string) {
-  if (!str || typeof str !== 'string') return str
-
-  return str
-    .replace(/ data-v-inspector="[^"]*"/g, '')
-    .replace(/<!--\[-->/g, '')
-    .replace(/<!--]-->/g, '')
-    .replace(/<template>/g, '')
-    .replace(/<template[^>]*>/g, '')
-    .replace(/<\/template>/g, '')
 }
