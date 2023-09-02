@@ -38,5 +38,6 @@ export default defineNuxtConfig({
   },
   vueEmail: {
     baseUrl: 'https://vue-email-demo.vercel.app/',
+    playground: false,
   },
 })

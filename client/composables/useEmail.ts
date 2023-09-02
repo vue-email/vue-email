@@ -1,4 +1,3 @@
-import { kebabCase } from 'scule'
 import pretty from 'pretty'
 import { convert } from 'html-to-text'
 import type { Email } from '@/types/email'
@@ -9,9 +8,14 @@ export function useEmail() {
   const email = useState<Email>('email')
   const sending = useState<boolean>('sending', () => false)
   const refresh = useState<boolean>('refresh', () => false)
+  const template = useState<{
+    vue: string
+    html: string
+    txt: string
+  }>('template')
 
   const getEmails = async () => {
-    const { data, error } = await useFetch<string[]>('/api/emails', {
+    const { data, error } = await useFetch<Email[]>('/api/emails', {
       baseURL: host.value,
     })
 
@@ -21,78 +25,20 @@ export function useEmail() {
     }
 
     if (data && data.value) {
-      const emailTemplates = data.value.reduce((acc, email) => {
-        const emailName = email.replace('.vue', '')
-
-        const parts = emailName.split(':')
-        const name = kebabCase(parts[parts.length - 1])
-        let targetArray = acc
-        for (let i = 0; i < parts.length - 1; i++) {
-          const folder = parts[i]
-          const folderObj = targetArray.find((item) => item.label === folder)
-
-          if (folderObj) {
-            targetArray = folderObj.children || []
-          } else {
-            const newFolderObj = { label: folder, children: [] }
-            targetArray.push(newFolderObj)
-            targetArray = newFolderObj.children
-          }
-        }
-
-        targetArray.push({ label: name, to: `/preview/${emailName}`, component: email, icon: 'i-ph-file-bold' })
-
-        return acc
-      }, [] as Email[])
-
-      emails.value = emailTemplates
+      emails.value = data.value
     }
   }
 
-  const getEmail = async (name: string) => {
-    if (emails.value && emails.value.length) {
-      name = `${name}.vue`
-      let foundEmail = null
+  const renderEmail = async () => {
+    if (!email.value) return null
 
-      const findInChildren = (children: Email[]): Email | null => {
-        for (const child of children) {
-          if (child.component === name) {
-            return child
-          }
-
-          if (child.children && child.children.length) {
-            const nestedMatch = findInChildren(child.children)
-            if (nestedMatch) {
-              return nestedMatch
-            }
-          }
-        }
-        return null
-      }
-
-      const directMatch = emails.value.find((email) => email.component === name)
-      if (directMatch) {
-        foundEmail = directMatch
-      } else {
-        // If no direct match, search recursively in the children array
-        foundEmail = findInChildren(emails.value)
-      }
-
-      if (foundEmail) {
-        email.value = foundEmail
-      }
-    }
-
-    return null
-  }
-
-  const render = async (name: string) => {
-    const { data } = await useFetch<string>(`/api/render/${name}`, {
+    const { data } = await useFetch<string>(`/api/render/${email.value.filename}`, {
       baseURL: host.value,
     })
 
     if (data.value)
       return {
+        vue: email.value.content,
         html: pretty(data.value),
         txt: convert(data.value, {
           selectors: [
@@ -103,6 +49,20 @@ export function useEmail() {
       }
 
     return null
+  }
+
+  const getEmail = async (filename: string) => {
+    if (filename && emails.value && emails.value.length) {
+      const found = emails.value.find((email) => email.filename === filename)
+
+      if (found) {
+        email.value = found
+
+        await renderEmail().then((value) => {
+          if (value) template.value = value
+        })
+      }
+    }
   }
 
   const sendTestEmail = async (to: string, subject: string, markup: string) => {
@@ -131,6 +91,15 @@ export function useEmail() {
           icon: 'i-ph-bell-bold',
         })
       }
+
+      if (response.status === 200) {
+        useToast().add({
+          title: 'Success',
+          description: 'Email sent successfully.',
+          color: 'green',
+          icon: 'i-ph-bell-bold',
+        })
+      }
     } catch (error) {
       useToast().add({
         title: 'Error',
@@ -143,15 +112,15 @@ export function useEmail() {
     }
   }
 
-  getEmails()
-
   return {
     email,
     emails,
     sending,
     refresh,
+    template,
     getEmail,
     sendTestEmail,
-    render,
+    renderEmail,
+    getEmails,
   }
 }

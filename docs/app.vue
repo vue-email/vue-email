@@ -1,20 +1,14 @@
+<!-- eslint-disable vue/no-v-html -->
 <script setup lang="ts">
 const colorMode = useColorMode()
+const { mapContentNavigation } = useElementsHelpers()
 
-const { data: links } = await useAsyncData('navigation', () => fetchContentNavigation(), {
-  transform: (navigation) => mapContentLinks(navigation),
+const { data: nav } = await useAsyncData('navigation', () => fetchContentNavigation())
+
+const { data: search } = useLazyFetch('/api/search.json', {
+  default: () => [],
+  server: false,
 })
-
-const { data: files } = await useLazyAsyncData(
-  'files',
-  () =>
-    queryContent()
-      .where({ _type: 'markdown', navigation: { $ne: false } })
-      .find(),
-  { default: () => [] },
-)
-
-provide('links', links)
 
 const anchors = [
   {
@@ -34,12 +28,28 @@ const anchors = [
     to: 'https://github.com/Dave136/vue-email/releases',
     target: '_blank',
   },
+  {
+    label: 'Changelog',
+    icon: 'i-heroicons-document-text-solid',
+    to: '/changelog',
+  },
 ]
 
 // Computed
 
+const navigation = computed(() => {
+  const navigation = nav.value
+
+  return navigation
+})
+
+const files = computed(() => {
+  const files = search.value.filter((file) => file._path)
+
+  return files
+})
+
 const color = computed(() => (colorMode.value === 'dark' ? '#18181b' : 'white'))
-const config = useRuntimeConfig().public
 
 // Head
 
@@ -53,9 +63,6 @@ useHead({
   htmlAttrs: {
     lang: 'en',
   },
-  bodyAttrs: {
-    class: 'antialiased font-sans text-foreground bg-background',
-  },
 })
 
 useSeoMeta({
@@ -63,42 +70,25 @@ useSeoMeta({
   twitterImage: '/social-preview.jpg',
   twitterCard: 'summary_large_image',
 })
+
+// Provide
+
+provide('navigation', navigation)
+provide('files', files)
 </script>
 
 <template>
   <div>
-    <UHeader>
-      <template #left>
-        <NuxtLink to="/getting-started" class="flex items-end gap-1.5 font-bold text-xl text-gray-900 dark:text-white">
-          <Logo class="w-8 h-8" />
-
-          <span class="hidden sm:block"><span class="sm:text-primary-500 dark:sm:text-primary-400">Vue</span>Email</span>
-        </NuxtLink>
-      </template>
-
-      <template #center>
-        <UDocsSearchButton class="ml-1.5 flg:w-64 xl:w-96" />
-      </template>
-
-      <template #right>
-        <NuxtLink :to="`https://github.com/Dave136/vue-email/releases/tag/v${config.version}`" target="_blank" class="inline-flex">
-          <UBadge :label="`v${config.version}`" />
-        </NuxtLink>
-        <ColorModeButton />
-        <UButtonsSocialButton to="https://github.com/Dave136/vue-email" target="_blank" icon="i-simple-icons-github" class="hidden lg:inline-flex" />
-      </template>
-
-      <template #links>
-        <UAsideAnchors :links="anchors" />
-        <UAsideLinks :links="links" />
-      </template>
-    </UHeader>
+    <Header />
 
     <UMain>
       <UContainer>
         <UPage>
           <template #left>
-            <UAside :links="links" :anchors="anchors" />
+            <UAside :links="anchors">
+              <!-- <BranchSelect /> -->
+              <UNavigationTree :links="mapContentNavigation(navigation.filter((item) => item._path !== '/changelog'))" />
+            </UAside>
           </template>
 
           <NuxtPage />
@@ -107,7 +97,7 @@ useSeoMeta({
     </UMain>
 
     <ClientOnly>
-      <UDocsSearch :files="files" :links="links" />
+      <LazyUDocsSearch :files="files" :navigation="navigation" />
     </ClientOnly>
 
     <UNotifications>
