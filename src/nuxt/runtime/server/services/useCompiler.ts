@@ -1,5 +1,4 @@
-import type { VueEmailPluginOptions } from 'vue-email'
-import type { RenderOptions } from '../../../../types/compiler'
+import type { RenderOptions, VueEmailPluginOptions } from '../../../../types'
 import { templateRender } from 'vue-email/compiler'
 import { useRuntimeConfig, useStorage } from '#imports'
 
