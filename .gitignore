@@ -107,5 +107,3 @@ archive
 
 # compiler dist
 compiler/*
-
-playgrounds/nuxt/emails/test.vue
