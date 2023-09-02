@@ -6,7 +6,7 @@ import type { Component } from 'vue'
 import { importFromStringSync } from '../utils/import-from-string'
 import type { Options, RenderOptions } from '../types/compiler'
 import { VueEmailPlugin } from '../plugin'
-import { replaceString } from '../utils/compiler'
+import { cleanup } from '../utils'
 
 const scriptIdentifier = '_sfc_main'
 
@@ -24,7 +24,7 @@ export async function templateRender(name: string, source: string, options?: Ren
   app.use(VueEmailPlugin, config?.options)
   const markup = await renderToString(app)
   const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
-  const doc = `${doctype}${replaceString(markup)}`
+  const doc = `${doctype}${cleanup(markup)}`
 
   if (config?.verbose) {
     console.warn(`${lightGreen('🎉')} ${bold(blue('Rendering template'))} ${bold(lightGreen(name))}`)

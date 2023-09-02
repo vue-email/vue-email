@@ -2,7 +2,7 @@ import { type Component, createApp, h } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import { convert } from 'html-to-text'
 import pretty from 'pretty'
-import { replaceString } from '../utils/compiler'
+import { cleanup } from '../utils'
 
 export interface Options {
   pretty?: boolean
@@ -37,7 +37,7 @@ export async function useRender(
     })
   }
 
-  const doc = `${doctype}${replaceString(markup)}`
+  const doc = `${doctype}${cleanup(markup)}`
 
   if (options.pretty) {
     return pretty(doc)
