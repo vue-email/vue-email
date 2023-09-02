@@ -1,29 +1,30 @@
 import { resolve } from 'node:path'
+import vueEmailModule from '../src/nuxt/module'
 
 export default defineNuxtConfig({
   ssr: false,
-  devtools: { enabled: false },
-  modules: ['@nuxt/devtools-ui-kit', '@nuxthq/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts'],
+  devtools: { enabled: true },
+  alias: {
+    'vue-email': resolve(__dirname, '../src/index.ts'),
+    'vue-email/compiler': resolve(__dirname, '../src/compiler/index.ts'),
+  },
+  modules: [vueEmailModule, '@nuxthq/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
   nitro: {
     output: {
       publicDir: resolve(__dirname, '../dist/client'),
     },
   },
   app: {
-    baseURL: '/__vue_email__/client',
+    baseURL: process.env.NODE_ENV === 'development' ? undefined : '/__vue_email__/client',
   },
   vite: {
-    // fixes shiki bug
-    define: {
-      'process.env.VSCODE_TEXTMATE_DEBUG': 'false',
-    },
     build: {
       target: 'esnext',
     },
   },
   ui: {
     global: true,
-    icons: ['heroicons', 'ph'],
+    icons: ['heroicons', 'simple-icons', 'ph', 'twemoji', 'fluent'],
   },
   googleFonts: {
     families: {
@@ -34,8 +35,9 @@ export default defineNuxtConfig({
     exposeConfig: true,
     viewer: false,
   },
-  colorMode: {
-    preference: 'dark',
-    fallback: 'dark',
+  ignore: ['emails/**/*'],
+  vueEmail: {
+    playground: false,
+    baseUrl: 'https://vue-email-demo.vercel.app/',
   },
 })

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  titleTemplate: (title) => (title && title.includes('Vue Email') ? title : `${title} - Vue Email`),
+  title: 'Vue Email Devtools',
   meta: [
     {
       name: 'viewport',
@@ -12,9 +12,13 @@ useHead({
     lang: 'en',
   },
   bodyAttrs: {
-    class: 'antialiased font-sans text-gray-200 bg-gray-900',
+    class: 'antialiased font-sans overflow-hidden',
   },
 })
+
+const { getEmails } = useEmail()
+
+await getEmails()
 </script>
 
 <template>
