@@ -1,6 +1,30 @@
 # Changelog
 
 
+## v0.6.7
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.6.6...v0.6.7)
+
+### 💅 Refactors
+
+- Replace `VueEmailPLuginOptions` by `VueEmailPluginOptions` ([3d142e0](https://github.com/Dave136/vue-email/commit/3d142e0))
+- Improving nuxt devtools UI/UX ([#56](https://github.com/Dave136/vue-email/pull/56))
+
+### 📖 Documentation
+
+- Updaetd devtools image ([a9958d6](https://github.com/Dave136/vue-email/commit/a9958d6))
+- Updated to show without importing vue-email components ([470d40e](https://github.com/Dave136/vue-email/commit/470d40e))
+
+### 🏡 Chore
+
+- Updated example images ([40b056b](https://github.com/Dave136/vue-email/commit/40b056b))
+- Run lint:fix ([5002520](https://github.com/Dave136/vue-email/commit/5002520))
+
+### ❤️ Contributors
+
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+- David Arenas <davejs136@gmail.com>
+
 ## v0.6.6
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.6.5...v0.6.6)
