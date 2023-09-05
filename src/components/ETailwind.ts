@@ -1,8 +1,10 @@
 import { defineComponent, h } from 'vue'
 import { renderToString } from 'vue/server-renderer'
-import { load } from 'cheerio'
+import * as htmlparser2 from 'htmlparser2'
+import * as domutils from 'domutils'
 import { tailwindToCSS } from '@flowko/tw-to-css'
 import type { TailwindConfig } from '@flowko/tw-to-css'
+import render from 'dom-serializer'
 import { cleanCss, getMediaQueryCss, makeCssMap } from '../utils/css'
 
 export default defineComponent({
@@ -39,49 +41,60 @@ export default defineComponent({
       throw new Error('Tailwind: To use responsive styles you must have a <html> and <head> element in your template.')
     }
 
-    const $ = load(fullHTML, { decodeEntities: false, xmlMode: true })
+    const dom = htmlparser2.parseDocument(fullHTML)
 
-    $('*').each((index, domNode) => {
-      if (domNode.type === 'tag') {
-        if (hasResponsiveStyles && hasHead && domNode.name === 'head') {
-          $(domNode).append(`<style>${headStyle}</style>`)
+    const head = domutils.findOne((elem) => elem.name === 'head', dom.children)
+
+    if (hasResponsiveStyles && hasHead && head) {
+      domutils.appendChild(head, {
+        type: 'tag',
+        name: 'style',
+        children: [
+          {
+            type: 'text',
+            data: headStyle,
+          },
+        ],
+      } as any)
+    }
+
+    const hasAttrs = (elem: any) => elem.attribs && elem.attribs.class
+
+    domutils
+      .findAll((elem) => hasAttrs(elem), dom.children)
+      .forEach((elem) => {
+        const classAttr = elem.attribs.class
+        const cleanRegex = /[:#\!\-[\]\/\.%]+/g
+        const cleanTailwindClasses = classAttr.replace(cleanRegex, '_')
+
+        const currentStyles = elem.attribs.style || ''
+
+        const tailwindStyles = cleanTailwindClasses
+          .split(' ')
+          .map((className) => {
+            return cssMap[`.${className}`]
+          })
+          .filter((style) => style)
+          .join(';')
+
+        elem.attribs.style = `${currentStyles} ${tailwindStyles}`
+        const newClassAttr = classAttr
+          .split(' ')
+          .filter((className) => className.search(/^.{2}:/) !== -1)
+          .join(' ')
+          .replace(cleanRegex, '_')
+
+        if (newClassAttr) {
+          elem.attribs.class = newClassAttr
+        } else {
+          delete elem.attribs.class
         }
+      })
 
-        const $domNode = $(domNode)
-        const classAttr = $domNode.attr('class')
-
-        if (classAttr) {
-          const cleanRegex = /[:#\!\-[\]\/\.%]+/g
-          const cleanTailwindClasses = classAttr.replace(cleanRegex, '_')
-
-          const currentStyles = $domNode.attr('style') || ''
-
-          const tailwindStyles = cleanTailwindClasses
-            .split(' ')
-            .map((className) => {
-              return cssMap[`.${className}`]
-            })
-            .filter((style) => style)
-            .join(';')
-
-          $domNode.attr('style', `${currentStyles} ${tailwindStyles}`)
-
-          const newClassAttr = classAttr
-            .split(' ')
-            .filter((className) => className.search(/^.{2}:/) !== -1)
-            .join(' ')
-            .replace(cleanRegex, '_')
-
-          if (newClassAttr) {
-            $domNode.attr('class', newClassAttr)
-          } else {
-            $domNode.removeAttr('class')
-          }
-        }
-      }
+    const html = render(dom, {
+      decodeEntities: false,
+      xmlMode: true,
     })
-
-    const html = $.html()
 
     return () => {
       return h('template', { innerHTML: html })

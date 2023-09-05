@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  vue-email: link:.
+  node-fetch-native: 1.4.0
 
 importers:
 
@@ -49,9 +49,12 @@ importers:
       changelogen:
         specifier: ^0.5.5
         version: 0.5.5
-      cheerio:
-        specifier: 1.0.0-rc.12
-        version: 1.0.0-rc.12
+      dom-serializer:
+        specifier: ^2.0.0
+        version: 2.0.0
+      domutils:
+        specifier: ^3.1.0
+        version: 3.1.0
       eslint:
         specifier: ^8.48.0
         version: 8.48.0
@@ -67,6 +70,9 @@ importers:
       html-to-text:
         specifier: ^9.0.5
         version: 9.0.5
+      htmlparser2:
+        specifier: 9.0.0
+        version: 9.0.0
       kolorist:
         specifier: ^1.8.0
         version: 1.8.0
@@ -149,7 +155,7 @@ importers:
         specifier: ^3.1.5
         version: 3.1.5
       vue-email:
-        specifier: link:..
+        specifier: workspace:~
         version: link:..
 
   docs:
@@ -158,7 +164,7 @@ importers:
         specifier: 2.7.0
         version: 2.7.0(rollup@3.28.1)(vue@3.3.4)(webpack@5.88.2)
       vue-email:
-        specifier: link:..
+        specifier: workspace:~
         version: link:..
     devDependencies:
       '@flowko/docs-template':
@@ -219,7 +225,7 @@ importers:
   playgrounds/nuxt:
     dependencies:
       vue-email:
-        specifier: link:../..
+        specifier: workspace:~
         version: link:../..
     devDependencies:
       '@iconify-json/heroicons':
@@ -3053,7 +3059,7 @@ packages:
       '@babel/core': 7.22.11
       '@babel/plugin-transform-typescript': 7.22.11(@babel/core@7.22.11)
       '@vue/babel-plugin-jsx': 1.1.5(@babel/core@7.22.11)
-      vite: 4.4.9(sass@1.66.1)
+      vite: 4.4.9(@types/node@20.5.7)
       vue: 3.3.4
     transitivePeerDependencies:
       - supports-color
@@ -3066,7 +3072,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.4.9(sass@1.66.1)
+      vite: 4.4.9(@types/node@20.5.7)
       vue: 3.3.4
     dev: true
 
@@ -3366,7 +3372,7 @@ packages:
       '@vueuse/core': 10.4.1(vue@3.3.4)
       '@vueuse/metadata': 10.4.1
       local-pkg: 0.4.3
-      nuxt: 3.7.0(eslint@8.48.0)(rollup@3.28.1)(sass@1.66.1)(typescript@5.2.2)
+      nuxt: 3.7.0(eslint@8.48.0)(rollup@3.28.1)(typescript@5.2.2)
       vue-demi: 0.14.6(vue@3.3.4)
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -4222,30 +4228,6 @@ packages:
 
   /check-error@1.0.2:
     resolution: {integrity: sha512-BrgHpW9NURQgzoNyjfq0Wu6VFO6D7IZEmJNdtgNqpzGG8RuNFHt2jQxWlAs4HMe119chBnv+34syEZtc6IhLtA==}
-    dev: true
-
-  /cheerio-select@2.1.0:
-    resolution: {integrity: sha512-9v9kG0LvzrlcungtnJtpGNxY+fzECQKhK4EGJX2vByejiMX84MFNQw4UxPJl3bFbTMw+Dfs37XaIkCwTZfLh4g==}
-    dependencies:
-      boolbase: 1.0.0
-      css-select: 5.1.0
-      css-what: 6.1.0
-      domelementtype: 2.3.0
-      domhandler: 5.0.3
-      domutils: 3.1.0
-    dev: true
-
-  /cheerio@1.0.0-rc.12:
-    resolution: {integrity: sha512-VqR8m68vM46BNnuZ5NtnGBKIE/DfN0cRIzg9n40EIq9NOv90ayxLBXA8fXC5gquFRGJSTRqBq25Jt2ECLR431Q==}
-    engines: {node: '>= 6'}
-    dependencies:
-      cheerio-select: 2.1.0
-      dom-serializer: 2.0.0
-      domhandler: 5.0.3
-      domutils: 3.1.0
-      htmlparser2: 8.0.2
-      parse5: 7.1.2
-      parse5-htmlparser2-tree-adapter: 7.0.0
     dev: true
 
   /chokidar@3.5.3:
@@ -6938,6 +6920,15 @@ packages:
 
   /htmlparser2@8.0.2:
     resolution: {integrity: sha512-GYdjWKDkbRLkZ5geuHs5NY1puJ+PXwP7+fHPRz06Eirsb9ugf6d8kkXav6ADhcODhFFPMIXyxkxSuMf3D6NCFA==}
+    dependencies:
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+      domutils: 3.1.0
+      entities: 4.5.0
+    dev: true
+
+  /htmlparser2@9.0.0:
+    resolution: {integrity: sha512-uxbSI98wmFT/G4P2zXx4OVx04qWUmyFPrD2/CNepa2Zo3GPNaCaaxElDgwUrwYWkK1nr9fft0Ya8dws8coDLLQ==}
     dependencies:
       domelementtype: 2.3.0
       domhandler: 5.0.3
@@ -9805,13 +9796,6 @@ packages:
       parse-path: 7.0.0
     dev: true
 
-  /parse5-htmlparser2-tree-adapter@7.0.0:
-    resolution: {integrity: sha512-B77tOZrqqfUfnVcOrUvfdLbz4pu4RopLD/4vmu3HUPswwTA8OH0EMW9BlWR2B0RCoiZRAHEUu7IxeP1Pd1UU+g==}
-    dependencies:
-      domhandler: 5.0.3
-      parse5: 7.1.2
-    dev: true
-
   /parse5@6.0.1:
     resolution: {integrity: sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==}
     dev: true
@@ -12512,7 +12496,7 @@ packages:
       strip-ansi: 6.0.1
       tiny-invariant: 1.3.1
       typescript: 5.2.2
-      vite: 4.4.9(sass@1.66.1)
+      vite: 4.4.9(@types/node@20.5.7)
       vscode-languageclient: 7.0.0
       vscode-languageserver: 7.0.0
       vscode-languageserver-textdocument: 1.0.8
