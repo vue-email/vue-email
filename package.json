@@ -86,10 +86,10 @@
   },
   "dependencies": {
     "@flowko/tw-to-css": "^0.0.6",
+    "@types/fs-extra": "^11.0.1",
+    "fs-extra": "^11.1.1",
     "isomorphic-dompurify": "^1.8.0",
     "module-from-string": "^3.3.0",
-    "fs-extra": "^11.1.1",
-    "@types/fs-extra": "^11.0.1",
     "sirv": "^2.0.3"
   },
   "resolutions": {
@@ -102,12 +102,14 @@
     "@types/html-to-text": "^9.0.1",
     "@types/pretty": "^2.0.1",
     "changelogen": "^0.5.5",
-    "cheerio": "1.0.0-rc.12",
+    "dom-serializer": "^2.0.0",
+    "domutils": "^3.1.0",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "happy-dom": "^10.11.2",
     "html-to-text": "^9.0.5",
+    "htmlparser2": "9.0.0",
     "kolorist": "^1.8.0",
     "nuxt": "^3.7.0",
     "prettier": "^3.0.3",
@@ -118,5 +120,10 @@
     "vite": "4.4.9",
     "vitest": "^0.34.3",
     "vue": "^3.3.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "node-fetch-native": "1.4.0"
+    }
   }
 }
