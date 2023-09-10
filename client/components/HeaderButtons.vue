@@ -18,8 +18,5 @@ const isEmailRoute = computed(() => route.name === 'email-file')
     <UTooltip text="View Github Repo">
       <UButton icon="i-simple-icons-github" size="sm" color="gray" variant="solid" to="https://github.com/Dave136/vue-email" target="_blank" />
     </UTooltip>
-    <UTooltip text="Join Our Discord">
-      <UButton icon="i-simple-icons-discord" size="sm" color="blue" variant="solid" to="https://discord.gg/Z2RW7qvS3Q" target="_blank" />
-    </UTooltip>
   </div>
 </template>
