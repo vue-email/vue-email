@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { isSettingsOpen } = useTool()
+const { isSettingsOpen, reloadTemplate } = useTool()
 const route = useRoute()
 
 const isEmailRoute = computed(() => route.name === 'email-file')
@@ -12,6 +12,9 @@ const isEmailRoute = computed(() => route.name === 'email-file')
       <UButton icon="i-ph-gear-duotone" size="sm" color="gray" variant="solid" @click="isSettingsOpen = true" />
     </UTooltip>
     <SendEmail v-if="isEmailRoute" />
+    <UTooltip v-if="isEmailRoute" text="Reload template">
+      <UButton icon="i-ph-arrow-counter-clockwise-bold" size="sm" color="gray" variant="solid" @click="reloadTemplate = true" />
+    </UTooltip>
     <UTooltip text="Read Documentation">
       <UButton icon="i-ph-read-cv-logo-bold" size="sm" color="gray" variant="solid" label="Docs" to="https://www.vuemail.net/" target="_blank" />
     </UTooltip>
