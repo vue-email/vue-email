@@ -1,6 +1,157 @@
 # Changelog
 
 
+## v0.6.8
+
+[compare changes](https://github.com/Dave136/vue-email/compare/vue-email@0.3.0...v0.6.8)
+
+### 🚀 Enhancements
+
+- **component:** Added markdown ([#18](https://github.com/Dave136/vue-email/pull/18))
+- Added client folder for the up coming cli ([0229596](https://github.com/Dave136/vue-email/commit/0229596))
+- Added image baseurl config ([#31](https://github.com/Dave136/vue-email/pull/31))
+- Add icon to playground header ([#35](https://github.com/Dave136/vue-email/pull/35))
+- Add folder structure to nuxt preview ([#37](https://github.com/Dave136/vue-email/pull/37))
+- Server side compiler ([#21](https://github.com/Dave136/vue-email/pull/21))
+- Nuxt devtools integration ([#54](https://github.com/Dave136/vue-email/pull/54))
+- **client:** Reload template without refreshing page ([3846a9a](https://github.com/Dave136/vue-email/commit/3846a9a))
+
+### 🩹 Fixes
+
+- **demo:** Vercel not having access to vue files ([644497d](https://github.com/Dave136/vue-email/commit/644497d))
+- **demo:** Updated emails deploy process, and fixed refresh bug ([ec79fe6](https://github.com/Dave136/vue-email/commit/ec79fe6))
+- **nuxt:** Import from imports and use `useRuntimeConfig` ([3d4c76a](https://github.com/Dave136/vue-email/commit/3d4c76a))
+- **nuxt:** Include nuxt module file in package ([fcf32b9](https://github.com/Dave136/vue-email/commit/fcf32b9))
+- **nuxt:** Use camel-case config key and use `addComponentsDir` ([c9d38ce](https://github.com/Dave136/vue-email/commit/c9d38ce))
+- Add optional nuxt/kit peer dep ([ec256ca](https://github.com/Dave136/vue-email/commit/ec256ca))
+- Use sync setup ([a5f680e](https://github.com/Dave136/vue-email/commit/a5f680e))
+- **render:** Cleaning final html ([#17](https://github.com/Dave136/vue-email/pull/17))
+- Nuxt integration not working ([#28](https://github.com/Dave136/vue-email/pull/28))
+- Nuxt integration - external libraries ([1576f2b](https://github.com/Dave136/vue-email/commit/1576f2b))
+- Updated package built files ([12980a8](https://github.com/Dave136/vue-email/commit/12980a8))
+- Minor fixes to package build ([90bd8cc](https://github.com/Dave136/vue-email/commit/90bd8cc))
+- Updated build process ([78283a1](https://github.com/Dave136/vue-email/commit/78283a1))
+- Temp fix for nuxt ([42a0cf7](https://github.com/Dave136/vue-email/commit/42a0cf7))
+- Failing tests ([0c005b9](https://github.com/Dave136/vue-email/commit/0c005b9))
+- Tw-to-css missing ([5259000](https://github.com/Dave136/vue-email/commit/5259000))
+- Resolved auto imports for nuxt ([cc57bb5](https://github.com/Dave136/vue-email/commit/cc57bb5))
+- Disabled nuxt demo for now ([05b2c25](https://github.com/Dave136/vue-email/commit/05b2c25))
+- Removed lock ([65d8244](https://github.com/Dave136/vue-email/commit/65d8244))
+- Fixed demo nuxt issues ([2c2bd0c](https://github.com/Dave136/vue-email/commit/2c2bd0c))
+- Added alias to nuxt config ([1df2f20](https://github.com/Dave136/vue-email/commit/1df2f20))
+- **readme:** Rewritte file ([68425c6](https://github.com/Dave136/vue-email/commit/68425c6))
+- Added old releases back to changelog ([fbcb1bb](https://github.com/Dave136/vue-email/commit/fbcb1bb))
+- Broken docs ([7fcc49f](https://github.com/Dave136/vue-email/commit/7fcc49f))
+- **docs:** Tailwind component ([8c348fe](https://github.com/Dave136/vue-email/commit/8c348fe))
+- **docs:** Tailwind component remove no needed default value ([0b302fb](https://github.com/Dave136/vue-email/commit/0b302fb))
+- Bug tailwind support ([#39](https://github.com/Dave136/vue-email/pull/39))
+- Tailwind compiled html showing nothing ([#44](https://github.com/Dave136/vue-email/pull/44))
+- Node-html-parser brower error ([ec1a504](https://github.com/Dave136/vue-email/commit/ec1a504))
+- Resolve module-from-string issue ([e726e2a](https://github.com/Dave136/vue-email/commit/e726e2a))
+- Replaced node-html-parser with cheerio ([#53](https://github.com/Dave136/vue-email/pull/53))
+- Updated html parser from cheerio to htmlparser2 ([#62](https://github.com/Dave136/vue-email/pull/62))
+- Remove discord ([8aff6bd](https://github.com/Dave136/vue-email/commit/8aff6bd))
+
+### 💅 Refactors
+
+- Better package types and release process ([#23](https://github.com/Dave136/vue-email/pull/23))
+- Application scaffolding ([#30](https://github.com/Dave136/vue-email/pull/30))
+- Convert bundler from vite to unbuild ([#45](https://github.com/Dave136/vue-email/pull/45))
+- Replace `VueEmailPLuginOptions` by `VueEmailPluginOptions` ([3d142e0](https://github.com/Dave136/vue-email/commit/3d142e0))
+- Improving nuxt devtools UI/UX ([#56](https://github.com/Dave136/vue-email/pull/56))
+
+### 📖 Documentation
+
+- Updated render html output ([cd0e2eb](https://github.com/Dave136/vue-email/commit/cd0e2eb))
+- Moving from vitepress to nuxt content ([#32](https://github.com/Dave136/vue-email/pull/32))
+- Fixed lint issue ([e8db881](https://github.com/Dave136/vue-email/commit/e8db881))
+- Updated readme og image ([0bb2be9](https://github.com/Dave136/vue-email/commit/0bb2be9))
+- Updated readme ([ed4e614](https://github.com/Dave136/vue-email/commit/ed4e614))
+- Fixed prerender issues ([08d188b](https://github.com/Dave136/vue-email/commit/08d188b))
+- Added auto import note to ssr ([1f560c6](https://github.com/Dave136/vue-email/commit/1f560c6))
+- Updaetd devtools image ([a9958d6](https://github.com/Dave136/vue-email/commit/a9958d6))
+- Updated to show without importing vue-email components ([470d40e](https://github.com/Dave136/vue-email/commit/470d40e))
+- Updated devtools docs ([4eb85e7](https://github.com/Dave136/vue-email/commit/4eb85e7))
+
+### 🏡 Chore
+
+- V0.3.0 ([2231a60](https://github.com/Dave136/vue-email/commit/2231a60))
+- Update lockfile ([fa0f73d](https://github.com/Dave136/vue-email/commit/fa0f73d))
+- V.0.4.0 ([052659e](https://github.com/Dave136/vue-email/commit/052659e))
+- Updated README ([182a76a](https://github.com/Dave136/vue-email/commit/182a76a))
+- Updated pacakge.json private state ([2c77beb](https://github.com/Dave136/vue-email/commit/2c77beb))
+- **release:** 0.5.0 ([37b75ce](https://github.com/Dave136/vue-email/commit/37b75ce))
+- Updated release-it file ([ef3359c](https://github.com/Dave136/vue-email/commit/ef3359c))
+- Updated client package.json ([bc8a61d](https://github.com/Dave136/vue-email/commit/bc8a61d))
+- Delete .npmrc from client ([1c18474](https://github.com/Dave136/vue-email/commit/1c18474))
+- Removed client folder ([1af78f6](https://github.com/Dave136/vue-email/commit/1af78f6))
+- Update lock ([399ac27](https://github.com/Dave136/vue-email/commit/399ac27))
+- Updated release command ([f589c97](https://github.com/Dave136/vue-email/commit/f589c97))
+- **release:** V0.5.1 ([ab08b80](https://github.com/Dave136/vue-email/commit/ab08b80))
+- Updated publish workflow ([a340167](https://github.com/Dave136/vue-email/commit/a340167))
+- **release:** V0.5.2 ([ff60db3](https://github.com/Dave136/vue-email/commit/ff60db3))
+- **release:** V0.5.3 ([6599519](https://github.com/Dave136/vue-email/commit/6599519))
+- **release:** V0.5.4 ([e581e77](https://github.com/Dave136/vue-email/commit/e581e77))
+- **release:** V0.5.5 ([668893e](https://github.com/Dave136/vue-email/commit/668893e))
+- Update lock ([abe1f51](https://github.com/Dave136/vue-email/commit/abe1f51))
+- **release:** V0.5.6 ([0cef2e9](https://github.com/Dave136/vue-email/commit/0cef2e9))
+- Added nuxt module to demo ([b3985c4](https://github.com/Dave136/vue-email/commit/b3985c4))
+- Update packages ([c0d18a6](https://github.com/Dave136/vue-email/commit/c0d18a6))
+- Updated tests ([19ede98](https://github.com/Dave136/vue-email/commit/19ede98))
+- Added  --no-frozen-lockfile ([ae82a0c](https://github.com/Dave136/vue-email/commit/ae82a0c))
+- Updated build workflow ([5aa9d72](https://github.com/Dave136/vue-email/commit/5aa9d72))
+- Update nuxt intgeration ([a7e4654](https://github.com/Dave136/vue-email/commit/a7e4654))
+- Reverted back to old setup ([96d19f2](https://github.com/Dave136/vue-email/commit/96d19f2))
+- Removed nuxt from workspace ([a1e26c9](https://github.com/Dave136/vue-email/commit/a1e26c9))
+- Updated workflow ([6c82093](https://github.com/Dave136/vue-email/commit/6c82093))
+- Hope this fixes it lol ([9faa4e1](https://github.com/Dave136/vue-email/commit/9faa4e1))
+- **release:** V0.5.7 ([6f4bf64](https://github.com/Dave136/vue-email/commit/6f4bf64))
+- Updated external libraries ([e003579](https://github.com/Dave136/vue-email/commit/e003579))
+- **release:** V0.5.8 ([8d3156d](https://github.com/Dave136/vue-email/commit/8d3156d))
+- Added back external libs ([61ec574](https://github.com/Dave136/vue-email/commit/61ec574))
+- **release:** V0.5.9 ([cce43c2](https://github.com/Dave136/vue-email/commit/cce43c2))
+- Removed tw-to-css from external libs ([2001669](https://github.com/Dave136/vue-email/commit/2001669))
+- **release:** V0.5.10 ([b833c25](https://github.com/Dave136/vue-email/commit/b833c25))
+- **release:** V0.5.11 ([a5d9b95](https://github.com/Dave136/vue-email/commit/a5d9b95))
+- Added --force to actions ([aef878b](https://github.com/Dave136/vue-email/commit/aef878b))
+- Update lock ([ba84b9c](https://github.com/Dave136/vue-email/commit/ba84b9c))
+- Added vue-email in nuxt demo ([02652c2](https://github.com/Dave136/vue-email/commit/02652c2))
+- Removed lock ([0aa78e2](https://github.com/Dave136/vue-email/commit/0aa78e2))
+- Added lock ([d92b4bc](https://github.com/Dave136/vue-email/commit/d92b4bc))
+- Updated package ([a3c255c](https://github.com/Dave136/vue-email/commit/a3c255c))
+- **release:** V0.5.12 ([af038a3](https://github.com/Dave136/vue-email/commit/af038a3))
+- **release:** V0.5.13 ([2c75bc8](https://github.com/Dave136/vue-email/commit/2c75bc8))
+- Update README.md ([b95ee33](https://github.com/Dave136/vue-email/commit/b95ee33))
+- **release:** V0.5.14 ([91f28fa](https://github.com/Dave136/vue-email/commit/91f28fa))
+- **release:** V0.5.15 ([7da7cbd](https://github.com/Dave136/vue-email/commit/7da7cbd))
+- Update pnpm-lock ([ba74f7a](https://github.com/Dave136/vue-email/commit/ba74f7a))
+- **release:** V0.5.16 ([bdc86fa](https://github.com/Dave136/vue-email/commit/bdc86fa))
+- **release:** V0.6.0 ([f4dcf28](https://github.com/Dave136/vue-email/commit/f4dcf28))
+- **release:** V0.6.1 ([690df3b](https://github.com/Dave136/vue-email/commit/690df3b))
+- **release:** V0.6.2 ([3b2a97e](https://github.com/Dave136/vue-email/commit/3b2a97e))
+- **release:** V0.6.3 ([5a7edab](https://github.com/Dave136/vue-email/commit/5a7edab))
+- **release:** V0.6.4-0 ([193f658](https://github.com/Dave136/vue-email/commit/193f658))
+- **release:** V0.6.4 ([e42c448](https://github.com/Dave136/vue-email/commit/e42c448))
+- **release:** V0.6.5 ([3deea4a](https://github.com/Dave136/vue-email/commit/3deea4a))
+- **release:** V0.6.6 ([86de3ff](https://github.com/Dave136/vue-email/commit/86de3ff))
+- Updated example images ([40b056b](https://github.com/Dave136/vue-email/commit/40b056b))
+- Run lint:fix ([5002520](https://github.com/Dave136/vue-email/commit/5002520))
+- **release:** V0.6.7 ([171f004](https://github.com/Dave136/vue-email/commit/171f004))
+- Update lock ([8ceeb24](https://github.com/Dave136/vue-email/commit/8ceeb24))
+
+### 🤖 CI
+
+- Updated release process ([#25](https://github.com/Dave136/vue-email/pull/25))
+- Updated publish job ([ff77938](https://github.com/Dave136/vue-email/commit/ff77938))
+
+### ❤️ Contributors
+
+- David Arenas <davejs136@gmail.com>
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+- Christian Preston ([@cpreston321](http://github.com/cpreston321))
+- Younes ([@Flowko](http://github.com/Flowko))
+- Daniel Roe <daniel@roe.dev>
+
 ## v0.6.7
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.6.6...v0.6.7)
