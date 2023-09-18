@@ -1,7 +1,13 @@
 import { useStorage } from '@vueuse/core'
 import type { PreviewModes, editorCodes } from '@/types/settings'
 
-export function useTool() {
+interface UseToolParams {
+  onReload?: () => Promise<void> | void
+}
+
+const RESET_TIMEOUT = 500
+
+export function useTool(params?: UseToolParams) {
   const previewModes: PreviewModes[] = [
     {
       id: 'both',
@@ -45,14 +51,30 @@ export function useTool() {
 
   const isCommandPalletOpen = useState<boolean>('isCommandPalletOpen')
   const isSettingsOpen = useState<boolean>('isSettingsOpen')
+  const reloadTemplate = useState<boolean>('reloadTemplate')
   const horizontalSplit = useStorage<boolean>('horizontalSplit', false)
   const email = useStorage<string>('email', '')
   const previewMode = useStorage<PreviewModes>('previewMode', previewModes[0])
   const editorCode = useStorage<editorCodes>('editorCodes', editorCodes[0])
 
+  watch(reloadTemplate, async () => {
+    if (typeof params?.onReload == 'undefined' && typeof params?.onReload !== 'function' && !reloadTemplate.value) {
+      return
+    }
+
+    if (typeof params?.onReload === 'function') {
+      await params.onReload()
+    }
+
+    setTimeout(() => {
+      reloadTemplate.value = false
+    }, RESET_TIMEOUT)
+  })
+
   return {
     isCommandPalletOpen,
     isSettingsOpen,
+    reloadTemplate,
     horizontalSplit,
     email,
     previewMode,
