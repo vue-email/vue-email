@@ -17,6 +17,8 @@
     "@nuxthq/ui": "^2.7.0",
     "nuxt": "^3.7.0",
     "scule": "^1.0.0",
+    "vue-email": "workspace:~",
+    "vue-i18n": "^9.2.2",
     "vue3-code-block": "^2.2.12"
   }
 }
