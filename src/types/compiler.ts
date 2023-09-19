@@ -7,7 +7,7 @@ export interface VueEmailPluginOptions {
    * baseUrl: 'https://example.com'
    * ```
    * @see https://vue-email.net/getting-started/installation#options
-   **/
+   */
   baseUrl?: string | null
   /**
    * Provide translations for your templates.
