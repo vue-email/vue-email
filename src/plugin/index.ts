@@ -9,7 +9,6 @@ export const VueEmailPlugin: Plugin = {
   install(app, options: VueEmailPluginOptions = {}) {
     if (options) deepmerge<VueEmailPluginOptions>(config, options)
 
-    // Register components
     Object.entries(components).forEach(([name, component]) => {
       app.component(name, component)
     })

@@ -10,10 +10,10 @@ export default defineEventHandler(async () => {
         defaultLocale: 'en',
         translations: {
           en: {
-            message: 'Welcome to dashboard {user}',
+            message: 'Welcome to dashboard {username}',
           },
           es: {
-            message: 'Bienvenido al panel {user}',
+            message: 'Bienvenido al panel {username}',
           },
         },
       },
