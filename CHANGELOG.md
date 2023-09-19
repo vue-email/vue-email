@@ -1,6 +1,55 @@
 # Changelog
 
 
+## v0.7.0
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.6.8...v0.7.0)
+
+### 🚀 Enhancements
+
+- Add i18n to app context ([bca0980](https://github.com/Dave136/vue-email/commit/bca0980))
+- Inject i18n on render composable ([7aab330](https://github.com/Dave136/vue-email/commit/7aab330))
+
+### 🩹 Fixes
+
+- Merge with main ([fc242f4](https://github.com/Dave136/vue-email/commit/fc242f4))
+- Lint issues ([b451640](https://github.com/Dave136/vue-email/commit/b451640))
+- Minor changes ([dd31f1b](https://github.com/Dave136/vue-email/commit/dd31f1b))
+
+### 💅 Refactors
+
+- Extend types for RenderOptions ([ad4d602](https://github.com/Dave136/vue-email/commit/ad4d602))
+- Throw error if vue-i18n is not present ([f1e6214](https://github.com/Dave136/vue-email/commit/f1e6214))
+- Remove unused typescript compiler comment ([063b47c](https://github.com/Dave136/vue-email/commit/063b47c))
+- Render app after set i18n config ([edaf112](https://github.com/Dave136/vue-email/commit/edaf112))
+- Extend render `Options` type ([9998721](https://github.com/Dave136/vue-email/commit/9998721))
+- **render:** Second parameter, passing props and i18n in one object ([2e42e9b](https://github.com/Dave136/vue-email/commit/2e42e9b))
+- Add null option for RenderParams ([1263bc4](https://github.com/Dave136/vue-email/commit/1263bc4))
+- Solve result as Component ([4e45fd1](https://github.com/Dave136/vue-email/commit/4e45fd1))
+- Handfull of changes to make working with configs easy ([1839c59](https://github.com/Dave136/vue-email/commit/1839c59))
+
+### 📖 Documentation
+
+- Add i18n documentation for node ([e8d744d](https://github.com/Dave136/vue-email/commit/e8d744d))
+- Updated i18n docs ([2bb707c](https://github.com/Dave136/vue-email/commit/2bb707c))
+- Removed new tag from markdown ([5d549f3](https://github.com/Dave136/vue-email/commit/5d549f3))
+
+### 🏡 Chore
+
+- Restore pnpm-lock.yaml ([ac54c54](https://github.com/Dave136/vue-email/commit/ac54c54))
+- Upgrade deps ([fb308cf](https://github.com/Dave136/vue-email/commit/fb308cf))
+- Lint fix ([1938d01](https://github.com/Dave136/vue-email/commit/1938d01))
+
+### ✅ Tests
+
+- Add translation - i18n test ([dd60d4f](https://github.com/Dave136/vue-email/commit/dd60d4f))
+
+### ❤️ Contributors
+
+- Flowko ([@Flowko](http://github.com/Flowko))
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+- David Arenas <davejs136@gmail.com>
+
 ## v0.6.8
 
 [compare changes](https://github.com/Dave136/vue-email/compare/vue-email@0.3.0...v0.6.8)
