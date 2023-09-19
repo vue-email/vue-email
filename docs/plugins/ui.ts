@@ -26,8 +26,6 @@ export default defineNuxtPlugin({
           .map(([key, value]) => `--color-primary-${key}: ${hexToRgb(value)};`)
           .join('\n')}
         --color-primary-DEFAULT: var(--color-primary-500);
-        --element-background: 255 255 255; 
-        --element-foreground: var(--color-gray-700);
         --header-height: 4rem;
 
         ${Object.entries(gray || colors.cool)
@@ -37,8 +35,6 @@ export default defineNuxtPlugin({
 
         .dark {
           --color-primary-DEFAULT: var(--color-primary-400);
-          --element-background: var(--color-gray-900); 
-          --element-foreground: var(--color-gray-200);
         }
         `
     })

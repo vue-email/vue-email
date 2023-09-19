@@ -170,9 +170,6 @@ importers:
         specifier: workspace:~
         version: link:..
     devDependencies:
-      '@flowko/docs-template':
-        specifier: 0.0.5
-        version: 0.0.5(@nuxt/content@2.8.2)(@nuxthq/ui@2.7.0)(vue@3.3.4)
       '@iconify-json/heroicons':
         specifier: latest
         version: 1.1.12
@@ -188,6 +185,9 @@ importers:
       '@nuxt/content':
         specifier: ^2.8.1
         version: 2.8.2(rollup@3.29.2)(vue@3.3.4)
+      '@nuxthq/elements':
+        specifier: npm:@nuxthq/elements-edge@0.0.1-28246521.0e46d44
+        version: /@nuxthq/elements-edge@0.0.1-28246521.0e46d44(rollup@3.29.2)(vue@3.3.4)(webpack@5.88.2)
       '@nuxthq/studio':
         specifier: ^0.13.4
         version: 0.13.4(rollup@3.29.2)
@@ -1234,24 +1234,6 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@flowko/docs-template@0.0.5(@nuxt/content@2.8.2)(@nuxthq/ui@2.7.0)(vue@3.3.4):
-    resolution: {integrity: sha512-3PrEmE7g19LTTEkTTibjczWxbC+ssnbQugB0Lf9CB+SacEdQ9lRdtlNn1mosf+bF/axiMr1Lv7xqxjShDoSQoQ==}
-    peerDependencies:
-      '@nuxt/content': latest
-      '@nuxthq/ui': npm:@nuxthq/ui-edge@latest
-    dependencies:
-      '@nuxt/content': 2.8.2(rollup@3.29.2)(vue@3.3.4)
-      '@nuxthq/ui': 2.7.0(rollup@3.29.2)(vue@3.3.4)(webpack@5.88.2)
-      '@vueuse/core': 10.4.1(vue@3.3.4)
-      lodash-es: 4.17.21
-      ofetch: 1.3.3
-      pathe: 1.1.1
-      tailwind-merge: 1.14.0
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-    dev: true
-
   /@flowko/tw-to-css@0.0.6:
     resolution: {integrity: sha512-JGCOIt0ubKSpNqarwrAfm4bAlyQD+53R2ukhNZf0F8r9P+BJ2zOUTSG91dccTNUzrP8zEYvdURaVDx71vNrong==}
     engines: {node: '>=16.0.0'}
@@ -1794,6 +1776,49 @@ packages:
   /@nuxt/ui-templates@1.3.1:
     resolution: {integrity: sha512-5gc02Pu1HycOVUWJ8aYsWeeXcSTPe8iX8+KIrhyEtEoOSkY0eMBuo0ssljB8wALuEmepv31DlYe5gpiRwkjESA==}
 
+  /@nuxt/ui@2.8.1(rollup@3.29.2)(vue@3.3.4)(webpack@5.88.2):
+    resolution: {integrity: sha512-SVOo1PTroStUyv8ZcXTdDVgkV9U2Q0dtq7nQDF7NNZkvyH96Zbrbdk11wr1uHKuQdTcaEAq50OGleD+t6ceWEQ==}
+    engines: {node: '>=v16.20.2'}
+    dependencies:
+      '@egoist/tailwindcss-icons': 1.1.0(tailwindcss@3.3.3)
+      '@headlessui/vue': 1.7.16(vue@3.3.4)
+      '@iconify-json/heroicons': 1.1.12
+      '@nuxt/kit': 3.7.3(rollup@3.29.2)
+      '@nuxtjs/color-mode': 3.3.0(rollup@3.29.2)
+      '@nuxtjs/tailwindcss': 6.8.0(rollup@3.29.2)(webpack@5.88.2)
+      '@popperjs/core': 2.11.8
+      '@tailwindcss/aspect-ratio': 0.4.2(tailwindcss@3.3.3)
+      '@tailwindcss/container-queries': 0.1.1(tailwindcss@3.3.3)
+      '@tailwindcss/forms': 0.5.6(tailwindcss@3.3.3)
+      '@tailwindcss/typography': 0.5.10(tailwindcss@3.3.3)
+      '@vueuse/core': 10.4.1(vue@3.3.4)
+      '@vueuse/integrations': 10.4.1(fuse.js@6.6.2)(vue@3.3.4)
+      '@vueuse/math': 10.4.1(vue@3.3.4)
+      defu: 6.1.2
+      fuse.js: 6.6.2
+      lodash-es: 4.17.21
+      tailwind-merge: 1.14.0
+      tailwindcss: 3.3.3
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - async-validator
+      - axios
+      - change-case
+      - drauu
+      - focus-trap
+      - idb-keyval
+      - jwt-decode
+      - nprogress
+      - qrcode
+      - rollup
+      - sortablejs
+      - supports-color
+      - ts-node
+      - universal-cookie
+      - vue
+      - webpack
+    dev: true
+
   /@nuxt/vite-builder@3.7.3(eslint@8.49.0)(rollup@3.29.2)(sass@1.67.0)(typescript@5.2.2)(vue@3.3.4):
     resolution: {integrity: sha512-WbPYku1YKtdqLo5t3Vcs/2xOP8Es9K0OR0uGirdVMp74l4ZOMWBGSW9s4psiihjnNdHURdodD0cuE3tse9t7PA==}
     engines: {node: ^14.18.0 || >=16.10.0}
@@ -1916,6 +1941,34 @@ packages:
       - vls
       - vti
       - vue-tsc
+    dev: true
+
+  /@nuxthq/elements-edge@0.0.1-28246521.0e46d44(rollup@3.29.2)(vue@3.3.4)(webpack@5.88.2):
+    resolution: {integrity: sha512-8MU2WXawTcZFpaAOuz0WYDBR8fjblH6UTS9wlXz3qNRya15wOAH62a7VNfdy2xsE8Rlmv1DeuIVFZnIO24Rmbw==}
+    dependencies:
+      '@nuxt/ui': 2.8.1(rollup@3.29.2)(vue@3.3.4)(webpack@5.88.2)
+      '@vueuse/core': 10.4.1(vue@3.3.4)
+      ofetch: 1.3.3
+      pathe: 1.1.1
+      tailwind-merge: 1.14.0
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - async-validator
+      - axios
+      - change-case
+      - drauu
+      - focus-trap
+      - idb-keyval
+      - jwt-decode
+      - nprogress
+      - qrcode
+      - rollup
+      - sortablejs
+      - supports-color
+      - ts-node
+      - universal-cookie
+      - vue
+      - webpack
     dev: true
 
   /@nuxthq/studio@0.13.4(rollup@3.29.2):

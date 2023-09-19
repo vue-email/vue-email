@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   devtools: {
     enabled: false,
   },
-  extends: '@flowko/docs-template',
+  extends: '@nuxthq/elements',
   modules: ['@nuxt/content', '@nuxthq/ui', '@nuxtlabs/github-module', vueEmailModule, '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt', 'nuxt-lodash'],
   alias: {
     'vue-email': resolve(__dirname, '../src/index.ts'),

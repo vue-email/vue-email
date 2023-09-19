@@ -5,7 +5,7 @@
     "vue-email": "workspace:~"
   },
   "devDependencies": {
-    "@flowko/docs-template": "0.0.5",
+    "@nuxthq/elements": "npm:@nuxthq/elements-edge@0.0.1-28246521.0e46d44",
     "@iconify-json/heroicons": "latest",
     "@iconify-json/ph": "latest",
     "@iconify-json/simple-icons": "latest",

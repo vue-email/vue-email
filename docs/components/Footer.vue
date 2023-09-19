@@ -9,7 +9,7 @@ const config = useRuntimeConfig().public
     </NuxtLink>
 
     <div class="flex-1 flex items-center justify-end gap-1.5 -my-1 lg:hidden">
-      <USocialButton to="https://github.com/Dave136/vue-email" target="_blank" icon="i-simple-icons-github" />
+      <UButton aria-label="Vue Email on GitHub" icon="i-simple-icons-github" to="https://github.com/Dave136/vue-email" target="_blank" v-bind="$elements.button.secondary" />
     </div>
   </footer>
 </template>
