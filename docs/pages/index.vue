@@ -49,7 +49,7 @@ const { format } = Intl.NumberFormat('en-GB', { notation: 'compact' })
     <template #title> The next generation of writing <span class="text-primary-400">emails</span> </template>
     <template #description> A collection of high-quality, unstyled components for creating beautiful emails using Vue and TypeScript. </template>
     <template #links>
-      <UButton to="/get-started/installation" icon="i-ph-rocket-launch-duotone" size="xl"> Get started </UButton>
+      <UButton to="/getting-started/installation" icon="i-ph-rocket-launch-duotone" size="xl"> Get started </UButton>
       <UInput
         aria-label="Copy code to get started"
         :model-value="source"
