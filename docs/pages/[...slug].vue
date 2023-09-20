@@ -1,23 +1,61 @@
 <script setup lang="ts">
+import { withoutTrailingSlash } from 'ufo'
+import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
+
 const route = useRoute()
 const { findPageHeadline } = useElementsHelpers()
 
-const path = computed(() => route.path)
-const { data: page } = await useAsyncData(path.value, () => queryContent(path.value).findOne())
+definePageMeta({
+  layout: 'docs',
+})
+
+const { data: page } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found' })
 }
 
-const { data: surround } = await useAsyncData(`${path.value}-surround`, () => {
+const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
   return queryContent()
-    .where({ _extension: 'md', navigation: { $ne: false } })
-    .findSurround(path.value.endsWith('/') ? path.value.slice(0, -1) : path.value)
+    .where({
+      _extension: 'md',
+      navigation: {
+        $ne: false,
+      },
+    })
+    .only(['title', 'description', '_path'])
+    .findSurround(withoutTrailingSlash(route.path))
 })
 
-useContentHead(page)
+useSeoMeta({
+  titleTemplate: '%s - Vue Email',
+  title: page.value.title,
+  ogTitle: `${page.value.title} - Vue Email`,
+  description: page.value.description,
+  ogDescription: page.value.description,
+})
 
-const githubLink = computed(() => `https://github.com/Dave136/vue-email/edit/main/docs/content/${page?.value?._file}`)
+defineOgImage({
+  component: 'Docs',
+  title: page.value.title,
+  description: page.value.description,
+})
+
 const headline = computed(() => findPageHeadline(page.value))
+
+const links = computed(() => [
+  {
+    icon: 'i-heroicons-pencil-square',
+    label: 'Edit this page',
+    to: `https://github.com/Dave136/vue-email/edit/main/docs/content/${page?.value?._file.split('/').slice(1).join('/')}`,
+    target: '_blank',
+  },
+  {
+    icon: 'i-heroicons-star',
+    label: 'Star on GitHub',
+    to: 'https://github.com/Dave136/vue-email',
+    target: '_blank',
+  },
+])
 </script>
 
 <template>
@@ -27,19 +65,21 @@ const headline = computed(() => findPageHeadline(page.value))
     <UPageBody prose>
       <ContentRenderer v-if="page.body" :value="page" />
 
-      <div class="mt-12 not-prose">
-        <UButton :to="githubLink" variant="link" icon="i-heroicons-pencil-square" label="Edit this page on GitHub" :padded="false" />
-      </div>
+      <UDivider v-if="surround?.length" />
 
-      <hr v-if="surround?.length" class="my-8" />
-
-      <UDocsSurround :surround="surround" />
-
-      <Footer class="not-prose" />
+      <UDocsSurround :surround="surround as ParsedContent[]" />
     </UPageBody>
 
     <template v-if="page.body?.toc?.links?.length" #right>
-      <UDocsToc :links="page.body.toc.links" />
+      <UDocsToc :links="page.body.toc.links">
+        <template #bottom>
+          <div class="hidden lg:block space-y-6 !mt-6">
+            <UDivider v-if="page.body?.toc?.links?.length" dashed />
+
+            <UPageLinks title="Community" :links="links" />
+          </div>
+        </template>
+      </UDocsToc>
     </template>
   </UPage>
 </template>

@@ -5,14 +5,15 @@ import vueEmailModule from '../src/nuxt/module'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
-  devtools: {
-    enabled: false,
-  },
   extends: '@nuxthq/elements',
-  modules: ['@nuxt/content', '@nuxthq/ui', '@nuxtlabs/github-module', vueEmailModule, '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt', 'nuxt-lodash'],
+  devtools: { enabled: true, componentInspector: false, viteInspect: false },
+  modules: ['@nuxt/content', 'nuxt-og-image', '@nuxthq/ui', '@nuxtlabs/github-module', vueEmailModule, '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
   alias: {
     'vue-email': resolve(__dirname, '../src/index.ts'),
     'vue-email/compiler': resolve(__dirname, '../src/compiler/index.ts'),
+  },
+  vueEmail: {
+    playground: false,
   },
   runtimeConfig: {
     public: {
@@ -21,20 +22,26 @@ export default defineNuxtConfig({
   },
   ui: {
     global: true,
-    icons: ['heroicons', 'simple-icons', 'ph', 'twemoji'],
+    icons: ['heroicons', 'simple-icons', 'ph', 'twemoji', 'solar'],
+  },
+  fontMetrics: {
+    fonts: ['DM Sans'],
   },
   googleFonts: {
+    display: 'swap',
+    download: true,
     families: {
-      Inter: [400, 500, 600, 700],
+      'DM+Sans': [400, 500, 600, 700],
     },
   },
   nitro: {
     prerender: {
-      routes: ['/getting-started', '/api/search.json'],
+      routes: ['/', '/getting-started', '/api/search.json'],
     },
   },
-  routeRules: {
-    '/': { redirect: '/getting-started', prerender: false },
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark',
   },
   typescript: {
     strict: false,
