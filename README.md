@@ -17,7 +17,8 @@
 ## Features
 
 - 🧩 Build email templates with Vue components
-- 🛤️ [SSR support](https://vuemail.net/getting-started/ssr), Runs on the server and client
+- 🛤️ [SSR support](https://vuemail.net/getting-started/ssr), preview/send emails both on server and client.
+- 🌍 [i18n support](https://vuemail.net/getting-started/i18n)
 - 📨 [Integrates with many email providers](https://vuemail.net/integrations/nodemailer)
 - 🧪 Tested against popular email clients
 - 🎨 [Supports Tailwind CSS](https://vuemail.net/components/tailwind)
