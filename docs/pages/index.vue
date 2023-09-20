@@ -171,12 +171,12 @@ const { format } = Intl.NumberFormat('en-GB', { notation: 'compact' })
       </template>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-8 lg:gap-16">
-        <NuxtLink class="text-center group" to="https://npmjs.org/package/@nuxt/ui" target="_blank">
+        <NuxtLink class="text-center group" to="https://npmjs.org/package/vue-email" target="_blank">
           <p class="text-6xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-500 dark:group-hover:text-primary-400">{{ format(module.stats.downloads) }}+</p>
           <p>monthly downloads</p>
         </NuxtLink>
 
-        <NuxtLink class="text-center group" to="https://github.com/nuxt/ui" target="_blank">
+        <NuxtLink class="text-center group" to="https://github.com/Dave136/vue-email" target="_blank">
           <p class="text-6xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-500 dark:group-hover:text-primary-400">{{ format(module.stats.stars) }}+</p>
           <p>stars</p>
         </NuxtLink>
