@@ -1,15 +1,18 @@
 {
+  "name": "vue-email-docs",
   "private": true,
   "dependencies": {
     "@nuxthq/ui": "2.7.0",
     "vue-email": "workspace:~"
   },
   "devDependencies": {
-    "@flowko/docs-template": "0.0.5",
+    "@nuxthq/elements": "npm:@nuxthq/elements-edge@0.0.1-28246521.0e46d44",
+    "@iconify-json/solar": "latest",
     "@iconify-json/heroicons": "latest",
     "@iconify-json/ph": "latest",
     "@iconify-json/simple-icons": "latest",
     "@iconify-json/twemoji": "latest",
+    "nuxt-og-image": "^2.0.28",
     "@nuxt/content": "^2.8.1",
     "@nuxthq/studio": "^0.13.4",
     "@nuxtjs/fontaine": "^0.4.1",

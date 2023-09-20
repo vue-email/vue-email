@@ -33,7 +33,7 @@ const items = [
     description: 'A collection of examples to get you started.',
     icon: 'i-fluent-text-grammar-options-24-filled',
     background: 'bg-purple-600',
-    to: 'https://vue-email-demo.vercel.app/',
+    to: '/playground',
   },
   {
     title: 'GitHub',
