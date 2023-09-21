@@ -3,7 +3,6 @@ import { withoutTrailingSlash } from 'ufo'
 import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
 
 const route = useRoute()
-const { findPageHeadline } = useElementsHelpers()
 
 definePageMeta({
   layout: 'docs',
