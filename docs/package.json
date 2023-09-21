@@ -6,7 +6,7 @@
     "vue-email": "workspace:~"
   },
   "devDependencies": {
-    "@nuxthq/elements": "npm:@nuxthq/elements-edge@0.0.1-28246521.0e46d44",
+    "@nuxt/ui-pro": "npm:@nuxt/ui-pro-edge@0.0.1-28255017.af7c0a2",
     "@iconify-json/solar": "latest",
     "@iconify-json/heroicons": "latest",
     "@iconify-json/ph": "latest",

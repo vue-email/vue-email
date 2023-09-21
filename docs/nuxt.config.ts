@@ -5,7 +5,7 @@ import vueEmailModule from '../src/nuxt/module'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
-  extends: '@nuxthq/elements',
+  extends: '@nuxt/ui-pro',
   devtools: { enabled: true, componentInspector: false, viteInspect: false },
   modules: ['@nuxt/content', 'nuxt-og-image', '@nuxt/ui', '@nuxtlabs/github-module', vueEmailModule, '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
   alias: {
