@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "preserve",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "skipLibCheck": true,
+    "strict": true,
+    "allowJs": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "node",
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "vue-email": [
+        "./core/*"
+      ],
+      "$src": ["./src"],
+      "$src/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "src/**/*",
+  ],
+  "exclude": [
+    "./dist",
+  ],
+  // "vueCompilerOptions": {
+  //   "plugins": [
+  //     "pinceau/volar"
+  //   ]
+  // }
+}

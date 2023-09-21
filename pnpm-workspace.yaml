@@ -1,6 +1,7 @@
 packages:
-  - 'docs'
-  - 'playgrounds/vite'
-  - 'playgrounds/nuxt'
-  - 'playgrounds/vite-ssg'
-  - 'client'
+  # - 'docs'
+  # - 'playgrounds/nuxt'
+  # - 'client'
+  - 'packages/core'
+  - 'packages/nuxt'
+  - 'packages/compiler'

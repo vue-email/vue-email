@@ -1,0 +1,7 @@
+coverage/
+dist/
+templates/
+archive/
+node_modules/
+.github/
+docs/.vitepress/cache/

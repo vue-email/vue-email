@@ -1,5 +1,5 @@
 {
-  "name": "vue-email",
+  "name": "@vue-email/compiler",
   "type": "module",
   "version": "0.7.0",
   "description": "💌 Write email templates with Vue",
@@ -32,19 +32,38 @@
     "nuxt",
     "nuxt 3"
   ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build:core": "cd packages/core && pnpm build",
-    "build:nuxt": "cd packages/nuxt && pnpm prepack",
-    "build:compiler": "cd packages/compiler && pnpm build",
+    "build": "unbuild",
     "dev": "vite build --watch",
     "release": "changelogen --release",
     "lint": "eslint --ext .js,.vue,.ts,.tsx .",
-    "lint:fix": "eslint --ext .js,.vue,.ts,.tsx . --fix",
-    "test:unit": "vitest run",
-    "test": "pnpm test:unit",
-    "test:watch": "vitest watch"
+    "lint:fix": "eslint --ext .js,.vue,.ts,.tsx . --fix"
   },
-  "volta": {
-    "node": "20.4.0"
+  "peerDependencies": {
+    "vue": ">=3.0.0"
+  },
+  "dependencies": {
+    "module-from-string": "^3.3.0"
+  },
+  "devDependencies": {
+    "kolorist": "^1.8.0",
+    "changelogen": "^0.5.5",
+    "typescript": "^5.2.2",
+    "unbuild": "^2.0.0",
+    "vue": "^3.3.4",
+    "vue-i18n": "^9.2.2",
+    "vue-email": "workspace:*"
   }
 }

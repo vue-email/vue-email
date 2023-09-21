@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "preserve",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "skipLibCheck": true,
+    "strict": true,
+    "allowJs": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "node",
+      "csstype",
+      "vitest",
+      "vitest/globals",
+      "vite/client"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "$src": ["./src"],
+      "$src/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "./env.d.ts",
+    "src/**/*",
+  ],
+  "exclude": [
+    "./dist",
+  ],
+  // "vueCompilerOptions": {
+  //   "plugins": [
+  //     "pinceau/volar"
+  //   ]
+  // }
+}

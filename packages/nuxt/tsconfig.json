@@ -1,0 +1,13 @@
+{
+  "extends": "./playground/.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "vue-email": [
+        "./core/*"
+      ],
+      "@vue-email/compiler": [
+        "./core/compiler/*"
+      ]
+    }
+  }
+}
