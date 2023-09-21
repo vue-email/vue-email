@@ -124,7 +124,8 @@
   },
   "pnpm": {
     "overrides": {
-      "node-fetch-native": "1.4.0"
+      "node-fetch-native": "1.4.0",
+      "@nuxt/ui": "npm:@nuxt/ui-edge@2.8.1-28255083.853d58a"
     }
   }
 }
