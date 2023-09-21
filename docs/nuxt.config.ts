@@ -7,7 +7,7 @@ const { resolve } = createResolver(import.meta.url)
 export default defineNuxtConfig({
   extends: '@nuxthq/elements',
   devtools: { enabled: true, componentInspector: false, viteInspect: false },
-  modules: ['@nuxt/content', 'nuxt-og-image', '@nuxthq/ui', '@nuxtlabs/github-module', vueEmailModule, '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
+  modules: ['@nuxt/content', 'nuxt-og-image', '@nuxt/ui', '@nuxtlabs/github-module', vueEmailModule, '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
   alias: {
     'vue-email': resolve(__dirname, '../src/index.ts'),
     'vue-email/compiler': resolve(__dirname, '../src/compiler/index.ts'),

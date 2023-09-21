@@ -2,7 +2,7 @@
   "name": "vue-email-docs",
   "private": true,
   "dependencies": {
-    "@nuxthq/ui": "2.7.0",
+    "@nuxt/ui": "2.8.1",
     "vue-email": "workspace:~"
   },
   "devDependencies": {

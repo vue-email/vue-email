@@ -127,9 +127,9 @@ importers:
       '@nuxt/devtools':
         specifier: latest
         version: 0.8.4(nuxt@3.7.3)(rollup@3.29.2)(vite@4.4.9)
-      '@nuxthq/ui':
-        specifier: ^2.7.0
-        version: 2.7.0(rollup@3.29.2)(vue@3.3.4)(webpack@5.88.2)
+      '@nuxt/ui':
+        specifier: ^2.8.1
+        version: 2.8.1(rollup@3.29.2)(vue@3.3.4)(webpack@5.88.2)
       '@nuxtjs/fontaine':
         specifier: ^0.4.1
         version: 0.4.1(rollup@3.29.2)
@@ -163,9 +163,9 @@ importers:
 
   docs:
     dependencies:
-      '@nuxthq/ui':
-        specifier: 2.7.0
-        version: 2.7.0(rollup@3.29.2)(vue@3.3.4)(webpack@5.88.2)
+      '@nuxt/ui':
+        specifier: 2.8.1
+        version: 2.8.1(rollup@3.29.2)(vue@3.3.4)(webpack@5.88.2)
       vue-email:
         specifier: workspace:~
         version: link:..
@@ -246,9 +246,9 @@ importers:
       '@nuxt/devtools':
         specifier: latest
         version: 0.8.4(nuxt@3.7.3)(rollup@3.29.2)(vite@4.4.9)
-      '@nuxthq/ui':
-        specifier: ^2.7.0
-        version: 2.7.0(rollup@3.29.2)(vue@3.3.4)(webpack@5.88.2)
+      '@nuxt/ui':
+        specifier: ^2.8.1
+        version: 2.8.1(rollup@3.29.2)(vue@3.3.4)(webpack@5.88.2)
       nuxt:
         specifier: ^3.7.0
         version: 3.7.3(eslint@8.49.0)(rollup@3.29.2)(typescript@5.2.2)
@@ -1829,7 +1829,6 @@ packages:
       - universal-cookie
       - vue
       - webpack
-    dev: true
 
   /@nuxt/vite-builder@3.7.3(eslint@8.49.0)(rollup@3.29.2)(sass@1.67.0)(typescript@5.2.2)(vue@3.3.4):
     resolution: {integrity: sha512-WbPYku1YKtdqLo5t3Vcs/2xOP8Es9K0OR0uGirdVMp74l4ZOMWBGSW9s4psiihjnNdHURdodD0cuE3tse9t7PA==}
@@ -1998,48 +1997,6 @@ packages:
       - supports-color
       - utf-8-validate
     dev: true
-
-  /@nuxthq/ui@2.7.0(rollup@3.29.2)(vue@3.3.4)(webpack@5.88.2):
-    resolution: {integrity: sha512-ObWd9VhU0Tz6Jx5KNQG8j9XxyVf1b7QLpX/XyGsTOl5zlFY9XTeI4ZeAZro5BIxQU4hAIoVpPZjuG+5wnToGVg==}
-    engines: {node: '>=v16.14.0'}
-    deprecated: This package is no longer supported. Please use @nuxt/ui instead.
-    dependencies:
-      '@egoist/tailwindcss-icons': 1.1.0(tailwindcss@3.3.3)
-      '@headlessui/vue': 1.7.16(vue@3.3.4)
-      '@iconify-json/heroicons': 1.1.12
-      '@nuxt/kit': 3.7.3(rollup@3.29.2)
-      '@nuxtjs/color-mode': 3.3.0(rollup@3.29.2)
-      '@nuxtjs/tailwindcss': 6.8.0(rollup@3.29.2)(webpack@5.88.2)
-      '@popperjs/core': 2.11.8
-      '@tailwindcss/aspect-ratio': 0.4.2(tailwindcss@3.3.3)
-      '@tailwindcss/container-queries': 0.1.1(tailwindcss@3.3.3)
-      '@tailwindcss/forms': 0.5.6(tailwindcss@3.3.3)
-      '@tailwindcss/typography': 0.5.10(tailwindcss@3.3.3)
-      '@vueuse/core': 10.4.1(vue@3.3.4)
-      '@vueuse/integrations': 10.4.1(fuse.js@6.6.2)(vue@3.3.4)
-      '@vueuse/math': 10.4.1(vue@3.3.4)
-      defu: 6.1.2
-      fuse.js: 6.6.2
-      lodash-es: 4.17.21
-      tailwindcss: 3.3.3
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - async-validator
-      - axios
-      - change-case
-      - drauu
-      - focus-trap
-      - idb-keyval
-      - jwt-decode
-      - nprogress
-      - qrcode
-      - rollup
-      - sortablejs
-      - supports-color
-      - ts-node
-      - universal-cookie
-      - vue
-      - webpack
 
   /@nuxtjs/color-mode@3.3.0(rollup@3.29.2):
     resolution: {integrity: sha512-YVFNmTISke1eL7uk5p9I1suOsM222FxrqKoF13HS4x94OKCWwPLLeTCEzHZ8orzKnaFUbCXpuL4pRv8gvW+0Kw==}
@@ -11912,7 +11869,6 @@ packages:
 
   /tailwind-merge@1.14.0:
     resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
-    dev: true
 
   /tailwindcss@3.3.3:
     resolution: {integrity: sha512-A0KgSkef7eE4Mf+nKJ83i75TMyq8HqY3qmFIJSWy8bNt0v1lG7jUcpGpoTFxAwYcWOphcTBLPPJg+bDfhDf52w==}
