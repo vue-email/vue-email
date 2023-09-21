@@ -64,7 +64,7 @@ export default defineEventHandler(async (event) => {
     from: 'you@example.com',
     to: 'user@gmail.com',
     subject: 'hello world',
-    html: body.template,
+    html: template,
   };
 
   await sendgrid.send(options);
