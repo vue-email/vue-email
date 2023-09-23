@@ -18,11 +18,31 @@ const showIframe = computed(() => previewMode.value.id === 'iframe' || previewMo
 </script>
 
 <template>
-  <Splitpanes v-if="template" :horizontal="horizontalSplit" class="default-theme">
-    <Pane v-if="showIframe" min-size="5" :max-size="showBoth ? 90 : 100" :size="showBoth ? 50 : 100">
-      <iframe class="w-full h-screen" :srcdoc="template.html" frameborder="0" width="100%" height="100%" />
+  <Splitpanes
+    v-if="template"
+    :horizontal="horizontalSplit"
+    class="default-theme"
+  >
+    <Pane
+      v-if="showIframe"
+      min-size="5"
+      :max-size="showBoth ? 90 : 100"
+      :size="showBoth ? 50 : 100"
+    >
+      <iframe
+        class="w-full h-screen"
+        :srcdoc="template.html"
+        frameborder="0"
+        width="100%"
+        height="100%"
+      />
     </Pane>
-    <Pane v-if="showCode" min-size="5" :max-size="showBoth ? 90 : 100" :size="showBoth ? 50 : 100">
+    <Pane
+      v-if="showCode"
+      min-size="5"
+      :max-size="showBoth ? 90 : 100"
+      :size="showBoth ? 50 : 100"
+    >
       <CodeContainer />
     </Pane>
   </Splitpanes>

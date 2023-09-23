@@ -6,7 +6,7 @@
         "./core/*"
       ],
       "@vue-email/compiler": [
-        "./core/compiler/*"
+        "./compiler/*"
       ]
     }
   }

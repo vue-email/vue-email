@@ -1,14 +1,13 @@
 import { resolve } from 'node:path'
-import vueEmailModule from '../src/nuxt/module'
 
 export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
-  alias: {
-    'vue-email': resolve(__dirname, '../src/index.ts'),
-    'vue-email/compiler': resolve(__dirname, '../src/compiler/index.ts'),
-  },
-  modules: [vueEmailModule, '@nuxthq/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
+  // alias: {
+  //   'vue-email': resolve(__dirname, '../src/index.ts'),
+  //   'vue-email/compiler': resolve(__dirname, '../src/compiler/index.ts'),
+  // },
+  modules: ['../src/module', '@nuxt/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
   nitro: {
     output: {
       publicDir: resolve(__dirname, '../dist/client'),

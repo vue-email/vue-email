@@ -20,7 +20,7 @@ import { useRuntimeConfig, useStorage } from '#imports'
  * ```
  */
 export async function useCompiler(filename: string, data: RenderOptions, verbose = false) {
-  const vueEmailOptions = useRuntimeConfig().vueEmail as VueEmailPluginOptions
+  const vueEmailOptions = useRuntimeConfig().public.vueEmail as VueEmailPluginOptions
   const source = await useStorage('assets:emails').getItem(filename)
 
   const template = await templateRender(filename, source, data, {

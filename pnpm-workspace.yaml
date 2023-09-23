@@ -5,3 +5,4 @@ packages:
   - 'packages/core'
   - 'packages/nuxt'
   - 'packages/compiler'
+  - 'packages/nuxt/client'
