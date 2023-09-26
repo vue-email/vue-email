@@ -2,13 +2,11 @@ import * as compiler from 'vue/compiler-sfc'
 import { createApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import { blue, bold, lightGreen, red, white } from 'kolorist'
-import { importFromStringSync } from '../utils/import-from-string'
 import type { Component } from 'vue'
+import { importFromStringSync } from '../utils/import-from-string'
 import type { Options, RenderOptions, i18n } from '../types/compiler'
 import { VueEmailPlugin } from '../plugin'
 import { cleanup } from '../utils'
-
-const scriptIdentifier = '_sfc_main'
 
 export async function templateRender(name: string, source: string, options?: RenderOptions, config?: Options): Promise<string> {
   let vueI18n
@@ -21,9 +19,8 @@ export async function templateRender(name: string, source: string, options?: Ren
   const props = options?.props || config?.options?.props
 
   const output = compile(name, source, verbose)
-  const component: Component = importFromStringSync(output, {
-    transformOptions: { loader: 'ts' },
-  }).default
+
+  const component: Component = importFromStringSync(output).default
 
   if (verbose) {
     console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
@@ -70,6 +67,8 @@ export async function templateRender(name: string, source: string, options?: Ren
 
 function compile(filename: string, source: string, verbose = false) {
   let styles: compiler.SFCStyleCompileResults | null = null
+  let script: compiler.SFCScriptBlock | null = null
+  const scriptIdentifier = '_sfc_main'
 
   if (verbose) {
     console.warn(`${lightGreen('🚧')} ${bold(blue('Compiling'))} ${bold(lightGreen(filename))} ${bold(blue('file'))}`)
@@ -83,36 +82,39 @@ function compile(filename: string, source: string, verbose = false) {
     throw new Error(errors.join('\n'))
   }
 
-  const script = compiler.compileScript(descriptor, {
-    id: descriptor.filename,
-    genDefaultAs: scriptIdentifier,
-  })
+  if (descriptor.script || descriptor.scriptSetup)
+    script = compiler.compileScript(descriptor, {
+      id: descriptor.filename,
+      genDefaultAs: scriptIdentifier,
+    })
 
-  if (descriptor.styles.length) {
+  if (descriptor.styles && descriptor.styles.length)
     styles = compiler.compileStyle({
       id: descriptor.filename,
       filename,
       source: descriptor.styles[0].content,
       scoped: descriptor.styles.some((s) => s.scoped),
     })
-  }
 
   const template = compiler.compileTemplate({
     filename,
     id: descriptor.filename,
     source: descriptor.template!.content,
-    compilerOptions: {
-      bindingMetadata: script.bindings,
-    },
+    compilerOptions: script
+      ? {
+          bindingMetadata: script.bindings,
+        }
+      : {},
   })
 
   const output = `
   ${template.code}\n
-  ${script.content}
+  ${script ? script.content : ''}
   ${styles ? `const styles = \`${styles.code}\`` : ''}
-  ${scriptIdentifier}.render = render
+  ${script ? `${scriptIdentifier}.render = render` : `const ${scriptIdentifier} = { render }`}
   ${styles ? `${scriptIdentifier}.style = styles` : ''}
-  export default _sfc_main
+  ${scriptIdentifier}.__file = ${JSON.stringify(descriptor.filename)}
+  ${script ? `export default ${scriptIdentifier}` : `export default { render }`}
   `
 
   return output

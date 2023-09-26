@@ -63,4 +63,12 @@ describe('compiler', () => {
     expect(templateEn.includes('Hello world!')).toBe(true)
     expect(templateEs.includes('Hola mundo!')).toBe(true)
   })
+
+  it('Should render with empty setup content', async () => {
+    const template = await vuemail.render('TsScriptSetup.vue')
+
+    expect(template).toBe(
+      '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><section><p>Hello</p></section>',
+    )
+  })
 })

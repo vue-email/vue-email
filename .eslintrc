@@ -37,6 +37,7 @@
 		"comma-dangle": "error",
 		"no-unused-vars": 0,
 		"n/prefer-global/process": "off",
+		"n/prefer-global/buffer": "off",
 		"no-restricted-globals": "off",
 		"prettier/prettier": [
 			"error",
