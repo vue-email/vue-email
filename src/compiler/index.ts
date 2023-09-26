@@ -8,12 +8,12 @@ export { templateRender } from './template'
 
 export const config: DefineConfig = (dir: string, config: Options = {}) => {
   const defaultConfig = createInitConfig(config)
+  const components = getAllComponents(dir)
 
   return {
     render: (name: string, options?: RenderOptions): Promise<string> => {
       const path = dir ? resolve(dir, name) : name
       const source = readFile(path)
-      const components = getAllComponents(dir)
 
       return templateRender(name, { source, components }, options, defaultConfig)
     },
