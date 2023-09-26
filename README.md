@@ -14,6 +14,9 @@
 - [📖 &nbsp;Read the documentation](https://vuemail.net)
 - [💚 &nbsp;Nuxt Module](https://nuxt.com/modules/vue-email)
 
+> [!IMPORTANT]  
+> Experimental and under heavy development. APIs are subject to change.
+
 ## Features
 
 - 🧩 Build email templates with Vue components
