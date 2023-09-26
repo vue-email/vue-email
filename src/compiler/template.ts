@@ -20,7 +20,9 @@ export async function templateRender(name: string, source: string, options?: Ren
 
   const output = compile(name, source, verbose)
 
-  const component: Component = importFromStringSync(output).default
+  const component: Component = importFromStringSync(output, {
+    transformOptions: { loader: 'ts' },
+  }).default
 
   if (verbose) {
     console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
