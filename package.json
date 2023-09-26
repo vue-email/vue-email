@@ -87,16 +87,16 @@
   "dependencies": {
     "@flowko/tw-to-css": "^0.0.6",
     "@types/fs-extra": "^11.0.1",
+    "esbuild": "^0.19.2",
     "fs-extra": "^11.1.1",
     "isomorphic-dompurify": "^1.8.0",
-    "sirv": "^2.0.3",
-    "esbuild": "^0.19.2"
+    "scule": "^1.0.0",
+    "sirv": "^2.0.3"
   },
   "resolutions": {
     "vue-email": "link:."
   },
   "devDependencies": {
-    "nanoid": "^4.0.2",
     "@antfu/eslint-config": "^0.41.0",
     "@nuxt/kit": "^3.7.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
@@ -112,6 +112,7 @@
     "html-to-text": "^9.0.5",
     "htmlparser2": "9.0.0",
     "kolorist": "^1.8.0",
+    "nanoid": "^4.0.2",
     "nuxt": "^3.7.0",
     "prettier": "^3.0.3",
     "pretty": "^2.0.0",

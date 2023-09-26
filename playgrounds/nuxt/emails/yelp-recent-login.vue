@@ -93,6 +93,7 @@ const containerImageFooter = {
             }"
           >
             <EColumn>
+              <Hello />
               <EHeading style="font-size: 32; font-weight: bold; text-align: center"> Hi {{ userFirstName }}, </EHeading>
               <EHeading
                 as="h2"

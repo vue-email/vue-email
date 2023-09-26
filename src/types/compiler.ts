@@ -61,6 +61,20 @@ export interface Options {
   options?: VueEmailPluginOptions
 }
 
+export interface SourceOptions {
+  /**
+   * The source code of the component.
+   */
+  source: string
+  /**
+   * The components used in the component.
+   */
+  components: {
+    name: string
+    source: string
+  }[]
+}
+
 export interface RenderOptions {
   props?: Record<string, unknown>
   i18n?: i18n

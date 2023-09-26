@@ -3,12 +3,13 @@ import { createApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import { blue, bold, lightGreen, red, white } from 'kolorist'
 import type { Component } from 'vue'
+import { pascalCase } from 'scule'
 import { importFromStringSync } from '../utils/import-from-string'
-import type { Options, RenderOptions, i18n } from '../types/compiler'
+import type { Options, RenderOptions, SourceOptions, i18n } from '../types/compiler'
 import { VueEmailPlugin } from '../plugin'
 import { cleanup } from '../utils'
 
-export async function templateRender(name: string, source: string, options?: RenderOptions, config?: Options): Promise<string> {
+export async function templateRender(name: string, code: SourceOptions, options?: RenderOptions, config?: Options): Promise<string> {
   let vueI18n
 
   const verbose = config?.verbose || false
@@ -18,18 +19,25 @@ export async function templateRender(name: string, source: string, options?: Ren
   }
   const props = options?.props || config?.options?.props
 
-  const output = compile(name, source, verbose)
-
-  const component: Component = importFromStringSync(output, {
-    transformOptions: { loader: 'ts' },
-  }).default
+  const component = loadComponent(name, code.source, verbose)
 
   if (verbose) {
     console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
   }
 
+  if (!component) throw new Error(`Component ${name} not found`)
+
   const app = createApp(component, props)
   app.use(VueEmailPlugin, config?.options)
+  app.config.performance = true
+
+  if (code.components && code.components.length) {
+    for (const emailComponent of code.components) {
+      const componentCode = loadComponent(correctName(emailComponent.name), emailComponent.source, verbose)
+
+      if (componentCode) app.component(correctName(emailComponent.name), componentCode)
+    }
+  }
 
   if (i18nOptions) {
     try {
@@ -65,6 +73,26 @@ export async function templateRender(name: string, source: string, options?: Ren
   const doc = `${doctype}${cleanup(markup)}`
 
   return doc
+}
+
+function correctName(name: string) {
+  return pascalCase(name.replace(':', '-').replace('.vue', ''))
+}
+
+function loadComponent(name: string, source: string, verbose = false) {
+  try {
+    name = correctName(name)
+    const compiledCompoennt = compile(name, source, verbose)
+    const componentCode: Component = importFromStringSync(compiledCompoennt, {
+      transformOptions: { loader: 'ts' },
+    }).default
+
+    return componentCode
+  } catch (error) {
+    console.error('Error loading component', error)
+  }
+
+  return null
 }
 
 function compile(filename: string, source: string, verbose = false) {

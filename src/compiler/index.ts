@@ -1,5 +1,5 @@
-import { resolve } from 'node:path'
-import { readFileSync } from 'node:fs'
+import { join, resolve } from 'node:path'
+import { readFileSync, readdirSync, statSync } from 'fs-extra'
 import type { DefineConfig, Options, RenderOptions } from '../types/compiler'
 import { createInitConfig } from './config'
 import { templateRender } from './template'
@@ -13,17 +13,37 @@ export const config: DefineConfig = (dir: string, config: Options = {}) => {
     render: (name: string, options?: RenderOptions): Promise<string> => {
       const path = dir ? resolve(dir, name) : name
       const source = readFile(path)
+      const components = getAllComponents(dir)
 
-      return templateRender(name, source, options, defaultConfig)
+      return templateRender(name, { source, components }, options, defaultConfig)
     },
   }
 }
 
-/**
- * Returns the content of a file at path.
- *
- * @param path
- */
 function readFile(path: string): string {
   return readFileSync(path, 'utf-8').toString()
+}
+
+function getAllComponents(emailsPath: string, basePath = ''): { name: string; source: string }[] {
+  const result: { name: string; source: string }[] = []
+
+  const files = readdirSync(emailsPath)
+
+  files.forEach((file) => {
+    const filePath = join(emailsPath, file)
+    const relativePath = join(basePath, file)
+
+    if (statSync(filePath).isDirectory()) {
+      // If it's a directory, recursively call the function
+      result.push(...getAllComponents(filePath, relativePath))
+    } else {
+      // If it's a file, add it to the result array
+      result.push({
+        name: relativePath.replace(/\\/g, ':'),
+        source: readFile(filePath),
+      })
+    }
+  })
+
+  return result
 }
