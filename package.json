@@ -1,7 +1,7 @@
 {
   "name": "vue-email",
   "type": "module",
-  "version": "0.6.6",
+  "version": "0.7.0",
   "description": "💌 Write email templates with Vue",
   "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
   "maintainers": [
@@ -103,12 +103,14 @@
     "@types/html-to-text": "^9.0.1",
     "@types/pretty": "^2.0.1",
     "changelogen": "^0.5.5",
-    "cheerio": "1.0.0-rc.12",
+    "dom-serializer": "^2.0.0",
+    "domutils": "^3.1.0",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "happy-dom": "^10.11.2",
     "html-to-text": "^9.0.5",
+    "htmlparser2": "9.0.0",
     "kolorist": "^1.8.0",
     "nuxt": "^3.7.0",
     "prettier": "^3.0.3",
@@ -118,6 +120,13 @@
     "unbuild": "^2.0.0",
     "vite": "4.4.9",
     "vitest": "^0.34.3",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue-i18n": "^9.2.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "node-fetch-native": "1.4.0",
+      "@nuxt/ui": "npm:@nuxt/ui-edge@2.8.1-28255083.853d58a"
+    }
   }
 }

@@ -13,7 +13,7 @@
         "@iconify-json/twemoji": "latest",
         "@iconify-json/fluent": "latest",
         "@nuxt/devtools": "latest",
-        "@nuxthq/ui": "^2.7.0",
+        "@nuxt/ui": "^2.8.1",
         "@nuxtjs/fontaine": "^0.4.1",
         "@nuxtjs/google-fonts": "^3.0.2",
         "@types/splitpanes": "^2.2.1",

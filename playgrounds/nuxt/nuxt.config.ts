@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     'vue-email': resolve(__dirname, '../../src/index.ts'),
     'vue-email/compiler': resolve(__dirname, '../../src/compiler/index.ts'),
   },
-  modules: ['@nuxthq/ui', vueEmailModule],
+  modules: ['@nuxt/ui', vueEmailModule],
   typescript: {
     shim: false,
     includeWorkspace: true,
@@ -38,6 +38,18 @@ export default defineNuxtConfig({
   },
   vueEmail: {
     baseUrl: 'https://vue-email-demo.vercel.app/',
+    verbose: true,
     playground: false,
+    i18n: {
+      defaultLocale: 'en',
+      translations: {
+        en: {
+          message: 'Welcome to dashboard {user}',
+        },
+        es: {
+          message: 'Bienvenido al panel {user}',
+        },
+      },
+    },
   },
 })

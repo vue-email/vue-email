@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { resolveComponent } from 'vue'
 
-const emailTemplate = resolveComponent('EmailTemplate')
+const emailTemplate = resolveComponent('EmailTemplate') as Component
 
 const html = await useRender(emailTemplate, undefined, {
   pretty: true,

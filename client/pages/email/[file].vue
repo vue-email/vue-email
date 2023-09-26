@@ -2,7 +2,11 @@
 const route = useRoute()
 
 const { getEmail, template } = useEmail()
-const { horizontalSplit, previewMode } = useTool()
+const { horizontalSplit, previewMode } = useTool({
+  async onReload() {
+    await getEmail(`${route.params.file}`)
+  },
+})
 
 onMounted(async () => {
   await getEmail(`${route.params.file}`)

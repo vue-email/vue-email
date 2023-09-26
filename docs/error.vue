@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
+import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
 
 defineProps<{
   error: NuxtError
@@ -10,13 +11,12 @@ useSeoMeta({
   description: 'We are sorry but this page could not be found.',
 })
 
-const { data: navigation } = await useLazyAsyncData('navigation', () => fetchContentNavigation())
+const { data: nav } = await useAsyncData('navigation', () => fetchContentNavigation())
+const { data: files } = useLazyFetch<ParsedContent[]>('/api/search.json', { default: () => [], server: false })
 
-const { data: files } = await useLazyAsyncData('files', () =>
-  queryContent()
-    .where({ _type: 'markdown', navigation: { $ne: false } })
-    .find(),
-)
+// Computed
+
+const navigation = computed(() => nav.value)
 
 // Provide
 
@@ -37,7 +37,7 @@ provide('files', files)
     </UContainer>
 
     <ClientOnly>
-      <UDocsSearch :files="files" :navigation="navigation" />
+      <LazyUDocsSearch :files="files" :navigation="navigation" />
     </ClientOnly>
 
     <UNotifications />
