@@ -33,6 +33,7 @@ const previewText = `Join ${props.invitedByUsername} on Vercel`
           <ESection class="mt-[32px]">
             <EImg src="/static/vercel-logo.png" width="40" height="37" alt="Vercel" class="my-0 mx-auto" />
           </ESection>
+          <Hello />
           <EHeading class="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
             Join <strong>{{ teamName }}</strong> on <strong>Vercel</strong>
           </EHeading>

@@ -76,7 +76,7 @@ describe('compiler', () => {
     const template = await vuemail.render('UseOtherComponents.vue')
 
     expect(template).toBe(
-      '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><section><div><p>Hello there</p> Content inside Hello </div></section>',
+      '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><section><h1 data-id="__vue-email-heading" style="" class="mx-0 my-[30px] p-0 text-center text-[24px] font-bold text-black"> Test Vue Email components </h1></section>',
     )
   })
 })

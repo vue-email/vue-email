@@ -2,7 +2,7 @@ import { useCompiler } from '#vue-email'
 
 export default defineEventHandler(async () => {
   try {
-    const template = await useCompiler('yelp-recent-login.vue')
+    const template = await useCompiler('vercel-invite-user.vue')
 
     if (!template) {
       throw createError({

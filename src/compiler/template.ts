@@ -7,6 +7,7 @@ import { pascalCase } from 'scule'
 import { importFromStringSync } from '../utils/import-from-string'
 import type { Options, RenderOptions, SourceOptions, i18n } from '../types/compiler'
 import { VueEmailPlugin } from '../plugin'
+import * as components from '../components'
 import { cleanup } from '../utils'
 
 export async function templateRender(name: string, code: SourceOptions, options?: RenderOptions, config?: Options): Promise<string> {
@@ -33,9 +34,13 @@ export async function templateRender(name: string, code: SourceOptions, options?
 
   if (code.components && code.components.length) {
     for (const emailComponent of code.components) {
-      const componentCode = loadComponent(correctName(emailComponent.name), emailComponent.source, verbose)
-
-      if (componentCode) app.component(correctName(emailComponent.name), componentCode)
+      const name = correctName(emailComponent.name)
+      const componentCode = loadComponent(name, emailComponent.source, verbose)
+      if (componentCode)
+        app.component(name, {
+          ...componentCode,
+          components,
+        })
     }
   }
 
