@@ -1,4 +1,4 @@
-import { addComponent, addImportsSources, addPlugin, addServerHandler, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addComponent, addComponentsDir, addImportsSources, addPlugin, addServerHandler, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
 import defu from 'defu'
 import sirv from 'sirv'
 import type { VueEmailPluginOptions } from '../types'
@@ -44,7 +44,7 @@ export default defineNuxtModule<ModuleOptions>({
       playground: isDev,
     }
   },
-  setup(options, nuxt) {
+  async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
     const playgroundDir = resolve('../dist/client')
 
@@ -124,6 +124,13 @@ export default defineNuxtModule<ModuleOptions>({
         export: component,
         filePath: 'vue-email',
       })
+    })
+
+    await addComponentsDir({
+      path: '~/emails',
+      extensions: ['vue'],
+      global: true,
+      prefix: 'Emails',
     })
 
     addImportsSources({
