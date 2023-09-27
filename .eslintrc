@@ -39,6 +39,7 @@
 		"n/prefer-global/process": "off",
 		"n/prefer-global/buffer": "off",
 		"no-restricted-globals": "off",
+    "no-console": "off",
 		"prettier/prettier": [
 			"error",
 			{
