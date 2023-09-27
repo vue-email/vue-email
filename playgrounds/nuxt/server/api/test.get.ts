@@ -2,22 +2,7 @@ import { useCompiler } from '#vue-email'
 
 export default defineEventHandler(async () => {
   try {
-    const template = await useCompiler('Components:translation.vue', {
-      props: {
-        username: 'flowko',
-      },
-      i18n: {
-        defaultLocale: 'en',
-        translations: {
-          en: {
-            message: 'Welcome to dashboard {username}',
-          },
-          es: {
-            message: 'Bienvenido al panel {username}',
-          },
-        },
-      },
-    })
+    const template = await useCompiler('vercel-invite-user.vue')
 
     if (!template) {
       throw createError({

@@ -57,7 +57,9 @@ const plunk = new Plunk(process.env.PLUNK_API_KEY);
 
 export default defineEventHandler(async (event) => {
   const template = await useCompiler('welcome.vue', {
-    url: 'https://vuemail.net/',
+    props: {
+      url: 'https://vuemail.net/',
+    }
   })
 
   await plunk.emails.send({

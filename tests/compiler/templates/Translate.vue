@@ -1,11 +1,11 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
-const name = ref('Dave')
+const name = ref("Dave");
 </script>
 
 <template>
   <section>
-    <p>{{ $t('message') }} - {{ name }}</p>
+    <p>{{ $t("message") }} - {{ name }}</p>
   </section>
 </template>

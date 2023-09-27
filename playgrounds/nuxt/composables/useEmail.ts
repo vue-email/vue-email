@@ -18,7 +18,7 @@ export function useEmail() {
     if (data && data.value) {
       const emailTemplates = data.value.reduce((acc, email) => {
         const emailName = email.replace('.vue', '')
-        const resComponent = `Emails${pascalCase(emailName.replaceAll(':', '-'))}`
+        const resComponent = `${pascalCase(emailName.replaceAll(':', '-'))}`
 
         const parts = emailName.split(':')
         const name = kebabCase(parts[parts.length - 1])

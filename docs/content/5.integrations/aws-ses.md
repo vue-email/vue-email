@@ -57,7 +57,9 @@ const ses = new SES({ region: process.env.AWS_SES_REGION })
 
 export default defineEventHandler(async (event) => {
   const template = await useCompiler('welcome.vue', {
-    url: 'https://vuemail.net/',
+    props: {
+      url: 'https://vuemail.net/',
+    }
   })
 
 

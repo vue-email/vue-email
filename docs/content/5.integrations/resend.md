@@ -57,7 +57,9 @@ const resend = new Resend('re_123456789');
 
 export default defineEventHandler(async (event) => {
   const template = await useCompiler('welcome.vue', {
-    url: 'https://vuemail.net/',
+    props: {
+      url: 'https://vuemail.net/',
+    }
   })
 
   const options = {

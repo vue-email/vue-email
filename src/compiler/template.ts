@@ -2,14 +2,15 @@ import * as compiler from 'vue/compiler-sfc'
 import { createApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import { blue, bold, lightGreen, red, white } from 'kolorist'
-import { importFromStringSync } from 'module-from-string'
 import type { Component } from 'vue'
-import type { Options, RenderOptions, i18n } from '../types/compiler'
+import { pascalCase } from 'scule'
+import { importFromStringSync } from '../utils/import-from-string'
+import type { Options, RenderOptions, SourceOptions, i18n } from '../types/compiler'
 import { VueEmailPlugin } from '../plugin'
+import * as components from '../components'
+import { cleanup } from '../utils'
 
-const scriptIdentifier = '_sfc_main'
-
-export async function templateRender(name: string, source: string, options?: RenderOptions, config?: Options): Promise<string> {
+export async function templateRender(name: string, code: SourceOptions, options?: RenderOptions, config?: Options): Promise<string> {
   let vueI18n
 
   const verbose = config?.verbose || false
@@ -18,18 +19,30 @@ export async function templateRender(name: string, source: string, options?: Ren
     translations: options?.i18n?.translations || config?.options?.i18n?.translations,
   }
   const props = options?.props || config?.options?.props
-
-  const output = compile(name, source, verbose)
-  const component: Component = importFromStringSync(output, {
-    transformOptions: { loader: 'ts' },
-  }).default
+  name = correctName(name)
+  const component = loadComponent(name, code.source, verbose)
 
   if (verbose) {
     console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
   }
 
+  if (!component) throw new Error(`Component ${name} not found`)
+
   const app = createApp(component, props)
   app.use(VueEmailPlugin, config?.options)
+  app.config.performance = true
+
+  if (code.components && code.components.length > 0) {
+    for (const emailComponent of code.components) {
+      const componentName = correctName(emailComponent.name)
+      const componentCode = loadComponent(componentName, emailComponent.source, verbose)
+      if (componentCode)
+        app.component(componentName, {
+          ...componentCode,
+          components,
+        })
+    }
+  }
 
   if (i18nOptions) {
     try {
@@ -62,13 +75,35 @@ export async function templateRender(name: string, source: string, options?: Ren
 
   const markup = await renderToString(app)
   const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
-  const doc = `${doctype}${replaceString(markup)}`
+  const doc = `${doctype}${cleanup(markup)}`
 
   return doc
 }
 
+function correctName(name: string) {
+  return pascalCase(name.replace(':', '-').replace('.vue', ''))
+}
+
+function loadComponent(name: string, source: string, verbose = false) {
+  try {
+    name = correctName(name)
+    const compiledCompoennt = compile(name, source, verbose)
+    const componentCode: Component = importFromStringSync(compiledCompoennt, {
+      transformOptions: { loader: 'ts' },
+    }).default
+
+    return componentCode
+  } catch (error) {
+    console.error('Error loading component', error)
+  }
+
+  return null
+}
+
 function compile(filename: string, source: string, verbose = false) {
   let styles: compiler.SFCStyleCompileResults | null = null
+  let script: compiler.SFCScriptBlock | null = null
+  const scriptIdentifier = '_sfc_main'
 
   if (verbose) {
     console.warn(`${lightGreen('🚧')} ${bold(blue('Compiling'))} ${bold(lightGreen(filename))} ${bold(blue('file'))}`)
@@ -82,49 +117,40 @@ function compile(filename: string, source: string, verbose = false) {
     throw new Error(errors.join('\n'))
   }
 
-  const script = compiler.compileScript(descriptor, {
-    id: descriptor.filename,
-    genDefaultAs: scriptIdentifier,
-  })
+  if (descriptor.script || descriptor.scriptSetup)
+    script = compiler.compileScript(descriptor, {
+      id: descriptor.filename,
+      genDefaultAs: scriptIdentifier,
+    })
 
-  if (descriptor.styles.length) {
+  if (descriptor.styles && descriptor.styles.length)
     styles = compiler.compileStyle({
       id: descriptor.filename,
       filename,
       source: descriptor.styles[0].content,
       scoped: descriptor.styles.some((s) => s.scoped),
     })
-  }
 
   const template = compiler.compileTemplate({
     filename,
     id: descriptor.filename,
     source: descriptor.template!.content,
-    compilerOptions: {
-      bindingMetadata: script.bindings,
-    },
+    compilerOptions: script
+      ? {
+          bindingMetadata: script.bindings,
+        }
+      : {},
   })
 
   const output = `
   ${template.code}\n
-  ${script.content}
+  ${script ? script.content : ''}
   ${styles ? `const styles = \`${styles.code}\`` : ''}
-  ${scriptIdentifier}.render = render
+  ${script ? `${scriptIdentifier}.render = render` : `const ${scriptIdentifier} = { render }`}
   ${styles ? `${scriptIdentifier}.style = styles` : ''}
-  export default _sfc_main
+  ${scriptIdentifier}.__file = ${JSON.stringify(descriptor.filename)}
+  ${script ? `export default ${scriptIdentifier}` : `export default { render }`}
   `
 
   return output
-}
-
-function replaceString(str: string) {
-  if (!str || typeof str !== 'string') return str
-
-  return str
-    .replace(/ data-v-inspector="[^"]*"/g, '')
-    .replace(/<!--\[-->/g, '')
-    .replace(/<!--]-->/g, '')
-    .replace(/<template>/g, '')
-    .replace(/<template[^>]*>/g, '')
-    .replace(/<\/template>/g, '')
 }
