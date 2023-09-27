@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { CSSProperties, PropType } from 'vue'
 import { computed, defineComponent, h } from 'vue'
 import { convertStyleStringToObj, pxToPt } from '../utils'
 
@@ -27,28 +27,34 @@ export default defineComponent({
     const textRaise = pxToPt(Number.parseInt(py.toString()) * 2)
     const styles = typeof props.style === 'string' ? convertStyleStringToObj(props.style) : props.style
 
-    const buttonStyle = computed(() => ({
-      lineHeight: '100%',
-      textDecoration: 'none',
-      display: 'inline-block',
-      maxWidth: '100%',
-      ...styles,
-    }))
+    const buttonStyle = computed(
+      () =>
+        ({
+          lineHeight: '100%',
+          textDecoration: 'none',
+          display: 'inline-block',
+          maxWidth: '100%',
+          ...styles,
+        }) as CSSProperties,
+    )
 
-    if (py || px) {
+    if ((py || px) && buttonStyle.value) {
       buttonStyle.value.padding = `${py}px ${px}px`
     }
 
-    const buttonTextStyle = computed(() => ({
-      maxWidth: '100%',
-      display: 'inline-block',
-      lineHeight: '120%',
-      textDecoration: 'none',
-      textTransform: 'none',
-      msoPaddingAlt: '0px',
-      msoTextRaise: pxToPt(py.toString()),
-      ...styles,
-    }))
+    const buttonTextStyle = computed(
+      () =>
+        ({
+          maxWidth: '100%',
+          display: 'inline-block',
+          lineHeight: '120%',
+          textDecoration: 'none',
+          textTransform: 'none',
+          msoPaddingAlt: '0px',
+          msoTextRaise: pxToPt(py.toString()),
+          ...styles,
+        }) as CSSProperties,
+    )
 
     const firstSpan = `<!--[if mso]><i style="letter-spacing: ${px}px;mso-font-width:-100%;mso-text-raise:${textRaise}" hidden>&nbsp;</i><![endif]-->`
     const secondSpan = `<!--[if mso]><i style="letter-spacing: ${px}px;mso-font-width:-100%" hidden>&nbsp;</i><![endif]-->`
