@@ -1,4 +1,4 @@
-import { join, resolve } from 'node:path'
+import { extname, join, resolve } from 'node:path'
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import type { DefineConfig, Options, RenderOptions } from '../types/compiler'
 import { createInitConfig } from './config'
@@ -8,7 +8,7 @@ export { templateRender } from './template'
 
 export const config: DefineConfig = (dir: string, config: Options = {}) => {
   const defaultConfig = createInitConfig(config)
-  const components = getAllComponents(dir)
+  const components = getAllVueComponents(dir)
 
   return {
     render: (name: string, options?: RenderOptions): Promise<string> => {
@@ -24,7 +24,7 @@ function readFile(path: string): string {
   return readFileSync(path, 'utf-8').toString()
 }
 
-function getAllComponents(emailsPath: string, basePath = ''): { name: string; source: string }[] {
+function getAllVueComponents(emailsPath: string, basePath = ''): { name: string; source: string }[] {
   const result: { name: string; source: string }[] = []
 
   const files = readdirSync(emailsPath)
@@ -35,12 +35,12 @@ function getAllComponents(emailsPath: string, basePath = ''): { name: string; so
 
     if (statSync(filePath).isDirectory()) {
       // If it's a directory, recursively call the function
-      result.push(...getAllComponents(filePath, relativePath))
-    } else {
-      // If it's a file, add it to the result array
+      result.push(...getAllVueComponents(filePath, relativePath))
+    } else if (extname(file) === '.vue') {
+      // If it's a .vue file, add it to the result array
       result.push({
         name: relativePath.replace(/\\/g, ':'),
-        source: readFile(filePath),
+        source: readFileSync(filePath, 'utf8'), // Read the file content as a string
       })
     }
   })

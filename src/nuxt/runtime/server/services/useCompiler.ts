@@ -31,7 +31,7 @@ export async function useCompiler(filename: string, data?: RenderOptions, verbos
   }[] = []
   for (const key of keys) {
     const value = await useStorage(storageKey).getItem(key)
-    if (value) {
+    if (value && key.endsWith('.vue')) {
       components.push({
         name: key,
         source: value,
