@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.7.2
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.7.1...v0.7.2)
+
+### 🩹 Fixes
+
+- Wrong merging of styles in EButton #74 ([#74](https://github.com/Dave136/vue-email/issues/74))
+- Missing type for button styles ([821aa8f](https://github.com/Dave136/vue-email/commit/821aa8f))
+
+### ❤️ Contributors
+
+- Flowko ([@Flowko](http://github.com/Flowko))
+
 ## v0.7.1
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.7.0...v0.7.1)
