@@ -1,6 +1,49 @@
 # Changelog
 
 
+## v0.7.1
+
+[compare changes](https://github.com/Dave136/vue-email/compare/v0.7.0...v0.7.1)
+
+### 🩹 Fixes
+
+- Auto import `.vue` components that live in `emails` folder ([#63](https://github.com/Dave136/vue-email/pull/63))
+- Reverted version for package ([72fe055](https://github.com/Dave136/vue-email/commit/72fe055))
+
+### 📖 Documentation
+
+- Moving to @nuxthq/elements ([22f518a](https://github.com/Dave136/vue-email/commit/22f518a))
+- Major update and new homepage ([a09b929](https://github.com/Dave136/vue-email/commit/a09b929))
+- Added .env example ([8db626d](https://github.com/Dave136/vue-email/commit/8db626d))
+- Fix typo ([b16dde4](https://github.com/Dave136/vue-email/commit/b16dde4))
+- Updated repo and npm ([21e95b9](https://github.com/Dave136/vue-email/commit/21e95b9))
+- Update README.md ([43994de](https://github.com/Dave136/vue-email/commit/43994de))
+- Preparing for `nuxt/ui-pro` ([529d646](https://github.com/Dave136/vue-email/commit/529d646))
+- Resolve `@nuxt/ui` and remove duplicates ([7903b8f](https://github.com/Dave136/vue-email/commit/7903b8f))
+- Added features section to `ssr` ([363ff1f](https://github.com/Dave136/vue-email/commit/363ff1f))
+- Added whats missing in SSR ([77bb4f1](https://github.com/Dave136/vue-email/commit/77bb4f1))
+- Updated SSR features ([35fda96](https://github.com/Dave136/vue-email/commit/35fda96))
+- Added correct/incorrect format ([7f92bcd](https://github.com/Dave136/vue-email/commit/7f92bcd))
+- Added wrong example ([a9d5c43](https://github.com/Dave136/vue-email/commit/a9d5c43))
+- Added before you start section ([b64a294](https://github.com/Dave136/vue-email/commit/b64a294))
+- Minor ssr update ([0bef7e0](https://github.com/Dave136/vue-email/commit/0bef7e0))
+- Fixed wrong vue code ([a25f7df](https://github.com/Dave136/vue-email/commit/a25f7df))
+
+### 🏡 Chore
+
+- Bump `@nuxt/ui` ([7517dec](https://github.com/Dave136/vue-email/commit/7517dec))
+- Using `@nuxt/ui-pro` instead of elements ([a6ce6ed](https://github.com/Dave136/vue-email/commit/a6ce6ed))
+
+### 🤖 CI
+
+- Fix build fialing ([dc416c4](https://github.com/Dave136/vue-email/commit/dc416c4))
+
+### ❤️ Contributors
+
+- Flowko ([@Flowko](http://github.com/Flowko))
+- Younes Barrad ([@Flowko](http://github.com/Flowko))
+- Benjamin Canac ([@benjamincanac](http://github.com/benjamincanac))
+
 ## v0.7.0
 
 [compare changes](https://github.com/Dave136/vue-email/compare/v0.6.8...v0.7.0)
