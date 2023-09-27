@@ -1,5 +1,5 @@
 import { join, resolve } from 'node:path'
-import { readFileSync, readdirSync, statSync } from 'fs-extra'
+import { readFileSync, readdirSync, statSync } from 'node:fs'
 import type { DefineConfig, Options, RenderOptions } from '../types/compiler'
 import { createInitConfig } from './config'
 import { templateRender } from './template'

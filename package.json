@@ -1,7 +1,7 @@
 {
   "name": "vue-email",
   "type": "module",
-  "version": "0.7.1-pre.3",
+  "version": "0.7.1-pre.5",
   "description": "💌 Write email templates with Vue",
   "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
   "maintainers": [
@@ -86,9 +86,7 @@
   },
   "dependencies": {
     "@flowko/tw-to-css": "^0.0.6",
-    "@types/fs-extra": "^11.0.1",
     "esbuild": "^0.19.2",
-    "fs-extra": "^11.1.1",
     "isomorphic-dompurify": "^1.8.0",
     "scule": "^1.0.0",
     "sirv": "^2.0.3"

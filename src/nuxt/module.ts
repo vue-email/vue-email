@@ -1,6 +1,5 @@
 import { addComponent, addImportsSources, addPlugin, addServerHandler, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
 import defu from 'defu'
-import { pathExists } from 'fs-extra'
 import sirv from 'sirv'
 import type { VueEmailPluginOptions } from '../types'
 
@@ -88,7 +87,7 @@ export default defineNuxtModule<ModuleOptions>({
       })
 
       nuxt.hook('vite:serverCreated', async (server) => {
-        if (await pathExists(playgroundDir)) server.middlewares.use(PATH_PLAYGROUND, sirv(playgroundDir, { single: true, dev: true }))
+        server.middlewares.use(PATH_PLAYGROUND, sirv(playgroundDir, { single: true, dev: true }))
       })
 
       // eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error

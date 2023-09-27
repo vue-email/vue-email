@@ -19,7 +19,7 @@ export async function templateRender(name: string, code: SourceOptions, options?
     translations: options?.i18n?.translations || config?.options?.i18n?.translations,
   }
   const props = options?.props || config?.options?.props
-
+  name = correctName(name)
   const component = loadComponent(name, code.source, verbose)
 
   if (verbose) {
@@ -32,12 +32,12 @@ export async function templateRender(name: string, code: SourceOptions, options?
   app.use(VueEmailPlugin, config?.options)
   app.config.performance = true
 
-  if (code.components && code.components.length) {
+  if (code.components && code.components.length > 0) {
     for (const emailComponent of code.components) {
-      const name = correctName(emailComponent.name)
-      const componentCode = loadComponent(name, emailComponent.source, verbose)
+      const componentName = correctName(emailComponent.name)
+      const componentCode = loadComponent(componentName, emailComponent.source, verbose)
       if (componentCode)
-        app.component(name, {
+        app.component(componentName, {
           ...componentCode,
           components,
         })
