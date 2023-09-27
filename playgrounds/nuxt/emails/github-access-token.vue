@@ -41,9 +41,9 @@ const button = {
   fontSize: '14px',
   backgroundColor: '#28a745',
   color: '#fff',
-  lineHeight: 1.5,
   borderRadius: '0.5em',
-  padding: '0.75em 1.5em',
+  padding: '0.3em 0.6em',
+  textTransform: 'uppercase',
 } as CSSProperties
 
 const links = {

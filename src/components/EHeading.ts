@@ -51,7 +51,6 @@ export default defineComponent({
         {
           'data-id': '__vue-email-heading',
           style: {
-            ...styles,
             ...withMargin({
               m: props.m,
               mx: props.mx,
@@ -61,6 +60,7 @@ export default defineComponent({
               mb: props.mb,
               ml: props.ml,
             }),
+            ...styles,
           },
         },
         slots.default?.(),

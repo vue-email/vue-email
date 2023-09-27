@@ -28,16 +28,18 @@ export default defineComponent({
     const styles = typeof props.style === 'string' ? convertStyleStringToObj(props.style) : props.style
 
     const buttonStyle = computed(() => ({
-      ...styles,
       lineHeight: '100%',
       textDecoration: 'none',
       display: 'inline-block',
       maxWidth: '100%',
-      padding: `${py}px ${px}px`,
+      ...styles,
     }))
 
+    if (py || px) {
+      buttonStyle.value.padding = `${py}px ${px}px`
+    }
+
     const buttonTextStyle = computed(() => ({
-      ...styles,
       maxWidth: '100%',
       display: 'inline-block',
       lineHeight: '120%',
@@ -45,6 +47,7 @@ export default defineComponent({
       textTransform: 'none',
       msoPaddingAlt: '0px',
       msoTextRaise: pxToPt(py.toString()),
+      ...styles,
     }))
 
     const firstSpan = `<!--[if mso]><i style="letter-spacing: ${px}px;mso-font-width:-100%;mso-text-raise:${textRaise}" hidden>&nbsp;</i><![endif]-->`
