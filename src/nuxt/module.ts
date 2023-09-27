@@ -130,7 +130,6 @@ export default defineNuxtModule<ModuleOptions>({
       path: '~/emails',
       extensions: ['vue'],
       global: true,
-      prefix: 'Emails',
     })
 
     addImportsSources({
