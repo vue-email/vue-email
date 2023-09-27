@@ -57,7 +57,9 @@ sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default defineEventHandler(async (event) => {
   const template = await useCompiler('welcome.vue', {
-    url: 'https://vuemail.net/',
+    props: {
+      url: 'https://vuemail.net/',
+    }
   })
 
   const options = {
