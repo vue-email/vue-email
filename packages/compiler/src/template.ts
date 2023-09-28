@@ -25,7 +25,7 @@ import {
   ESection,
   ETailwind,
   EText
-} from '@vue-email/core';
+} from 'vue-email';
 
 const components = {
   EBody,

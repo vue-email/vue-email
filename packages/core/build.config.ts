@@ -23,5 +23,6 @@ export default defineBuildConfig({
       ext: 'js',
     }
   ],
-  externals: ['vue']
+  externals: ['vue'],
+  dependencies: ['@vue-email/utils'],
 })

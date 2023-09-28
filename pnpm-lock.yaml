@@ -160,13 +160,13 @@ importers:
         version: 3.1.5
       vue-email:
         specifier: workspace:~
-        version: link:..
+        version: link:../packages/core
 
   docs:
     dependencies:
       vue-email:
         specifier: workspace:~
-        version: link:..
+        version: link:../packages/core
     devDependencies:
       '@iconify-json/heroicons':
         specifier: latest
@@ -219,15 +219,15 @@ importers:
 
   packages/compiler:
     dependencies:
-      '@vue-email/core':
-        specifier: workspace:*
-        version: link:../core
       '@vue-email/types':
         specifier: workspace:*
         version: link:../types
       '@vue-email/utils':
         specifier: workspace:*
         version: link:../utils
+      vue-email:
+        specifier: workspace:*
+        version: link:../core
 
   packages/core:
     dependencies:
@@ -246,15 +246,15 @@ importers:
       '@vue-email/compiler':
         specifier: workspace:*
         version: link:../compiler
-      '@vue-email/core':
-        specifier: workspace:*
-        version: link:../core
       '@vue-email/types':
         specifier: workspace:*
         version: link:../types
       '@vue-email/utils':
         specifier: workspace:*
         version: link:../utils
+      vue-email:
+        specifier: workspace:*
+        version: link:../core
 
   packages/types: {}
 
@@ -268,7 +268,7 @@ importers:
     dependencies:
       vue-email:
         specifier: workspace:~
-        version: link:../..
+        version: link:../../packages/core
     devDependencies:
       '@iconify-json/heroicons':
         specifier: ^1.1.12
