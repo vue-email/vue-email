@@ -24,5 +24,5 @@ export default defineBuildConfig({
     }
   ],
   externals: ['vue'],
-  dependencies: ['@vue-email/utils'],
+  dependencies: ['@vue-email/utils', '@flowko/tw-to-css', 'isomorphic-dompurify'],
 })
