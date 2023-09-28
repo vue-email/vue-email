@@ -15,13 +15,6 @@ export default defineBuildConfig({
       format: 'esm',
       ext: 'mjs',
     },
-    {
-      input: 'src/index.ts',
-      outDir: 'dist',
-      name: 'index',
-      format: 'cjs',
-      ext: 'js',
-    },
   ],
   externals: ['vue'],
 })

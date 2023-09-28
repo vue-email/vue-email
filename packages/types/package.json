@@ -5,11 +5,9 @@
   "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
   "homepage": "https://vuemail.net/",
   "license": "MIT",
-  "module": "dist/index.esm.js",
-  "main": "dist/index.js",
+  "main": "dist/index.d.ts",
   "types": "dist/index.d.ts",
   "files": [
-    "dist/*.js",
     "dist/*.d.ts"
   ],
   "scripts": {
