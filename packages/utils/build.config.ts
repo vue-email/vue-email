@@ -23,5 +23,5 @@ export default defineBuildConfig({
       ext: 'js',
     }
   ],
-  externals: ['esbuild']
+  externals: ['esbuild', 'vue']
 })
