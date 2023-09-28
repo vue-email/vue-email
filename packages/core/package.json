@@ -1,0 +1,37 @@
+{
+  "name": "@vue-email/core",
+  "version": "0.7.2",
+  "description": "Core of vue-email package",
+  "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
+  "homepage": "https://vuemail.net/",
+  "license": "MIT",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "prepack": "unbuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dave136/vue-email",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/Dave136/vue-email/issues"
+  },
+  "dependencies": {
+    "@flowko/tw-to-css": "^0.0.6",
+    "@vue-email/types": "workspace:*",
+    "@vue-email/utils": "workspace:*"
+  }
+}
