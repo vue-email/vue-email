@@ -1,0 +1,37 @@
+{
+  "name": "@vue-email/compiler",
+  "version": "0.7.2",
+  "description": "Compile vue-email templates",
+  "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
+  "homepage": "https://vuemail.net/",
+  "license": "MIT",
+  "type": "module",
+  "types": "dist/compiler.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/compiler.d.ts",
+      "import": "./dist/compiler.mjs",
+      "require": "./dist/compiler.cjs",
+      "default": "./dist/compiler.mjs"
+    }
+  },
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "prepack": "unbuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dave136/vue-email",
+    "directory": "packages/compiler"
+  },
+  "bugs": {
+    "url": "https://github.com/Dave136/vue-email/issues"
+  },
+  "dependencies": {
+    "@vue-email/types": "workspace:*",
+    "@vue-email/utils": "workspace:*",
+    "@vue-email/core": "workspace:*"
+  }
+}
