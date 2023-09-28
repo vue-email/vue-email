@@ -112,7 +112,7 @@ importers:
     devDependencies:
       '@iconify-json/fluent':
         specifier: latest
-        version: 1.1.36
+        version: 1.1.35
       '@iconify-json/heroicons':
         specifier: latest
         version: 1.1.12
@@ -121,7 +121,7 @@ importers:
         version: 1.1.6
       '@iconify-json/simple-icons':
         specifier: latest
-        version: 1.1.72
+        version: 1.1.63
       '@iconify-json/twemoji':
         specifier: latest
         version: 1.1.12
@@ -176,7 +176,7 @@ importers:
         version: 1.1.6
       '@iconify-json/simple-icons':
         specifier: latest
-        version: 1.1.72
+        version: 1.1.63
       '@iconify-json/solar':
         specifier: latest
         version: 1.1.5
@@ -218,6 +218,12 @@ importers:
         version: 1.68.0
 
   packages/types: {}
+
+  packages/utils:
+    dependencies:
+      '@vue-email/types':
+        specifier: workspace:*
+        version: link:../types
 
   playgrounds/nuxt:
     dependencies:
@@ -1223,8 +1229,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@iconify-json/fluent@1.1.36:
-    resolution: {integrity: sha512-PILEFvU5yU70SeM171PQ6dfFIHsWClELmkWtyYVcogRk7RhsEsxWnxF+gTHpK9zSfQy4YQtuQPNtql7bHI8hNA==}
+  /@iconify-json/fluent@1.1.35:
+    resolution: {integrity: sha512-WqrkFv/HtXjrsLfBBICYn6du2s9lPADvN3pO1evqLdEMgfEvaX1fd5x3RVakFeLeivIkKHVLrKAz8JwmfpSq4g==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
@@ -1241,8 +1247,8 @@ packages:
       '@iconify/types': 2.0.0
     dev: true
 
-  /@iconify-json/simple-icons@1.1.72:
-    resolution: {integrity: sha512-ylH9Q9CE61fcj8ZTeNeydC3wk8gEaoArUbkTdEpIHx4TRqr9ryhQ1XYMffuz1o636NWX/QhtR0sgpZHDjQg6WQ==}
+  /@iconify-json/simple-icons@1.1.63:
+    resolution: {integrity: sha512-aIbo99YLjwZ53XxU9HC+CO9Br9H0vRuGmq8b0TOaGA1g7HX2ZlpmzPvWAte5xbmbohfRzAMX/OVsFhOT+CL+Aw==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

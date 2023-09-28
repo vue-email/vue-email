@@ -94,7 +94,8 @@
   },
   "resolutions": {
     "vue-email": "link:.",
-    "@vue-email/types": "workspace:*"
+    "@vue-email/types": "workspace:*",
+    "@vue-email/utils": "workspace:*"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.0",
