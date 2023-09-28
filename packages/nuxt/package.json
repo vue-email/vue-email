@@ -1,0 +1,38 @@
+{
+  "name": "@vue-email/nuxt",
+  "version": "0.7.2",
+  "description": "Nuxt package for vue-email",
+  "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
+  "homepage": "https://vuemail.net/",
+  "license": "MIT",
+  "type": "module",
+  "types": "dist/nuxt.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/nuxt.d.ts",
+      "import": "./dist/nuxt.mjs",
+      "require": "./dist/nuxt.cjs",
+      "default": "./dist/nuxt.mjs"
+    }
+  },
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "prepack": "unbuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dave136/vue-email",
+    "directory": "packages/nuxt"
+  },
+  "bugs": {
+    "url": "https://github.com/Dave136/vue-email/issues"
+  },
+  "dependencies": {
+    "@vue-email/types": "workspace:*",
+    "@vue-email/utils": "workspace:*",
+    "@vue-email/core": "workspace:*",
+    "@vue-email/compiler": "workspace:*"
+  }
+}
