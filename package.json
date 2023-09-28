@@ -93,7 +93,8 @@
     "sirv": "^2.0.3"
   },
   "resolutions": {
-    "vue-email": "link:."
+    "vue-email": "link:.",
+    "@vue-email/types": "workspace:*"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.0",
