@@ -4,13 +4,14 @@ import { renderToString } from 'vue/server-renderer'
 import { blue, bold, lightGreen, red, white } from 'kolorist'
 import type { Component } from 'vue'
 import { pascalCase } from 'scule'
+import { convert } from 'html-to-text'
 import { importFromStringSync } from '../utils/import-from-string'
-import type { Options, RenderOptions, SourceOptions, i18n } from '../types/compiler'
+import type { Options, RenderOptions, RenderedEmail, SourceOptions, i18n } from '../types/compiler'
 import { VueEmailPlugin } from '../plugin'
 import * as components from '../components'
 import { cleanup } from '../utils'
 
-export async function templateRender(name: string, code: SourceOptions, options?: RenderOptions, config?: Options): Promise<string> {
+export async function templateRender(name: string, code: SourceOptions, options?: RenderOptions, config?: Options): Promise<RenderedEmail> {
   let vueI18n
 
   const verbose = config?.verbose || false
@@ -76,8 +77,17 @@ export async function templateRender(name: string, code: SourceOptions, options?
   const markup = await renderToString(app)
   const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
   const doc = `${doctype}${cleanup(markup)}`
+  const plainText = convert(markup, {
+    selectors: [
+      { selector: 'img', format: 'skip' },
+      { selector: '#__vue-email-preview', format: 'skip' },
+    ],
+  })
 
-  return doc
+  return {
+    html: doc,
+    plainText,
+  }
 }
 
 function correctName(name: string) {

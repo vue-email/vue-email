@@ -13,7 +13,9 @@ describe('compiler', () => {
       },
     })
 
-    expect(template).toBe('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><h1>Hi! My name is Dave</h1>')
+    expect(template.html).toBe(
+      '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><h1>Hi! My name is Dave</h1>',
+    )
   })
 
   it('Should render defineComponent setup', async () => {
@@ -23,7 +25,7 @@ describe('compiler', () => {
       },
     })
 
-    expect(template).toBe(
+    expect(template.html).toBe(
       '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><section><p>Count: 2</p><p>Double: 4</p></section>',
     )
   })
@@ -35,7 +37,7 @@ describe('compiler', () => {
       },
     })
 
-    expect(template).toBe(
+    expect(template.html).toBe(
       '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><section><h1>Welcome John Doe</h1></section>',
     )
   })
@@ -60,14 +62,14 @@ describe('compiler', () => {
     const templateEn = await vuemail.render('Translate.vue', { i18n: { defaultLocale: 'en' } })
     const templateEs = await vuemail.render('Translate.vue', { i18n: { defaultLocale: 'es' } })
 
-    expect(templateEn.includes('Hello world!')).toBe(true)
-    expect(templateEs.includes('Hola mundo!')).toBe(true)
+    expect(templateEn.html.includes('Hello world!')).toBe(true)
+    expect(templateEs.html.includes('Hola mundo!')).toBe(true)
   })
 
   it('Should render with empty setup content', async () => {
     const template = await vuemail.render('TsScriptSetup.vue')
 
-    expect(template).toBe(
+    expect(template.html).toBe(
       '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><section><p>Hello</p></section>',
     )
   })
@@ -75,7 +77,7 @@ describe('compiler', () => {
   it('Auto imported components', async () => {
     const template = await vuemail.render('UseOtherComponents.vue')
 
-    expect(template).toBe(
+    expect(template.html).toBe(
       '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><section><h1 data-id="__vue-email-heading" style="" class="mx-0 my-[30px] p-0 text-center text-[24px] font-bold text-black"> Test Vue Email components </h1></section>',
     )
   })

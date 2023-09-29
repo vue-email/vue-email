@@ -40,8 +40,13 @@ export interface i18n {
   translations?: Record<string, Record<string, string>>
 }
 
+export interface RenderedEmail {
+  html: string
+  plainText: string
+}
+
 export interface DefineConfigFunctions {
-  render: (name: string, options?: RenderOptions) => Promise<string>
+  render: (name: string, options?: RenderOptions) => Promise<RenderedEmail>
 }
 
 export type DefineConfig = (dir: string, config?: Options) => DefineConfigFunctions
