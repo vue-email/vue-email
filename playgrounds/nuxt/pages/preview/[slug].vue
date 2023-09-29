@@ -7,7 +7,7 @@ const { email, refresh, getEmail, getVueCode } = useEmail()
 const emailTemplate = ref({
   vue: '',
   html: '',
-  plainText: '',
+  text: '',
 })
 
 await getEmail(slug)
@@ -21,12 +21,12 @@ async function loadMarkups() {
   if (!emailFile || !email.value.component) return
   const vue = await getVueCode(email.value.component)
   const html = await useRender(emailFile, null, { pretty: true })
-  const plainText = await useRender(emailFile, null, { plainText: true })
+  const text = await useRender(emailFile, null, { text: true })
 
   emailTemplate.value = {
     vue,
     html,
-    plainText,
+    text,
   }
 }
 

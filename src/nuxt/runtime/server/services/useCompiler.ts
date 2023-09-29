@@ -16,8 +16,10 @@ const storageKey = 'assets:emails'
  *  props: {
  *    name: 'foo',
  *  },
- *  locale: 'en',
- *  translations: {},
+ *  i18n: {
+ *    defaultLocale: 'en',
+ *    translations: {},
+ *  },
  * })
  * ```
  */

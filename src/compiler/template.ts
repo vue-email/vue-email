@@ -77,7 +77,7 @@ export async function templateRender(name: string, code: SourceOptions, options?
   const markup = await renderToString(app)
   const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
   const doc = `${doctype}${cleanup(markup)}`
-  const plainText = convert(markup, {
+  const text = convert(markup, {
     selectors: [
       { selector: 'img', format: 'skip' },
       { selector: '#__vue-email-preview', format: 'skip' },
@@ -86,7 +86,7 @@ export async function templateRender(name: string, code: SourceOptions, options?
 
   return {
     html: doc,
-    plainText,
+    text,
   }
 }
 

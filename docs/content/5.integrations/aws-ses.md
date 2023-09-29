@@ -72,7 +72,7 @@ export default defineEventHandler(async (event) => {
       Body: {
         Html: {
           Charset: 'UTF-8',
-          Data: template,
+          Data: template.html,
         },
       },
       Subject: {
@@ -115,7 +115,7 @@ app.post('/api/send-email', async (req, res) => {
       Body: {
         Html: {
           Charset: 'UTF-8',
-          Data: template,
+          Data: template.html,
         },
       },
       Subject: {

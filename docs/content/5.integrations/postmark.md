@@ -66,7 +66,7 @@ export default defineEventHandler(async (event) => {
     From: 'you@example.com',
     To: 'user@gmail.com',
     Subject: 'hello world',
-    HtmlBody: template,
+    HtmlBody: template.html,
   };
 
   await client.sendEmail(options);
@@ -97,7 +97,7 @@ app.post('/api/send-email', async (req, res) => {
     From: 'you@example.com',
     To: 'user@gmail.com',
     Subject: 'hello world',
-    HtmlBody: template,
+    HtmlBody: template.html,
   };
 
   await client.sendEmail(options);

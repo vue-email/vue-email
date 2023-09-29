@@ -65,7 +65,7 @@ export default defineEventHandler(async (event) => {
   await plunk.emails.send({
     to: "hello@useplunk.com",
     subject: "Hello world",
-    body: template,
+    body: template.html,
   });
 
   return { message: 'Email sent' };
@@ -94,7 +94,7 @@ app.post('/api/send-email', async (req, res) => {
   await plunk.emails.send({
     to: "hello@useplunk.com",
     subject: "Hello world",
-    body: template,
+    body: template.html,
   });
 
   return res.json({ message: "Email sent" });

@@ -13,7 +13,7 @@ export type ActiveLang = 'vue' | 'html' | 'txt'
 export interface Template {
   vue: string
   html: string
-  plainText: string
+  text: string
 }
 
 export interface MarkupProps {

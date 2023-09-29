@@ -42,7 +42,7 @@ export interface i18n {
 
 export interface RenderedEmail {
   html: string
-  plainText: string
+  text: string
 }
 
 export interface DefineConfigFunctions {

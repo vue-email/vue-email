@@ -74,7 +74,7 @@ export default defineEventHandler(async (event) => {
   .setFrom(sentFrom)
   .setTo(recipients)
   .setSubject("This is a Subject")
-  .setHtml(template)
+  .setHtml(template.html)
 
 
   await mailerSend.email.send(options);
@@ -112,7 +112,7 @@ app.post('/api/send-email', async (req, res) => {
   .setFrom(sentFrom)
   .setTo(recipients)
   .setSubject("This is a Subject")
-  .setHtml(template)
+  .setHtml(template.html)
 
   await mailerSend.email.send(options);
 

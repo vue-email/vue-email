@@ -6,7 +6,7 @@ import { cleanup } from '../utils'
 
 export interface Options {
   pretty?: boolean
-  plainText?: boolean
+  text?: boolean
 }
 
 export interface I18n {
@@ -43,7 +43,7 @@ export async function useRender(
   params?: RenderParams | null,
   options: Options = {
     pretty: false,
-    plainText: false,
+    text: false,
   },
 ) {
   let vueI18n
@@ -71,7 +71,7 @@ export async function useRender(
 
   const markup = await renderToString(app)
 
-  if (options.plainText) {
+  if (options.text) {
     return convert(markup, {
       selectors: [
         { selector: 'img', format: 'skip' },

@@ -64,7 +64,7 @@ watchEffect(() => {
         <UTooltip text="Change View to Desktop">
           <UButton icon="i-heroicons-computer-desktop" size="sm" color="gray" variant="solid" :trailing="false" @click="handleView('desktop')" />
         </UTooltip>
-        <UTooltip text="Get HTML/PlainText Code">
+        <UTooltip text="Get HTML/Text Code">
           <UButton
             icon="i-heroicons-code-bracket"
             size="sm"
@@ -139,7 +139,7 @@ watchEffect(() => {
           },
           {
             language: 'txt',
-            content: template.plainText,
+            content: template.text,
           },
         ]"
         @setlang="setlang"

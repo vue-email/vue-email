@@ -33,7 +33,7 @@ export function useEmail() {
 
     const { data } = await useFetch<{
       html: string
-      plainText: string
+      text: string
     }>(`/api/render/${email.value.filename}`, {
       baseURL: host.value,
     })
@@ -42,7 +42,7 @@ export function useEmail() {
       return {
         vue: email.value.content,
         html: pretty(data.value.html),
-        txt: data.value.plainText,
+        txt: data.value.text,
       }
 
     return null
