@@ -1,6 +1,6 @@
 import { extname, join, resolve } from 'node:path'
 import { readFileSync, readdirSync, statSync } from 'node:fs'
-import type { DefineConfig, Options, RenderOptions } from '../types/compiler'
+import type { DefineConfig, Options, RenderOptions, RenderedEmail } from '../types/compiler'
 import { createInitConfig } from './config'
 import { templateRender } from './template'
 
@@ -11,7 +11,7 @@ export const config: DefineConfig = (dir: string, config: Options = {}) => {
   const components = getAllVueComponents(dir)
 
   return {
-    render: (name: string, options?: RenderOptions): Promise<string> => {
+    render: (name: string, options?: RenderOptions): Promise<RenderedEmail> => {
       const path = dir ? resolve(dir, name) : name
       const source = readFile(path)
 
