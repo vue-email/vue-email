@@ -22,41 +22,6 @@
   "bugs": {
     "url": "https://github.com/Dave136/vue-email/issues"
   },
-  "keywords": [
-    "vue",
-    "vue 3",
-    "email",
-    "components",
-    "html",
-    "template",
-    "nuxt",
-    "nuxt 3"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    },
-    "./nuxt": {
-      "types": "./dist/nuxt.d.ts",
-      "import": "./dist/nuxt.mjs",
-      "require": "./dist/nuxt.cjs"
-    },
-    "./compiler": {
-      "types": "./dist/compiler.d.ts",
-      "import": "./dist/compiler.mjs",
-      "require": "./dist/compiler.cjs"
-    }
-  },
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "files": [
-    "dist/**/*",
-    "LICENSE",
-    "README.md"
-  ],
   "scripts": {
     "build": "unbuild && pnpm build:client && pnpm pack",
     "build:pkgs": "pnpm --filter './packages/**' prepack",
