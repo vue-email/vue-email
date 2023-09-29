@@ -1,9 +1,9 @@
 import type { Plugin } from 'vue'
 
-import * as components from '../components'
-import { config } from '../config'
 import { deepmerge } from '@vue-email/utils'
 import type { VueEmailPluginOptions } from '@vue-email/types'
+import * as components from '../components'
+import { config } from '../config'
 
 export const VueEmailPlugin: Plugin = {
   install(app, options: VueEmailPluginOptions = {}) {
