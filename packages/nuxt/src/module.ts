@@ -46,7 +46,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
-    const playgroundDir = resolve('../dist/client')
+    const playgroundDir = resolve('../../../client/.nuxt')
 
     nuxt.options.runtimeConfig.public.vueEmailOptions = options || {}
 

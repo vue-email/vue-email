@@ -26,7 +26,7 @@ export default defineBuildConfig({
     // Copy runtime folder with mkdist
     {
       builder: 'mkdist',
-      input: 'src/nuxt/runtime',
+      input: 'src/runtime',
       outDir: 'dist/runtime',
       declaration: true,
     },
