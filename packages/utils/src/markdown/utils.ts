@@ -20,7 +20,7 @@ export async function parseMarkdownToVueEmailJSX(markdown: string, customStyles:
     return ''
   }
 
-  const { addHook, sanitize } = await (await import('isomorphic-dompurify')).default
+  const { addHook, sanitize } = (await import('isomorphic-dompurify')).default
 
   // hook to handle target="_blank" in all links
   addHook('afterSanitizeAttributes', (node: any) => {
