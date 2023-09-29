@@ -2,8 +2,6 @@ import { defineComponent, h } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import * as htmlparser2 from 'htmlparser2'
 import * as domutils from 'domutils'
-import { tailwindToCSS } from '@flowko/tw-to-css'
-import type { TailwindConfig } from '@flowko/tw-to-css'
 import render from 'dom-serializer'
 import { cleanCss, getMediaQueryCss, makeCssMap } from '@vue-email/utils'
 
@@ -11,7 +9,7 @@ export default defineComponent({
   name: 'ETailwind',
   props: {
     config: {
-      type: Object as () => TailwindConfig,
+      type: Object as () => import('@flowko/tw-to-css').TailwindConfig,
       default: undefined,
       required: false,
     },
@@ -22,6 +20,7 @@ export default defineComponent({
     }
 
     const $default = slots.default()
+    const { tailwindToCSS } = await import('@flowko/tw-to-css')
     const { twi } = tailwindToCSS({ config: props.config })
     const fullHTML = await renderToString(h('div', $default)).then((html) => html.replace(/^<div[^>]*>|<\/div>$/g, ''))
 

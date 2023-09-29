@@ -8,7 +8,7 @@ export default defineBuildConfig({
     inlineDependencies: true,
     dts: {
       respectExternal: false,
-    }
+    },
   },
   entries: [
     {
@@ -24,7 +24,7 @@ export default defineBuildConfig({
       name: 'index',
       format: 'cjs',
       ext: 'js',
-    }
+    },
   ],
   externals: ['vue'],
 })
