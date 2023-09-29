@@ -1,7 +1,7 @@
 {
   "name": "vue-email",
   "version": "0.7.2",
-  "description": "Core of vue-email package",
+  "description": "💌 Write email templates with Vue",
   "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
   "homepage": "https://vuemail.net/",
   "license": "MIT",

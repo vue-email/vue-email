@@ -1,8 +1,6 @@
 {
-  "name": "vue-email",
+  "name": "vue-email-workspace",
   "type": "module",
-  "version": "0.7.3-pre.1",
-  "description": "💌 Write email templates with Vue",
   "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
   "maintainers": [
     {
