@@ -6,6 +6,9 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
     inlineDependencies: true,
+    dts: {
+      respectExternal: false,
+    },
   },
   entries: [
     {
@@ -16,5 +19,5 @@ export default defineBuildConfig({
       ext: 'mjs',
     },
   ],
-  externals: ['esbuild', 'vue'],
+  externals: ['vue'],
 })
