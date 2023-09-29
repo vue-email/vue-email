@@ -1,5 +1,5 @@
 {
-  "extends": "./playgrounds/nuxt/.nuxt/tsconfig.json",
+  // "extends": "./playgrounds/nuxt/.nuxt/tsconfig.json",
   "compilerOptions": {
     "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",

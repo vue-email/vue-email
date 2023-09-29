@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@flowko/tw-to-css": "^0.0.6",
+    "@swc/wasm": "^1.3.90",
     "@vue-email/types": "workspace:*",
     "@vue-email/utils": "workspace:*",
     "isomorphic-dompurify": "^1.8.0"

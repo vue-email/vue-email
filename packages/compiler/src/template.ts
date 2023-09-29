@@ -4,7 +4,8 @@ import { renderToString } from 'vue/server-renderer'
 import { blue, bold, lightGreen, red, white } from 'kolorist'
 import type { Component } from 'vue'
 import { pascalCase } from 'scule'
-import { cleanup, importFromStringSync } from '@vue-email/utils'
+import { cleanup } from '@vue-email/utils'
+import { transformSync } from '@swc/wasm'
 import type { Options, RenderOptions, SourceOptions, i18n } from '@vue-email/types'
 import {
   EBody,
@@ -57,7 +58,7 @@ export async function templateRender(name: string, code: SourceOptions, options?
   }
   const props = options?.props || config?.options?.props
   name = correctName(name)
-  const component = loadComponent(name, code.source, verbose)
+  const component = await loadComponent(name, code.source, verbose)
 
   if (verbose) {
     console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
@@ -72,7 +73,7 @@ export async function templateRender(name: string, code: SourceOptions, options?
   if (code.components && code.components.length > 0) {
     for (const emailComponent of code.components) {
       const componentName = correctName(emailComponent.name)
-      const componentCode = loadComponent(componentName, emailComponent.source, verbose)
+      const componentCode = await loadComponent(componentName, emailComponent.source, verbose)
       if (componentCode)
         app.component(componentName, {
           ...componentCode,
@@ -121,13 +122,20 @@ function correctName(name: string) {
   return pascalCase(name.replace(':', '-').replace('.vue', ''))
 }
 
-function loadComponent(name: string, source: string, verbose = false) {
+async function loadComponent(name: string, source: string, verbose = false) {
   try {
     name = correctName(name)
-    const compiledCompoennt = compile(name, source, verbose)
-    const componentCode: Component = importFromStringSync(compiledCompoennt, {
-      transformOptions: { loader: 'ts' },
-    }).default
+    const compiledComponent = compile(name, source, verbose)
+    const { code } = transformSync(compiledComponent, {
+      jsc: {
+        target: 'es2019',
+        parser: {
+          syntax: 'typescript',
+        },
+      },
+    })
+    const toBase64 = (str: string) => `data:application/javascript;base64,${btoa(str)}`
+    const componentCode: Component = (await import(toBase64(code))).default
 
     return componentCode
   } catch (error) {
