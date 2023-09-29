@@ -96,5 +96,6 @@
       "node-fetch-native": "1.4.0",
       "@nuxt/ui": "npm:@nuxt/ui-edge@2.8.1-28255083.853d58a"
     }
-  }
+  },
+  "version": "0.1.0-0"
 }
