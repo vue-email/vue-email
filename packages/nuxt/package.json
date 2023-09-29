@@ -19,7 +19,8 @@
     "dist/*"
   ],
   "scripts": {
-    "prepack": "unbuild"
+    "prepack": "unbuild",
+    "clear": "rimraf dist node_modules"
   },
   "repository": {
     "type": "git",

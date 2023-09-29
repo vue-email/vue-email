@@ -4,17 +4,16 @@ import { renderToString } from 'vue/server-renderer'
 import { blue, bold, lightGreen, red, white } from 'kolorist'
 import type { Component } from 'vue'
 import { pascalCase } from 'scule'
-import { importFromStringSync, cleanup } from '@vue-email/utils'
+import { cleanup, importFromStringSync } from '@vue-email/utils'
 import type { Options, RenderOptions, SourceOptions, i18n } from '@vue-email/types'
 import {
-  VueEmailPlugin,
   EBody,
-  EHead,
-  EHeading,
   EButton,
   EColumn,
   EContainer,
   EFont,
+  EHead,
+  EHeading,
   EHr,
   EHtml,
   EImg,
@@ -24,8 +23,9 @@ import {
   ERow,
   ESection,
   ETailwind,
-  EText
-} from 'vue-email';
+  EText,
+  VueEmailPlugin,
+} from 'vue-email'
 
 const components = {
   EBody,
@@ -44,7 +44,7 @@ const components = {
   ERow,
   ESection,
   ETailwind,
-  EText
+  EText,
 }
 
 export async function templateRender(name: string, code: SourceOptions, options?: RenderOptions, config?: Options): Promise<string> {

@@ -11,7 +11,8 @@
     "dist/*.d.ts"
   ],
   "scripts": {
-    "prepack": "unbuild"
+    "prepack": "unbuild",
+    "clear": "rimraf dist"
   },
   "repository": {
     "type": "git",
