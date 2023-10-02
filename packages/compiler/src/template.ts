@@ -5,7 +5,7 @@ import { blue, bold, lightGreen, red, white } from 'kolorist'
 import type { Component } from 'vue'
 import { pascalCase } from 'scule'
 import { cleanup } from '@vue-email/utils'
-import { transformSync } from '@swc/wasm'
+import { transformSync } from 'esbuild'
 import type { Options, RenderOptions, SourceOptions, i18n } from '@vue-email/types'
 import {
   EBody,
@@ -127,12 +127,8 @@ async function loadComponent(name: string, source: string, verbose = false) {
     name = correctName(name)
     const compiledComponent = compile(name, source, verbose)
     const { code } = transformSync(compiledComponent, {
-      jsc: {
-        target: 'es2019',
-        parser: {
-          syntax: 'typescript',
-        },
-      },
+      loader: 'ts',
+      target: 'es2015',
     })
     const toBase64 = (str: string) => `data:application/javascript;base64,${btoa(str)}`
     const componentCode: Component = (await import(toBase64(code))).default

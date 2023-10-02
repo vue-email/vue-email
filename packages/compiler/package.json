@@ -31,8 +31,8 @@
     "url": "https://github.com/Dave136/vue-email/issues"
   },
   "dependencies": {
-    "vue-email": "workspace:*",
     "@vue-email/types": "workspace:*",
-    "@vue-email/utils": "workspace:*"
+    "@vue-email/utils": "workspace:*",
+    "vue-email": "workspace:*"
   }
 }
