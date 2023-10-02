@@ -8,7 +8,6 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "vue-email": "workspace:~",
     "@vue-email/nuxt": "workspace:~",
     "@vue-email/compiler": "workspace:~"
   },
