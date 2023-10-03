@@ -2,6 +2,7 @@
   "name": "vue-email-workspace",
   "type": "module",
   "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
+  "version": "0.7.2",
   "maintainers": [
     {
       "name": "Dave136",
