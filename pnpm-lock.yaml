@@ -300,6 +300,9 @@ importers:
       '@vue-email/types':
         specifier: workspace:*
         version: link:../types
+      isomorphic-dompurify:
+        specifier: ^1.8.0
+        version: 1.8.0
 
   packages/vue-email:
     dependencies:

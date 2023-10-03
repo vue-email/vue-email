@@ -5,10 +5,6 @@ export default defineBuildConfig({
   clean: true,
   rollup: {
     emitCJS: true,
-    inlineDependencies: true,
-    dts: {
-      respectExternal: false,
-    },
   },
   entries: [
     {
@@ -19,5 +15,5 @@ export default defineBuildConfig({
       ext: 'mjs',
     },
   ],
-  externals: ['vue'],
+  externals: ['vue', 'isomorphic-dompurify'],
 })
