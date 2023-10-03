@@ -20,7 +20,7 @@
 ## Features
 
 - 🧩 Build email templates with Vue components
-- 🛤️ [SSR support](https://vuemail.net/getting-started/ssr), preview/send emails both on server and client.
+- 🛤️ [SSR support](https://vuemail.net/getting-started/ssr), preview/send emails both on server and client, now with support for [deno](https://deno.land/) and [bun](https://bun.sh/).
 - 🌍 [i18n support](https://vuemail.net/getting-started/i18n)
 - 📨 [Integrates with many email providers](https://vuemail.net/integrations/nodemailer)
 - 🧪 Tested against popular email clients
@@ -47,6 +47,13 @@ npm i -D vue-email
 
 ```html
 // components/template-email.vue
+<script setup>
+import { EButton, EHr, EHtml, EText } from 'vue-email';
+import { ref } from 'vue';
+   
+const user = ref('Dave');
+</script>
+
 <template>
    <e-html lang="en">
       <e-text>Hello, {{ user }}!</e-text>
@@ -54,13 +61,6 @@ npm i -D vue-email
       <e-button href="vuejs.org">Visit vue</e-button>
    </e-html>
 </template>
-
-<script setup>
-import { EButton, EHr, EHtml, EText } from 'vue-email';
-import { ref } from 'vue';
-   
-const user = ref('Dave');
-</script>
 ```
 > You can see the full example [here](https://github.com/Dave136/vue-email/getting-started/setup.html)
 
@@ -68,9 +68,11 @@ const user = ref('Dave');
 
 > [📖 Read the SSR documentation](https://vuemail.net/getting-started/ssr)
 
+For SSR, you need to install `@vue-email/compiler`, now `compiler` with support for [deno](https://deno.land/), and [bun](https://bun.sh/).
+
 ```js
 import express from "express";
-import { config } from "vue-email/compiler";
+import { config } from "@vue-email/compiler";
 
 const app = express();
 
