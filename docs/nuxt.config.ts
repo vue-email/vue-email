@@ -3,7 +3,7 @@ import pkg from '../package.json'
 export default defineNuxtConfig({
   extends: '@nuxt/ui-pro',
   devtools: { enabled: true, componentInspector: false, viteInspect: false },
-  modules: ['@vue-email/nuxt', '@nuxt/content', 'nuxt-og-image', '@nuxt/ui', '@nuxtlabs/github-module', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
+  modules: ['@nuxt/content', 'nuxt-og-image', '@nuxt/ui', '@nuxtlabs/github-module', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt', '@vue-email/nuxt'],
   vueEmail: {
     playground: false,
   },
