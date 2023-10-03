@@ -5,7 +5,7 @@ import { blue, bold, lightGreen, red, white } from 'kolorist'
 import type { Component } from 'vue'
 import { pascalCase } from 'scule'
 import { cleanup } from '@vue-email/utils'
-import { transformSync } from 'esbuild'
+import { importModule } from 'import-string'
 import type { Options, RenderOptions, SourceOptions, i18n } from '@vue-email/types'
 import {
   EBody,
@@ -59,8 +59,6 @@ export async function templateRender(name: string, code: SourceOptions, options?
   const props = options?.props || config?.options?.props
   name = correctName(name)
   const component = await loadComponent(name, code.source, verbose)
-
-  console.log({ component })
 
   if (verbose) {
     console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
@@ -128,17 +126,9 @@ async function loadComponent(name: string, source: string, verbose = false) {
   try {
     name = correctName(name)
     const compiledComponent = compile(name, source, verbose)
-    const { code } = transformSync(compiledComponent, {
-      loader: 'ts',
-      target: 'es2015',
-    })
-    const toBase64 = (str: string) => `data:text/javascript;base64,${btoa(str)}`
-    const componentCode: Component = await import(toBase64(code))
+    const componentCode: Component = (await importModule(compiledComponent)).default
 
-    console.log({ base64: toBase64(code), componentCode })
-
-    // return componentCode
-    return {}
+    return componentCode
   } catch (error) {
     console.error('Error loading component', error)
   }

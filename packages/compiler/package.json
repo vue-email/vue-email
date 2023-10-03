@@ -33,7 +33,7 @@
   "dependencies": {
     "@vue-email/types": "workspace:*",
     "@vue-email/utils": "workspace:*",
-    "esbuild": "^0.19.2",
+    "import-string": "^0.1.0",
     "vue-email": "workspace:*"
   }
 }
