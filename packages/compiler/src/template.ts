@@ -60,6 +60,8 @@ export async function templateRender(name: string, code: SourceOptions, options?
   name = correctName(name)
   const component = await loadComponent(name, code.source, verbose)
 
+  console.log({ component })
+
   if (verbose) {
     console.warn(`${lightGreen('💌')} ${bold(blue('Generating output'))}`)
   }
@@ -130,10 +132,13 @@ async function loadComponent(name: string, source: string, verbose = false) {
       loader: 'ts',
       target: 'es2015',
     })
-    const toBase64 = (str: string) => `data:application/javascript;base64,${btoa(str)}`
-    const componentCode: Component = (await import(toBase64(code))).default
+    const toBase64 = (str: string) => `data:text/javascript;base64,${btoa(str)}`
+    const componentCode: Component = await import(toBase64(code))
 
-    return componentCode
+    console.log({ base64: toBase64(code), componentCode })
+
+    // return componentCode
+    return {}
   } catch (error) {
     console.error('Error loading component', error)
   }
