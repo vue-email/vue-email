@@ -173,6 +173,9 @@ importers:
 
   docs:
     dependencies:
+      '@vue-email/nuxt':
+        specifier: workspace:~
+        version: link:../packages/nuxt
       vue-email:
         specifier: workspace:~
         version: link:../packages/vue-email
