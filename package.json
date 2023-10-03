@@ -22,7 +22,7 @@
     "url": "https://github.com/Dave136/vue-email/issues"
   },
   "scripts": {
-    "build": "unbuild && pnpm build:client && pnpm pack",
+    "build": "pnpm build:pkgs && pnpm build:pkgs",
     "build:pkgs": "pnpm --filter './packages/**' prepack",
     "dev": "vite build --watch",
     "release": "changelogen --release",
