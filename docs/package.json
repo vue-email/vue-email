@@ -2,7 +2,8 @@
   "name": "vue-email-docs",
   "private": true,
   "dependencies": {
-    "vue-email": "workspace:~"
+    "vue-email": "workspace:~",
+    "@vue-email/nuxt": "workspace:~"
   },
   "devDependencies": {
     "@nuxt/ui-pro": "npm:@nuxt/ui-pro-edge@0.0.1-28255017.af7c0a2",
