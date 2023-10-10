@@ -5,26 +5,7 @@ export default defineBuildConfig({
   clean: true,
   rollup: {
     emitCJS: true,
-    inlineDependencies: true,
-    dts: {
-      respectExternal: false,
-    },
   },
-  entries: [
-    {
-      input: 'src/index.ts',
-      outDir: 'dist',
-      name: 'index',
-      format: 'esm',
-      ext: 'mjs',
-    },
-    {
-      input: 'src/index.ts',
-      outDir: 'dist',
-      name: 'index',
-      format: 'cjs',
-      ext: 'js',
-    },
-  ],
+  entries: ['src/index.ts', 'src/compiler.ts'],
   externals: ['vue'],
 })

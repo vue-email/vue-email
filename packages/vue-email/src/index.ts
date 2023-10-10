@@ -1,4 +1,1 @@
-export { VueEmailPlugin } from './plugin'
-
-export * from './components'
-export * from './composables'
+export * from '@vue-email/core'

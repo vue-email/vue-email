@@ -62,7 +62,8 @@
     "@vue-email/types": "workspace:*",
     "@vue-email/utils": "workspace:*",
     "@vue-email/compiler": "workspace:*",
-    "@vue-email/nuxt": "workspace:*"
+    "@vue-email/nuxt": "workspace:*",
+    "@vue-email/core": "workspace:*"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.0",

@@ -26,7 +26,7 @@ import {
   ETailwind,
   EText,
   VueEmailPlugin,
-} from 'vue-email'
+} from '@vue-email/core'
 
 const components = {
   EBody,
