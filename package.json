@@ -1,5 +1,5 @@
 {
-  "name": "vue-email-workspace",
+  "name": "@vue-email/monorepo",
   "type": "module",
   "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
   "version": "0.7.2",
