@@ -6,6 +6,6 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
   },
-  entries: ['src/index.ts', 'src/compiler.ts'],
+  entries: ['src/index.ts', 'src/compiler.ts', 'src/nuxt.ts'],
   externals: ['vue'],
 })

@@ -25,11 +25,17 @@
       "types": "./dist/compiler.d.ts",
       "import": "./dist/compiler.mjs",
       "require": "./dist/compiler.cjs"
+    },
+    "./nuxt": {
+      "types": "./dist/nuxt.d.ts",
+      "import": "./dist/nuxt.mjs",
+      "require": "./dist/nuxt.cjs"
     }
   },
   "files": [
     "dist",
-    "index.d.ts"
+    "index.d.ts",
+    "*.d.ts"
   ],
   "scripts": {
     "prepack": "unbuild",
@@ -44,6 +50,7 @@
   },
   "dependencies": {
     "@vue-email/compiler": "workspace:*",
-    "@vue-email/core": "workspace:*"
+    "@vue-email/core": "workspace:*",
+    "@vue-email/nuxt": "workspace:*"
   }
 }

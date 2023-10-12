@@ -5,12 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  vue-email: workspace:*
-  '@vue-email/types': workspace:*
-  '@vue-email/utils': workspace:*
-  '@vue-email/compiler': workspace:*
-  '@vue-email/nuxt': workspace:*
-  '@vue-email/core': workspace:*
   node-fetch-native: 1.4.0
   '@nuxt/ui': npm:@nuxt/ui-edge@2.8.1-28255083.853d58a
 
@@ -136,7 +130,7 @@ importers:
         version: 1.1.12
       '@nuxt/devtools':
         specifier: latest
-        version: 1.0.0-beta.0(nuxt@3.7.4)(rollup@3.29.4)(vite@4.4.9)
+        version: 1.0.0-beta.1(nuxt@3.7.4)(rollup@3.29.4)(vite@4.4.9)
       '@nuxt/ui':
         specifier: npm:@nuxt/ui-edge@2.8.1-28255083.853d58a
         version: /@nuxt/ui-edge@2.8.1-28255083.853d58a(rollup@3.29.4)(vue@3.3.4)(webpack@5.88.2)
@@ -150,10 +144,10 @@ importers:
         specifier: ^2.2.1
         version: 2.2.3
       '@vue-email/compiler':
-        specifier: workspace:*
+        specifier: workspace:~
         version: link:../packages/compiler
       '@vue-email/nuxt':
-        specifier: workspace:*
+        specifier: workspace:~
         version: link:../packages/nuxt
       '@vueuse/core':
         specifier: ^10.4.1
@@ -174,16 +168,16 @@ importers:
         specifier: ^3.1.5
         version: 3.1.5
       vue-email:
-        specifier: workspace:*
+        specifier: workspace:~
         version: link:../packages/vue-email
 
   docs:
     dependencies:
       '@vue-email/nuxt':
-        specifier: workspace:*
+        specifier: workspace:~
         version: link:../packages/nuxt
       vue-email:
-        specifier: workspace:*
+        specifier: workspace:~
         version: link:../packages/vue-email
     devDependencies:
       '@iconify-json/heroicons':
@@ -286,10 +280,10 @@ importers:
   packages/playground:
     dependencies:
       '@vue-email/compiler':
-        specifier: workspace:*
+        specifier: workspace:~
         version: link:../compiler
       '@vue-email/nuxt':
-        specifier: workspace:*
+        specifier: workspace:~
         version: link:../nuxt
     devDependencies:
       '@iconify-json/heroicons':
@@ -300,7 +294,7 @@ importers:
         version: 1.1.6
       '@nuxt/devtools':
         specifier: latest
-        version: 1.0.0-beta.0(nuxt@3.7.4)(rollup@3.29.4)(vite@4.4.9)
+        version: 1.0.0-beta.1(nuxt@3.7.4)(rollup@3.29.4)(vite@4.4.9)
       '@nuxt/ui':
         specifier: npm:@nuxt/ui-edge@2.8.1-28255083.853d58a
         version: /@nuxt/ui-edge@2.8.1-28255083.853d58a(rollup@3.29.4)(vue@3.3.4)(webpack@5.88.2)
@@ -311,7 +305,7 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       vue-email:
-        specifier: workspace:*
+        specifier: workspace:~
         version: link:../vue-email
       vue-i18n:
         specifier: ^9.2.2
@@ -336,6 +330,9 @@ importers:
       '@vue-email/core':
         specifier: workspace:*
         version: link:../core
+      '@vue-email/nuxt':
+        specifier: workspace:*
+        version: link:../nuxt
 
 packages:
 
@@ -1455,6 +1452,7 @@ packages:
   /@koa/router@9.4.0:
     resolution: {integrity: sha512-dOOXgzqaDoHu5qqMEPLKEgLz5CeIA7q8+1W62mCvFVCOqeC71UoTGJ4u1xUSOpIl2J1x2pqrNULkFteUeZW3/A==}
     engines: {node: '>= 8.0.0'}
+    deprecated: '**IMPORTANT 10x+ PERFORMANCE UPGRADE**: Please upgrade to v12.0.1+ as we have fixed an issue with debuglog causing 10x slower router benchmark performance, see https://github.com/koajs/router/pull/173'
     dependencies:
       debug: 4.3.4
       http-errors: 1.8.1
@@ -1654,8 +1652,8 @@ packages:
     resolution: {integrity: sha512-GBzP8zOc7CGWyFQS6dv1lQz8VVpz5C2yRszbXufwG/9zhStTIH50EtD87NmWbTMwXDvZLNg8GIpb1UFdH93JCA==}
     dev: true
 
-  /@nuxt/devtools-kit@1.0.0-beta.0(nuxt@3.7.4)(rollup@3.29.4)(vite@4.4.9):
-    resolution: {integrity: sha512-1B/b8DDY+gjILnTDKLjeF5b1t1+IK61+W7KvMwNTyV7ziiPxD3aOVI5dShnHQhjFd+GU1NGri807cWn7O1tSOw==}
+  /@nuxt/devtools-kit@1.0.0-beta.1(nuxt@3.7.4)(rollup@3.29.4)(vite@4.4.9):
+    resolution: {integrity: sha512-Zm9Wy0nAietwSb0S0chG12p99vCcfkN+wBN+FJIqUaUX8AOcDXhaEGZ0gmzCAwH9MtD1LEhwyoooeWHFme9+iQ==}
     peerDependencies:
       nuxt: ^3.7.4
       vite: '*'
@@ -1670,8 +1668,8 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxt/devtools-wizard@1.0.0-beta.0:
-    resolution: {integrity: sha512-7L7pl/wzipmLukIZM8EQioZW99o90mYUfSnpyORDIdk9raE+ez0agTDkwtCBWnxGc3KerQYTDIULBE2zjcTO3A==}
+  /@nuxt/devtools-wizard@1.0.0-beta.1:
+    resolution: {integrity: sha512-xq8unTHjroV0siLMaJZ3HHdv+VukzRWnhu5XW7UqR/r4wBbvHBSrOFl9PpHRS/Mo4qJCPyOcZkOKCedr80jHew==}
     hasBin: true
     dependencies:
       consola: 3.2.3
@@ -1686,19 +1684,20 @@ packages:
       semver: 7.5.4
     dev: true
 
-  /@nuxt/devtools@1.0.0-beta.0(nuxt@3.7.4)(rollup@3.29.4)(vite@4.4.9):
-    resolution: {integrity: sha512-Q69U8PTsbZDLZaK5GNWyjy8wE7YKoOlhvjdUXLNgoJjZVbHciaCc8nlqu+DFcNXt8coM3QW1zPJ5iycNT2CsJQ==}
+  /@nuxt/devtools@1.0.0-beta.1(nuxt@3.7.4)(rollup@3.29.4)(vite@4.4.9):
+    resolution: {integrity: sha512-Ji/WbjTsNnz/ftRQLB2pFpvlrLCz17nbuaA9mI3+v4w+LhRWDy5KmwHn05AmZz+OR3+VICINr1HZE7kkKieUkg==}
     hasBin: true
     peerDependencies:
       nuxt: ^3.7.4
       vite: '*'
     dependencies:
       '@antfu/utils': 0.7.6
-      '@nuxt/devtools-kit': 1.0.0-beta.0(nuxt@3.7.4)(rollup@3.29.4)(vite@4.4.9)
-      '@nuxt/devtools-wizard': 1.0.0-beta.0
+      '@nuxt/devtools-kit': 1.0.0-beta.1(nuxt@3.7.4)(rollup@3.29.4)(vite@4.4.9)
+      '@nuxt/devtools-wizard': 1.0.0-beta.1
       '@nuxt/kit': 3.7.4(rollup@3.29.4)
       birpc: 0.2.14
       consola: 3.2.3
+      destr: 2.0.1
       error-stack-parser-es: 0.1.1
       execa: 7.2.0
       fast-glob: 3.3.1
@@ -1710,8 +1709,9 @@ packages:
       image-meta: 0.1.1
       is-installed-globally: 0.4.0
       launch-editor: 2.6.1
-      local-pkg: 0.4.3
+      local-pkg: 0.5.0
       magicast: 0.3.0
+      nitropack: 2.6.3
       nuxt: 3.7.4(eslint@8.51.0)(rollup@3.29.4)(typescript@5.2.2)
       nypm: 0.3.3
       ofetch: 1.3.3
@@ -1721,21 +1721,35 @@ packages:
       perfect-debounce: 1.0.0
       pkg-types: 1.0.3
       rc9: 2.1.1
+      scule: 1.0.0
       semver: 7.5.4
       simple-git: 3.20.0
       sirv: 2.0.3
       unimport: 3.4.0(rollup@3.29.4)
       vite: 4.4.9(@types/node@20.8.4)
       vite-plugin-inspect: 0.7.40(@nuxt/kit@3.7.4)(rollup@3.29.4)(vite@4.4.9)
-      vite-plugin-vue-inspector: 3.7.2(vite@4.4.9)
+      vite-plugin-vue-inspector: 4.0.0(vite@4.4.9)
       which: 3.0.1
       ws: 8.14.2
     transitivePeerDependencies:
+      - '@azure/app-configuration'
+      - '@azure/cosmos'
+      - '@azure/data-tables'
+      - '@azure/identity'
+      - '@azure/keyvault-secrets'
+      - '@azure/storage-blob'
+      - '@capacitor/preferences'
+      - '@planetscale/database'
+      - '@upstash/redis'
+      - '@vercel/kv'
       - bluebird
       - bufferutil
+      - encoding
+      - idb-keyval
       - rollup
       - supports-color
       - utf-8-validate
+      - xml2js
     dev: true
 
   /@nuxt/kit@3.7.4(rollup@3.29.4):
@@ -2401,6 +2415,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.5
+      napi-wasm: 1.1.0
     dev: true
     bundledDependencies:
       - napi-wasm
@@ -9227,6 +9242,10 @@ packages:
     hasBin: true
     dev: true
 
+  /napi-wasm@1.1.0:
+    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
+    dev: true
+
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
@@ -12966,8 +12985,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-vue-inspector@3.7.2(vite@4.4.9):
-    resolution: {integrity: sha512-PSe/t2RoVzB64Ofuec7W/Z0FuKHzmU7esLrMOGwX+BNyXt8dAMtYbz4wL/TqoH1zVPDdjQecQpM5+K9VnBYpAg==}
+  /vite-plugin-vue-inspector@4.0.0(vite@4.4.9):
+    resolution: {integrity: sha512-xNjMbRj3YrebuuInTvlC8ghPtzT+3LjMIQPeeR/5CaFd+WcbA9wBnECZmlcP3GITCVED0SxGmTyoJ3iVKsK4vQ==}
     peerDependencies:
       vite: ^3.0.0-0 || ^4.0.0-0
     dependencies:
