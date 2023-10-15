@@ -205,8 +205,8 @@ importers:
         specifier: ^2.8.5
         version: 2.8.5(rollup@3.29.4)(vue@3.3.4)
       '@nuxt/ui-pro':
-        specifier: npm:@nuxt/ui-pro-edge@0.1.0-28271114.897b5be
-        version: /@nuxt/ui-pro-edge@0.1.0-28271114.897b5be(rollup@3.29.4)(vue@3.3.4)(webpack@5.88.2)
+        specifier: npm:@nuxt/ui-pro-edge@0.0.1-28255017.af7c0a2
+        version: /@nuxt/ui-pro-edge@0.0.1-28255017.af7c0a2(rollup@3.29.4)(vue@3.3.4)(webpack@5.88.2)
       '@nuxtjs/fontaine':
         specifier: ^0.4.1
         version: 0.4.1(rollup@3.29.4)
@@ -336,9 +336,6 @@ importers:
       '@vue-email/core':
         specifier: workspace:*
         version: link:../core
-      '@vue-email/nuxt':
-        specifier: workspace:*
-        version: link:../nuxt
 
 packages:
 
@@ -1899,8 +1896,8 @@ packages:
       - webpack
     dev: true
 
-  /@nuxt/ui-pro-edge@0.1.0-28271114.897b5be(rollup@3.29.4)(vue@3.3.4)(webpack@5.88.2):
-    resolution: {integrity: sha512-klD8bXjcoCIzD2nbchaTEhVnmul2GibqGpOL/IPudqIcAc+ZP3NI3ZChWN2Ys3V3IyWRE98MQxdmnYGX+8NXkQ==}
+  /@nuxt/ui-pro-edge@0.0.1-28255017.af7c0a2(rollup@3.29.4)(vue@3.3.4)(webpack@5.88.2):
+    resolution: {integrity: sha512-ULHT1oKXQJRqkduLePBO2livZ/hXJIxzUtEWjuMdXqHRcTBWvr8aShoJ4u6lHcpgr6URt6VxbhhlLixdlyb2WA==}
     dependencies:
       '@nuxt/ui': /@nuxt/ui-edge@2.8.1-28255083.853d58a(rollup@3.29.4)(vue@3.3.4)(webpack@5.88.2)
       '@vueuse/core': 10.5.0(vue@3.3.4)
