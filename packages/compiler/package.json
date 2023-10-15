@@ -1,6 +1,6 @@
 {
   "name": "@vue-email/compiler",
-  "version": "0.7.2",
+  "version": "0.8.0-beta.2",
   "description": "Compile vue-email templates",
   "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
   "homepage": "https://vuemail.net/",
