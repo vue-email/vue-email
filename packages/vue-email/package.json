@@ -1,0 +1,50 @@
+{
+  "name": "vue-email",
+  "version": "0.7.2",
+  "description": "💌 Write email templates with Vue",
+  "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
+  "homepage": "https://vuemail.net/",
+  "license": "MIT",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "vue",
+    "vue-email",
+    "templates",
+    "mailing",
+    "vue-templates"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    },
+    "./compiler": {
+      "types": "./dist/compiler.d.ts",
+      "import": "./dist/compiler.mjs",
+      "require": "./dist/compiler.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "index.d.ts",
+    "*.d.ts"
+  ],
+  "scripts": {
+    "prepack": "unbuild",
+    "clear": "rimraf dist node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dave136/vue-email"
+  },
+  "bugs": {
+    "url": "https://github.com/Dave136/vue-email/issues"
+  },
+  "dependencies": {
+    "@vue-email/compiler": "workspace:*",
+    "@vue-email/core": "workspace:*"
+  }
+}

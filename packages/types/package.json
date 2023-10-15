@@ -1,0 +1,25 @@
+{
+  "name": "@vue-email/types",
+  "version": "0.7.2",
+  "description": "Types for vue-email package",
+  "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
+  "homepage": "https://vuemail.net/",
+  "license": "MIT",
+  "main": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/*.d.ts"
+  ],
+  "scripts": {
+    "prepack": "unbuild",
+    "clear": "rimraf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dave136/vue-email",
+    "directory": "packages/types"
+  },
+  "bugs": {
+    "url": "https://github.com/Dave136/vue-email/issues"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@vue-email/nuxt": "workspace:~",
+    "@vue-email/compiler": "workspace:~"
+  },
+  "devDependencies": {
+    "@iconify-json/heroicons": "^1.1.12",
+    "@iconify-json/ph": "^1.1.6",
+    "@nuxt/devtools": "latest",
+    "@nuxt/ui": "^2.8.1",
+    "nuxt": "^3.7.0",
+    "scule": "^1.0.0",
+    "vue-email": "workspace:~",
+    "vue-i18n": "^9.2.2",
+    "vue3-code-block": "^2.2.12"
+  }
+}

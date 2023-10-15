@@ -5,6 +5,6 @@ export default defineConfig({
   root: __dirname,
   test: {
     environment: 'happy-dom',
-    include: ['./tests/**/*.spec.ts'],
+    include: ['./packages/**/tests/**/*.spec.ts'],
   },
 })
