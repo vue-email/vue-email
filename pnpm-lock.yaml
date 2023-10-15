@@ -139,7 +139,7 @@ importers:
         version: 1.0.0-beta.1(nuxt@3.7.4)(rollup@3.29.4)(vite@4.4.9)
       '@nuxt/ui':
         specifier: npm:@nuxt/ui-edge@2.8.1-28255083.853d58a
-        version: /@nuxt/ui-edge@2.8.1-28255083.853d58a(rollup@3.29.4)(vue@3.3.4)(webpack@5.88.2)
+        version: /@nuxt/ui-edge@2.8.1-28255083.853d58a(rollup@3.29.4)(vue@3.3.4)(webpack@5.89.0)
       '@nuxtjs/fontaine':
         specifier: ^0.4.1
         version: 0.4.1(rollup@3.29.4)
@@ -193,7 +193,7 @@ importers:
         specifier: ^1.1.6
         version: 1.1.6
       '@iconify-json/simple-icons':
-        specifier: ^1.1.73
+        specifier: ^1.1.74
         version: 1.1.74
       '@iconify-json/solar':
         specifier: ^1.1.5
@@ -206,7 +206,7 @@ importers:
         version: 2.8.5(rollup@3.29.4)(vue@3.3.4)
       '@nuxt/ui-pro':
         specifier: npm:@nuxt/ui-pro-edge@0.0.1-28255017.af7c0a2
-        version: /@nuxt/ui-pro-edge@0.0.1-28255017.af7c0a2(rollup@3.29.4)(vue@3.3.4)(webpack@5.88.2)
+        version: /@nuxt/ui-pro-edge@0.0.1-28255017.af7c0a2(rollup@3.29.4)(vue@3.3.4)(webpack@5.89.0)
       '@nuxtjs/fontaine':
         specifier: ^0.4.1
         version: 0.4.1(rollup@3.29.4)
@@ -217,22 +217,22 @@ importers:
         specifier: ^1.6.3
         version: 1.6.3(rollup@3.29.4)
       '@vueuse/core':
-        specifier: ^10.4.1
+        specifier: ^10.5.0
         version: 10.5.0(vue@3.3.4)
       '@vueuse/nuxt':
-        specifier: ^10.4.1
+        specifier: ^10.5.0
         version: 10.5.0(nuxt@3.7.4)(rollup@3.29.4)(vue@3.3.4)
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
       nuxt:
-        specifier: ^3.7.4
+        specifier: ^3.7.3
         version: 3.7.4(eslint@8.51.0)(rollup@3.29.4)(sass@1.69.3)(typescript@5.2.2)
       nuxt-og-image:
-        specifier: ^2.0.28
-        version: 2.1.2(rollup@3.29.4)(vue@3.3.4)
+        specifier: ^2.1.3
+        version: 2.1.3(rollup@3.29.4)(vue@3.3.4)
       sass:
-        specifier: ^1.68.0
+        specifier: ^1.69.3
         version: 1.69.3
 
   packages/compiler:
@@ -303,7 +303,7 @@ importers:
         version: 1.0.0-beta.1(nuxt@3.7.4)(rollup@3.29.4)(vite@4.4.9)
       '@nuxt/ui':
         specifier: npm:@nuxt/ui-edge@2.8.1-28255083.853d58a
-        version: /@nuxt/ui-edge@2.8.1-28255083.853d58a(rollup@3.29.4)(vue@3.3.4)(webpack@5.88.2)
+        version: /@nuxt/ui-edge@2.8.1-28255083.853d58a(rollup@3.29.4)(vue@3.3.4)(webpack@5.89.0)
       nuxt:
         specifier: ^3.7.0
         version: 3.7.4(eslint@8.51.0)(rollup@3.29.4)(typescript@5.2.2)
@@ -1791,15 +1791,15 @@ packages:
       - rollup
       - supports-color
 
-  /@nuxt/postcss8@1.1.3(webpack@5.88.2):
+  /@nuxt/postcss8@1.1.3(webpack@5.89.0):
     resolution: {integrity: sha512-CdHtErhvQwueNZPBOmlAAKrNCK7aIpZDYhtS7TzXlSgPHHox1g3cSlf+Ke9oB/8t4mNNjdB+prclme2ibuCOEA==}
     dependencies:
       autoprefixer: 10.4.16(postcss@8.4.31)
-      css-loader: 5.2.7(webpack@5.88.2)
+      css-loader: 5.2.7(webpack@5.89.0)
       defu: 3.2.2
       postcss: 8.4.31
       postcss-import: 13.0.0(postcss@8.4.31)
-      postcss-loader: 4.3.0(postcss@8.4.31)(webpack@5.88.2)
+      postcss-loader: 4.3.0(postcss@8.4.31)(webpack@5.89.0)
       postcss-url: 10.1.3(postcss@8.4.31)
       semver: 7.5.4
     transitivePeerDependencies:
@@ -1851,7 +1851,7 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxt/ui-edge@2.8.1-28255083.853d58a(rollup@3.29.4)(vue@3.3.4)(webpack@5.88.2):
+  /@nuxt/ui-edge@2.8.1-28255083.853d58a(rollup@3.29.4)(vue@3.3.4)(webpack@5.89.0):
     resolution: {integrity: sha512-xVda07Sa5ySoR6PE/9GwTIOMVi6/bGSWyVL8lwXV4J2xep70EDzbMSPUrr0eOjiVcpa37IKnCX4wsMof323SlQ==}
     engines: {node: '>=v16.20.2'}
     dependencies:
@@ -1860,7 +1860,7 @@ packages:
       '@iconify-json/heroicons': 1.1.12
       '@nuxt/kit': 3.7.4(rollup@3.29.4)
       '@nuxtjs/color-mode': 3.3.0(rollup@3.29.4)
-      '@nuxtjs/tailwindcss': 6.8.0(rollup@3.29.4)(webpack@5.88.2)
+      '@nuxtjs/tailwindcss': 6.8.0(rollup@3.29.4)(webpack@5.89.0)
       '@popperjs/core': 2.11.8
       '@tailwindcss/aspect-ratio': 0.4.2(tailwindcss@3.3.3)
       '@tailwindcss/container-queries': 0.1.1(tailwindcss@3.3.3)
@@ -1896,10 +1896,10 @@ packages:
       - webpack
     dev: true
 
-  /@nuxt/ui-pro-edge@0.0.1-28255017.af7c0a2(rollup@3.29.4)(vue@3.3.4)(webpack@5.88.2):
+  /@nuxt/ui-pro-edge@0.0.1-28255017.af7c0a2(rollup@3.29.4)(vue@3.3.4)(webpack@5.89.0):
     resolution: {integrity: sha512-ULHT1oKXQJRqkduLePBO2livZ/hXJIxzUtEWjuMdXqHRcTBWvr8aShoJ4u6lHcpgr6URt6VxbhhlLixdlyb2WA==}
     dependencies:
-      '@nuxt/ui': /@nuxt/ui-edge@2.8.1-28255083.853d58a(rollup@3.29.4)(vue@3.3.4)(webpack@5.88.2)
+      '@nuxt/ui': /@nuxt/ui-edge@2.8.1-28255083.853d58a(rollup@3.29.4)(vue@3.3.4)(webpack@5.89.0)
       '@vueuse/core': 10.5.0(vue@3.3.4)
       ofetch: 1.3.3
       pathe: 1.1.1
@@ -2165,11 +2165,11 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxtjs/tailwindcss@6.8.0(rollup@3.29.4)(webpack@5.88.2):
+  /@nuxtjs/tailwindcss@6.8.0(rollup@3.29.4)(webpack@5.89.0):
     resolution: {integrity: sha512-jzuvD1nfA2BPnSbHtKK0aiI51ndMa7lNGL1iDEFuEPsltzilZ9ED7zOP6niGTrImg0n5Yt4GEJpixi6yWwp9Hw==}
     dependencies:
       '@nuxt/kit': 3.7.4(rollup@3.29.4)
-      '@nuxt/postcss8': 1.1.3(webpack@5.88.2)
+      '@nuxt/postcss8': 1.1.3(webpack@5.89.0)
       autoprefixer: 10.4.16(postcss@8.4.31)
       chokidar: 3.5.3
       clear-module: 4.1.2
@@ -2962,7 +2962,7 @@ packages:
     resolution: {integrity: sha512-c0hrgAOVYr21EX8J0jBMXGLMgJqVf/v6yxi0dLaJboW9aQPh16Id+z6w2Tx1hm+piJOLv8xPfVKZCLfjPw/IMQ==}
     dependencies:
       '@types/jsonfile': 6.1.2
-      '@types/node': 20.8.5
+      '@types/node': 20.8.6
     dev: true
 
   /@types/hast@2.3.6:
@@ -2998,7 +2998,7 @@ packages:
   /@types/jsonfile@6.1.2:
     resolution: {integrity: sha512-8t92P+oeW4d/CRQfJaSqEwXujrhH4OEeHRjGU3v1Q8mUS8GPF3yiX26sw4svv6faL2HfBtGTe2xWIoVgN3dy9w==}
     dependencies:
-      '@types/node': 20.8.5
+      '@types/node': 20.8.6
     dev: true
 
   /@types/mdast@3.0.13:
@@ -3019,6 +3019,12 @@ packages:
 
   /@types/node@20.8.5:
     resolution: {integrity: sha512-SPlobFgbidfIeOYlzXiEjSYeIJiOCthv+9tSQVpvk4PAdIIc+2SmjNVzWXk9t0Y7dl73Zdf+OgXKHX9XtkqUpw==}
+    dependencies:
+      undici-types: 5.25.3
+    dev: true
+
+  /@types/node@20.8.6:
+    resolution: {integrity: sha512-eWO4K2Ji70QzKUqRy6oyJWUeB7+g2cRagT3T/nxYibYcT4y2BDL8lqolRXjTHmkZCdJfIPaY73KbJAZmcryxTQ==}
     dependencies:
       undici-types: 5.25.3
     dev: true
@@ -4465,7 +4471,7 @@ packages:
     engines: {node: '>=12.13.0'}
     hasBin: true
     dependencies:
-      '@types/node': 20.8.5
+      '@types/node': 20.8.6
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 2.0.1
@@ -4766,7 +4772,7 @@ packages:
     resolution: {integrity: sha512-hZ8sTouIicEUhVqKEeeire6kePeCDoIBvWTSPbHc7dK4Za1odVmQ6gMgFcH701gkKGP6Uic3zcQACEqSP3sJig==}
     dev: true
 
-  /css-loader@5.2.7(webpack@5.88.2):
+  /css-loader@5.2.7(webpack@5.89.0):
     resolution: {integrity: sha512-Q7mOvpBNBG7YrVGMxRxcBJZFL75o+cH2abNASdibkj/fffYD8qWbInZrD0S9ccI6vZclF3DsHE7njGlLtaHbhg==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -4782,7 +4788,7 @@ packages:
       postcss-value-parser: 4.2.0
       schema-utils: 3.3.0
       semver: 7.5.4
-      webpack: 5.88.2(esbuild@0.19.4)
+      webpack: 5.89.0(esbuild@0.19.4)
     dev: true
 
   /css-select@5.1.0:
@@ -7741,7 +7747,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 20.8.5
+      '@types/node': 20.8.6
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: true
@@ -9566,8 +9572,8 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /nuxt-og-image@2.1.2(rollup@3.29.4)(vue@3.3.4):
-    resolution: {integrity: sha512-O5/bYh50Mvbc5sjuHXqAw9p4CQCK/dYrAZnlTEdkY+hfL+8of285rptRUqbmR6AYr8eBWJ8N1yoMuTqvKjntDw==}
+  /nuxt-og-image@2.1.3(rollup@3.29.4)(vue@3.3.4):
+    resolution: {integrity: sha512-ro9DrArtnBZNtITnDLZPrHoyF4KQIYc2tADkZWIdHchY34O5csyCF77kR7dxfvP/1jXrL8kG2HULoNzmS5/uug==}
     dependencies:
       '@nuxt/kit': 3.7.4(rollup@3.29.4)
       '@resvg/resvg-js': 2.4.1
@@ -10446,7 +10452,7 @@ packages:
       yaml: 2.3.2
     dev: true
 
-  /postcss-loader@4.3.0(postcss@8.4.31)(webpack@5.88.2):
+  /postcss-loader@4.3.0(postcss@8.4.31)(webpack@5.89.0):
     resolution: {integrity: sha512-M/dSoIiNDOo8Rk0mUqoj4kpGq91gcxCfb9PoyZVdZ76/AuhxylHDYZblNE8o+EQ9AMSASeMFEKxZf5aU6wlx1Q==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -10459,7 +10465,7 @@ packages:
       postcss: 8.4.31
       schema-utils: 3.3.0
       semver: 7.5.4
-      webpack: 5.88.2(esbuild@0.19.4)
+      webpack: 5.89.0(esbuild@0.19.4)
     dev: true
 
   /postcss-merge-longhand@6.0.0(postcss@8.4.31):
@@ -12048,7 +12054,7 @@ packages:
       ps-tree: 1.2.0
     dev: true
 
-  /terser-webpack-plugin@5.3.9(esbuild@0.19.4)(webpack@5.88.2):
+  /terser-webpack-plugin@5.3.9(esbuild@0.19.4)(webpack@5.89.0):
     resolution: {integrity: sha512-ZuXsqE07EcggTWQjXUj+Aot/OMcD0bMKGgF63f7UxYcu5/AJF53aIpK1YoP5xR9l6s/Hy2b+t1AM0bLNPRuhwA==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -12070,7 +12076,7 @@ packages:
       schema-utils: 3.3.0
       serialize-javascript: 6.0.1
       terser: 5.21.0
-      webpack: 5.88.2(esbuild@0.19.4)
+      webpack: 5.89.0(esbuild@0.19.4)
     dev: true
 
   /terser@5.21.0:
@@ -12647,7 +12653,7 @@ packages:
       scule: 1.0.0
       unplugin: 1.5.0
       vue-router: 4.2.5(vue@3.3.4)
-      yaml: 2.3.2
+      yaml: 2.3.3
     transitivePeerDependencies:
       - rollup
       - vue
@@ -13316,8 +13322,8 @@ packages:
   /webpack-virtual-modules@0.5.0:
     resolution: {integrity: sha512-kyDivFZ7ZM0BVOUteVbDFhlRt7Ah/CSPwJdi8hBpkK7QLumUqdLtVfm/PX/hkcnrvr0i77fO5+TjZ94Pe+C9iw==}
 
-  /webpack@5.88.2(esbuild@0.19.4):
-    resolution: {integrity: sha512-JmcgNZ1iKj+aiR0OvTYtWQqJwq37Pf683dY9bVORwVbUrDhLhdn/PlO2sHsFHPkj7sHNQF3JwaAkp49V+Sq1tQ==}
+  /webpack@5.89.0(esbuild@0.19.4):
+    resolution: {integrity: sha512-qyfIC10pOr70V+jkmud8tMfajraGCZMBWJtrmuBymQKCrLTRejBI8STDp1MCyZu/QTdZSeacCQYpYNQVOzX5kw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     peerDependencies:
@@ -13347,7 +13353,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.9(esbuild@0.19.4)(webpack@5.88.2)
+      terser-webpack-plugin: 5.3.9(esbuild@0.19.4)(webpack@5.89.0)
       watchpack: 2.4.0
       webpack-sources: 3.2.3
     transitivePeerDependencies:
@@ -13534,6 +13540,11 @@ packages:
 
   /yaml@2.3.2:
     resolution: {integrity: sha512-N/lyzTPaJasoDmfV7YTrYCI0G/3ivm/9wdG0aHuheKowWQwGTsK0Eoiw6utmzAnI6pkJa0DUVygvp3spqqEKXg==}
+    engines: {node: '>= 14'}
+    dev: true
+
+  /yaml@2.3.3:
+    resolution: {integrity: sha512-zw0VAJxgeZ6+++/su5AFoqBbZbrEakwu+X0M5HmcwUiBL7AzcuPKjj5we4xfQLp78LkEMpD0cOnUhmgOVy3KdQ==}
     engines: {node: '>= 14'}
     dev: true
 

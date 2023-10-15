@@ -25,6 +25,7 @@
     "build": "pnpm build:pkgs",
     "build:pkgs": "pnpm --filter './packages/**' prepack",
     "dev": "vite build --watch",
+    "clear": "pnpm --filter './packages/**' clear",
     "release": "bumpp -r",
     "lint": "eslint --ext .js,.vue,.ts,.tsx .",
     "lint:fix": "eslint --ext .js,.vue,.ts,.tsx . --fix",
