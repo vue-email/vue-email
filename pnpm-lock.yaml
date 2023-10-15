@@ -193,7 +193,7 @@ importers:
         specifier: ^1.1.6
         version: 1.1.6
       '@iconify-json/simple-icons':
-        specifier: ^1.1.74
+        specifier: ^1.1.73
         version: 1.1.74
       '@iconify-json/solar':
         specifier: ^1.1.5
@@ -205,8 +205,8 @@ importers:
         specifier: ^2.8.5
         version: 2.8.5(rollup@3.29.4)(vue@3.3.4)
       '@nuxt/ui-pro':
-        specifier: npm:@nuxt/ui-pro-edge@0.0.1-28255017.af7c0a2
-        version: /@nuxt/ui-pro-edge@0.0.1-28255017.af7c0a2(rollup@3.29.4)(vue@3.3.4)(webpack@5.89.0)
+        specifier: npm:@nuxt/ui-pro-edge@0.1.0-28271114.897b5be
+        version: /@nuxt/ui-pro-edge@0.1.0-28271114.897b5be(rollup@3.29.4)(vue@3.3.4)(webpack@5.89.0)
       '@nuxtjs/fontaine':
         specifier: ^0.4.1
         version: 0.4.1(rollup@3.29.4)
@@ -217,23 +217,26 @@ importers:
         specifier: ^1.6.3
         version: 1.6.3(rollup@3.29.4)
       '@vueuse/core':
-        specifier: ^10.5.0
+        specifier: ^10.4.1
         version: 10.5.0(vue@3.3.4)
       '@vueuse/nuxt':
-        specifier: ^10.5.0
+        specifier: ^10.4.1
         version: 10.5.0(nuxt@3.7.4)(rollup@3.29.4)(vue@3.3.4)
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
       nuxt:
-        specifier: ^3.7.3
+        specifier: ^3.7.4
         version: 3.7.4(eslint@8.51.0)(rollup@3.29.4)(sass@1.69.3)(typescript@5.2.2)
       nuxt-og-image:
-        specifier: ^2.1.3
+        specifier: ^2.0.28
         version: 2.1.3(rollup@3.29.4)(vue@3.3.4)
       sass:
-        specifier: ^1.69.3
+        specifier: ^1.68.0
         version: 1.69.3
+      tailwind-merge:
+        specifier: ^1.14.0
+        version: 1.14.0
 
   packages/compiler:
     dependencies:
@@ -1896,8 +1899,8 @@ packages:
       - webpack
     dev: true
 
-  /@nuxt/ui-pro-edge@0.0.1-28255017.af7c0a2(rollup@3.29.4)(vue@3.3.4)(webpack@5.89.0):
-    resolution: {integrity: sha512-ULHT1oKXQJRqkduLePBO2livZ/hXJIxzUtEWjuMdXqHRcTBWvr8aShoJ4u6lHcpgr6URt6VxbhhlLixdlyb2WA==}
+  /@nuxt/ui-pro-edge@0.1.0-28271114.897b5be(rollup@3.29.4)(vue@3.3.4)(webpack@5.89.0):
+    resolution: {integrity: sha512-klD8bXjcoCIzD2nbchaTEhVnmul2GibqGpOL/IPudqIcAc+ZP3NI3ZChWN2Ys3V3IyWRE98MQxdmnYGX+8NXkQ==}
     dependencies:
       '@nuxt/ui': /@nuxt/ui-edge@2.8.1-28255083.853d58a(rollup@3.29.4)(vue@3.3.4)(webpack@5.89.0)
       '@vueuse/core': 10.5.0(vue@3.3.4)
@@ -3349,7 +3352,7 @@ packages:
       '@babel/core': 7.23.2
       '@babel/plugin-transform-typescript': 7.22.15(@babel/core@7.23.2)
       '@vue/babel-plugin-jsx': 1.1.5(@babel/core@7.23.2)
-      vite: 4.4.9(@types/node@20.8.5)
+      vite: 4.4.9(sass@1.69.3)
       vue: 3.3.4
     transitivePeerDependencies:
       - supports-color
@@ -3362,7 +3365,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.4.9(@types/node@20.8.5)
+      vite: 4.4.9(sass@1.69.3)
       vue: 3.3.4
     dev: true
 
@@ -3639,7 +3642,7 @@ packages:
       '@vueuse/core': 10.5.0(vue@3.3.4)
       '@vueuse/metadata': 10.5.0
       local-pkg: 0.5.0
-      nuxt: 3.7.4(eslint@8.51.0)(rollup@3.29.4)(typescript@5.2.2)
+      nuxt: 3.7.4(eslint@8.51.0)(rollup@3.29.4)(sass@1.69.3)(typescript@5.2.2)
       vue-demi: 0.14.6(vue@3.3.4)
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -12969,7 +12972,7 @@ packages:
       strip-ansi: 6.0.1
       tiny-invariant: 1.3.1
       typescript: 5.2.2
-      vite: 4.4.9(@types/node@20.8.5)
+      vite: 4.4.9(sass@1.69.3)
       vscode-languageclient: 7.0.0
       vscode-languageserver: 7.0.0
       vscode-languageserver-textdocument: 1.0.11

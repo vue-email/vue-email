@@ -21,6 +21,7 @@
     "lodash-es": "^4.17.21",
     "nuxt": "^3.7.4",
     "nuxt-og-image": "^2.0.28",
-    "sass": "^1.68.0"
+    "sass": "^1.68.0",
+    "tailwind-merge": "^1.14.0"
   }
 }
