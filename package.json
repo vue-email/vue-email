@@ -3,6 +3,7 @@
   "type": "module",
   "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
   "version": "0.8.0-beta.2",
+  "private": true,
   "packageManager": "pnpm@8.9.0",
   "maintainers": [
     {
@@ -23,8 +24,7 @@
     "url": "https://github.com/Dave136/vue-email/issues"
   },
   "scripts": {
-    "build": "pnpm build:pkgs",
-    "build:pkgs": "pnpm --filter './packages/**' prepack",
+    "build": "rimraf packages/*/dist && node scripts/copy-files.mjs && pnpm --filter './packages/**' prepack",
     "dev": "vite build --watch",
     "clear": "pnpm --filter './packages/**' clear",
     "release": "bumpp -r",
@@ -43,8 +43,7 @@
     "preview:docs": "nuxt preview docs",
     "dev:client": "nuxt dev client",
     "build:client": "nuxt generate client",
-    "prepublish": "pnpm run build:pkgs",
-    "install": "pnpm run build:pkgs"
+    "prepublish": "pnpm run build"
   },
   "peerDependencies": {
     "vue": ">=3.0.0"
