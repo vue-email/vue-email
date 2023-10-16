@@ -26,7 +26,8 @@
     "dist/*"
   ],
   "scripts": {
-    "prepack": "unbuild",
+    "build": "unbuild",
+    "stub": "unbuild --stub",
     "clear": "rimraf dist node_modules"
   },
   "repository": {

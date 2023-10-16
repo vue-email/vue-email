@@ -24,8 +24,9 @@
     "url": "https://github.com/Dave136/vue-email/issues"
   },
   "scripts": {
-    "build": "rimraf packages/*/dist && node scripts/copy-files.mjs && pnpm --filter './packages/**' prepack",
+    "build": "rimraf packages/*/dist && node scripts/copy-files.mjs && pnpm --filter './packages/**' run build",
     "dev": "vite build --watch",
+    "stub": "pnpm --filter './packages/**' run stub",
     "clear": "pnpm --filter './packages/**' clear",
     "release": "bumpp -r",
     "lint": "eslint --ext .js,.vue,.ts,.tsx .",
