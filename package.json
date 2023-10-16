@@ -44,7 +44,8 @@
     "preview:docs": "nuxt preview docs",
     "dev:client": "nuxt dev client",
     "build:client": "nuxt generate client",
-    "prepublish": "pnpm run build"
+    "prepublish": "pnpm run build",
+    "install": "pnpm build"
   },
   "peerDependencies": {
     "vue": ">=3.0.0"
