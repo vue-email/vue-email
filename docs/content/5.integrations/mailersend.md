@@ -28,8 +28,11 @@ npm install mailersend
 Start by building your email template in a `.vue` file.
 
 
-```vue
-// `/emails/welcome.vue`
+```vue [emails/welcome.vue]
+<script lang="ts" setup>
+defineProps<{ url: string }>();
+</script>
+
 <template>
   <e-html lang="en">
     <e-button :href="url">
@@ -37,9 +40,6 @@ Start by building your email template in a `.vue` file.
     </e-button>
   </e-html>
 </template>
-<script lang="ts" setup>
-defineProps<{ url: string }>();
-</script>
 ```
 
 ## Step 3: Convert to HTML and send email
@@ -71,10 +71,10 @@ export default defineEventHandler(async (event) => {
   })
 
   const emailParams = new EmailParams()
-  .setFrom(sentFrom)
-  .setTo(recipients)
-  .setSubject("This is a Subject")
-  .setHtml(template)
+    .setFrom(sentFrom)
+    .setTo(recipients)
+    .setSubject("This is a Subject")
+    .setHtml(template)
 
 
   await mailerSend.email.send(options);
@@ -109,10 +109,10 @@ app.post('/api/send-email', async (req, res) => {
     });
 
   const emailParams = new EmailParams()
-  .setFrom(sentFrom)
-  .setTo(recipients)
-  .setSubject("This is a Subject")
-  .setHtml(template)
+    .setFrom(sentFrom)
+    .setTo(recipients)
+    .setSubject("This is a Subject")
+    .setHtml(template)
 
   await mailerSend.email.send(options);
 

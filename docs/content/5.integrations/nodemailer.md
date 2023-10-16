@@ -28,8 +28,11 @@ npm install nodemailer
 Start by building your email template in a `.vue` file.
 
 
-```vue
-// `/emails/welcome.vue`
+```vue [emails/welcome.vue]
+<script lang="ts" setup>
+defineProps<{ url: string }>();
+</script>
+
 <template>
   <e-html lang="en">
     <e-button :href="url">
@@ -37,9 +40,6 @@ Start by building your email template in a `.vue` file.
     </e-button>
   </e-html>
 </template>
-<script lang="ts" setup>
-defineProps<{ url: string }>();
-</script>
 ```
 
 ## Step 3: Convert to HTML and send email
