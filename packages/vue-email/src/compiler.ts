@@ -1,1 +1,1 @@
-export * from '@vue-email/compiler'
+export { config } from '@vue-email/compiler'
