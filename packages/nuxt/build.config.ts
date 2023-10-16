@@ -31,6 +31,5 @@ export default defineBuildConfig({
       declaration: true,
     },
   ],
-  dependencies: ['@vue-email/core', '@vue/compiler-sfc'],
-  externals: ['vue', '@nuxt/kit', '@nuxt/schema'],
+  externals: ['vue', '@nuxt/kit', '@nuxt/schema', 'vue-email'],
 })
