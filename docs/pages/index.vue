@@ -80,7 +80,7 @@ const { format } = Intl.NumberFormat('en-GB', { notation: 'compact' })
     <template #title> Build and send emails using <br /><span class="text-primary-400">Vue and TypeScript.</span> </template>
     <UPageGrid>
       <CustomLandingCard
-        to="/getting-started/ssr"
+        to="/server-side-rendering/introduction"
         title="SSR Support"
         icon="i-solar-server-2-bold-duotone"
         description="Streamline the process of rendering and dispatching emails directly from your server."
