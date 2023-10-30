@@ -119,7 +119,7 @@ export async function templateRender(name: string, code: SourceOptions, options?
 }
 
 function correctName(name: string) {
-  return pascalCase(name.replace(':', '-').replace('.vue', ''))
+  return pascalCase(name.replaceAll(':', '-').replace('.vue', ''))
 }
 
 async function loadComponent(name: string, source: string, verbose = false) {
