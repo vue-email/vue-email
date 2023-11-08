@@ -77,7 +77,7 @@ export default defineEventHandler(async (event) => {
     .setHtml(template)
 
 
-  await mailerSend.email.send(options);
+  await mailerSend.email.send(emailParams);
   return { message: 'Email sent' };
 });
 ```
@@ -114,7 +114,7 @@ app.post('/api/send-email', async (req, res) => {
     .setSubject("This is a Subject")
     .setHtml(template)
 
-  await mailerSend.email.send(options);
+  await mailerSend.email.send(emailParams);
 
   return res.json({ message: "Email sent" });
 });
