@@ -5,7 +5,7 @@ import vueEmailModule from '../packages/nuxt/src/module'
 
 export default defineNuxtConfig({
   ssr: false,
-  devtools: { enabled: true },
+  devtools: { enabled: true, componentInspector: false, viteInspect: false },
   alias: {
     '@vue-email/core': fileURLToPath(new URL('../packages/core/src/index.ts', import.meta.url)),
     '@vue-email/compiler': fileURLToPath(new URL('../packages/compiler/src/index.ts', import.meta.url)),
