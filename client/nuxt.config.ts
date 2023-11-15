@@ -1,9 +1,15 @@
 import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { defineNuxtConfig } from 'nuxt/config'
+import vueEmailModule from '../packages/nuxt/src/module'
 
 export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
-  modules: ['@vue-email/nuxt', '@nuxt/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
+  alias: {
+    'vue-email': fileURLToPath(new URL('../packages/vue-email/src/index.ts', import.meta.url)),
+  },
+  modules: [vueEmailModule, '@nuxt/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
   nitro: {
     output: {
       publicDir: resolve(__dirname, './'),
