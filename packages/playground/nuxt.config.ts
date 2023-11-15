@@ -1,7 +1,6 @@
 import { fileURLToPath } from 'node:url'
 import vueEmailModule from '../nuxt/src/module'
 
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true, componentInspector: false, viteInspect: false },

@@ -1,6 +1,6 @@
 import { withBase } from 'ufo'
 
-export default function(): {
+export default function (): {
   hostname: Ref<string>
   host: Ref<string>
 } {
@@ -14,7 +14,7 @@ export default function(): {
     }
   })
 
-  return  {
+  return {
     hostname,
     host,
   }
