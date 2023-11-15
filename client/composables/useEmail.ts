@@ -1,7 +1,6 @@
 import pretty from 'pretty'
 import { convert } from 'html-to-text'
 import type { Email } from '@/types/email'
-import { host } from '@/util/logic'
 
 export function useEmail() {
   const emails = useState<Email[]>('emails')
@@ -13,6 +12,8 @@ export function useEmail() {
     html: string
     txt: string
   }>('template')
+
+  const { host } = useWindow()
 
   const getEmails = async () => {
     const { data, error } = await useFetch<Email[]>('/api/emails', {

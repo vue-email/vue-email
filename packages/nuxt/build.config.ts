@@ -31,5 +31,5 @@ export default defineBuildConfig({
       declaration: true,
     },
   ],
-  externals: ['vue'],
+  externals: ['vue', 'vue-email'],
 })

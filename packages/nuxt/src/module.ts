@@ -46,7 +46,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
-    const playgroundDir = resolve('../../../client/.nuxt')
+    const playgroundDir = resolve('../../../client/dist')
 
     nuxt.options.runtimeConfig.public.vueEmailOptions = options || {}
 
@@ -127,7 +127,13 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     await addComponentsDir({
-      path: resolve('~/emails'),
+      // TODO: add options to add a custom path and indicate if is absolute or relative
+      // for example (absolute o relative):
+      // path: options?.absolutePath ? resolve('emails') : '~/emails' ,
+      //
+      // custom:
+      // path: options?.emailsDir || '~/emails',
+      path: '~/emails',
       extensions: ['vue'],
       global: true,
     })

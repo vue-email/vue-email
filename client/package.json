@@ -1,10 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "build": "nuxt prepare && nuxt build",
+    "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
     "@iconify-json/heroicons": "latest",
@@ -19,12 +20,9 @@
     "@types/splitpanes": "^2.2.1",
     "@vueuse/core": "^10.4.1",
     "@vueuse/nuxt": "^10.4.1",
-    "nuxt": "^3.7.0",
+    "nuxt": "^3.8.1",
     "scule": "^1.0.0",
     "shikiji": "^0.6.3",
-    "splitpanes": "^3.1.5",
-    "vue-email": "workspace:~",
-    "@vue-email/compiler": "workspace:~",
-    "@vue-email/nuxt": "workspace:~"
+    "splitpanes": "^3.1.5"
   }
 }

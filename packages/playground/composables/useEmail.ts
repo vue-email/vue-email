@@ -17,7 +17,7 @@ export function useEmail() {
 
     if (data && data.value) {
       const emailTemplates = data.value.reduce((acc, email) => {
-        const emailName = email.replace('.vue', '')
+        const emailName = email.filename.replace('.vue', '')
         const resComponent = `${pascalCase(emailName.replaceAll(':', '-'))}`
 
         const parts = emailName.split(':')
@@ -66,7 +66,10 @@ export function useEmail() {
         return null
       }
 
-      const directMatch = emails.value.find((email) => email.component === name)
+      const directMatch = emails.value.find((email) => {
+        return email.component.filename === name
+      })
+
       if (directMatch) {
         foundEmail = directMatch
       } else {
@@ -83,7 +86,7 @@ export function useEmail() {
   }
 
   const getVueCode = async (name: string) => {
-    const { data } = await useFetch<string>(`/api/markup/${name}`)
+    const { data } = await useFetch<string>(`/api/markup/${name.filename}`)
 
     if (data.value) return data.value
 
