@@ -42,8 +42,8 @@
     "build:docs": "nuxt build docs",
     "generate:docs": "nuxt generate docs",
     "preview:docs": "nuxt preview docs",
-    "dev:client": "nuxt dev client",
-    "build:client": "nuxt generate client",
+    "dev:client": "nuxt dev packages/client",
+    "build:client": "nuxt generate packages/client",
     "prepublish": "pnpm run build",
     "install": "pnpm run build"
   },

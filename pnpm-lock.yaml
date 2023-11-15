@@ -283,14 +283,58 @@ importers:
         specifier: workspace:*
         version: link:../utils
 
+  packages/nuxt/client:
+    devDependencies:
+      '@iconify-json/fluent':
+        specifier: latest
+        version: 1.1.40
+      '@iconify-json/heroicons':
+        specifier: latest
+        version: 1.1.13
+      '@iconify-json/ph':
+        specifier: latest
+        version: 1.1.6
+      '@iconify-json/simple-icons':
+        specifier: latest
+        version: 1.1.78
+      '@iconify-json/twemoji':
+        specifier: latest
+        version: 1.1.12
+      '@nuxt/devtools':
+        specifier: latest
+        version: 1.0.2(nuxt@3.8.1)(rollup@3.29.4)(vite@4.4.9)
+      '@nuxt/ui':
+        specifier: npm:@nuxt/ui-edge@2.8.1-28255083.853d58a
+        version: /@nuxt/ui-edge@2.8.1-28255083.853d58a(rollup@3.29.4)(vue@3.3.8)(webpack@5.89.0)
+      '@nuxtjs/fontaine':
+        specifier: ^0.4.1
+        version: 0.4.1(rollup@3.29.4)
+      '@nuxtjs/google-fonts':
+        specifier: ^3.0.2
+        version: 3.0.2(rollup@3.29.4)
+      '@types/splitpanes':
+        specifier: ^2.2.1
+        version: 2.2.5
+      '@vueuse/core':
+        specifier: ^10.4.1
+        version: 10.6.1(vue@3.3.8)
+      '@vueuse/nuxt':
+        specifier: ^10.4.1
+        version: 10.6.1(nuxt@3.8.1)(rollup@3.29.4)(vue@3.3.8)
+      nuxt:
+        specifier: ^3.7.0
+        version: 3.8.1(eslint@8.53.0)(rollup@3.29.4)(typescript@5.2.2)(vite@4.4.9)
+      scule:
+        specifier: ^1.0.0
+        version: 1.0.0
+      shikiji:
+        specifier: ^0.6.3
+        version: 0.6.13
+      splitpanes:
+        specifier: ^3.1.5
+        version: 3.1.5
+
   packages/playground:
-    dependencies:
-      '@vue-email/compiler':
-        specifier: workspace:*
-        version: link:../compiler
-      '@vue-email/nuxt':
-        specifier: workspace:*
-        version: link:../nuxt
     devDependencies:
       '@iconify-json/heroicons':
         specifier: ^1.1.12
@@ -310,9 +354,6 @@ importers:
       scule:
         specifier: ^1.0.0
         version: 1.0.0
-      vue-email:
-        specifier: workspace:*
-        version: link:../vue-email
       vue-i18n:
         specifier: ^9.2.2
         version: 9.6.5(vue@3.3.8)
