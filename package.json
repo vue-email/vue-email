@@ -85,7 +85,7 @@
     "htmlparser2": "9.0.0",
     "kolorist": "^1.8.0",
     "nanoid": "^4.0.2",
-    "nuxt": "^3.7.0",
+    "nuxt": "3.8.1",
     "prettier": "^3.0.3",
     "pretty": "^2.0.0",
     "rimraf": "^5.0.5",
