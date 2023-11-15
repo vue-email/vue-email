@@ -4,6 +4,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 import vueEmailModule from '../packages/nuxt/src/module'
 
 export default defineNuxtConfig({
+  ssr: false,
   devtools: { enabled: true, componentInspector: false, viteInspect: false },
   modules: [vueEmailModule, '@nuxt/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
   alias: {
