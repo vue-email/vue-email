@@ -7,7 +7,9 @@ export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
   alias: {
-    'vue-email': fileURLToPath(new URL('../packages/vue-email/src/index.ts', import.meta.url)),
+    '@vue-email/core': fileURLToPath(new URL('../packages/core/src/index.ts', import.meta.url)),
+    '@vue-email/compiler': fileURLToPath(new URL('../packages/compiler/src/index.ts', import.meta.url)),
+    '@vue-email/utils': fileURLToPath(new URL('../packages/utils/src/index.ts', import.meta.url)),
   },
   modules: [vueEmailModule, '@nuxt/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
   nitro: {
