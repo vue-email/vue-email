@@ -127,7 +127,7 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     await addComponentsDir({
-      path: '~/emails',
+      path: resolve('~/emails'),
       extensions: ['vue'],
       global: true,
     })
