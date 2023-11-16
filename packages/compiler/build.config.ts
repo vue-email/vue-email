@@ -24,5 +24,5 @@ export default defineBuildConfig({
     },
   ],
   dependencies: ['esbuild'],
-  externals: ['vue', 'vue/compiler-sfc', 'vue/server-renderer', 'vue-email'],
+  externals: ['vue', 'vue/compiler-sfc', 'vue/server-renderer', 'vue-email', 'vue-i18n'],
 })
