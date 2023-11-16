@@ -70,7 +70,7 @@ export default defineEventHandler(async (event) => {
     }
   })
 
-  const emailParams = new EmailParams()
+  const options = new EmailParams()
     .setFrom(sentFrom)
     .setTo(recipients)
     .setSubject("This is a Subject")
@@ -108,7 +108,7 @@ app.post('/api/send-email', async (req, res) => {
       },
     });
 
-  const emailParams = new EmailParams()
+  const options = new EmailParams()
     .setFrom(sentFrom)
     .setTo(recipients)
     .setSubject("This is a Subject")
