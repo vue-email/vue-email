@@ -52,10 +52,8 @@ export async function templateRender(name: string, code: SourceOptions, options?
   let vueI18n
 
   const verbose = config?.verbose || false
-  const i18nOptions: i18n = {
-    defaultLocale: options?.i18n?.defaultLocale || config?.options?.i18n?.defaultLocale || 'en',
-    translations: options?.i18n?.translations || config?.options?.i18n?.translations,
-  }
+  const hasI18n = options?.i18n?.defaultLocale || config?.options?.i18n?.defaultLocale || options?.i18n?.translations || config?.options?.i18n?.translations
+
   const props = options?.props || config?.options?.props
   name = correctName(name)
   const component = await loadComponent(name, code.source, verbose)
@@ -82,12 +80,18 @@ export async function templateRender(name: string, code: SourceOptions, options?
     }
   }
 
-  if (i18nOptions) {
+  if (hasI18n) {
+    const i18nOptions: i18n = {
+      defaultLocale: options?.i18n?.defaultLocale || config?.options?.i18n?.defaultLocale || 'en',
+      translations: options?.i18n?.translations || config?.options?.i18n?.translations,
+    }
+
     try {
       vueI18n = await import('vue-i18n')
     } catch (error) {
       throw new Error(`${lightGreen('❌')} ${bold(red(`Missing vue-i18n dependency`))} ${white('please install it using: ')} ${bold(white('npm i vue-i18n@9'))}`)
     }
+
     const locale = i18nOptions.defaultLocale
     if (locale && vueI18n) {
       if (verbose) {
