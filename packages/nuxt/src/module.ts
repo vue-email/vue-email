@@ -1,3 +1,5 @@
+import { join } from 'node:path'
+import { existsSync } from 'node:fs'
 import { addComponent, addComponentsDir, addImportsSources, addPlugin, addServerHandler, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
 import defu from 'defu'
 import sirv from 'sirv'
@@ -56,20 +58,6 @@ export default defineNuxtModule<ModuleOptions>({
       if (!nuxt.options.build.transpile.includes(pkgName)) nuxt.options.build.transpile.push(pkgName)
     })
 
-    nuxt.hook('nitro:config', (nitroConfig) => {
-      nitroConfig.alias = nitroConfig.alias || {}
-      nitroConfig.externals = defu(typeof nitroConfig.externals === 'object' ? nitroConfig.externals : {}, {
-        inline: [resolve('./runtime')],
-      })
-      nitroConfig.alias['#vue-email'] = resolve('./runtime/server/services')
-
-      nitroConfig.serverAssets = nitroConfig.serverAssets || []
-      nitroConfig.serverAssets.push({
-        baseName: 'emails',
-        dir: '../emails',
-      })
-    })
-
     // Setup playground. Only available in development
 
     if (options.playground) {
@@ -126,14 +114,43 @@ export default defineNuxtModule<ModuleOptions>({
       })
     })
 
+    // --- Templates ---
+
+    let templatesDir = '/emails'
+
+    // Loop through nuxt layers and check where the email component folder is.
+    for (const layer of nuxt.options._layers) {
+      const templatesPath = join(layer.cwd, '/emails')
+      const pathFound = existsSync(templatesPath)
+      if (!pathFound) {
+        continue
+      }
+      templatesDir = templatesPath
+      break
+    }
+
+    nuxt.hook('nitro:config', (nitroConfig) => {
+      nitroConfig.alias = nitroConfig.alias || {}
+      nitroConfig.externals = defu(typeof nitroConfig.externals === 'object' ? nitroConfig.externals : {}, {
+        inline: [resolve('./runtime')],
+      })
+      nitroConfig.alias['#vue-email'] = resolve('./runtime/server/services')
+
+      nitroConfig.serverAssets = nitroConfig.serverAssets || []
+      nitroConfig.serverAssets.push({
+        baseName: 'emails',
+        dir: templatesDir,
+      })
+    })
+
     await addComponentsDir({
       // TODO: add options to add a custom path and indicate if is absolute or relative
       // for example (absolute o relative):
-      // path: options?.absolutePath ? resolve('emails') : '~/emails' ,
+      // path: options?.absolutePath ? resolve('emails') : templatesDir,
       //
       // custom:
-      // path: options?.emailsDir || '~/emails',
-      path: '~/emails',
+      // path: options?.emailsDir || templatesDir,
+      path: templatesDir,
       extensions: ['vue'],
       global: true,
     })
