@@ -6,9 +6,6 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
     inlineDependencies: true,
-    dts: {
-      respectExternal: false,
-    },
   },
   entries: [
     {
@@ -26,5 +23,5 @@ export default defineBuildConfig({
       ext: 'js',
     },
   ],
-  externals: ['vue'],
+  externals: ['vue', 'vue/server-renderer', 'vue-i18n'],
 })
