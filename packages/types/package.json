@@ -1,6 +1,6 @@
 {
   "name": "@vue-email/types",
-  "version": "0.8.0-beta.6",
+  "version": "0.8.0-beta.7",
   "description": "Types for vue-email package",
   "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
   "homepage": "https://vuemail.net/",
