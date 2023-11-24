@@ -2,7 +2,7 @@
   "name": "@vue-email/monorepo",
   "type": "module",
   "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
-  "version": "0.8.0-beta.7",
+  "version": "0.8.0-beta.8",
   "private": true,
   "packageManager": "pnpm@8.9.0",
   "maintainers": [
