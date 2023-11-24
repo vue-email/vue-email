@@ -1,4 +1,5 @@
-import { type Component, createApp, h } from 'vue'
+import { createApp, h } from 'vue'
+import type { App, Component } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import { convert } from 'html-to-text'
 import pretty from 'pretty'
@@ -20,32 +21,11 @@ export interface RenderParams {
   i18n?: I18n
 }
 
-/**
- * Convert Vue file into HTML email template
- * @param component The main component to render
- * @param props The props passed to the component
- * @param {Options} options The options to convert the template
- * @returns {string}
- * @example
- *
- * await useRender('component.vue', {
- *  props: {
- *    name: 'John',
- *  }
- *  i18n: {
- *    locale: 'en'
- *    translations: {}
- *  }
- * })
- */
-export async function useRender(
-  component: Component,
-  params?: RenderParams | null,
-  options: Options = {
-    pretty: false,
-    plainText: false,
-  },
-) {
+async function useI18n(app: App<Element>, params?: RenderParams | null) {
+  const hasI18n = params?.i18n?.defaultLocale || params?.i18n?.translations || params?.i18n?.locale
+
+  if (!hasI18n || !params) return
+
   let vueI18n
 
   try {
@@ -56,18 +36,48 @@ export async function useRender(
     throw new Error('For i18n usage you must install the package, using npm i vue-i18n@latest')
   }
 
-  const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
-  const app = createApp({ render: () => h(component) }, params?.props)
-
-  if (params?.i18n?.defaultLocale && vueI18n) {
+  if (vueI18n) {
     const i18n = vueI18n.createI18n({
       locale: params?.i18n?.locale,
-      fallbackLocale: params?.i18n?.defaultLocale,
+      fallbackLocale: params?.i18n?.defaultLocale || 'en',
       messages: params?.i18n?.translations,
     })
 
     app.use(i18n)
   }
+}
+
+/**
+ * Convert Vue file into HTML email template
+ * @param {Component} component The main component to render
+ * @param {RenderParams} [params] The parameters for rendering the component
+ * @param {Options} [options] The options to convert the template
+ * @returns {Promise<string>} The HTML email template
+ * @throws {Error} If vue-i18n package is not installed for i18n usage
+ *
+ * @example
+ * await useRender('component.vue', {
+ *   props: {
+ *     name: 'John',
+ *   },
+ *   i18n: {
+ *     locale: 'en',
+ *     translations: {},
+ *   },
+ * });
+ */
+export async function useRender(
+  component: Component,
+  params?: RenderParams | null,
+  options: Options = {
+    pretty: false,
+    plainText: false,
+  },
+) {
+  const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
+  const app = createApp({ render: () => h(component) }, params?.props)
+
+  await useI18n(app, params)
 
   const markup = await renderToString(app)
 
