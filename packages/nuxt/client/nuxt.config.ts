@@ -33,6 +33,10 @@ export default defineNuxtConfig({
     exposeConfig: true,
     viewer: false,
   },
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark',
+  },
   ignore: ['emails/**/*'],
   vueEmail: {
     playground: false,
