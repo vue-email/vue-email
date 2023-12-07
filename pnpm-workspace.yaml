@@ -1,5 +1,5 @@
 packages:
   - 'docs'
   - 'packages/**'
-  - 'client'
+  - 'packages/nuxt/client'
   - '!**/tests/**'

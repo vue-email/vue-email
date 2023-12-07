@@ -1,22 +1,16 @@
-import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { defineNuxtConfig } from 'nuxt/config'
-import vueEmailModule from '../packages/nuxt/src/module'
+import vueEmailModule from '../src/module'
 
 export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true, componentInspector: false, viteInspect: false },
   modules: [vueEmailModule, '@nuxt/ui', '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
   alias: {
-    'vue-email': fileURLToPath(new URL('../vue-email/src/index.ts', import.meta.url)),
-    '@vue-email/core': fileURLToPath(new URL('../packages/core/src/index.ts', import.meta.url)),
-    '@vue-email/compiler': fileURLToPath(new URL('../packages/compiler/src/index.ts', import.meta.url)),
-    '@vue-email/utils': fileURLToPath(new URL('../packages/utils/src/index.ts', import.meta.url)),
-  },
-  nitro: {
-    output: {
-      publicDir: resolve(__dirname, './dist'),
-    },
+    'vue-email': fileURLToPath(new URL('../../vue-email/src/index.ts', import.meta.url)),
+    '@vue-email/core': fileURLToPath(new URL('../../core/src/index.ts', import.meta.url)),
+    '@vue-email/compiler': fileURLToPath(new URL('../../compiler/src/index.ts', import.meta.url)),
+    '@vue-email/utils': fileURLToPath(new URL('../../utils/src/index.ts', import.meta.url)),
   },
   app: {
     baseURL: process.env.NODE_ENV === 'development' ? undefined : '/__vue_email__/client',

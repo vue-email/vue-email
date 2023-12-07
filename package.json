@@ -24,7 +24,7 @@
     "url": "https://github.com/Dave136/vue-email/issues"
   },
   "scripts": {
-    "build": "node scripts/copy-files.mjs && pnpm --filter './packages/**' --filter=!'./packages/playground' run build",
+    "build": "node scripts/copy-files.mjs && pnpm --filter './packages/**' --filter './packages/nuxt/client' --filter=!'./packages/playground' run build",
     "dev": "vite build --watch",
     "stub": "pnpm --filter './packages/**' run stub",
     "clear": "pnpm --filter './packages/**' clear",
@@ -42,8 +42,8 @@
     "build:docs": "nuxt build docs",
     "generate:docs": "nuxt generate docs",
     "preview:docs": "nuxt preview docs",
-    "dev:client": "nuxt dev packages/client",
-    "build:client": "nuxt generate packages/client",
+    "dev:client": "nuxt dev packages/nuxt/client",
+    "build:client": "nuxt generate packages/nuxt/client",
     "prepublish": "pnpm run build",
     "install": "pnpm run build"
   },
