@@ -42,7 +42,7 @@ const { format } = Intl.NumberFormat('en-GB', { notation: 'compact' })
 <template>
   <span class="gradient" />
 
-  <ULandingHero orientation="horizontal" class="!py-18 md:py-0 md:!pt-32 relative" :ui="{ container: 'flex lg:gap-4' }">
+  <ULandingSection orientation="horizontal" class="!py-18 md:py-0 md:!pt-32 relative" :ui="{ base: 'flex justify-between items-center' }" align="left">
     <div class="hidden lg:block relative w-[500px]">
       <Illustration class="h-[480px]" />
     </div>
@@ -74,7 +74,7 @@ const { format } = Intl.NumberFormat('en-GB', { notation: 'compact' })
         </template>
       </UInput>
     </template>
-  </ULandingHero>
+  </ULandingSection>
 
   <ULandingSection>
     <template #title> Build and send emails using <br /><span class="text-primary-400">Vue and TypeScript.</span> </template>
