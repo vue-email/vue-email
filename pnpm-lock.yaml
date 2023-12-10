@@ -145,8 +145,8 @@ importers:
         specifier: ^2.8.5
         version: 2.9.0(nuxt@3.8.1)(rollup@3.29.4)(vue@3.3.8)
       '@nuxt/ui-pro':
-        specifier: 0.2.0
-        version: 0.2.0(rollup@3.29.4)(vue@3.3.8)(webpack@5.89.0)
+        specifier: npm:@nuxt/ui-pro-edge@0.1.0-28271114.897b5be
+        version: /@nuxt/ui-pro-edge@0.1.0-28271114.897b5be(rollup@3.29.4)(vue@3.3.8)(webpack@5.89.0)
       '@nuxtjs/fontaine':
         specifier: ^0.4.1
         version: 0.4.1(rollup@3.29.4)
@@ -1588,15 +1588,6 @@ packages:
       - supports-color
     dev: true
 
-  /@iconify/vue@4.1.1(vue@3.3.8):
-    resolution: {integrity: sha512-RL85Bm/DAe8y6rT6pux7D2FJSiUEM/TPfyK7GrbAOfTSwrhvwJW+S5yijdGcmtXouA8MtuH9C7l4hiSE4mLMjg==}
-    peerDependencies:
-      vue: '>=3'
-    dependencies:
-      '@iconify/types': 2.0.0
-      vue: 3.3.8(typescript@5.2.2)
-    dev: true
-
   /@intlify/core-base@9.6.5:
     resolution: {integrity: sha512-LzbGXiZkMWPIHnHI0g6q554S87Cmh2mmCmjytK/3pDQfjI84l+dgGoeQuKj02q7EbULRuUUgYVZVqAwEUawXGg==}
     engines: {node: '>= 16'}
@@ -2266,13 +2257,11 @@ packages:
       - webpack
     dev: true
 
-  /@nuxt/ui-pro@0.2.0(rollup@3.29.4)(vue@3.3.8)(webpack@5.89.0):
-    resolution: {integrity: sha512-sCJsm+TWmAFKRD6TuliJ6U6e2Jr9AWi1Oa2eD7wh6sFIpa7M/G9pIkOEfG6yEH3qdb+zLpNcEYDr6OnnJTEz5g==}
+  /@nuxt/ui-pro-edge@0.1.0-28271114.897b5be(rollup@3.29.4)(vue@3.3.8)(webpack@5.89.0):
+    resolution: {integrity: sha512-klD8bXjcoCIzD2nbchaTEhVnmul2GibqGpOL/IPudqIcAc+ZP3NI3ZChWN2Ys3V3IyWRE98MQxdmnYGX+8NXkQ==}
     dependencies:
       '@nuxt/ui': /@nuxt/ui-edge@2.8.1-28255083.853d58a(rollup@3.29.4)(vue@3.3.8)(webpack@5.89.0)
       '@vueuse/core': 10.6.1(vue@3.3.8)
-      defu: 6.1.3
-      nuxt-icon: 0.5.0(rollup@3.29.4)(vue@3.3.8)
       ofetch: 1.3.3
       pathe: 1.1.1
       tailwind-merge: 1.14.0
@@ -10269,17 +10258,6 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.3
-    dev: true
-
-  /nuxt-icon@0.5.0(rollup@3.29.4)(vue@3.3.8):
-    resolution: {integrity: sha512-ND4yh8kW4VyIbORP3cWjgVrOAvy6QSDFDTJltakdqmxVfVysNIs/bx2NzlkHeR1EOS8E/jVcemfTPmRsJ7WUVw==}
-    dependencies:
-      '@iconify/vue': 4.1.1(vue@3.3.8)
-      '@nuxt/kit': 3.8.2(rollup@3.29.4)
-    transitivePeerDependencies:
-      - rollup
-      - supports-color
-      - vue
     dev: true
 
   /nuxt-og-image@2.2.4(rollup@3.29.4)(vue@3.3.8):
