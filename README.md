@@ -1,4 +1,4 @@
-[![vue-email](https://www.vuemail.net/social-preview.jpg)](https://vuemail.net)
+[![vue-email](https://vuemail.net/social-preview.jpg)](https://vuemail.net)
 
 # 💌 vue-email
 
