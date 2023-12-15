@@ -65,7 +65,7 @@
     "prepare": "simple-git-hooks"
   },
   "peerDependencies": {
-    "vue": "3.3.4"
+    "vue": "^3.3.4"
   },
   "dependencies": {
     "@flowko/tw-to-css": "^0.0.6",
