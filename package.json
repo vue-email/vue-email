@@ -65,7 +65,7 @@
     "prepare": "simple-git-hooks"
   },
   "peerDependencies": {
-    "vue": "3.3.4"
+    "vue": "^3.3.8"
   },
   "dependencies": {
     "@flowko/tw-to-css": "^0.0.6",
@@ -97,7 +97,7 @@
     "unbuild": "^2.0.0",
     "vite": "^5.0.8",
     "vitest": "^1.0.4",
-    "vue": "^3.3.4"
+    "vue": "^3.3.8"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
