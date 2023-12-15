@@ -1,5 +1,8 @@
 name: Release
 
+permissions:
+  contents: write
+
 on:
   push:
     tags:
@@ -7,14 +10,11 @@ on:
 
 jobs:
   release:
-    permissions:
-      id-token: write
-      contents: write
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -22,16 +22,29 @@ jobs:
       - name: Set node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: pnpm
-          registry-url: 'https://registry.npmjs.org'
+          node-version: lts/*
 
-      - run: npx changelogithub
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup
+        run: npm i -g @antfu/ni
 
-      - name: Install dependencies
-        run: pnpm install
+      - name: Install
+        run: nci
+
+      - name: Lint
+        run: nr lint
+
+      - name: Typecheck
+        run: nr typecheck
 
       - name: Build
-        run: pnpm build
+        run: nr build
+
+      - name: Test
+        run: nr test
+
+      - name: Release
+        run: |
+          chmod +x ./scripts/release.sh
+          ./scripts/release.sh
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}

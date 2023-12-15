@@ -1,32 +1,14 @@
 {
   "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "preserve",
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "skipLibCheck": true,
-    "strict": true,
-    "allowJs": true,
-    "noEmit": true,
+    "target": "es2018",
+    "lib": ["esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "types": [
-      "node",
-      "csstype",
-      "vitest",
-      "vitest/globals",
-    ],
-    "baseUrl": ".",
-  },
-  "include": [
-    "./env.d.ts",
-    "docs/**/*",
-    "docs/**/*",
-    "packages/**/*"
-  ],
-  "exclude": [
-    "../dist",
-    "../.output"
-  ]
+    "strict": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true
+  }
 }

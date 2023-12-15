@@ -1,5 +1,3 @@
 packages:
-  - 'docs'
-  - 'packages/**'
-  - 'packages/nuxt/client'
-  - '!**/tests/**'
+  - playground
+  - examples/*

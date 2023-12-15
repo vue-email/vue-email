@@ -1,10 +1,10 @@
 {
-  "name": "@vue-email/monorepo",
+  "name": "vue-email",
   "type": "module",
-  "author": "David Arenas <davejs136@gmail.com> (https://github.com/Dave136/)",
-  "version": "0.8.0-beta.8",
-  "private": true,
-  "packageManager": "pnpm@8.9.0",
+  "version": "0.8.0-beta.13",
+  "packageManager": "pnpm@8.11.0",
+  "description": "💌 Write email templates with Vue",
+  "author": "David Arenas <davejs136@gmail.com>",
   "maintainers": [
     {
       "name": "Dave136",
@@ -19,88 +19,90 @@
   ],
   "license": "MIT",
   "homepage": "https://vuemail.net/",
-  "repository": "https://github.com/Dave136/vue-email",
-  "bugs": {
-    "url": "https://github.com/Dave136/vue-email/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vue-email/vue-email.git"
   },
+  "bugs": "https://github.com/vue-email/vue-email/issues",
+  "keywords": [
+    "vue",
+    "vue-email",
+    "templates",
+    "mailing",
+    "vue-templates"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "node scripts/copy-files.mjs && pnpm --filter './packages/**' --filter './packages/nuxt/client' --filter=!'./packages/playground' run build",
-    "dev": "vite build --watch",
-    "stub": "pnpm --filter './packages/**' run stub",
-    "clear": "pnpm --filter './packages/**' clear",
-    "release": "bumpp -r",
-    "lint": "eslint --ext .js,.vue,.ts,.tsx .",
-    "lint:fix": "eslint --ext .js,.vue,.ts,.tsx . --fix",
-    "test:unit": "vitest run",
-    "test": "pnpm test:unit",
-    "test:watch": "vitest watch",
-    "dev:playground": "nuxt dev packages/playground",
-    "build:playground": "nuxt build packages/playground",
-    "generate:playground": "nuxt generate packages/playground",
-    "preview:playground": "nuxt preview packages/playground",
-    "dev:docs": "nuxt dev docs",
-    "build:docs": "nuxt build docs",
-    "generate:docs": "nuxt generate docs",
-    "preview:docs": "nuxt preview docs",
-    "dev:client": "nuxt dev packages/nuxt/client",
-    "build:client": "nuxt generate packages/nuxt/client",
-    "prepublish": "pnpm run build",
-    "install": "pnpm run build"
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp",
+    "start": "esno src/index.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepare": "simple-git-hooks"
   },
   "peerDependencies": {
-    "vue": ">=3.0.0"
-  },
-  "optionalDependencies": {
-    "@nuxt/kit": "^3.7.0"
+    "vue": "3.3.4"
   },
   "dependencies": {
     "@flowko/tw-to-css": "^0.0.6",
-    "esbuild": "^0.19.2",
-    "isomorphic-dompurify": "^1.8.0",
-    "scule": "^1.0.0",
-    "sirv": "^2.0.3"
-  },
-  "resolutions": {
-    "vue-email": "workspace:*",
-    "@vue-email/types": "workspace:*",
-    "@vue-email/utils": "workspace:*",
-    "@vue-email/compiler": "workspace:*",
-    "@vue-email/nuxt": "workspace:*",
-    "@vue-email/core": "workspace:*"
+    "isomorphic-dompurify": "^1.12.0",
+    "ufo": "^1.3.2",
+    "vue-i18n": "^9.8.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.41.0",
-    "@nuxt/kit": "^3.7.0",
-    "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@types/html-to-text": "^9.0.1",
-    "@types/pretty": "^2.0.1",
-    "bumpp": "^9.2.0",
+    "@antfu/eslint-config": "^2.4.5",
+    "@antfu/ni": "^0.21.12",
+    "@antfu/utils": "^0.7.7",
+    "@types/html-to-text": "^9.0.4",
+    "@types/node": "^20.10.4",
+    "@types/pretty": "^2.0.3",
+    "bumpp": "^9.2.1",
     "dom-serializer": "^2.0.0",
     "domutils": "^3.1.0",
-    "eslint": "^8.48.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "happy-dom": "^10.11.2",
+    "eslint": "^8.55.0",
+    "esno": "^4.0.0",
     "html-to-text": "^9.0.5",
-    "htmlparser2": "9.0.0",
-    "kolorist": "^1.8.0",
-    "nanoid": "^4.0.2",
-    "nuxt": "3.8.1",
-    "prettier": "^3.0.3",
+    "htmlparser2": "^9.0.0",
+    "jiti": "^1.21.0",
+    "lint-staged": "^15.2.0",
+    "pnpm": "^8.12.1",
     "pretty": "^2.0.0",
     "rimraf": "^5.0.5",
-    "typescript": "^5.2.2",
-    "ufo": "^1.3.0",
+    "simple-git-hooks": "^2.9.0",
+    "typescript": "^5.3.3",
     "unbuild": "^2.0.0",
-    "vite": "4.4.9",
-    "vitest": "^0.34.3",
-    "vue": "^3.3.4",
-    "vue-i18n": "^9.2.2"
+    "vite": "^5.0.8",
+    "vitest": "^1.0.4",
+    "vue": "^3.3.4"
   },
-  "pnpm": {
-    "overrides": {
-      "node-fetch-native": "1.4.0",
-      "@nuxt/ui": "npm:@nuxt/ui-edge@2.8.1-28255083.853d58a"
-    }
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
