@@ -19,7 +19,7 @@
 ## Features
 
 - 🧩 Build email templates with Vue components
-- 🛤️ [SSR support](https://vuemail.net/ssr/compiler), preview/send emails both on server and client, now with support for [deno](https://deno.land/) and [bun](https://bun.sh/).
+- 🛤️ [SSR support](https://vuemail.net/ssr/compiler), preview/send emails both on server and client, now with support for deno and bun.
 - 🌍 [i18n support](https://vuemail.net/plugins/i18n)
 - 📨 [Integrates with many email providers](https://vuemail.net/integrations/nodemailer)
 - 🧪 Tested against popular email clients
