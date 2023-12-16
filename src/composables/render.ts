@@ -1,14 +1,12 @@
 import { createApp, h } from 'vue'
 import type { App, Component } from 'vue'
 import { renderToString } from 'vue/server-renderer'
-import { convert } from 'html-to-text'
 import pretty from 'pretty'
-import { cleanup } from '../utils'
+import { cleanup, htmlToText } from '../utils'
 import type { I18n } from '../types'
 
 export interface Options {
   pretty?: boolean
-  plainText?: boolean
 }
 
 export interface RenderParams {
@@ -67,7 +65,6 @@ export async function useRender(
   params?: RenderParams | null,
   options: Options = {
     pretty: false,
-    plainText: false,
   },
 ) {
   const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
@@ -76,20 +73,12 @@ export async function useRender(
   await useI18n(app, params)
 
   const markup = await renderToString(app)
-
-  if (options.plainText) {
-    return convert(markup, {
-      selectors: [
-        { selector: 'img', format: 'skip' },
-        { selector: '#__vue-email-preview', format: 'skip' },
-      ],
-    })
-  }
+  const text = htmlToText(markup)
 
   const doc = `${doctype}${cleanup(markup)}`
 
-  if (options.pretty)
-    return pretty(doc)
-
-  return doc
+  return {
+    html: options.pretty ? pretty(doc) : doc,
+    text,
+  }
 }

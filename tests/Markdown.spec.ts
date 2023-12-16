@@ -15,7 +15,7 @@ describe('markdown component renders correctly', () => {
 
     const actualOutput = await useRender(component)
 
-    expect(actualOutput).toMatchInlineSnapshot(
+    expect(actualOutput.html).toMatchInlineSnapshot(
       '"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><div data-id="__vue-email-markdown" style=""><h1 data-id="vue-email-heading" style="font-weight:500;padding-top:20;font-size:2.5rem">This is a <del>chair</del> Table</h1><table><thead><tr><th align="center">Heading 1</th><th align="center">Heading 2</th></tr></thead><tbody><tr><td align="center">Cell 1</td><td align="center">Cell 2</td></tr><tr><td align="center">Cell 3</td><td align="center">Cell 4</td></tr></tbody></table></div>"',
     )
   })
@@ -34,7 +34,7 @@ describe('markdown component renders correctly', () => {
 
     const actualOutput = await useRender(component)
 
-    expect(actualOutput).toMatchInlineSnapshot(
+    expect(actualOutput.html).toMatchInlineSnapshot(
       `"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><div data-id="__vue-email-markdown" style="">
 <h1 data-id="vue-email-heading" style="font-weight:500;padding-top:20;font-size:2.5rem">Heading 1!</h1>
 <h2 data-id="vue-email-heading" style="font-weight:500;padding-top:20;font-size:2rem">Heading 2!</h2>
@@ -53,7 +53,7 @@ describe('markdown component renders correctly', () => {
 
     const actualOutput = await useRender(component)
 
-    expect(actualOutput).toMatchInlineSnapshot(
+    expect(actualOutput.html).toMatchInlineSnapshot(
       '"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><div data-id="__vue-email-markdown" style=""><strong data-id="vue-email-text" style="font-weight:bold">This is sample bold text in markdown</strong> and <em data-id="vue-email-text" style="font-style:italic">this is italic text</em></div>"',
     )
   })
@@ -65,7 +65,7 @@ describe('markdown component renders correctly', () => {
 
     const actualOutput = await useRender(component)
 
-    expect(actualOutput).toMatchInlineSnapshot(
+    expect(actualOutput.html).toMatchInlineSnapshot(
       '"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><div data-id="__vue-email-markdown" style=""><p data-id="vue-email-text">Link to <a href="https://vuemail.net/" style="color:#007bff;text-decoration:underline;background-color:transparent" data-id="vue-email-link" target="_blank">Vue`-email</a></p></div>"',
     )
   })
@@ -83,7 +83,7 @@ describe('markdown component renders correctly', () => {
 
     const actualOutput = await useRender(component)
 
-    expect(actualOutput).toMatchInlineSnapshot(
+    expect(actualOutput.html).toMatchInlineSnapshot(
       `"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><div data-id="__vue-email-markdown" style="">
 <h1 data-id="vue-email-heading" style="font-weight:500;padding-top:20;font-size:2.5rem">Below is a list</h1>
 <ul><li>Item One</li>

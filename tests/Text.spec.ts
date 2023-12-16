@@ -10,7 +10,7 @@ describe('render', () => {
 
     const actualOutput = await useRender(component)
 
-    expect(actualOutput).toMatchInlineSnapshot(
+    expect(actualOutput.html).toMatchInlineSnapshot(
       `"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><p data-id="__vue-email-text" style="font-size: 14px; line-height: 24px; margin: 16px 0;">Lorem ipsum</p>"`,
     )
   })
