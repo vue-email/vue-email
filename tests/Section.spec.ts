@@ -10,7 +10,7 @@ describe('render', () => {
 
     const actualOutput = await useRender(component)
 
-    expect(actualOutput).toMatchInlineSnapshot(
+    expect(actualOutput.html).toMatchInlineSnapshot(
       '"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><table align="center" width="100%" data-id="__vue-email-section" border="0" cellpadding="0" cellspacing="0" role="presentation"><tbody><tr><td>Lorem ipsum</td></tr></tbody></table>"',
     )
   })
@@ -22,7 +22,7 @@ describe('render', () => {
 
     const actualOutput = await useRender(component)
 
-    expect(actualOutput).toContain('<td>')
+    expect(actualOutput.html).toContain('<td>')
   })
 
   it('renders the <Section> with <td> wrapper if <Column> is provided', async () => {
@@ -32,7 +32,7 @@ describe('render', () => {
 
     const actualOutput = await useRender(component)
 
-    expect(actualOutput).toContain('<td>')
+    expect(actualOutput.html).toContain('<td>')
   })
 
   it('renders the <Section> wrapping any child provided in a <td> tag', async () => {
@@ -48,7 +48,7 @@ describe('render', () => {
     })
 
     const actualOutput = await useRender(component)
-    const tdChildrenArr = actualOutput.match(/<td\s*.*?>.*?<\/td>/g)
+    const tdChildrenArr = actualOutput.html.match(/<td\s*.*?>.*?<\/td>/g)
 
     expect(tdChildrenArr).toHaveLength(1)
   })
