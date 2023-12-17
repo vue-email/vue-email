@@ -9,4 +9,7 @@ export default function cleanup(str: string) {
     .replace(/<template>/g, '')
     .replace(/<template[^>]*>/g, '')
     .replace(/<\/template>/g, '')
+    .replace(/<tailwind-clean>/g, '')
+    .replace(/<tailwind-clean[^>]*>/g, '')
+    .replace(/<\/tailwind-clean>/g, '')
 }

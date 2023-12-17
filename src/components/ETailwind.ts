@@ -94,10 +94,7 @@ export default defineComponent({
     })
 
     return () => {
-      return h('template', { innerHTML: html })
+      return h('tailwind-clean', { innerHTML: html })
     }
-  },
-  render() {
-    return h('render')
   },
 })
