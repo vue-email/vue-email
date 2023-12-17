@@ -4,6 +4,8 @@ import App from './App.vue'
 
 const app = createApp(App)
 
-app.use(VueEmailPlugin)
+app.use(VueEmailPlugin, {
+    baseUrl: "https://vue-email-demo.vercel.app/"
+})
 
 app.mount('#app')

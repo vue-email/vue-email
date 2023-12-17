@@ -1,15 +1,5 @@
-import tailwindcss from 'tailwindcss'
 import type { CorePluginsConfig } from 'tailwindcss/types/config'
-import postcssCssVariables from 'postcss-css-variables'
-import postcss from 'postcss'
 import type { TailwindConfig } from '../../components/ETailwind'
-
-declare global {
-  // eslint-disable-next-line no-var
-  var __OXIDE__: undefined
-}
-
-globalThis.__OXIDE__ = undefined
 
 export async function getCssForMarkup(markup: string, config: TailwindConfig | undefined) {
   const corePlugins = config?.corePlugins as CorePluginsConfig
@@ -21,6 +11,13 @@ export async function getCssForMarkup(markup: string, config: TailwindConfig | u
       ...corePlugins,
     },
   }
+
+  const tailwindcss = await (await import('tailwindcss')).default
+  const postcss = await (await import('postcss')).default
+  const postcssCssVariables = await (await import('postcss-css-variables')).default
+
+  if (!tailwindcss)
+    throw new Error('tailwindcss is not defined')
 
   const processor = postcss([
     tailwindcss({

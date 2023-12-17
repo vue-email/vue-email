@@ -65,7 +65,6 @@
     "prepare": "simple-git-hooks"
   },
   "peerDependencies": {
-    "tailwindcss": "^3.3.6",
     "vue": "^3.3.8"
   },
   "dependencies": {
