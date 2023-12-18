@@ -5,7 +5,7 @@ export default antfu(
   {
     ignores: [
       // eslint ignore globs here
-      'playground/**/*',
+      // 'playground/**/*',
     ],
   },
   {

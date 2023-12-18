@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EBody, EButton, EColumn, EContainer, EHead, EHeading, EHr, EHtml, EImg, ELink, EPreview, ERow, ESection, ETailwind, EText } from 'vue-email'
+import { EBody, EButton, EColumn, EContainer, EHead, EHeading, EHr, EHtml, EImg, ELink, EPreview, ERow, ESection, ETailwind, EText } from '../../src/components'
 
 interface Props {
   invitedByUsername?: string
@@ -29,7 +29,7 @@ const previewText = `Join ${props.invitedByUsername} on Vercel`
       <EHead />
       <EPreview>{{ previewText }}</EPreview>
       <EBody class="bg-white my-auto mx-auto font-sans">
-        <EContainer class="border border-solid border-[#eaeaea] p-[20px] md:p-20 rounded my-[40px] mx-auto max-w-[465px]">
+        <EContainer class="border border-solid border-[#eaeaea] p-[20px] md:p-7 rounded my-[40px] mx-auto max-w-[465px]">
           <ESection class="mt-[32px]">
             <EImg src="/static/vercel-logo.png" width="40" height="37" alt="Vercel" class="my-0 mx-auto" />
           </ESection>
