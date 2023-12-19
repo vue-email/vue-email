@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useRender } from 'vue-email'
-import Test from './components/Test2.vue'
+import Test from './components/MyEmail.vue'
 
 const email = ref('')
 onMounted(async () => {
