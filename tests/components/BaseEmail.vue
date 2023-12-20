@@ -6,7 +6,7 @@ import MyFooter from './MyFooter.vue'
 <template>
   <ETailwind>
     <slot />
-    <EText class="text-accent text-center">
+    <EText class="text-accent text-center base-email">
       BaseEmail Component
     </EText>
     <MyFooter />

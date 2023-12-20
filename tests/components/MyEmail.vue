@@ -5,7 +5,7 @@ import BaseEmail from './BaseEmail.vue'
 
 <template>
   <BaseEmail>
-    <EText class="text-accent text-center">
+    <EText class="text-accent text-center myemail-class">
       MyEmail Component
     </EText>
   </BaseEmail>

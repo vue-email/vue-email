@@ -1,106 +1,9 @@
 import type { CSSProperties, PropType, VNode } from 'vue'
 import { cloneVNode, defineComponent, h, isVNode } from 'vue'
-import { renderToString } from 'vue/server-renderer'
+import { renderToString, ssrRenderComponent } from 'vue/server-renderer'
 
 import type { TailwindConfig } from '@vue-email/tailwind'
 import { cssToJsxStyle, escapeClassName, getCssForMarkup, getStylesPerClassMap, minifyCss, useRgbNonSpacedSyntax } from '@vue-email/tailwind'
-
-function processElement(
-  element: VNode,
-  nonMediaQueryTailwindStylesPerClass: Record<string, string>,
-): any {
-  let modifiedElement: any = element
-
-  let resultingClassName = modifiedElement.props?.class as
-    | string
-    | undefined
-
-  let resultingStyle = modifiedElement.props?.style as
-    | CSSProperties
-    | undefined
-
-  if (modifiedElement.props && modifiedElement.props.class) {
-    const fullClassName = modifiedElement.props.class as string
-    const classNames = fullClassName.split(' ')
-    const classNamesToKeep = [] as string[]
-
-    const styles = [] as string[]
-
-    classNames.forEach((className) => {
-    /*                        escape all unallowed characters in css class selectors */
-      const escapedClassName = escapeClassName(className)
-      // no need to filter in for media query classes since it is going to keep these classes
-      // as custom since they are not going to be in the markup map of styles
-      if (
-        typeof nonMediaQueryTailwindStylesPerClass[escapedClassName]
-          === 'undefined'
-      ) {
-        classNamesToKeep.push(className)
-      }
-      else {
-        styles.push(
-        `${nonMediaQueryTailwindStylesPerClass[escapedClassName]};`,
-        )
-      }
-    })
-
-    resultingStyle = {
-      ...(modifiedElement.props.style as CSSProperties),
-      ...cssToJsxStyle(styles.join(' ')),
-    }
-    resultingClassName = classNamesToKeep.length > 0
-      ? classNamesToKeep.join(' ')
-      : undefined
-  }
-
-  if (modifiedElement.children) {
-    const defaultChildren = modifiedElement.children.default?.()
-
-    if (defaultChildren && Array.isArray(defaultChildren)) {
-      modifiedElement.children.default = () => {
-        return defaultChildren.map((child) => {
-          if (isVNode(child))
-            return processElement(child, nonMediaQueryTailwindStylesPerClass)
-
-          return child
-        })
-      }
-    }
-    else if (modifiedElement.children && Array.isArray(modifiedElement.children)) {
-      const vnodes = modifiedElement.children.map((child: any) => {
-        if (isVNode(child))
-          return processElement(child, nonMediaQueryTailwindStylesPerClass)
-
-        return child
-      })
-
-      modifiedElement.children = [...vnodes]
-    }
-  }
-
-  modifiedElement = cloneVNode(
-    modifiedElement,
-    {
-      ...modifiedElement.props,
-      class: resultingClassName,
-      // passing in style here as undefined may mess up
-      // the rendering process of child components
-      ...(typeof resultingStyle === 'undefined'
-        ? {}
-        : { style: resultingStyle }),
-    },
-  )
-  return modifiedElement
-}
-
-function processHead(
-  headElement: VNode,
-  responsiveStyles: string[],
-): VNode {
-  headElement.children = [...(headElement.children as any || []), h('style', minifyCss(responsiveStyles.join('')))]
-
-  return headElement
-}
 
 export default defineComponent({
   name: 'ETailwind',
@@ -180,3 +83,129 @@ export default defineComponent({
     return () => childrenArray
   },
 })
+
+function processElement(
+  element: VNode,
+  nonMediaQueryTailwindStylesPerClass: Record<string, string>,
+): any {
+  let modifiedElement: any = element
+
+  let resultingClassName = modifiedElement.props?.class as
+    | string
+    | undefined
+
+  let resultingStyle = modifiedElement.props?.style as
+    | CSSProperties
+    | undefined
+
+  if (modifiedElement.props && modifiedElement.props.class) {
+    const fullClassName = modifiedElement.props.class as string
+    const classNames = fullClassName.split(' ')
+    const classNamesToKeep = [] as string[]
+
+    const styles = [] as string[]
+
+    classNames.forEach((className) => {
+      /*                        escape all unallowed characters in css class selectors */
+      const escapedClassName = escapeClassName(className)
+      // no need to filter in for media query classes since it is going to keep these classes
+      // as custom since they are not going to be in the markup map of styles
+      if (
+        typeof nonMediaQueryTailwindStylesPerClass[escapedClassName]
+          === 'undefined'
+      ) {
+        classNamesToKeep.push(className)
+      }
+      else {
+        styles.push(
+              `${nonMediaQueryTailwindStylesPerClass[escapedClassName]};`,
+        )
+      }
+    })
+
+    resultingStyle = {
+      ...(modifiedElement.props.style as CSSProperties),
+      ...cssToJsxStyle(styles.join(' ')),
+    }
+    resultingClassName = classNamesToKeep.length > 0
+      ? classNamesToKeep.join(' ')
+      : undefined
+  }
+
+  if (modifiedElement.children) {
+    const defaultChildren = modifiedElement.children.default?.()
+
+    if (defaultChildren && Array.isArray(defaultChildren)) {
+      modifiedElement.children.default = () => {
+        return defaultChildren.map((child) => {
+          if (isVNode(child))
+            return processElement(child, nonMediaQueryTailwindStylesPerClass)
+
+          return child
+        })
+      }
+    }
+    else if (modifiedElement.children && Array.isArray(modifiedElement.children)) {
+      const vnodes = modifiedElement.children.map((child: any) => {
+        if (isVNode(child))
+          return processElement(child, nonMediaQueryTailwindStylesPerClass)
+
+        return child
+      })
+
+      modifiedElement.children = [...vnodes]
+    }
+  }
+  else if (modifiedElement.type.__name) {
+    modifiedElement = processElement(h(modifiedElement), nonMediaQueryTailwindStylesPerClass)
+
+    // if (defaultChildren && Array.isArray(defaultChildren)) {
+    //   modifiedElement.ctx.slots = defaultChildren.map((child) => {
+    //     if (isVNode(child))
+    //       return processElement(child, nonMediaQueryTailwindStylesPerClass)
+
+    //     return child
+    //   })
+
+    //   // modifiedElement = defineComponent({
+    //   //   name: modifiedElement.type.__name,
+    //   //   setup: (_props, ctx) => () => ctx.slots.default?.(),
+    //   // })
+
+    //   return modifiedElement
+    // }
+    // else if (modifiedElement.children && Array.isArray(modifiedElement.children)) {
+    //   const vnodes = modifiedElement.children.map((child: any) => {
+    //     if (isVNode(child))
+    //       return processElement(child, nonMediaQueryTailwindStylesPerClass)
+
+    //     return child
+    //   })
+
+    //   modifiedElement.children = [...vnodes]
+    // }
+  }
+
+  modifiedElement = cloneVNode(
+    modifiedElement,
+    {
+      ...modifiedElement.props,
+      class: resultingClassName,
+      // passing in style here as undefined may mess up
+      // the rendering process of child components
+      ...(typeof resultingStyle === 'undefined'
+        ? {}
+        : { style: resultingStyle }),
+    },
+  )
+  return modifiedElement
+}
+
+function processHead(
+  headElement: VNode,
+  responsiveStyles: string[],
+): VNode {
+  headElement.children = [...(headElement.children as any || []), h('style', minifyCss(responsiveStyles.join('')))]
+
+  return headElement
+}
