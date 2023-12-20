@@ -1,11 +1,11 @@
-import type { CSSProperties, PropType } from 'vue'
+import type { PropType } from 'vue'
 import { defineComponent, h } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import * as htmlparser2 from 'htmlparser2'
 import * as domutils from 'domutils'
 import render from 'dom-serializer'
 import type { TailwindConfig } from '@vue-email/tailwind'
-import { cssToJsxStyle, escapeClassName, getCssForMarkup, getStylesPerClassMap, minifyCss, useRgbNonSpacedSyntax } from '@vue-email/tailwind'
+import { escapeClassName, getCssForMarkup, getStylesPerClassMap, minifyCss, useRgbNonSpacedSyntax } from '@vue-email/tailwind'
 
 export default defineComponent({
   name: 'ETailwind',
