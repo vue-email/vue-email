@@ -12,6 +12,7 @@
     "skipLibCheck": true
   },
   "exclude": [
-    "playground"
+    "playground",
+    "tests"
   ]
 }
