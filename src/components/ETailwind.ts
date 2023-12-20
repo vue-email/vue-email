@@ -104,9 +104,7 @@ export default defineComponent({
           })
 
           if (classNamesToKeep.length > 0)
-            elem.attribs.class = classNamesToKeep.join(' ')
-          else
-            delete elem.attribs.class
+            elem.attribs.class = classNamesToKeep.join(' ').trim()
 
           if (styles.length > 0)
             elem.attribs.style = `${currentStyles} ${styles.join(' ')}`.trim()
