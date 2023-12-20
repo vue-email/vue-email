@@ -24,8 +24,8 @@ const previewText = `Join ${props.invitedByUsername} on Vercel`
 </script>
 
 <template>
-  <EHtml>
-    <ETailwind>
+  <ETailwind>
+    <EHtml>
       <EHead />
       <EPreview>{{ previewText }}</EPreview>
       <EBody class="bg-white my-auto mx-auto font-sans">
@@ -79,6 +79,6 @@ const previewText = `Join ${props.invitedByUsername} on Vercel`
           </EText>
         </EContainer>
       </EBody>
-    </ETailwind>
-  </EHtml>
+    </EHtml>
+  </ETailwind>
 </template>

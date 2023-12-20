@@ -48,6 +48,12 @@ importers:
       bumpp:
         specifier: ^9.2.1
         version: 9.2.1
+      dom-serializer:
+        specifier: ^2.0.0
+        version: 2.0.0
+      domutils:
+        specifier: ^3.1.0
+        version: 3.1.0
       eslint:
         specifier: ^8.55.0
         version: 8.55.0
@@ -57,6 +63,9 @@ importers:
       html-to-text:
         specifier: ^9.0.5
         version: 9.0.5
+      htmlparser2:
+        specifier: ^9.0.0
+        version: 9.0.0
       jiti:
         specifier: ^1.21.0
         version: 1.21.0
@@ -3321,6 +3330,15 @@ packages:
 
   /htmlparser2@8.0.2:
     resolution: {integrity: sha512-GYdjWKDkbRLkZ5geuHs5NY1puJ+PXwP7+fHPRz06Eirsb9ugf6d8kkXav6ADhcODhFFPMIXyxkxSuMf3D6NCFA==}
+    dependencies:
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+      domutils: 3.1.0
+      entities: 4.5.0
+    dev: true
+
+  /htmlparser2@9.0.0:
+    resolution: {integrity: sha512-uxbSI98wmFT/G4P2zXx4OVx04qWUmyFPrD2/CNepa2Zo3GPNaCaaxElDgwUrwYWkK1nr9fft0Ya8dws8coDLLQ==}
     dependencies:
       domelementtype: 2.3.0
       domhandler: 5.0.3
