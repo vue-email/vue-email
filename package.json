@@ -74,7 +74,7 @@
   },
   "dependencies": {
     "@flowko/tw-to-css": "^0.0.6",
-    "@vue-email/cli": "^0.0.6",
+    "@vue-email/cli": "latest",
     "isomorphic-dompurify": "^1.12.0",
     "ufo": "^1.3.2",
     "vue-i18n": "^9.8.0"

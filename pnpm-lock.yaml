@@ -12,8 +12,8 @@ importers:
         specifier: ^0.0.6
         version: 0.0.6
       '@vue-email/cli':
-        specifier: ^0.0.6
-        version: 0.0.6(typescript@5.3.3)(vue@3.3.11)
+        specifier: latest
+        version: 0.0.7(typescript@5.3.3)(vue@3.3.11)
       isomorphic-dompurify:
         specifier: ^1.12.0
         version: 1.12.0
@@ -1517,8 +1517,8 @@ packages:
       pretty-format: 29.7.0
     dev: true
 
-  /@vue-email/cli@0.0.6(typescript@5.3.3)(vue@3.3.11):
-    resolution: {integrity: sha512-4N25j6lHZZTuwKAt/5KJRIcgL05cr6jC38p7d6vhNv6kVOBfmMsuyVYTT6sQkk1k3NX/tBlTnVGsrQYfw+ditg==}
+  /@vue-email/cli@0.0.7(typescript@5.3.3)(vue@3.3.11):
+    resolution: {integrity: sha512-v1JtVP1wv1t32f0G6Il/VW1pqe42rM51CoW07SqUTL4kSm6yNeAhOLwUtUL9+P1nFu79sGkJLLpa3pAow182+w==}
     hasBin: true
     dependencies:
       '@vue-email/compiler': 0.8.2(typescript@5.3.3)(vue@3.3.11)
