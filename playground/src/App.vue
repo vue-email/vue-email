@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useRender } from 'vue-email'
-import MyEmail from './components/MyEmail.vue'
 import Test from './components/Test.vue'
 
 const email = ref('')
