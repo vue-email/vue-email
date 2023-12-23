@@ -2,16 +2,7 @@
 export default {
   content: [],
   theme: {
-    extend: {
-      colors: {
-        primary: '#007291',
-      },
-    },
+    extend: {},
   },
-  daisyui: {
-    themes: ['winter'],
-  },
-  plugins: [
-    import('daisyui'),
-  ],
+  plugins: [],
 }

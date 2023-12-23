@@ -5,8 +5,7 @@ import * as htmlparser2 from 'htmlparser2'
 import * as domutils from 'domutils'
 import render from 'dom-serializer'
 import type { TailwindConfig } from '@vue-email/tailwind'
-import * as tailwind from '@vue-email/tailwind'
-import { config } from '../config'
+import { escapeClassName, getCssForMarkup, getStylesPerClassMap, minifyCss, useRgbNonSpacedSyntax } from '@vue-email/tailwind'
 
 export default defineComponent({
   name: 'ETailwind',
@@ -20,19 +19,12 @@ export default defineComponent({
     if (!slots.default || !slots.default())
       throw new Error('ETailwind component must have a default slot')
 
-    let tailwindConfig: TailwindConfig | undefined
-
-    if (config.tailwindConfig)
-      tailwindConfig = tailwind.resolveTwConfig(config.tailwindConfig)
-    else if (props.config)
-      tailwindConfig = props.config
-
     const $default = slots.default()
     let headStyles: string[] = []
     const markupWithTailwindClasses = await renderToString(h('div', $default)).then(html => html.replace(/^<div[^>]*>|<\/div>$/g, ''))
 
-    const markupCSS = tailwind.useRgbNonSpacedSyntax(
-      await tailwind.getCssForMarkup(markupWithTailwindClasses, tailwindConfig),
+    const markupCSS = useRgbNonSpacedSyntax(
+      await getCssForMarkup(markupWithTailwindClasses, props.config as TailwindConfig),
     )
 
     const nonMediaQueryCSS = markupCSS.replaceAll(
@@ -60,7 +52,7 @@ export default defineComponent({
         return ''
       },
     )
-    const nonMediaQueryTailwindStylesPerClass = tailwind.getStylesPerClassMap(nonMediaQueryCSS)
+    const nonMediaQueryTailwindStylesPerClass = getStylesPerClassMap(nonMediaQueryCSS)
     headStyles = headStyles.filter(style => style.trim().length > 0)
     const hasHTML = /<html[^>]*>/gm.test(markupWithTailwindClasses)
     const hasHead = /<head[^>]*>/gm.test(markupWithTailwindClasses)
@@ -79,7 +71,7 @@ export default defineComponent({
         children: [
           {
             type: 'text',
-            data: tailwind.minifyCss(headStyles.join('')),
+            data: minifyCss(headStyles.join('')),
           },
         ],
       } as any)
@@ -99,7 +91,7 @@ export default defineComponent({
 
           const styles = [] as string[]
           classNames.forEach((className) => {
-            const escapedClassName = tailwind.escapeClassName(className)
+            const escapedClassName = escapeClassName(className)
 
             if (typeof nonMediaQueryTailwindStylesPerClass[escapedClassName] === 'undefined') {
               classNamesToKeep.push(className)

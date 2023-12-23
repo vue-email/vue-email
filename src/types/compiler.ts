@@ -1,5 +1,3 @@
-import type { TailwindConfig } from '@vue-email/tailwind'
-
 export interface VueEmailPluginOptions {
   /**
    * The base URL of your website.
@@ -16,18 +14,7 @@ export interface VueEmailPluginOptions {
    * @see
    */
   i18n?: I18n
-  /**
-   *
-   * @default null
-   * @example
-   * ```ts
-   * tailwindConfig: './tailwind.config.js'
-   * ```
-   *
-   * @see https://vue-email.net/getting-started/installation#options
-   *
-   */
-  tailwindConfig?: TailwindConfig
+  [key: string]: any
 }
 
 export interface I18n {

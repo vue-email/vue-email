@@ -20,8 +20,6 @@
     "@vitejs/plugin-vue": "^4.5.2",
     "@vue/tsconfig": "^0.5.0",
     "autoprefixer": "^10.4.16",
-    "daisyui": "^4.4.22",
-    "jiti": "^1.21.0",
     "npm-run-all2": "^6.1.1",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.3.6",
