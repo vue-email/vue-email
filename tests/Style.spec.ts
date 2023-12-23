@@ -9,7 +9,7 @@ describe('render', () => {
     const actualOutput = await useRender(component)
 
     expect(actualOutput.html).toMatchInlineSnapshot(
-      '"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><style>.pager.inactive {display: none;}</style>"',
+      '"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><style data-id="__vue-email-style">.pager.inactive {display: none;}</style>"',
     )
   })
 
@@ -21,7 +21,7 @@ describe('render', () => {
     const actualOutput = await useRender(component)
 
     expect(actualOutput.html).toMatchInlineSnapshot(
-      '"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>.pager.inactive {display: none;}</style></head>"',
+      '"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style data-id="__vue-email-style">.pager.inactive {display: none;}</style></head>"',
     )
   })
 })
