@@ -45,7 +45,7 @@ jobs:
         run: nr test
 
       - name: Relase Edge
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' || github.actor == 'flowko'
         run: |
           chmod +x ./scripts/release-edge.sh
           ./scripts/release-edge.sh
