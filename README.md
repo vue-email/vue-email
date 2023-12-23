@@ -37,7 +37,8 @@ Simple way to build email templates in vue.
 | --------------------------- | :------------------------------------------------------------------------------------------------- |
 | [Vue-Email](https://github.com/vue-email/vue-email)       | ![tres version](https://img.shields.io/npm/v/vue-email/latest.svg?label=%20&colorB=1fa669) |
 | [Nuxt](https://github.com/vue-email/nuxt) | ![nuxt version](https://img.shields.io/npm/v/@vue-email/nuxt/latest.svg?label=%20&color=4f4f4f&logo=nuxt.js) |
-[SSR Compiler](https://github.com/vue-email/compiler) | ![cientos version](https://img.shields.io/npm/v/@vue-email/compiler/latest.svg?label=%20&colorB=1fa669)
+[SSR Compiler](https://github.com/vue-email/compiler) | ![cientos version](https://img.shields.io/npm/v/@vue-email/compiler/latest.svg?label=%20&colorB=1fa669) |
+| [CLI](https://github.com/vue-email/cli)       | ![tres version](https://img.shields.io/npm/v/@vue-email/cli/latest.svg?label=%20&colorB=1fa669) |
 
 ## Installation
 
