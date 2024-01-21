@@ -60,14 +60,5 @@ export default defineComponent({
           }),
         ]),
       ])
-
-    // const htmlCode = await codeToHtml(code, {
-    //   lang,
-    //   theme,
-    // })
-
-    // return () => h('clean-component', {
-    //   innerHTML: htmlCode,
-    // })
   },
 })
