@@ -17,6 +17,9 @@ importers:
       isomorphic-dompurify:
         specifier: ^1.12.0
         version: 1.13.0
+      shikiji:
+        specifier: 0.10.0-beta.9
+        version: 0.10.0-beta.9
       ufo:
         specifier: ^1.3.2
         version: 1.3.2
@@ -5077,6 +5080,16 @@ packages:
   /shell-quote@1.8.1:
     resolution: {integrity: sha512-6j1W9l1iAs/4xYBI1SYOVZyFcCis9b4KCLQ8fgAGG07QvzaRLVVRQvAy85yNmmZSjYjg4MWh4gNvlPujU/5LpA==}
     dev: true
+
+  /shikiji-core@0.10.0-beta.9:
+    resolution: {integrity: sha512-7dgwTyN9PeKyc4KJeyKo/qW8gi8XbR//c1CO+0B5GaeozWexNTpEL/tSohyIKkj0Z+7spfm2REmAaS39NlC4Lw==}
+    dev: false
+
+  /shikiji@0.10.0-beta.9:
+    resolution: {integrity: sha512-I+sv642n9M7/FK/dVcXp9vMv7v5Wa8gU2UuKwkIWKQFvyo+qKB8eV1zNNtRYas+jC7BLwdAaflc5BFUozAonFQ==}
+    dependencies:
+      shikiji-core: 0.10.0-beta.9
+    dev: false
 
   /siginfo@2.0.0:
     resolution: {integrity: sha512-ybx0WO1/8bSBLEWXZvEd7gMW3Sn3JFlW3TvX1nREbDLRNQNaeNN8WK0meBwPdAaOI7TtRRRJn/Es1zhrrCHu7g==}

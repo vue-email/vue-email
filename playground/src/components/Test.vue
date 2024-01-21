@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EBody, EButton, EColumn, EContainer, EHead, EHeading, EHr, EHtml, EImg, ELink, EPreview, ERow, ESection, EStyle, ETailwind, EText } from 'vue-email'
+import { EBody, EButton, ECodeBlock, EColumn, EContainer, EHead, EHeading, EHr, EHtml, EImg, ELink, EPreview, ERow, ESection, EStyle, ETailwind, EText } from 'vue-email'
 
 interface Props {
   invitedByUsername?: string
@@ -21,6 +21,13 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const previewText = `Join ${props.invitedByUsername} on Vercel`
+
+const code = `import { codeToThemedTokens } from 'shikiji'
+const tokens = await codeToThemedTokens('<div class="foo">bar</div>', {
+  lang: 'html',
+  theme: 'min-dark'
+})
+`
 </script>
 
 <template>
@@ -54,6 +61,7 @@ const previewText = `Join ${props.invitedByUsername} on Vercel`
             </ELink>
             ) has invited you to the <strong>{{ teamName }}</strong> team on <strong>Vercel</strong>.
           </EText>
+          <ECodeBlock class="p-5" :code="code" lang="typescript" theme="min-dark" />
           <ESection>
             <ERow>
               <EColumn align="right">
