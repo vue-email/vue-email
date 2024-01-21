@@ -120,7 +120,7 @@ export default defineComponent({
     })
 
     return () => {
-      return h('tailwind-clean', { innerHTML: html })
+      return h('clean-component', { innerHTML: html })
     }
   },
 })
