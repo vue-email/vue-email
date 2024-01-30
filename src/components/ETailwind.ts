@@ -80,7 +80,7 @@ export default defineComponent({
       } as any)
     }
 
-    const hasAttrs = (elem: any) => elem.attribs && elem.attribs.class && elem
+    const hasAttrs = (elem: any) => elem.attribs && elem.attribs.class
 
     domutils
       .findAll(elem => hasAttrs(elem), dom.children)
