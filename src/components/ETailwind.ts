@@ -60,7 +60,10 @@ export default defineComponent({
     if (headStyles.length > 0 && (!hasHTML || !hasHead))
       throw new Error('Tailwind: To use responsive styles you must have a <EHtml> and <EHead> element in your template.')
 
-    const dom = htmlparser2.parseDocument(markupWithTailwindClasses)
+    const dom = htmlparser2.parseDocument(markupWithTailwindClasses, {
+      decodeEntities: false,
+      xmlMode: true,
+    })
 
     const head = domutils.findOne(elem => elem.name === 'head', dom.children)
 
@@ -77,7 +80,7 @@ export default defineComponent({
       } as any)
     }
 
-    const hasAttrs = (elem: any) => elem.attribs && elem.attribs.class
+    const hasAttrs = (elem: any) => elem.attribs && elem.attribs.class && elem
 
     domutils
       .findAll(elem => hasAttrs(elem), dom.children)

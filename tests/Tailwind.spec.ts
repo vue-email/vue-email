@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import { ETailwind, useRender } from '../src'
 import MyEmail from './components/MyEmail.vue'
+import EtailwindCode from './components/EtailwindCode.vue'
 
 describe('tailwind component', () => {
   describe('inline styles', () => {
