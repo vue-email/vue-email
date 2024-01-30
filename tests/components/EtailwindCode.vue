@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EBody, ECodeBlock, EContainer, EHead, EHtml, EPreview, ESection, ETailwind, EText } from '../../src/components'
+import { EBody, ECodeBlock, EContainer, EHead, EHtml, EPreview, ESection, ETailwind } from '../../src/components'
 
 const code1 = `<template>
 <div>

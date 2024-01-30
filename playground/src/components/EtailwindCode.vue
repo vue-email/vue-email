@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EBody, ECodeBlock, EContainer, EHead, EHtml, EPreview, ESection, ETailwind, EText } from 'vue-email'
+import { EBody, ECodeBlock, EContainer, EHead, EHtml, EPreview, ESection, ETailwind } from 'vue-email'
 
 const code1 = `<template>
 <div>
