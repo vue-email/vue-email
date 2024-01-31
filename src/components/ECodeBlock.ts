@@ -30,8 +30,16 @@ export default defineComponent({
       type: String,
       default: '#636E7B',
     },
+    lineHighlightingColor: {
+      type: String,
+      default: 'rgba(101, 117, 133, .16)',
+    },
+    highlightedLines: {
+      type: Array as PropType<number[]>,
+      default: () => [],
+    },
   },
-  async setup({ code, lang, theme, showLineNumbers, lineNumberColor }) {
+  async setup({ code, lang, theme, showLineNumbers, lineNumberColor, highlightedLines, lineHighlightingColor }) {
     const shiki = await getHighlighter({
       langs: [lang],
       themes: [theme],
@@ -43,6 +51,11 @@ export default defineComponent({
       theme,
       transformers: [
         {
+          code(node) {
+            node.properties.style = 'display: table; width: 100%;'
+          },
+        },
+        {
           line(node, line) {
             node.properties.style = 'display: table-row; line-height: 1.5; height: 1.5em;'
 
@@ -52,7 +65,7 @@ export default defineComponent({
                 tagName: 'span',
                 properties: {
                   className: ['line-number'],
-                  style: `padding-right: 15px; color: ${lineNumberColor}`,
+                  style: `padding-left: 5px; padding-right: 15px; color: ${lineNumberColor}; user-select: none;`,
                 },
                 children: [
                   {
@@ -62,6 +75,9 @@ export default defineComponent({
                 ],
               })
             }
+
+            if (highlightedLines.includes(line))
+              node.properties.style += `background-color: ${lineHighlightingColor};`
           },
         },
       ],
