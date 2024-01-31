@@ -22,17 +22,49 @@ export default defineComponent({
       type: String,
       default: '',
     },
+    showLineNumbers: {
+      type: Boolean,
+      default: false,
+    },
+    lineNumberColor: {
+      type: String,
+      default: '#636E7B',
+    },
   },
-  async setup({ code, lang, theme }) {
+  async setup({ code, lang, theme, showLineNumbers, lineNumberColor }) {
     const shiki = await getHighlighter({
       langs: [lang],
       themes: [theme],
     })
 
     const themeColorBg = shiki.getTheme(theme).bg
-    const htmlCode = shiki.codeToThemedTokens(code, {
+    const html = shiki.codeToHtml(code, {
       lang,
       theme,
+      transformers: [
+        {
+          line(node, line) {
+            node.properties.style = 'display: table-row; line-height: 1.5; height: 1.5em;'
+
+            if (showLineNumbers) {
+              node.children.unshift({
+                type: 'element',
+                tagName: 'span',
+                properties: {
+                  className: ['line-number'],
+                  style: `padding-right: 15px; color: ${lineNumberColor}`,
+                },
+                children: [
+                  {
+                    type: 'text',
+                    value: `${line}`,
+                  },
+                ],
+              })
+            }
+          },
+        },
+      ],
     })
 
     return () =>
@@ -46,19 +78,9 @@ export default defineComponent({
         },
         tabindex: 0,
       }, [
-        h('code', null, [
-          ...htmlCode.map((line) => {
-            return h('span', { class: ['line'], style: {
-              display: 'table-row',
-              lineHeight: '1.5',
-              height: '1.5em',
-            } }, [
-              ...line.map((token) => {
-                return h('span', { style: { color: token.color } }, token.content)
-              }),
-            ])
-          }),
-        ]),
+        h('span', {
+          innerHTML: html,
+        }),
       ])
   },
 })

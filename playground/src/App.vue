@@ -23,7 +23,7 @@ const tokens = await codeToThemedTokens('<div class="foo">bar</div>', {
 
 <template>
   <Suspense>
-    <ECodeBlock style="padding: 20px;" :code="code" lang="typescript" theme="dracula" />
+    <ECodeBlock style="padding: 20px;" :code="code" lang="typescript" theme="dracula" show-line-numbers />
   </Suspense>
   <ECodeInline>@vue-email/nuxt</ECodeInline>
   <iframe :srcdoc="email" />
