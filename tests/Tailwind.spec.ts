@@ -3,6 +3,8 @@ import { h } from 'vue'
 import { ETailwind, useRender } from '../src'
 import MyEmail from './components/MyEmail.vue'
 
+// import EtailwindCode from './components/EtailwindCode.vue'
+
 describe('tailwind component', () => {
   describe('inline styles', () => {
     it('should render children with inline Tailwind styles', async () => {
