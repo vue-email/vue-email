@@ -12,7 +12,7 @@ onMounted(async () => {
   })
 })
 
-const code = `import { codeToThemedTokens } from 'shikiji'
+const code = `import { codeToThemedTokens } from 'shiki'
 
 const tokens = await codeToThemedTokens('<div class="foo">bar</div>', {
   lang: 'html',

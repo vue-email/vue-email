@@ -1,7 +1,7 @@
 import type { PropType } from 'vue'
 import { defineComponent, h } from 'vue'
-import type { BundledLanguage, BundledTheme, SpecialLanguage, ThemeRegistrationAny } from 'shikiji'
-import { getHighlighter } from 'shikiji'
+import type { BundledLanguage, BundledTheme, SpecialLanguage, ThemeRegistrationAny } from 'shiki'
+import { getHighlighter } from 'shiki'
 
 export default defineComponent({
   name: 'ECodeBlock',

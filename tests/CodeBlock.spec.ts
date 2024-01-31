@@ -3,7 +3,7 @@ import { describe, it } from 'vitest'
 describe('render', () => {
   it('renders the <Column> component', async () => {
     // const component = h(ECodeBlock, {
-    //   code: `import { codeToThemedTokens } from 'shikiji'
+    //   code: `import { codeToThemedTokens } from 'shiki'
 
     //   const tokens = await codeToThemedTokens('<div class="foo">bar</div>', {
     //     lang: 'html',
