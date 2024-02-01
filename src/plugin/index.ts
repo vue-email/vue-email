@@ -7,8 +7,10 @@ import { config } from '../config'
 
 export const VueEmailPlugin: Plugin = {
   install(app, options: VueEmailPluginOptions = {}) {
-    if (options)
+    if (options) {
       deepmerge<VueEmailPluginOptions>(config, options)
+      app.config.globalProperties.$vueEmail = options
+    }
 
     Object.entries(components).forEach(([name, component]) => {
       app.component(name, component)

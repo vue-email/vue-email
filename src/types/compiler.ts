@@ -24,3 +24,9 @@ export interface I18n {
 }
 
 export type DeepRequired<T> = Required<{ [P in keyof T]: DeepRequired<T[P]> }>
+
+declare module 'vue' {
+  interface ComponentCustomProperties {
+    $vueEmail: VueEmailPluginOptions
+  }
+}

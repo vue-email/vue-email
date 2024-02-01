@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { ECodeBlock, ECodeInline, useRender } from 'vue-email'
+import { ECodeBlock, useRender } from 'vue-email'
 import Test from './components/Test.vue'
 
 const email = ref('')
@@ -25,7 +25,7 @@ const tokens = await codeToThemedTokens('<div class="foo">bar</div>', {
   <Suspense>
     <ECodeBlock style="padding: 20px;" :code="code" lang="typescript" theme="dracula" show-line-numbers :highlighted-lines="[4, 5]" />
   </Suspense>
-  <ECodeInline>@vue-email/nuxt</ECodeInline>
+  <!-- <ECodeInline>@vue-email/nuxt</ECodeInline> -->
   <iframe :srcdoc="email" />
 </template>
 

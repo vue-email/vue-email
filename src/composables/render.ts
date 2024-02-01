@@ -4,6 +4,7 @@ import { renderToString } from 'vue/server-renderer'
 import pretty from 'pretty'
 import { cleanup, htmlToText } from '../utils'
 import type { I18n } from '../types'
+import { config } from '../config'
 
 export interface Options {
   pretty?: boolean
@@ -69,6 +70,8 @@ export async function useRender(
 ) {
   const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
   const app = createApp({ render: () => h(component) }, params?.props)
+
+  app.config.globalProperties.$vueEmail = config
 
   await useI18n(app, params)
 
