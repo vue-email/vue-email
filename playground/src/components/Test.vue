@@ -55,6 +55,9 @@ const tokens = await codeToThemedTokens('<div class="foo">bar</div>', {
             Hello {{ username }},
           </EText>
           <EText class="text-black text-[14px] leading-[24px]">
+            {{ $vueEmail }}
+          </EText>
+          <EText class="text-black text-[14px] leading-[24px]">
             <strong>bukinoshita</strong> (
             <ELink :href="`mailto:${invitedByEmail}`" class="text-blue-600 no-underline">
               {{ invitedByEmail }}
