@@ -6,6 +6,7 @@ import * as domutils from 'domutils'
 import render from 'dom-serializer'
 import type { TailwindConfig } from '@vue-email/tailwind'
 import { escapeClassName, getCssForMarkup, getStylesPerClassMap, minifyCss, useRgbNonSpacedSyntax } from '@vue-email/tailwind'
+import { config } from '../config'
 
 export default defineComponent({
   name: 'ETailwind',
@@ -23,8 +24,10 @@ export default defineComponent({
     let headStyles: string[] = []
     const markupWithTailwindClasses = await renderToString(h('div', $default)).then(html => html.replace(/^<div[^>]*>|<\/div>$/g, ''))
 
+    const tailwindConfig = props.config || config.tailwind
+
     const markupCSS = useRgbNonSpacedSyntax(
-      await getCssForMarkup(markupWithTailwindClasses, props.config as TailwindConfig),
+      await getCssForMarkup(markupWithTailwindClasses, tailwindConfig),
     )
 
     const nonMediaQueryCSS = markupCSS.replaceAll(

@@ -43,7 +43,7 @@ const tokens = await codeToThemedTokens('<div class="foo">bar</div>', {
         </EStyle>
       </EHead>
       <EPreview>{{ previewText }}</EPreview>
-      <EBody class="bg-white my-auto mx-auto font-sans">
+      <EBody class="bg-primary my-auto mx-auto font-sans">
         <EContainer class="border border-solid border-[#eaeaea] p-[20px] md:p-20 rounded my-[40px] mx-auto max-w-[465px]">
           <ESection class="mt-[32px] pager">
             <EImg src="/static/vercel-logo.png" width="40" height="37" alt="Vercel" class="my-0 mx-auto" />
