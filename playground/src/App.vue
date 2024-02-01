@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { ECodeBlock, ECodeInline, useRender } from 'vue-email'
+import { ECodeBlock, useRender } from 'vue-email'
 import Test from './components/Test.vue'
 
 const email = ref('')
