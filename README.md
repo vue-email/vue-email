@@ -60,10 +60,7 @@ pnpm add vue-email
 3. Install dependencies using `pnpm install`
 
 ## 🛟 Support
-If you like our work, please feel to free to support us!
-
-- BTC: `1Bwo1Htd47rLRM4PZhydWtoC5ZAR4Fv9KZ`
-- USDT: [binance-qr](https://github.com/vue-email/vue-email/blob/main/docs/public/binance-qr.png?raw=true)
+If you like our work, please feel to free to [support us](https://github.com/sponsors/vue-email)!
 
 ## License
 
