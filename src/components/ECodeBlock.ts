@@ -1,7 +1,6 @@
 import type { PropType } from 'vue'
 import { defineComponent, h } from 'vue'
 import type { BundledLanguage, BundledTheme, SpecialLanguage, ThemeRegistrationAny } from 'shiki'
-import { getHighlighter } from 'shiki'
 
 export default defineComponent({
   name: 'ECodeBlock',
@@ -40,6 +39,8 @@ export default defineComponent({
     },
   },
   async setup({ code, lang, theme, showLineNumbers, lineNumberColor, highlightedLines, lineHighlightingColor }) {
+    const { getHighlighter } = await import('shiki')
+
     const shiki = await getHighlighter({
       langs: [lang],
       themes: [theme],
