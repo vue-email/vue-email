@@ -2,6 +2,16 @@ import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import { EFont, useRender } from '../src'
 
+const stringSnapshotSerializer = {
+  serialize(val) {
+    return val
+  },
+  test(val) {
+    return (typeof val == 'string')
+  },
+}
+expect.addSnapshotSerializer(stringSnapshotSerializer)
+
 describe('render', () => {
   it('renders the <Font> component', async () => {
     const component = h(EFont, {
@@ -11,18 +21,10 @@ describe('render', () => {
 
     const actualOutput = await useRender(component)
 
-    expect(actualOutput.html).toMatchInlineSnapshot(
-      `"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><style>@font-face {
-font-family: &quot;Roboto&quot;;
-font-style: normal;
-font-weight: 400;
-mso-font-alt: &quot;Verdana&quot;;
+    const html = actualOutput.html.replace(/\s+/g, ' ')
 
-}
-
-* {
-font-family: &quot;Roboto&quot;, Verdana;
-}</style>"`,
+    expect(html).toMatchInlineSnapshot(
+      `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><style> @font-face { font-family: 'Roboto'; font-style: normal; font-weight: 400; mso-font-alt: 'Verdana'; } * { font-family: 'Roboto', Verdana; } </style>`,
     )
   })
 })

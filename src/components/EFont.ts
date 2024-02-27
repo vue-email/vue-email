@@ -1,8 +1,26 @@
 import type { PropType } from 'vue'
 import { defineComponent, h } from 'vue'
 
-type FallbackFont = 'Arial' | 'Helvetica' | 'Verdana' | 'Georgia' | 'Times New Roman'
-type FontFormat = 'woff' | 'woff2' | 'truetype' | 'opentype' | 'embedded-opentype' | 'svg'
+type FallbackFont =
+  | 'Arial'
+  | 'Helvetica'
+  | 'Verdana'
+  | 'Georgia'
+  | 'Times New Roman'
+  | 'serif'
+  | 'sans-serif'
+  | 'monospace'
+  | 'cursive'
+  | 'fantasy'
+
+type FontFormat =
+  | 'woff'
+  | 'woff2'
+  | 'truetype'
+  | 'opentype'
+  | 'embedded-opentype'
+  | 'svg'
+
 type FontWeight = 'normal' | 'bold' | 'bolder' | 'lighter' | number
 type FontStyle = 'normal' | 'italic' | 'oblique'
 
@@ -30,24 +48,36 @@ export default defineComponent({
       default: 400,
     },
   },
-  setup(props) {
-    const src = props.webFont ? `src: url(${props.webFont.url}) format("${props.webFont.format}");` : ''
+  setup({ fontFamily, fallbackFontFamily, webFont, fontStyle, fontWeight }) {
+    const src = webFont
+      ? `src: url(${webFont.url}) format('${webFont.format}');`
+      : ''
 
-    const styles = `@font-face {
-font-family: "${props.fontFamily}";
-font-style: ${props.fontStyle};
-font-weight: ${props.fontWeight};
-mso-font-alt: "${Array.isArray(props.fallbackFontFamily) ? props.fallbackFontFamily[0] : props.fallbackFontFamily}";
-${src}
-}
-
-* {
-font-family: "${props.fontFamily}", ${Array.isArray(props.fallbackFontFamily) ? props.fallbackFontFamily.join(', ') : props.fallbackFontFamily};
-}`
+    const style = `
+      @font-face {
+        font-family: '${fontFamily}';
+        font-style: ${fontStyle};
+        font-weight: ${fontWeight};
+        mso-font-alt: '${
+          Array.isArray(fallbackFontFamily)
+            ? fallbackFontFamily[0]
+            : fallbackFontFamily
+        }';
+        ${src}
+      }
+  
+      * {
+        font-family: '${fontFamily}', ${
+          Array.isArray(fallbackFontFamily)
+            ? fallbackFontFamily.join(', ')
+            : fallbackFontFamily
+        };
+      }
+    `
 
     return () => {
-      return h('style', undefined, {
-        default: () => styles,
+      return h('style', {
+        innerHTML: style,
       })
     }
   },
