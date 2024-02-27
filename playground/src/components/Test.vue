@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EBody, EButton, ECodeBlock, EColumn, EContainer, EHead, EHeading, EHr, EHtml, EImg, ELink, EPreview, ERow, ESection, EStyle, ETailwind, EText } from 'vue-email'
+import { EBody, EButton, ECodeBlock, EColumn, EContainer, EFont, EHead, EHeading, EHr, EHtml, EImg, ELink, EPreview, ERow, ESection, EStyle, ETailwind, EText } from 'vue-email'
 
 interface Props {
   invitedByUsername?: string
@@ -41,9 +41,29 @@ const tokens = await codeToThemedTokens('<div class="foo">bar</div>', {
           .pager {display: block;}
           }
         </EStyle>
+        <EFont
+          font-family="Geist"
+          fallback-font-family="Helvetica"
+          :web-font="{
+            url: 'https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.1/files/geist-sans-latin-400-normal.woff2',
+            format: 'woff2',
+          }"
+          :font-weight="400"
+          font-style="normal"
+        />
+        <EFont
+          font-family="Geist"
+          fallback-font-family="Helvetica"
+          :web-font="{
+            url: 'https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.1/files/geist-sans-latin-500-normal.woff2',
+            format: 'woff2',
+          }"
+          :font-weight="500"
+          font-style="normal"
+        />
       </EHead>
       <EPreview>{{ previewText }}</EPreview>
-      <EBody class="bg-primary my-auto mx-auto font-sans">
+      <EBody class="bg-primary my-auto mx-auto">
         <EContainer class="border border-solid border-[#eaeaea] p-[20px] md:p-20 rounded my-[40px] mx-auto max-w-[465px]">
           <ESection class="mt-[32px] pager">
             <EImg src="/static/vercel-logo.png" width="40" height="37" alt="Vercel" class="my-0 mx-auto" />
