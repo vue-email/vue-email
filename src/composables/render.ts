@@ -13,6 +13,7 @@ export interface Options {
 export interface RenderParams {
   props?: any
   i18n?: I18n
+  components?: Record<string, Component>
 }
 
 async function useI18n(app: App, params?: RenderParams | null) {
@@ -70,6 +71,11 @@ export async function useRender(
 ) {
   const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
   const app = createApp({ render: () => h(component) }, params?.props)
+
+  if (params?.components) {
+    for (const [name, component] of Object.entries(params.components))
+      app.component(name, component)
+  }
 
   app.config.globalProperties.$vueEmail = config
 
