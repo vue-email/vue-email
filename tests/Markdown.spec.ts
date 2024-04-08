@@ -92,4 +92,26 @@ describe('markdown component renders correctly', () => {
 </div>"`,
     )
   })
+
+  it('renders line breaks in the correct format for browsers', async () => {
+    const component = h(EMarkdown, {
+      source: `
+# Below are three lines
+
+Line one with line break  
+Line two with line break  
+Line three without line break
+`,
+    })
+
+    const actualOutput = await useRender(component)
+
+    expect(actualOutput.html).toMatchInlineSnapshot(
+      `"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><div data-id="__vue-email-markdown" style="">
+<h1 data-id="vue-email-heading" style="font-weight:500;padding-top:20;font-size:2.5rem">Below are three lines</h1>
+
+<p data-id="vue-email-text">Line one with line break<br>Line two with line break<br>Line three without line break</p>
+</div>"`,
+    )
+  })
 })
