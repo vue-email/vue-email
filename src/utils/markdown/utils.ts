@@ -65,6 +65,9 @@ export async function parseMarkdownToVueEmailJSX(markdown: string, customStyles:
 
   vueMailTemplate = parseMarkdownWithBlockQuotes(vueMailTemplate)
 
+  // Handle line breaks (e.g., <br />)
+  vueMailTemplate = vueMailTemplate.replace(patterns.br, `<br${parseCssInJsToInlineCss(finalStyles.br) !== '' ? ` style="${parseCssInJsToInlineCss(finalStyles.br)}"` : ''}/>`)
+
   // Handle paragraphs
   vueMailTemplate = vueMailTemplate.replace(
     patterns.p,
@@ -212,9 +215,6 @@ export async function parseMarkdownToVueEmailJSX(markdown: string, customStyles:
       parseCssInJsToInlineCss(finalStyles.link) !== '' ? ` style="${parseCssInJsToInlineCss(finalStyles.link)}"` : ''
     } href="$2" target="_blank" >$1</a>`,
   )
-
-  // Handle line breaks (e.g., <br />)
-  vueMailTemplate = vueMailTemplate.replace(patterns.br, `<br${parseCssInJsToInlineCss(finalStyles.br) !== '' ? ` style="${parseCssInJsToInlineCss(finalStyles.br)}"` : ''}/>`)
 
   // Handle horizontal rules (e.g., ---)
   vueMailTemplate = vueMailTemplate.replace(
