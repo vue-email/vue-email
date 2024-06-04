@@ -6,7 +6,6 @@ import * as domutils from 'domutils'
 import render from 'dom-serializer'
 import type { TailwindConfig } from '@vue-email/tailwind'
 import { escapeClassName, getCssForMarkup, getStylesPerClassMap, minifyCss, useRgbNonSpacedSyntax } from '@vue-email/tailwind'
-import { config } from '../config'
 
 export default defineComponent({
   name: 'ETailwind',

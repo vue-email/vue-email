@@ -1,6 +1,4 @@
 import { defineComponent, getCurrentInstance, h, ref } from 'vue'
-import { cleanDoubleSlashes, resolveURL } from 'ufo'
-import { config } from '../config'
 
 export default defineComponent({
   name: 'EImg',

@@ -74,7 +74,6 @@
     "@vue-email/tailwind": "^0.0.6",
     "isomorphic-dompurify": "^2.11.0",
     "shiki": "1.6.2",
-    "ufo": "^1.5.3",
     "vue": "^3.4.27"
   },
   "devDependencies": {
