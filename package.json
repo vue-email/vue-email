@@ -37,10 +37,6 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
-    },
-    "./nuxt": {
-      "types": "./nuxt/module.d.ts",
-      "import": "./nuxt/module.mjs"
     }
   },
   "main": "./dist/index.mjs",
@@ -60,8 +56,7 @@
   },
   "files": [
     "bin",
-    "dist",
-    "nuxt"
+    "dist"
   ],
   "scripts": {
     "build": "unbuild",
@@ -88,7 +83,6 @@
     "@antfu/eslint-config": "^2.20.0",
     "@antfu/ni": "^0.21.12",
     "@antfu/utils": "^0.7.8",
-    "@nuxt/kit": "^3.7.0",
     "@types/html-to-text": "^9.0.4",
     "@types/node": "^20.14.1",
     "@types/pretty": "^2.0.3",
