@@ -77,15 +77,15 @@ export interface VNode {
 //  *   },
  * });
  */
-export async function useRender(
-  component: Component,
-  params?: RenderParams | null,
+export async function useRender<T extends Component>(
+  component: T,
+  props?: ExtractComponentProps<T>,
   options: Options = {
     pretty: false,
   },
 ) {
   const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
-  const App = createSSRApp(component, params?.props || {})
+  const App = createSSRApp(component, props || {})
 
   App.config.globalProperties.$vueEmail = config
 

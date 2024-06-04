@@ -20,6 +20,8 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
+        with:
+          version: 9.1.4
 
       - name: Set node
         uses: actions/setup-node@v3
