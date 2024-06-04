@@ -5,7 +5,7 @@ export default function cleanup(str: string) {
   return str
     .replace(/ data-v-inspector="[^"]*"/g, '')
     .replace(/<!--\[-->/g, '')
-    .replace(/<!--]-->/g, '')
+    .replace(/<!--\]-->/g, '')
     .replace(/<template>/g, '')
     .replace(/<template[^>]*>/g, '')
     .replace(/<\/template>/g, '')

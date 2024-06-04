@@ -48,7 +48,7 @@ describe('render', () => {
     })
 
     const actualOutput = await useRender(component)
-    const tdChildrenArr = actualOutput.html.match(/<td\s*.*?>.*?<\/td>/g)
+    const tdChildrenArr = actualOutput.html.match(/<td\s*(?:\S.*?)??>.*?<\/td>/g)
 
     expect(tdChildrenArr).toHaveLength(1)
   })

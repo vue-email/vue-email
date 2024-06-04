@@ -31,13 +31,13 @@ export default defineComponent({
     )
 
     const nonMediaQueryCSS = markupCSS.replaceAll(
-      /@media\s*\(.*\)\s*{\s*\.(.*)\s*{[\s\S]*}\s*}/gm,
+      /@media\s*\(.*\)\s*\{\s*\.(.*)\s*\{[\s\S]*\}\s*\}/g,
       (mediaQuery: any, _className: any) => {
         headStyles.push(
           mediaQuery
-            .replace(/[\r\n|\r|\n]+/g, '')
+            .replace(/[\r\n|]+/g, '')
             .replace(/\s+/g, ' ')
-            .replaceAll(/\s*\.[\S]+\s*{([^}]*)}/gm, (match: string, content: string) => {
+            .replaceAll(/\s*\.\S+\s*\{([^}]*)\}/g, (match: string, content: string) => {
               return match.replace(
                 content,
                 content
@@ -57,8 +57,8 @@ export default defineComponent({
     )
     const nonMediaQueryTailwindStylesPerClass = getStylesPerClassMap(nonMediaQueryCSS)
     headStyles = headStyles.filter(style => style.trim().length > 0)
-    const hasHTML = /<html[^>]*>/gm.test(markupWithTailwindClasses)
-    const hasHead = /<head[^>]*>/gm.test(markupWithTailwindClasses)
+    const hasHTML = /<html[^>]*>/.test(markupWithTailwindClasses)
+    const hasHead = /<head[^>]*>/.test(markupWithTailwindClasses)
 
     if (headStyles.length > 0 && (!hasHTML || !hasHead))
       throw new Error('Tailwind: To use responsive styles you must have a <EHtml> and <EHead> element in your template.')

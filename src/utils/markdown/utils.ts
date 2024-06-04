@@ -49,7 +49,7 @@ export async function parseMarkdownToVueEmailJSX(markdown: string, customStyles:
 
   // Handle blockquotes
   function parseMarkdownWithBlockQuotes(markdown: string): string {
-    const blockquoteRegex = /^(>\s*((?:.+\n?)+))(?!\n(?=>\s))/gm
+    const blockquoteRegex = /^(>\s*((?:.+\n?)+))(?!\n>\s)/gm
 
     function parseBlockQuote(match: string) {
       const nestedContent = match.replace(/^>\s*/gm, '')

@@ -4,12 +4,12 @@
  * @description This function is just a copy of original React-Email package.
  */
 export function cleanCss(css: string) {
-  const SELETORS_REGEX = /[.\!\#\w\d\\:\-\[\]\/\.%\(\))]+(?=\s*?{[^{]*?\})\s*?{/g
+  const SELETORS_REGEX = /[.!#\w\\:\-[\]/%()]+(?=\s*\{[^{]*?\})\s*\{/g
   const newCss = css
     .replace(/\\/g, '')
     // find all css selectors and look ahead for opening and closing curly braces
     .replace(SELETORS_REGEX, (m) => {
-      return m.replace(/(.)([:#\!\-[\\\]\/\.%]+)/g, '$1_')
+      return m.replace(/(.)([:#!\-[\\\]/.%]+)/g, '$1_')
     })
     .replace(/font-family(?<value>[^;\r\n]+)/g, (m, value) => {
       return `font-family${value.replace(/['"]+/g, '')}`
@@ -22,7 +22,7 @@ export function cleanCss(css: string) {
  * Make a map of all class names and their css styles
  */
 export function makeCssMap(css: string) {
-  const cssNoMedia = css.replace(/@media[^{]+\{(?<content>[\s\S]+?)\}\s*\}/gm, '')
+  const cssNoMedia = css.replace(/@media[^{]+\{(?<content>[\s\S]+?)\}\s*\}/g, '')
 
   const cssMap = cssNoMedia.split('}').reduce(
     (acc, cur) => {
@@ -43,13 +43,13 @@ export function makeCssMap(css: string) {
  * Get media query css to put in head
  */
 export function getMediaQueryCss(css: string) {
-  const mediaQueryRegex = /@media[^{]+\{(?<content>[\s\S]+?)\}\s*\}/gm
+  const mediaQueryRegex = /@media[^{]+\{(?<content>[\s\S]+?)\}\s*\}/g
 
   return (
     css
       .replace(mediaQueryRegex, (m) => {
-        return m.replace(/([^{]+\{)([\s\S]+?)(\}\s*\})/gm, (_, start, content, end) => {
-          const newContent = (content as string).replace(/(?:[\s\r\n]*)?(?<prop>[\w-]+)\s*:\s*(?<value>[^};\r\n]+)/gm, (_, prop, value) => {
+        return m.replace(/([^{]+\{)([\s\S]+?)(\}\s*\})/g, (_, start, content, end) => {
+          const newContent = (content as string).replace(/\s*(?<prop>[\w-]+)\s*:\s*(?<value>[^};\r\n]+)/g, (_, prop, value) => {
             return `${prop}: ${value} !important;`
           })
 
@@ -63,18 +63,18 @@ export function getMediaQueryCss(css: string) {
 }
 
 export function testResponsiveStyles(style: string): boolean {
-  return /@media[^{]+\{(?<content>[\s\S]+?)\}\s*\}/gm.test(style)
+  return /@media[^{]+\{(?<content>[\s\S]+?)\}\s*\}/.test(style)
 }
 
 export function testHTML(style: string): boolean {
-  return /<html[^>]*>/gm.test(style)
+  return /<html[^>]*>/.test(style)
 }
 
 export function testHead(style: string): boolean {
-  return /<head[^>]*>/gm.test(style)
+  return /<head[^>]*>/.test(style)
 }
 
-export const CLEAN_REGEX = /[:#\!\-[\]\/\.%]+/g
+export const CLEAN_REGEX = /[:#!\-[\]/.%]+/g
 
 export function styleToObject(style: string): Record<string, string> {
   const styles: { [key: string]: string } = {}
