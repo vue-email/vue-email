@@ -75,8 +75,7 @@
     "isomorphic-dompurify": "^2.11.0",
     "shiki": "1.6.2",
     "ufo": "^1.5.3",
-    "vue": "^3.4.27",
-    "vue-i18n": "^9.13.1"
+    "vue": "^3.4.27"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.20.0",

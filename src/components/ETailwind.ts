@@ -24,7 +24,7 @@ export default defineComponent({
     let headStyles: string[] = []
     const markupWithTailwindClasses = await renderToString(h('div', $default)).then(html => html.replace(/^<div[^>]*>|<\/div>$/g, ''))
 
-    const tailwindConfig = props.config || config.tailwind
+    const tailwindConfig = props.config
 
     const markupCSS = useRgbNonSpacedSyntax(
       await getCssForMarkup(markupWithTailwindClasses, tailwindConfig),

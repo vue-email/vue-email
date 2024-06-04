@@ -11,13 +11,7 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const baseUrl = config && config.baseUrl ? config.baseUrl : null
     const src = ref(props.src)
-
-    if (baseUrl) {
-      src.value = resolveURL(baseUrl, src.value)
-      src.value = cleanDoubleSlashes(src.value)
-    }
 
     return () => {
       return h('img', {
