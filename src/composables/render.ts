@@ -87,6 +87,8 @@ export async function useRender<T extends Component>(
   const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
   const App = createSSRApp(component, props || {})
 
+  console.log('config: ', config)
+
   App.config.globalProperties.$vueEmail = config
 
   // await useI18n(app, params)
