@@ -1,4 +1,4 @@
-import { defineComponent, h, ref } from 'vue'
+import { defineComponent, getCurrentInstance, h, ref } from 'vue'
 import { cleanDoubleSlashes, resolveURL } from 'ufo'
 import { config } from '../config'
 
@@ -11,6 +11,9 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const { proxy } = getCurrentInstance()
+    console.log('proxy: ', proxy)
+
     const baseUrl = config && config.baseUrl ? config.baseUrl : null
     const src = ref(props.src)
 
