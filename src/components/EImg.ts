@@ -11,9 +11,6 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const { appContext } = getCurrentInstance() as any
-    console.log('appContext: ', appContext.config.globalProperties.$vueEmail)
-
     const baseUrl = config && config.baseUrl ? config.baseUrl : null
     const src = ref(props.src)
 
