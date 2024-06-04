@@ -11,8 +11,8 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const { proxy } = getCurrentInstance()
-    console.log('proxy: ', proxy)
+    const instance = getCurrentInstance() as any
+    console.log('instance: ', instance)
 
     const baseUrl = config && config.baseUrl ? config.baseUrl : null
     const src = ref(props.src)
