@@ -1,17 +1,27 @@
-import type { PropType } from 'vue'
+import type { CSSProperties, PropType, VNode, VNodeArrayChildren, VNodeChild, VueElement } from 'vue'
 import { defineComponent, h } from 'vue'
+import { html as _html } from 'satori-html'
+
 import { renderToString } from 'vue/server-renderer'
-import * as htmlparser2 from 'htmlparser2'
-import * as domutils from 'domutils'
-import render from 'dom-serializer'
-import type { TailwindConfig } from '@vue-email/tailwind'
-import { escapeClassName, getCssForMarkup, getStylesPerClassMap, minifyCss, useRgbNonSpacedSyntax } from '@vue-email/tailwind'
+import { useTailwindStyles } from '../utils/tailwind/hooks/use-tailwind-styles'
+import { useStyleInlining } from '../utils/tailwind/hooks/use-style-inlining'
+import { sanitizeClassName } from '../utils/tailwind/compatibility/sanitize-class-name'
+import { minifyCss } from '../utils/tailwind/css/minify-css'
+import type { TailwindConfig } from '../utils/tailwind'
+
+interface EmailElementProps {
+  children?: VNodeArrayChildren
+  class?: string
+  style?: CSSProperties
+  tw?: string
+}
 
 export default defineComponent({
   name: 'ETailwind',
   props: {
     config: {
       type: Object as PropType<TailwindConfig>,
+      default: {},
       required: false,
     },
   },
@@ -20,112 +30,124 @@ export default defineComponent({
       throw new Error('ETailwind component must have a default slot')
 
     const $default = slots.default()
-    let headStyles: string[] = []
-    const markupWithTailwindClasses = await renderToString(h('div', $default)).then(html => html.replace(/^<div[^>]*>|<\/div>$/g, ''))
 
-    const tailwindConfig = props.config || {}
+    const markup = await renderToString(h('div', $default)).then(html => html.replace(/^<div[^>]*>|<\/div>$/g, ''))
 
-    const markupCSS = useRgbNonSpacedSyntax(
-      await getCssForMarkup(markupWithTailwindClasses, tailwindConfig),
+    const { stylePerClassMap, nonInlinableClasses, sanitizedMediaQueries }
+      = await useTailwindStyles(markup, props.config)
+
+    const inline = useStyleInlining(stylePerClassMap)
+
+    const nonInlineStylesToApply = sanitizedMediaQueries.filter(
+      style => style.trim().length > 0,
     )
 
-    const nonMediaQueryCSS = markupCSS.replaceAll(
-      /@media\s*\(.*\)\s*\{\s*\.(.*)\s*\{[\s\S]*\}\s*\}/g,
-      (mediaQuery: any, _className: any) => {
-        headStyles.push(
-          mediaQuery
-            .replace(/[\r\n|]+/g, '')
-            .replace(/\s+/g, ' ')
-            .replaceAll(/\s*\.\S+\s*\{([^}]*)\}/g, (match: string, content: string) => {
-              return match.replace(
-                content,
-                content
-                  .split(';')
-                  .map(propertyDeclaration =>
-                    propertyDeclaration.endsWith('!important')
-                      ? propertyDeclaration.trim()
-                      : `${propertyDeclaration.trim()}!important`,
-                  )
-                  .join(';'),
-              )
-            }),
-        )
+    const hasNonInlineStylesToApply = nonInlineStylesToApply.length > 0
+    let hasAppliedNonInlineStyles = false as boolean
 
-        return ''
-      },
-    )
-    const nonMediaQueryTailwindStylesPerClass = getStylesPerClassMap(nonMediaQueryCSS)
-    headStyles = headStyles.filter(style => style.trim().length > 0)
-    const hasHTML = /<html[^>]*>/.test(markupWithTailwindClasses)
-    const hasHead = /<head[^>]*>/.test(markupWithTailwindClasses)
+    function processElement(
+      element: VNode,
+    ): VueElement | VNodeChild | VNodeArrayChildren {
+      const propsToOverwrite = {} as Partial<EmailElementProps>
 
-    if (headStyles.length > 0 && (!hasHTML || !hasHead))
-      throw new Error('Tailwind: To use responsive styles you must have a <EHtml> and <EHead> element in your template.')
+      if (!hasAppliedNonInlineStyles && hasNonInlineStylesToApply) {
+        if (element.type === 'head') {
+          hasAppliedNonInlineStyles = true
 
-    const dom = htmlparser2.parseDocument(markupWithTailwindClasses, {
-      decodeEntities: false,
-      xmlMode: true,
-    })
+          const children = element.props?.children
 
-    const head = domutils.findOne(elem => elem.name === 'head', dom.children)
-
-    if (headStyles.length > 0 && hasHead && head) {
-      domutils.appendChild(head, {
-        type: 'tag',
-        name: 'style',
-        children: [
-          {
-            type: 'text',
-            data: minifyCss(headStyles.join('')),
-          },
-        ],
-      } as any)
-    }
-
-    const hasAttrs = (elem: any) => elem.attribs && elem.attribs.class
-
-    domutils
-      .findAll(elem => hasAttrs(elem), dom.children)
-      .forEach((elem) => {
-        const currentStyles = elem.attribs.style || ''
-
-        if (elem.attribs.class) {
-          const fullClassName = elem.attribs.class as string
-          const classNames = fullClassName.split(' ')
-          const classNamesToKeep = [] as string[]
-
-          const styles = [] as string[]
-          classNames.forEach((className) => {
-            const escapedClassName = escapeClassName(className)
-
-            if (typeof nonMediaQueryTailwindStylesPerClass[escapedClassName] === 'undefined') {
-              classNamesToKeep.push(className)
-            }
-            else {
-              styles.push(
-                `${nonMediaQueryTailwindStylesPerClass[escapedClassName]};`,
-              )
-            }
+          const styleElement = h('style', {
+            innerHTML: minifyCss(nonInlineStylesToApply.join('')),
           })
 
-          if (classNamesToKeep.length > 0)
-            elem.attribs.class = classNamesToKeep.join(' ').trim()
+          children.push(styleElement)
 
-          if (styles.length > 0)
-            elem.attribs.style = `${currentStyles} ${styles.join(' ')}`.trim()
-
-          if (elem.attribs.style === '')
-            delete elem.attribs.style
+          return h(element.type, element.props, children)
         }
-      })
+      }
 
-    const html = render(dom, {
-      decodeEntities: false,
-      xmlMode: true,
-    })
+      if (element.props?.children) {
+        let processedChillren = element.props.children
 
-    return () => {
-      return h('clean-component', { innerHTML: html })
+        if (Array.isArray(processedChillren)) {
+          processedChillren = element.props?.children.map((child: any) => {
+            const element = child as VNode
+            return processElement(element)
+          })
+        }
+
+        propsToOverwrite.children
+          = processedChillren && processedChillren.length === 1
+            ? processedChillren[0]
+            : processedChillren
+      }
+
+      if (element.props?.class) {
+        const { styles, residualClassName } = inline(element.props.class)
+        propsToOverwrite.style = {
+          ...element.props.style,
+          ...styles,
+        }
+        if (residualClassName.trim().length > 0) {
+          propsToOverwrite.class = residualClassName
+          /*
+            We sanitize only the class names of Tailwind classes that we are not going to inline
+            to avoid unpredictable behavior on the user's code. If we did sanitize all class names
+            a user-defined class could end up also being sanitized which would lead to unexpected
+            behavior and bugs that are hard to track.
+          */
+          for (const singleClass of nonInlinableClasses) {
+            propsToOverwrite.class = propsToOverwrite.class.replace(
+              singleClass,
+              sanitizeClassName(singleClass),
+            )
+          }
+        }
+        else {
+          propsToOverwrite.class = undefined
+        }
+      }
+
+      const newProps = {
+        ...element.props,
+        ...propsToOverwrite,
+      }
+
+      delete newProps.children
+      delete newProps.tw
+
+      const newChildren = propsToOverwrite.children
+        ? propsToOverwrite.children
+        : element.props?.children
+
+      return h(element.type as any, newProps, newChildren)
     }
+
+    const satoryHTML = await _html(markup)
+    const childs = satoryHTML.props && satoryHTML.props.children as VNodeArrayChildren | undefined
+
+    const childrenArray = childs?.map((child) => {
+      const element = child as VNode
+      return processElement(element)
+    })
+    ?? []
+
+    if (hasNonInlineStylesToApply && !hasAppliedNonInlineStyles) {
+      throw new Error(
+        `You are trying to use the following Tailwind classes that have media queries: ${nonInlinableClasses.join(
+          ' ',
+        )}.
+For the media queries to work properly on rendering, they need to be added into a <style> tag inside of a <head> tag,
+the Tailwind component tried finding a <head> element but just wasn't able to find it.
+
+Make sure that you have either a <head> element at some point inside of the <Tailwind> component at any depth.
+
+If you do already have a <head> element at some depth, please file a bug https://github.com/resend/react-email/issues/new?assignees=&labels=Type%3A+Bug&projects=&template=1.bug_report.yml.`,
+      )
+    }
+
+    // return () => childrenArray.map(child => h(child.type, child.props, child.props.children))
+    return () => childrenArray
+    // return () => null
   },
 })
