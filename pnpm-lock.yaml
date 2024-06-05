@@ -11,6 +11,9 @@ importers:
       '@vue-email/cli':
         specifier: latest
         version: 0.0.14(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
+      '@vue-email/satori-html':
+        specifier: ^0.3.3
+        version: 0.3.3
       isomorphic-dompurify:
         specifier: ^2.11.0
         version: 2.11.0
@@ -20,9 +23,6 @@ importers:
       postcss-css-variables:
         specifier: 0.19.0
         version: 0.19.0(postcss@8.4.38)
-      satori-html:
-        specifier: ^0.3.2
-        version: 0.3.2
       shiki:
         specifier: 1.6.2
         version: 1.6.2
@@ -1021,6 +1021,9 @@ packages:
     resolution: {integrity: sha512-Z9zHYk7vY9S9WYz8xGf53oMDDQ5Di9Gn0/N0r/ifxEXwLgCcS/5EI3zqquiifXSnqWQJBD7pI18jQFwMgEq0Gw==}
     peerDependencies:
       vue: ^3.3.8
+
+  '@vue-email/satori-html@0.3.3':
+    resolution: {integrity: sha512-9KichYcUinfT9K6n2SXuBHMDHxWHjiEAStWcQqBiCl80+ZBKI5p0Yezaz7lGd5Pu9xP7Rwr5ofKN50XSCdjYNA==}
 
   '@vue-email/tailwind@0.0.6':
     resolution: {integrity: sha512-+t3yC1ym2fwa2KexOvdMDgB1Thpj3dcmMEztjSj6fa2tcuWmj/fTn+5yskzjtrokyqtc4dAqe7Da7uj1/j+dww==}
@@ -2998,9 +3001,6 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  satori-html@0.3.2:
-    resolution: {integrity: sha512-wjTh14iqADFKDK80e51/98MplTGfxz2RmIzh0GqShlf4a67+BooLywF17TvJPD6phO0Hxm7Mf1N5LtRYvdkYRA==}
-
   saxes@6.0.0:
     resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}
     engines: {node: '>=v12.22.7'}
@@ -4336,6 +4336,10 @@ snapshots:
       - ts-node
       - typescript
       - utf-8-validate
+
+  '@vue-email/satori-html@0.3.3':
+    dependencies:
+      ultrahtml: 1.5.3
 
   '@vue-email/tailwind@0.0.6':
     dependencies:
@@ -6439,10 +6443,6 @@ snapshots:
       queue-microtask: 1.2.3
 
   safer-buffer@2.1.2: {}
-
-  satori-html@0.3.2:
-    dependencies:
-      ultrahtml: 1.5.3
 
   saxes@6.0.0:
     dependencies:

@@ -1,6 +1,6 @@
 import type { CSSProperties, PropType, VNode, VNodeArrayChildren, VNodeChild, VueElement } from 'vue'
 import { defineComponent, h } from 'vue'
-import { html as _html } from 'satori-html'
+import { html as _html } from '@vue-email/satori-html'
 
 import { renderToString } from 'vue/server-renderer'
 import { useTailwindStyles } from '../utils/tailwind/hooks/use-tailwind-styles'
@@ -67,19 +67,23 @@ export default defineComponent({
       }
 
       if (element.props?.children) {
-        let processedChillren = element.props.children
+        if (typeof element.props.children === 'object') {
+          const processedChillren = element.props.children.map((child: any) => {
+            if (typeof child === 'string')
+              return child
 
-        if (Array.isArray(processedChillren)) {
-          processedChillren = element.props?.children.map((child: any) => {
             const element = child as VNode
             return processElement(element)
           })
-        }
 
-        propsToOverwrite.children
+          propsToOverwrite.children
           = processedChillren && processedChillren.length === 1
-            ? processedChillren[0]
-            : processedChillren
+              ? processedChillren[0]
+              : processedChillren
+        }
+        else {
+          propsToOverwrite.children = [element.props.children]
+        }
       }
 
       if (element.props?.class) {
@@ -127,6 +131,9 @@ export default defineComponent({
     const childs = satoryHTML.props && satoryHTML.props.children as VNodeArrayChildren | undefined
 
     const childrenArray = childs?.map((child) => {
+      if (typeof child === 'string')
+        return child
+
       const element = child as VNode
       return processElement(element)
     })
@@ -146,8 +153,6 @@ If you do already have a <head> element at some depth, please file a bug https:/
       )
     }
 
-    // return () => childrenArray.map(child => h(child.type, child.props, child.props.children))
     return () => childrenArray
-    // return () => null
   },
 })
