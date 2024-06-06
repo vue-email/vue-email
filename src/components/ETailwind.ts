@@ -1,6 +1,5 @@
 import type { CSSProperties, PropType, VNode, VNodeArrayChildren, VNodeChild, VueElement } from 'vue'
-import { defineComponent, h } from 'vue'
-import { html as _html } from '@vue-email/satori-html'
+import { defineComponent, getTransitionRawChildren, h, isVNode } from 'vue'
 
 import { renderToString } from 'vue/server-renderer'
 import { useTailwindStyles } from '../utils/tailwind/hooks/use-tailwind-styles'
@@ -14,6 +13,7 @@ interface EmailElementProps {
   class?: string
   style?: CSSProperties
   tw?: string
+  href?: string
 }
 
 export default defineComponent({
@@ -46,15 +46,15 @@ export default defineComponent({
     let hasAppliedNonInlineStyles = false as boolean
 
     function processElement(
-      element: VNode,
+      element: any,
     ): VueElement | VNodeChild | VNodeArrayChildren {
       const propsToOverwrite = {} as Partial<EmailElementProps>
 
       if (!hasAppliedNonInlineStyles && hasNonInlineStylesToApply) {
-        if (element.type === 'head') {
+        if (element.type === 'EHead' || element.type.name === 'EHead') {
           hasAppliedNonInlineStyles = true
 
-          const children = element.props?.children
+          const children = element.children?.default() ?? []
 
           const styleElement = h('style', {
             innerHTML: minifyCss(nonInlineStylesToApply.join('')),
@@ -66,23 +66,41 @@ export default defineComponent({
         }
       }
 
-      if (element.props?.children) {
-        if (typeof element.props.children === 'object') {
-          const processedChillren = element.props.children.map((child: any) => {
-            if (typeof child === 'string')
-              return child
+      if (element.children) {
+        if (Array.isArray(element.children)) {
+          const processedChillren = element.children.map((child: any) => {
+            if (isVNode(child)) {
+              const element = child as VNode
+              return processElement(element)
+            }
 
-            const element = child as VNode
-            return processElement(element)
+            return child
           })
 
           propsToOverwrite.children
-          = processedChillren && processedChillren.length === 1
+            = processedChillren && processedChillren.length === 1
+              ? processedChillren[0]
+              : processedChillren
+        }
+        else if (typeof element.children === 'object') {
+          const child = element.children?.default()
+
+          const processedChillren = child.map((child: any) => {
+            if (isVNode(child)) {
+              const element = child as VNode
+              return processElement(element)
+            }
+
+            return child
+          })
+
+          propsToOverwrite.children
+            = processedChillren && processedChillren.length === 1
               ? processedChillren[0]
               : processedChillren
         }
         else {
-          propsToOverwrite.children = [element.props.children]
+          propsToOverwrite.children = [element.children]
         }
       }
 
@@ -117,9 +135,6 @@ export default defineComponent({
         ...propsToOverwrite,
       }
 
-      delete newProps.children
-      delete newProps.tw
-
       const newChildren = propsToOverwrite.children
         ? propsToOverwrite.children
         : element.props?.children
@@ -127,17 +142,16 @@ export default defineComponent({
       return h(element.type as any, newProps, newChildren)
     }
 
-    const satoryHTML = await _html(markup)
-    const childs = satoryHTML.props && satoryHTML.props.children as VNodeArrayChildren | undefined
+    const children = getTransitionRawChildren($default)
 
-    const childrenArray = childs?.map((child) => {
-      if (typeof child === 'string')
-        return child
+    const childrenArray = children.map((child) => {
+      if (isVNode(child)) {
+        const element = child
+        return processElement(element)
+      }
 
-      const element = child as VNode
-      return processElement(element)
-    })
-    ?? []
+      return child
+    }) ?? []
 
     if (hasNonInlineStylesToApply && !hasAppliedNonInlineStyles) {
       throw new Error(
