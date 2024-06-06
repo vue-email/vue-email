@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineProps, withDefaults } from 'vue'
 import { EBody, EButton, EColumn, EContainer, EHead, EHeading, EHr, EHtml, EImg, ELink, EPreview, ERow, ESection, ETailwind, EText } from '../../src/components'
+import Logo from './Logo.vue'
 
 interface Props {
   invitedByUsername?: string
@@ -28,9 +29,7 @@ withDefaults(defineProps<Props>(), {
       <EHead />
       <EBody class="bg-white my-auto mx-auto font-sans">
         <EContainer class="border border-solid border-[#eaeaea] p-[20px] md:p-7 rounded my-[40px] mx-auto max-w-[465px]">
-          <ESection class="mt-[32px]">
-            <EImg src="https://vue-email-demo.vercel.app/static/vercel-logo.png" width="40" height="37" alt="Vercel" class="my-0 mx-auto" />
-          </ESection>
+          <Logo />
           <EHeading class="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
             Join <strong>{{ teamName }}</strong> on <strong>Vercel</strong>
           </EHeading>
