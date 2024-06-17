@@ -10,9 +10,5 @@
     "esModuleInterop": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true
-  },
-  "exclude": [
-    "playground",
-    "tests"
-  ]
+  }
 }
