@@ -2,7 +2,7 @@ import type { CSSProperties, PropType } from 'vue'
 import { computed, defineComponent, h } from 'vue'
 import { withMargin } from './utils'
 
-export default defineComponent({
+export const Heading = defineComponent({
   name: 'Heading',
   props: {
     as: {

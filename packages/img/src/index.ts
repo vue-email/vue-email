@@ -1,6 +1,6 @@
 import { defineComponent, h, PropType, ref } from 'vue'
 
-export default defineComponent({
+export const Img = defineComponent({
   name: 'Img',
   props: {
     src: {

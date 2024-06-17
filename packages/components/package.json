@@ -1,6 +1,6 @@
 {
   "name": "@vue-email/components",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A collection of all components Vue Email.",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -56,7 +56,7 @@
     "@vue-email/preview": "0.0.1",
     "@vue-email/row": "0.0.1",
     "@vue-email/section": "0.0.1",
-    "@vue-email/tailwind": "0.1.1",
+    "@vue-email/tailwind": "0.1.2",
     "@vue-email/text": "0.0.1",
     "@vue-email/render": "workspace:*"
   },

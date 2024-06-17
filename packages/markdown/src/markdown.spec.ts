@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import { render } from "@vue-email/render";
-import Markdown from "./index";
+import { Markdown } from "./index";
 
 describe("<Markdown> component", () => {
   it("renders the markdown in the correct format for browsers", async () => {

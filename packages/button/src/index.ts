@@ -33,7 +33,7 @@ const buttonTextStyle = (pb?: number) => {
 };
 
 
-export default defineComponent<AnchorHTMLAttributes>({
+export const Button = defineComponent<AnchorHTMLAttributes>({
   name: 'Button',
   setup(props, { slots }) {
 

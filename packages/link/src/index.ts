@@ -1,7 +1,7 @@
 import { defineComponent, h } from 'vue'
 
-export default defineComponent({
-  name: 'ELink',
+export const Link = defineComponent({
+  name: 'Link',
   props: {
     href: {
       type: String,

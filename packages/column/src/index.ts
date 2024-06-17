@@ -1,6 +1,6 @@
 import { defineComponent, h } from 'vue'
 
-export default defineComponent({
+export const Column = defineComponent({
   name: 'Column',
   setup(_, { slots }) {
     return () => {

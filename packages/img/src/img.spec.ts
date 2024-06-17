@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import { render } from "@vue-email/render";
-import Img from "./index";
+import { Img } from "./index";
 
 describe("<Img> component", () => {
   it("passes style and other props correctly", async () => {

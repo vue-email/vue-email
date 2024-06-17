@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import { render } from "@vue-email/render";
-import Font from "./index";
+import { Font } from "./index";
 
 describe("<Font> component", () => {
   it("renders with default props", async () => {

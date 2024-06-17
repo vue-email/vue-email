@@ -1,7 +1,7 @@
 import { defineComponent, h } from 'vue'
 
-export default defineComponent({
-  name: 'EText',
+export const Text = defineComponent({
+  name: 'Text',
   setup(_, { slots }) {
     return () => {
       return h(

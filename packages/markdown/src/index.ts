@@ -3,7 +3,7 @@ import { defineComponent, h } from 'vue'
 import { parseMarkdownToVueEmailJSX } from './utils'
 import type { StylesType } from './types'
 
-export default defineComponent({
+export const Markdown = defineComponent({
   name: 'Markdown',
   props: {
     source: {

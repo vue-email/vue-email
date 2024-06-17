@@ -1,6 +1,6 @@
 import { defineComponent, h } from 'vue'
 
-export default defineComponent({
+export const Section = defineComponent({
   name: 'Section',
   setup(_, { slots }) {
     return () => {

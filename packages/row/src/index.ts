@@ -1,6 +1,6 @@
 import { defineComponent, h } from 'vue'
 
-export default defineComponent({
+export const Row = defineComponent({
   name: 'Row',
   setup(_, { slots }) {
     return () => {

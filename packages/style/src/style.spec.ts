@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import { render } from "@vue-email/render";
-import Style from "./index";
+import { Style } from "./index";
 
 describe("<Style> component", () => {
   it("renders children correctly", async () => {

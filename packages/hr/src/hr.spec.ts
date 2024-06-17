@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import { render } from "@vue-email/render";
-import Hr from "./index";
+import { Hr } from "./index";
 
 describe("<Hr> component", () => {
   it("passes styles and other props correctly", async () => {

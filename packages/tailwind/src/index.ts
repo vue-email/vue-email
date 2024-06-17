@@ -16,8 +16,8 @@ interface EmailElementProps {
   href?: string
 }
 
-export default defineComponent({
-  name: 'ETailwind',
+export const Tailwind = defineComponent({
+  name: 'Tailwind',
   props: {
     config: {
       type: Object as PropType<TailwindConfig>,

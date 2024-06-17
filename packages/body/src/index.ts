@@ -1,7 +1,7 @@
 import type { VNode } from 'vue'
 import { defineComponent, h } from 'vue'
 
-export default defineComponent({
+export const Body = defineComponent({
   name: 'Body',
   setup(_, { slots }) {
     return () => {

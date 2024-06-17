@@ -11,7 +11,7 @@ export const renderWhiteSpace = (text: string) => {
 };
 
 
-export default defineComponent({
+export const Preview = defineComponent({
   name: 'Preview',
   setup(_, { slots }) {
     const text = computed(() => {

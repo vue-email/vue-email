@@ -1,6 +1,6 @@
 import { defineComponent, h } from 'vue'
 
-export default defineComponent({
+export const Head = defineComponent({
   name: 'Head',
   setup(_, { slots }) {
     return () => {

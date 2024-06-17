@@ -1,7 +1,7 @@
 import { defineComponent, h } from 'vue'
 
-export default defineComponent({
-  name: 'EStyle',
+export const Style = defineComponent({
+  name: 'Style',
   setup(_, { slots }) {
     return () => {
       return h(

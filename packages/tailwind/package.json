@@ -1,6 +1,6 @@
 {
   "name": "@vue-email/tailwind",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A Tailwind component to wrap emails with Tailwind CSS",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -45,6 +45,7 @@
     "tsconfig": "workspace:*",
     "vite": "5.3.1",
     "vite-plugin-dts": "3.9.1",
+    "@vitejs/plugin-vue": "^5.0.5",
     "vite-plugin-node-polyfills": "0.22.0",
     "tailwindcss": "3.3.2",
     "memfs": "4.9.3",

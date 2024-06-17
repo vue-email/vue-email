@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import { render } from "@vue-email/render";
-import Tailwind from './index'
+import { Tailwind } from './index'
 
 describe('tailwind component', () => {
   describe('inline styles', () => {

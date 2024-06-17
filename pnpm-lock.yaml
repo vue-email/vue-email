@@ -473,6 +473,9 @@ importers:
       '@types/postcss-css-variables':
         specifier: 0.18.3
         version: 0.18.3
+      '@vitejs/plugin-vue':
+        specifier: ^5.0.5
+        version: 5.0.5(vite@5.3.1(@types/node@18.18.0))(vue@3.4.29(typescript@5.1.6))
       '@vue-email/render':
         specifier: workspace:*
         version: link:../render
@@ -1241,6 +1244,13 @@ packages:
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
+
+  '@vitejs/plugin-vue@5.0.5':
+    resolution: {integrity: sha512-LOjm7XeIimLBZyzinBQ6OSm3UBCNVCpLkxGC0oWmm2YPzVZoxMsdvNVimLTBzpAnR9hl/yn1SHGuRfe6/Td9rQ==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      vite: ^5.0.0
+      vue: ^3.2.25
 
   '@vitest/expect@1.6.0':
     resolution: {integrity: sha512-ixEvFVQjycy/oNgHjqsL6AZCDduC+tflRluaHIzKIsdbzkLn2U/iBnVeJwB6HsIjQBdfMR8Z0tRxKUsvFJEeWQ==}
@@ -3961,6 +3971,11 @@ snapshots:
       postcss: 8.4.38
 
   '@types/trusted-types@2.0.7': {}
+
+  '@vitejs/plugin-vue@5.0.5(vite@5.3.1(@types/node@18.18.0))(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vite: 5.3.1(@types/node@18.18.0)
+      vue: 3.4.29(typescript@5.1.6)
 
   '@vitest/expect@1.6.0':
     dependencies:
