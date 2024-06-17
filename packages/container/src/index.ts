@@ -8,7 +8,6 @@ export default defineComponent<TableHTMLAttributes>({
       {
         'align': 'center',
         'width': '100%',
-        'data-id': '__vue-email-container',
         'role': 'presentation',
         'cellspacing': '0',
         'cellpadding': '0',

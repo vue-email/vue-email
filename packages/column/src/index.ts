@@ -7,7 +7,6 @@ export default defineComponent({
       return h(
         'td',
         {
-          'data-id': '__vue-email-column',
           'role': 'presentation',
         },
         slots.default?.(),

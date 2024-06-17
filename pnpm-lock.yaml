@@ -181,6 +181,101 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
 
+  packages/heading:
+    dependencies:
+      vue:
+        specifier: ^3.4.27
+        version: 3.4.29(typescript@5.1.6)
+    devDependencies:
+      '@babel/core':
+        specifier: 7.23.9
+        version: 7.23.9
+      '@vue-email/render':
+        specifier: workspace:*
+        version: link:../render
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
+  packages/hr:
+    dependencies:
+      vue:
+        specifier: ^3.4.27
+        version: 3.4.29(typescript@5.1.6)
+    devDependencies:
+      '@babel/core':
+        specifier: 7.23.9
+        version: 7.23.9
+      '@vue-email/render':
+        specifier: workspace:*
+        version: link:../render
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
+  packages/html:
+    dependencies:
+      vue:
+        specifier: ^3.4.27
+        version: 3.4.29(typescript@5.1.6)
+    devDependencies:
+      '@babel/core':
+        specifier: 7.23.9
+        version: 7.23.9
+      '@vue-email/render':
+        specifier: workspace:*
+        version: link:../render
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
+  packages/img:
+    dependencies:
+      vue:
+        specifier: ^3.4.27
+        version: 3.4.29(typescript@5.1.6)
+    devDependencies:
+      '@babel/core':
+        specifier: 7.23.9
+        version: 7.23.9
+      '@vue-email/render':
+        specifier: workspace:*
+        version: link:../render
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
+  packages/link:
+    dependencies:
+      vue:
+        specifier: ^3.4.27
+        version: 3.4.29(typescript@5.1.6)
+    devDependencies:
+      '@babel/core':
+        specifier: 7.23.9
+        version: 7.23.9
+      '@vue-email/render':
+        specifier: workspace:*
+        version: link:../render
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
   packages/render:
     dependencies:
       html-to-text:

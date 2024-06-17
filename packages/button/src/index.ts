@@ -63,7 +63,6 @@ export default defineComponent<AnchorHTMLAttributes>({
       return h(
         'a',
         {
-          'data-id': '__vue-email-button',
           'style': buttonStyle({
             ...props.style as CSSProperties,
             pt,
