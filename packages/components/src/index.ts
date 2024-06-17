@@ -1,7 +1,7 @@
 export * from "@vue-email/body";
 export * from "@vue-email/button";
-// export * from "@vue-email/code-block";
-// export * from "@vue-email/code-inline";
+export * from "@vue-email/code-block";
+export * from "@vue-email/code-inline";
 export * from "@vue-email/column";
 export * from "@vue-email/container";
 export * from "@vue-email/font";

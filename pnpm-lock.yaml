@@ -88,6 +88,47 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
 
+  packages/code-block:
+    dependencies:
+      shiki:
+        specifier: ^1.7.0
+        version: 1.7.0
+      vue:
+        specifier: ^3.4.27
+        version: 3.4.29(typescript@5.1.6)
+    devDependencies:
+      '@babel/core':
+        specifier: 7.23.9
+        version: 7.23.9
+      '@vue-email/render':
+        specifier: workspace:*
+        version: link:../render
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
+  packages/code-inline:
+    dependencies:
+      vue:
+        specifier: ^3.4.27
+        version: 3.4.29(typescript@5.1.6)
+    devDependencies:
+      '@babel/core':
+        specifier: 7.23.9
+        version: 7.23.9
+      '@vue-email/render':
+        specifier: workspace:*
+        version: link:../render
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
   packages/column:
     dependencies:
       vue:
@@ -113,6 +154,12 @@ importers:
         specifier: 0.0.3
         version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/button':
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/code-block':
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/code-inline':
         specifier: 0.0.3
         version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/column':
@@ -1201,6 +1248,9 @@ packages:
   '@selderee/plugin-htmlparser2@0.11.0':
     resolution: {integrity: sha512-P33hHGdldxGabLFjPPpaTxVolMrzrcegejx+0GxjrIb9Zv48D8yAIA/QTDR2dFl7Uz7urX8aX6+5bCZslr+gWQ==}
 
+  '@shikijs/core@1.7.0':
+    resolution: {integrity: sha512-O6j27b7dGmJbR3mjwh/aHH8Ld+GQvA0OQsNO43wKWnqbAae3AYXrhFyScHGX8hXZD6vX2ngjzDFkZY5srtIJbQ==}
+
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
 
@@ -1259,6 +1309,16 @@ packages:
 
   '@vue-email/button@0.0.3':
     resolution: {integrity: sha512-Su1iKBpfzF03SqLhxxIGDm2ZgpnXh+yD8kvLQ9+V0COepXOSdVQD5Ovif14uKGweafXSMkyQSi5lqmnVIace3A==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/code-block@0.0.3':
+    resolution: {integrity: sha512-NuOAY3dhWCwnywQ9lguLWqh+2BDKr1UM7AkV/ejDJwfX/GLZnlN9EEJRYOVhFnGwXOcJnS27NmvjZHaRweZfWA==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/code-inline@0.0.3':
+    resolution: {integrity: sha512-FN9WPQBwWWumpPIAN/++oly9/hpUfioVokb7nfM/U0hEOS3mGsVjYPZNiX/oGOAHrAF83qOqgIFcd9ipVMtefg==}
     peerDependencies:
       vue: ^3.4.27
 
@@ -2728,6 +2788,9 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
+  shiki@1.7.0:
+    resolution: {integrity: sha512-H5pMn4JA7ayx8H0qOz1k2qANq6mZVCMl1gKLK6kWIrv1s2Ial4EmD4s4jE8QB5Dw03d/oCQUxc24sotuyR5byA==}
+
   side-channel@1.0.6:
     resolution: {integrity: sha512-fDW/EZ6Q9RiO8eFG8Hj+7u/oW+XrPTIChwCOM2+th2A6OblDtYYIpve9m+KvI9Z4C9qSEXlaGR6bTEYHReuglA==}
     engines: {node: '>= 0.4'}
@@ -3826,6 +3889,8 @@ snapshots:
       domhandler: 5.0.3
       selderee: 0.11.0
 
+  '@shikijs/core@1.7.0': {}
+
   '@sinclair/typebox@0.27.8': {}
 
   '@types/argparse@1.0.38': {}
@@ -3895,6 +3960,15 @@ snapshots:
       vue: 3.4.29(typescript@5.1.6)
 
   '@vue-email/button@0.0.3(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/code-block@0.0.3(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      shiki: 1.7.0
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/code-inline@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
@@ -5529,6 +5603,10 @@ snapshots:
       shebang-regex: 3.0.0
 
   shebang-regex@3.0.0: {}
+
+  shiki@1.7.0:
+    dependencies:
+      '@shikijs/core': 1.7.0
 
   side-channel@1.0.6:
     dependencies:
