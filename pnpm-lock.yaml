@@ -158,8 +158,8 @@ importers:
         specifier: 0.0.3
         version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/tailwind':
-        specifier: 0.1.4
-        version: 0.1.4(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.1.6
+        version: 0.1.6(vue@3.4.29(typescript@5.1.6))
       '@vue-email/text':
         specifier: 0.0.3
         version: 0.0.3(vue@3.4.29(typescript@5.1.6))
@@ -1313,8 +1313,8 @@ packages:
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/tailwind@0.1.4':
-    resolution: {integrity: sha512-N9N1xauIMl5p6gwlm+h7OjOkNpZ1SryRkQ52nv3/EjAYd+aGrCDzZnoakth3epdK6jcKFQStR9tMydiIvc+/gA==}
+  '@vue-email/tailwind@0.1.6':
+    resolution: {integrity: sha512-CUSkOIzvnuxK3pwtdALws8O/lNQ5YyvJRNln1wmYxXOhtd7/UeRmfeoFOi7Cy5Mj5AfeNTSNKwVwNYn2lNXwrw==}
     peerDependencies:
       vue: ^3.4.29
 
@@ -3936,7 +3936,7 @@ snapshots:
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/tailwind@0.1.4(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/tailwind@0.1.6(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 

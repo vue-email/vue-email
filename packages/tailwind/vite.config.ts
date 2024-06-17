@@ -14,6 +14,11 @@ export default defineConfig({
       },
     }),
   ],
+  define: {
+    'process.versions': JSON.stringify({
+      node: "18.18.2",
+    }),
+  },
   build: {
     rollupOptions: {
       // in summary, this bundles the following since vite defaults to bundling
