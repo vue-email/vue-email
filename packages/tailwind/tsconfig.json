@@ -1,0 +1,13 @@
+{
+  "extends": "tsconfig/base.json",
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"],
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "target": "es6",
+    "types": ["vitest/globals"]
+  }
+}
