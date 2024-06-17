@@ -1,6 +1,6 @@
 {
   "name": "@vue-email/body",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Vue body component to wrap emails",
   "sideEffects": false,
   "main": "./dist/index.js",

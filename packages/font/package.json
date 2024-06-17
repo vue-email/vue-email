@@ -1,6 +1,6 @@
 {
   "name": "@vue-email/font",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A Vue Font component to set your fonts",
   "sideEffects": false,
   "main": "./dist/index.js",

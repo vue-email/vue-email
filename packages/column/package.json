@@ -1,6 +1,6 @@
 {
   "name": "@vue-email/column",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Display a column that separates content areas vertically in your email",
   "sideEffects": false,
   "main": "./dist/index.js",

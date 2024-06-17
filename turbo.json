@@ -16,6 +16,9 @@
     "//#format": {},
     "//#format:check": {},
     "test": {},
+    "clean": {
+      "cache": false
+    },
     "test:watch": {
       "cache": false
     },

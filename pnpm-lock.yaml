@@ -36,7 +36,7 @@ importers:
         version: link:packages/tsconfig
       tsup:
         specifier: 8.1.0
-        version: 8.1.0(@microsoft/api-extractor@7.47.0(@types/node@18.18.0))(postcss@8.4.38)(typescript@5.4.5)
+        version: 8.1.0(@microsoft/api-extractor@7.43.0(@types/node@18.18.0))(postcss@8.4.38)(typescript@5.4.5)
       turbo:
         specifier: 2.0.3
         version: 2.0.3
@@ -110,59 +110,59 @@ importers:
   packages/components:
     dependencies:
       '@vue-email/body':
-        specifier: 0.0.2
-        version: 0.0.2(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/button':
-        specifier: 0.0.1
-        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/column':
-        specifier: 0.0.1
-        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/container':
-        specifier: 0.0.1
-        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/font':
-        specifier: 0.0.1
-        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/head':
-        specifier: 0.0.1
-        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/heading':
-        specifier: 0.0.1
-        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/hr':
-        specifier: 0.0.1
-        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/html':
-        specifier: 0.0.1
-        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/img':
-        specifier: 0.0.1
-        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/link':
-        specifier: 0.0.1
-        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/markdown':
-        specifier: 0.0.1
-        version: 0.0.1(isomorphic-dompurify@2.12.0)(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(isomorphic-dompurify@2.12.0)(vue@3.4.29(typescript@5.1.6))
       '@vue-email/preview':
-        specifier: 0.0.1
-        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/render':
         specifier: workspace:*
         version: link:../render
       '@vue-email/row':
-        specifier: 0.0.1
-        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/section':
-        specifier: 0.0.1
-        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/tailwind':
-        specifier: 0.1.1
-        version: 0.1.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.1.4
+        version: 0.1.4(vue@3.4.29(typescript@5.1.6))
       '@vue-email/text':
-        specifier: 0.0.1
-        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       vue:
         specifier: ^3.4.29
         version: 3.4.29(typescript@5.1.6)
@@ -396,7 +396,7 @@ importers:
         version: link:../tsconfig
       tsup:
         specifier: 8.1.0
-        version: 8.1.0(@microsoft/api-extractor@7.47.0(@types/node@18.18.0))(postcss@8.4.38)(typescript@5.4.5)
+        version: 8.1.0(@microsoft/api-extractor@7.43.0(@types/node@18.18.0))(postcss@8.4.38)(typescript@5.4.5)
       typescript:
         specifier: 5.4.5
         version: 5.4.5
@@ -473,9 +473,6 @@ importers:
       '@types/postcss-css-variables':
         specifier: 0.18.3
         version: 0.18.3
-      '@vitejs/plugin-vue':
-        specifier: ^5.0.5
-        version: 5.0.5(vite@5.3.1(@types/node@18.18.0))(vue@3.4.29(typescript@5.1.6))
       '@vue-email/render':
         specifier: workspace:*
         version: link:../render
@@ -488,6 +485,9 @@ importers:
       postcss-css-variables:
         specifier: 0.19.0
         version: 0.19.0(patch_hash=2wxqv7k2gzlwmmem3fifiqjawa)(postcss@8.4.38)
+      process:
+        specifier: 0.11.10
+        version: 0.11.10(patch_hash=wpk4cjsj5eh7v5jak26jgis56e)
       tailwindcss:
         specifier: 3.3.2
         version: 3.3.2(patch_hash=tbktbbunwha5d2hk7egjdvzb6q)
@@ -1034,28 +1034,15 @@ packages:
   '@microsoft/api-extractor-model@7.28.13':
     resolution: {integrity: sha512-39v/JyldX4MS9uzHcdfmjjfS6cYGAoXV+io8B5a338pkHiSt+gy2eXQ0Q7cGFJ7quSa1VqqlMdlPrB6sLR/cAw==}
 
-  '@microsoft/api-extractor-model@7.29.2':
-    resolution: {integrity: sha512-hAYajOjQan3uslhKJRwvvHIdLJ+ZByKqdSsJ/dgHFxPtEbdKpzMDO8zuW4K5gkSMYl5D0LbNwxkhxr51P2zsmw==}
-
   '@microsoft/api-extractor@7.43.0':
     resolution: {integrity: sha512-GFhTcJpB+MI6FhvXEI9b2K0snulNLWHqC/BbcJtyNYcKUiw7l3Lgis5ApsYncJ0leALX7/of4XfmXk+maT111w==}
-    hasBin: true
-
-  '@microsoft/api-extractor@7.47.0':
-    resolution: {integrity: sha512-LT8yvcWNf76EpDC+8/ArTVSYePvuDQ+YbAUrsTcpg3ptiZ93HIcMCozP/JOxDt+rrsFfFHcpfoselKfPyRI0GQ==}
     hasBin: true
 
   '@microsoft/tsdoc-config@0.16.2':
     resolution: {integrity: sha512-OGiIzzoBLgWWR0UdRJX98oYO+XKGf7tiK4Zk6tQ/E4IJqGCe7dvkTvgDZV5cFJUzLGDOjeAXrnZoA6QkVySuxw==}
 
-  '@microsoft/tsdoc-config@0.17.0':
-    resolution: {integrity: sha512-v/EYRXnCAIHxOHW+Plb6OWuUoMotxTN0GLatnpOb1xq0KuTNw/WI3pamJx/UbsoJP5k9MCw1QxvvhPcF9pH3Zg==}
-
   '@microsoft/tsdoc@0.14.2':
     resolution: {integrity: sha512-9b8mPpKrfeGRuhFH5iO1iwCLeIIsV6+H1sRfxbkoGXIyQE2BTsPd9zqSqQJ+pv5sJ/hT5M1zvOFL02MnEezFug==}
-
-  '@microsoft/tsdoc@0.15.0':
-    resolution: {integrity: sha512-HZpPoABogPvjeJOdzCOSJsXeL/SMCBgBZMVC3X3d7YYp2gf31MfxhUoYUNwf1ERPJOnQc0wkFn9trqI6ZEdZuA==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1182,14 +1169,6 @@ packages:
       '@types/node':
         optional: true
 
-  '@rushstack/node-core-library@5.4.1':
-    resolution: {integrity: sha512-WNnwdS8r9NZ/2K3u29tNoSRldscFa7SxU0RT+82B6Dy2I4Hl2MeCSKm4EXLXPKeNzLGvJ1cqbUhTLviSF8E6iA==}
-    peerDependencies:
-      '@types/node': '*'
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-
   '@rushstack/rig-package@0.5.2':
     resolution: {integrity: sha512-mUDecIJeH3yYGZs2a48k+pbhM6JYwWlgjs2Ca5f2n1G2/kgdgP9D/07oglEGf6mRyXEnazhEENeYTSNDRCwdqA==}
 
@@ -1201,19 +1180,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@rushstack/terminal@0.13.0':
-    resolution: {integrity: sha512-Ou44Q2s81BqJu3dpYedAX54am9vn245F0HzqVrfJCMQk5pGgoKKOBOjkbfZC9QKcGNaECh6pwH2s5noJt7X6ew==}
-    peerDependencies:
-      '@types/node': '*'
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-
   '@rushstack/ts-command-line@4.19.1':
     resolution: {integrity: sha512-J7H768dgcpG60d7skZ5uSSwyCZs/S2HrWP1Ds8d1qYAyaaeJmpmmLr9BVw97RjFzmQPOYnoXcKA4GkqDCkduQg==}
-
-  '@rushstack/ts-command-line@4.22.0':
-    resolution: {integrity: sha512-Qj28t6MO3HRgAZ72FDeFsrpdE6wBWxF3VENgvrXh7JF2qIT+CrXiOJIesW80VFZB9QwObSpkB1ilx794fGQg6g==}
 
   '@selderee/plugin-htmlparser2@0.11.0':
     resolution: {integrity: sha512-P33hHGdldxGabLFjPPpaTxVolMrzrcegejx+0GxjrIb9Zv48D8yAIA/QTDR2dFl7Uz7urX8aX6+5bCZslr+gWQ==}
@@ -1245,13 +1213,6 @@ packages:
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
 
-  '@vitejs/plugin-vue@5.0.5':
-    resolution: {integrity: sha512-LOjm7XeIimLBZyzinBQ6OSm3UBCNVCpLkxGC0oWmm2YPzVZoxMsdvNVimLTBzpAnR9hl/yn1SHGuRfe6/Td9rQ==}
-    engines: {node: ^18.0.0 || >=20.0.0}
-    peerDependencies:
-      vite: ^5.0.0
-      vue: ^3.2.25
-
   '@vitest/expect@1.6.0':
     resolution: {integrity: sha512-ixEvFVQjycy/oNgHjqsL6AZCDduC+tflRluaHIzKIsdbzkLn2U/iBnVeJwB6HsIjQBdfMR8Z0tRxKUsvFJEeWQ==}
 
@@ -1276,89 +1237,89 @@ packages:
   '@volar/typescript@1.11.1':
     resolution: {integrity: sha512-iU+t2mas/4lYierSnoFOeRFQUhAEMgsFuQxoxvwn5EdQopw43j+J27a4lt9LMInx1gLJBC6qL14WYGlgymaSMQ==}
 
-  '@vue-email/body@0.0.2':
-    resolution: {integrity: sha512-nalA9/HGYfJ6X102DMiZ30eGCI/EYPFKFBJRuKseLVPBkhHDLVnWf27A7JYCx84HZLo0QCj3bUrrCRxGtQedGQ==}
+  '@vue-email/body@0.0.3':
+    resolution: {integrity: sha512-JxZb1upJTnt6tLKszqHfrCWTpioWuG7eZXneUmCBr0YVt6gI781dSAgUQASTBprENnO+M2sNsarszoo7jGZNOQ==}
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/button@0.0.1':
-    resolution: {integrity: sha512-ZcIkrcBdMkXOWKJk/xC1G7rn5svr1sXUJl5Y0SMMh+MIx0mycNkwL4cIIaXamKkjzicPhvsefpNBHwx+ZMrKiA==}
+  '@vue-email/button@0.0.3':
+    resolution: {integrity: sha512-Su1iKBpfzF03SqLhxxIGDm2ZgpnXh+yD8kvLQ9+V0COepXOSdVQD5Ovif14uKGweafXSMkyQSi5lqmnVIace3A==}
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/column@0.0.1':
-    resolution: {integrity: sha512-o9xymlVkYvaKpR5nd7JaoW2wJDkvuEFgFFeMyMQUCzWG+386mBa8kZSMrROKX3xtN0FhF+rOFH+FM9zaLtGocA==}
+  '@vue-email/column@0.0.3':
+    resolution: {integrity: sha512-L1tYu3ZqoqcSNa5GK8wEKQKuvUBlsWeSA3RqKlkLrc+dR+uitcyCcbYsoE/N2tgvzZ1poykE/S6VIcrqH/zL9A==}
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/container@0.0.1':
-    resolution: {integrity: sha512-4s96Cvf9jgUOGRWnC+O9v0No/O+26KkKqNCKk80FgYafazpsHlMW5u7ffkbOJbI6hCa4rbOp+XqMurI67xMWVg==}
+  '@vue-email/container@0.0.3':
+    resolution: {integrity: sha512-L+9VZ3RbCgyPaV54QCQsOAe9lAvq549JULEmH3QRDgHsIaFE3Yaddc1zMJKdbwH7ugiaRPRFrM2paR57IS6sWw==}
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/font@0.0.1':
-    resolution: {integrity: sha512-gD6Bc3U1TGI1lzkmmOh7LYbqNIqBzC97IRPaR45EX1yoarZ/YrPk5m+79gPAVRRJ8Pc5kVjv9D2SfIoxk+ECSA==}
+  '@vue-email/font@0.0.3':
+    resolution: {integrity: sha512-X9vwUTKjPeFuh06BkYbFVM3rdZggLo7hJ3SHgJ09qBF7e0J7zZx5KLjkeYzKTWfHlM1fx9XtNdpQ35UKyIpwUg==}
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/head@0.0.1':
-    resolution: {integrity: sha512-Ck/rZhnlQHNwpGGG1m/IOeYbkT+16MhFmAdaLTvB0Z9+FMeyVlgKV2zq83TpfujfSPIIt6MqDLsu7N+P9jZHTQ==}
+  '@vue-email/head@0.0.3':
+    resolution: {integrity: sha512-RobskTPhRQ18aHFcwOe1eorGDd3BCotXJy2YfZF9VRHvw1MtV5M/AQ0eqUUgnNuNrxFGobZtxZJMu4+EE2ToUQ==}
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/heading@0.0.1':
-    resolution: {integrity: sha512-YyiyTlpIq0Xpif3d9PbTaJhDSQ91oTuzGpnCFOU8WcNFvEkuKZ1pv6hsgUyxhYvzQ08xNBMPpELs/BbonYAAiA==}
+  '@vue-email/heading@0.0.3':
+    resolution: {integrity: sha512-cUxlLDuRHEdLn+CZWehsUuJjWNnDVC1LAK1iKtZl++J9xGE1l4lrxaBFdhIZctH2yoZZLGm8OHvUJiYrke9YIg==}
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/hr@0.0.1':
-    resolution: {integrity: sha512-3ht9r1XLJ6QhPGMeA/pSpRz/JYL9cm5s9fce0pTtz1+NJ9+PTSuOae2fJf2gGMutjz5rV3mk1TDjq2K+f5LYqQ==}
+  '@vue-email/hr@0.0.3':
+    resolution: {integrity: sha512-DNSi4CrsgRJRstTIB8ILcCqg0rWIIMKZ1fmSVgHoEBfgiV9I4m/6wKv2Rzg1AxkYldy5w1YhwVx0NfBTCHlL7A==}
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/html@0.0.1':
-    resolution: {integrity: sha512-x7IfVVZvCYZOQyawD9piwoccy0j5j758V6x+zjOlMyTqpo8N2nSbSMXUZhcVTLRWx0KapFBeisHvlOH7S4kxhA==}
+  '@vue-email/html@0.0.3':
+    resolution: {integrity: sha512-kjUBwwWcgNoJ6jEmZW7gkdSXZzy6rcJ0jV4507TZlF6PRsu4FaCpeI6WHnDexdXIfCeAIwZqeAQOJHASHJd2mw==}
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/img@0.0.1':
-    resolution: {integrity: sha512-y/nud1LQ57Ez6S+CZFmMz8nGC55b61Yhb7VlFYrCxpv98ra50idW1z6N0bw+SjtTTj7tKMb0sijJGjj3f2pPCw==}
+  '@vue-email/img@0.0.3':
+    resolution: {integrity: sha512-lFDavbzdbOXo2VK8Fq/YPFB/2ZolOaToC/oFR9fQlw2hA9n1TTiEZZK5D7en62FSD9gPG1P7eQ81tOt6/Tc6+A==}
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/link@0.0.1':
-    resolution: {integrity: sha512-RmkeegcucAbOV5mbkjsTWsDOvlhACghWjtjbN/wUlSIpxfs7vt93+Z241oNQwYwYSoao7uM+HGbVl0E65YvWaQ==}
+  '@vue-email/link@0.0.3':
+    resolution: {integrity: sha512-AvX5wxXACrxqyLaooIDQBsz/8Q6FDSVGDg0Lo1opUZKEW80s68zI+FUhI3kuByVEogzIhfdpq9rc1yGmkUUh8A==}
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/markdown@0.0.1':
-    resolution: {integrity: sha512-n3JIeguwEhz7mCTjptIcOeWd8+UP3o0h2oiWXyQK7BpyK0Xk1zCEa8/bqh/FqeN2Zi7SRCa32IGujaexwSzumQ==}
+  '@vue-email/markdown@0.0.3':
+    resolution: {integrity: sha512-3l0ZZZG0NxG0gIeR9V9OhiFvsZeg4ei4Xq/pnZMZ6D8Wy1+2FT+iS8LJ1xlspmxXgrdCwr1h+YfnhPXboq4KZg==}
     peerDependencies:
       isomorphic-dompurify: ^2.12.0
       vue: ^3.4.27
 
-  '@vue-email/preview@0.0.1':
-    resolution: {integrity: sha512-E5dvkFMV5MFD6yjtkde7NacatE9HPWVQb20CyW/43jX3TYMBtqRsSAHKycQQfa0e/KS+CyTtz2Ad9I8CGGdXFw==}
+  '@vue-email/preview@0.0.3':
+    resolution: {integrity: sha512-e9qLDsP5+f5KZQhiVGjI/d/x5NfLfYusjI9C4bewwXM6bYJo1i5WRRzX6SM7sygKEk0ZbKqnzPqbnSWtABuzDw==}
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/row@0.0.1':
-    resolution: {integrity: sha512-q1wGbnso3JhBTMg0X436LCPacXGHtQxV8ivcDASIE4qrVIexwd7twRtWqQYf8dwGMpmrjMs/yROvVQZJCGl/qA==}
+  '@vue-email/row@0.0.3':
+    resolution: {integrity: sha512-/wnkRMFJl5WTehD3/ryn7taJs42Vk7K1xUH37Q5R5T8tu1lBnAhwWcDvUeqaH/7+N4weELEBjQdKa9F6fqYlcA==}
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/section@0.0.1':
-    resolution: {integrity: sha512-KAiMa7NSOFTY6ygrVFEPRJ7bNc+3x9uWEO52EnbTO/26OcsOMu1JbjFai21E+aPNy4n3Q6bBmtc4r1M/jtXW1Q==}
+  '@vue-email/section@0.0.3':
+    resolution: {integrity: sha512-DPvDBmf3jPZGw8ZoIgs/lS3yt8H0BXMLniR0aTa6FhBPWJsXXaaQHDPY6h7jfeCgppgAoDRLZqiMnZXfqSTUWw==}
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/tailwind@0.1.1':
-    resolution: {integrity: sha512-5iSy8UGjyTX4Dk9w0MPWKPOYFwt7dH80/YneJQh19zteMci7v1JaIU8yQEdF96YGz2NPmW2k5W6wY3utzNmGRQ==}
+  '@vue-email/tailwind@0.1.4':
+    resolution: {integrity: sha512-N9N1xauIMl5p6gwlm+h7OjOkNpZ1SryRkQ52nv3/EjAYd+aGrCDzZnoakth3epdK6jcKFQStR9tMydiIvc+/gA==}
     peerDependencies:
       vue: ^3.4.29
 
-  '@vue-email/text@0.0.1':
-    resolution: {integrity: sha512-1rs92s+Syo0kFCyNak4aqSrjZkoDi22lg7Rp5P2HEAy0My8eAgKzVDp6jBBgj91S3RJtYuJprZ5aaTK4Y5dpnQ==}
+  '@vue-email/text@0.0.3':
+    resolution: {integrity: sha512-xn6MYicnXyFeV72nNTDZylOL7ut60clYUR2bqMDKkW6+XD6qWp6LGAx4b8sE0kADgu7MTq23zbU9kA/cebhk8w==}
     peerDependencies:
       vue: ^3.4.27
 
@@ -1421,30 +1382,8 @@ packages:
     resolution: {integrity: sha512-H0TSyFNDMomMNJQBn8wFV5YC/2eJ+VXECwOadZJT554xP6cODZHPX3H9QMQECxvrgiSOP1pHjy1sMWQVYJOUOA==}
     engines: {node: '>= 14'}
 
-  ajv-draft-04@1.0.0:
-    resolution: {integrity: sha512-mv00Te6nmYbRp5DCwclxtt7yV/joXJPGS7nM+97GdxvuttCOfgI3K4U25zboyeX0O+myI8ERluxQe5wljMmVIw==}
-    peerDependencies:
-      ajv: ^8.5.0
-    peerDependenciesMeta:
-      ajv:
-        optional: true
-
-  ajv-formats@3.0.1:
-    resolution: {integrity: sha512-8iUql50EUR+uUcdRQ3HDqa6EVyo3docL8g5WJ3FNcWmu62IbkGUue/pEyLBW8VGKKucTPgqeks4fIU1DA4yowQ==}
-    peerDependencies:
-      ajv: ^8.0.0
-    peerDependenciesMeta:
-      ajv:
-        optional: true
-
   ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
-
-  ajv@8.12.0:
-    resolution: {integrity: sha512-sRu1kpcO9yLtYxBKvqfTeh9KzZEwO3STyX1HT+4CaDzC6HpTGYhIhPIzj9XuKU7KYDwnaeh5hcOwjy1QuJzBPA==}
-
-  ajv@8.13.0:
-    resolution: {integrity: sha512-PRA911Blj99jR5RMeTunVbNXMF6Lp4vZXnk5GQjcnUWUTsrXtekg/pnmFFI2u/I36Y/2bITGS30GZCXei6uNkA==}
 
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
@@ -1858,8 +1797,8 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     hasBin: true
 
-  espree@10.0.1:
-    resolution: {integrity: sha512-MWkrWZbJsL2UwnjxTX3gG8FneachS/Mwg7tdGXce011sJd5b0JG54vat5KHnfSBODZ3Wvzd2WnjxyzsRoVv+ww==}
+  espree@10.1.0:
+    resolution: {integrity: sha512-M1M6CpiE6ffoigIOWYO9UDP8TMUw9kqb21tf+08IgDYjCsOvCuDt4jQcZmoYxx+w7zlKw9/N0KXfto+I8/FrXA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   esquery@1.5.0:
@@ -2246,9 +2185,6 @@ packages:
 
   json-schema-traverse@0.4.1:
     resolution: {integrity: sha512-xbbCH5dCYU5T8LcEhhuh7HJ88HXuW3qsI3Y0zOZFKfZEHcpWiHU/Jxzk629Brsab/mMiHQti9wMP+845RPe3Vg==}
-
-  json-schema-traverse@1.0.0:
-    resolution: {integrity: sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==}
 
   json-stable-stringify-without-jsonify@1.0.1:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
@@ -2688,10 +2624,6 @@ packages:
   readdirp@3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
-
-  require-from-string@2.0.2:
-    resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
-    engines: {node: '>=0.10.0'}
 
   requires-port@1.0.0:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
@@ -3662,7 +3594,7 @@ snapshots:
     dependencies:
       ajv: 6.12.6
       debug: 4.3.5
-      espree: 10.0.1
+      espree: 10.1.0
       globals: 14.0.0
       ignore: 5.3.1
       import-fresh: 3.3.0
@@ -3734,15 +3666,6 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@microsoft/api-extractor-model@7.29.2(@types/node@18.18.0)':
-    dependencies:
-      '@microsoft/tsdoc': 0.15.0
-      '@microsoft/tsdoc-config': 0.17.0
-      '@rushstack/node-core-library': 5.4.1(@types/node@18.18.0)
-    transitivePeerDependencies:
-      - '@types/node'
-    optional: true
-
   '@microsoft/api-extractor@7.43.0(@types/node@18.18.0)':
     dependencies:
       '@microsoft/api-extractor-model': 7.28.13(@types/node@18.18.0)
@@ -3761,25 +3684,6 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@microsoft/api-extractor@7.47.0(@types/node@18.18.0)':
-    dependencies:
-      '@microsoft/api-extractor-model': 7.29.2(@types/node@18.18.0)
-      '@microsoft/tsdoc': 0.15.0
-      '@microsoft/tsdoc-config': 0.17.0
-      '@rushstack/node-core-library': 5.4.1(@types/node@18.18.0)
-      '@rushstack/rig-package': 0.5.2
-      '@rushstack/terminal': 0.13.0(@types/node@18.18.0)
-      '@rushstack/ts-command-line': 4.22.0(@types/node@18.18.0)
-      lodash: 4.17.21
-      minimatch: 3.0.8
-      resolve: 1.22.8
-      semver: 7.5.4
-      source-map: 0.6.1
-      typescript: 5.4.2
-    transitivePeerDependencies:
-      - '@types/node'
-    optional: true
-
   '@microsoft/tsdoc-config@0.16.2':
     dependencies:
       '@microsoft/tsdoc': 0.14.2
@@ -3787,18 +3691,7 @@ snapshots:
       jju: 1.4.0
       resolve: 1.19.0
 
-  '@microsoft/tsdoc-config@0.17.0':
-    dependencies:
-      '@microsoft/tsdoc': 0.15.0
-      ajv: 8.12.0
-      jju: 1.4.0
-      resolve: 1.22.8
-    optional: true
-
   '@microsoft/tsdoc@0.14.2': {}
-
-  '@microsoft/tsdoc@0.15.0':
-    optional: true
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -3892,20 +3785,6 @@ snapshots:
     optionalDependencies:
       '@types/node': 18.18.0
 
-  '@rushstack/node-core-library@5.4.1(@types/node@18.18.0)':
-    dependencies:
-      ajv: 8.13.0
-      ajv-draft-04: 1.0.0(ajv@8.13.0)
-      ajv-formats: 3.0.1(ajv@8.13.0)
-      fs-extra: 7.0.1
-      import-lazy: 4.0.0
-      jju: 1.4.0
-      resolve: 1.22.8
-      semver: 7.5.4
-    optionalDependencies:
-      '@types/node': 18.18.0
-    optional: true
-
   '@rushstack/rig-package@0.5.2':
     dependencies:
       resolve: 1.22.8
@@ -3918,14 +3797,6 @@ snapshots:
     optionalDependencies:
       '@types/node': 18.18.0
 
-  '@rushstack/terminal@0.13.0(@types/node@18.18.0)':
-    dependencies:
-      '@rushstack/node-core-library': 5.4.1(@types/node@18.18.0)
-      supports-color: 8.1.1
-    optionalDependencies:
-      '@types/node': 18.18.0
-    optional: true
-
   '@rushstack/ts-command-line@4.19.1(@types/node@18.18.0)':
     dependencies:
       '@rushstack/terminal': 0.10.0(@types/node@18.18.0)
@@ -3934,16 +3805,6 @@ snapshots:
       string-argv: 0.3.2
     transitivePeerDependencies:
       - '@types/node'
-
-  '@rushstack/ts-command-line@4.22.0(@types/node@18.18.0)':
-    dependencies:
-      '@rushstack/terminal': 0.13.0(@types/node@18.18.0)
-      '@types/argparse': 1.0.38
-      argparse: 1.0.10
-      string-argv: 0.3.2
-    transitivePeerDependencies:
-      - '@types/node'
-    optional: true
 
   '@selderee/plugin-htmlparser2@0.11.0':
     dependencies:
@@ -3971,11 +3832,6 @@ snapshots:
       postcss: 8.4.38
 
   '@types/trusted-types@2.0.7': {}
-
-  '@vitejs/plugin-vue@5.0.5(vite@5.3.1(@types/node@18.18.0))(vue@3.4.29(typescript@5.1.6))':
-    dependencies:
-      vite: 5.3.1(@types/node@18.18.0)
-      vue: 3.4.29(typescript@5.1.6)
 
   '@vitest/expect@1.6.0':
     dependencies:
@@ -4019,72 +3875,72 @@ snapshots:
       '@volar/language-core': 1.11.1
       path-browserify: 1.0.1
 
-  '@vue-email/body@0.0.2(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/body@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/button@0.0.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/button@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/column@0.0.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/column@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/container@0.0.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/container@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/font@0.0.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/font@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/head@0.0.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/head@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/heading@0.0.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/heading@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/hr@0.0.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/hr@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/html@0.0.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/html@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/img@0.0.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/img@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/link@0.0.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/link@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/markdown@0.0.1(isomorphic-dompurify@2.12.0)(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/markdown@0.0.3(isomorphic-dompurify@2.12.0)(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       isomorphic-dompurify: 2.12.0
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/preview@0.0.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/preview@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/row@0.0.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/row@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/section@0.0.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/section@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/tailwind@0.1.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/tailwind@0.1.4(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/text@0.0.1(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/text@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
@@ -4180,38 +4036,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ajv-draft-04@1.0.0(ajv@8.13.0):
-    optionalDependencies:
-      ajv: 8.13.0
-    optional: true
-
-  ajv-formats@3.0.1(ajv@8.13.0):
-    optionalDependencies:
-      ajv: 8.13.0
-    optional: true
-
   ajv@6.12.6:
     dependencies:
       fast-deep-equal: 3.1.3
       fast-json-stable-stringify: 2.1.0
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
-
-  ajv@8.12.0:
-    dependencies:
-      fast-deep-equal: 3.1.3
-      json-schema-traverse: 1.0.0
-      require-from-string: 2.0.2
-      uri-js: 4.4.1
-    optional: true
-
-  ajv@8.13.0:
-    dependencies:
-      fast-deep-equal: 3.1.3
-      json-schema-traverse: 1.0.0
-      require-from-string: 2.0.2
-      uri-js: 4.4.1
-    optional: true
 
   ansi-regex@5.0.1: {}
 
@@ -4711,7 +4541,7 @@ snapshots:
       escape-string-regexp: 4.0.0
       eslint-scope: 8.0.1
       eslint-visitor-keys: 4.0.0
-      espree: 10.0.1
+      espree: 10.1.0
       esquery: 1.5.0
       esutils: 2.0.3
       fast-deep-equal: 3.1.3
@@ -4733,7 +4563,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  espree@10.0.1:
+  espree@10.1.0:
     dependencies:
       acorn: 8.12.0
       acorn-jsx: 5.3.2(acorn@8.12.0)
@@ -5146,9 +4976,6 @@ snapshots:
   json-buffer@3.0.1: {}
 
   json-schema-traverse@0.4.1: {}
-
-  json-schema-traverse@1.0.0:
-    optional: true
 
   json-stable-stringify-without-jsonify@1.0.1: {}
 
@@ -5590,9 +5417,6 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
-  require-from-string@2.0.2:
-    optional: true
-
   requires-port@1.0.0: {}
 
   resolve-from@4.0.0: {}
@@ -5881,7 +5705,7 @@ snapshots:
 
   tslib@2.6.3: {}
 
-  tsup@8.1.0(@microsoft/api-extractor@7.47.0(@types/node@18.18.0))(postcss@8.4.38)(typescript@5.4.5):
+  tsup@8.1.0(@microsoft/api-extractor@7.43.0(@types/node@18.18.0))(postcss@8.4.38)(typescript@5.4.5):
     dependencies:
       bundle-require: 4.2.1(esbuild@0.21.5)
       cac: 6.7.14
@@ -5898,7 +5722,7 @@ snapshots:
       sucrase: 3.35.0
       tree-kill: 1.2.2
     optionalDependencies:
-      '@microsoft/api-extractor': 7.47.0(@types/node@18.18.0)
+      '@microsoft/api-extractor': 7.43.0(@types/node@18.18.0)
       postcss: 8.4.38
       typescript: 5.4.5
     transitivePeerDependencies:
@@ -6063,7 +5887,7 @@ snapshots:
       strip-literal: 2.1.0
       tinybench: 2.8.0
       tinypool: 0.8.4
-      vite: 5.2.13(@types/node@18.18.0)
+      vite: 5.3.1(@types/node@18.18.0)
       vite-node: 1.6.0(@types/node@18.18.0)
       why-is-node-running: 2.2.2
     optionalDependencies:

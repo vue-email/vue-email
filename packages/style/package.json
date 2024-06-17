@@ -1,6 +1,6 @@
 {
   "name": "@vue-email/style",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A Vue style component",
   "sideEffects": false,
   "main": "./dist/index.js",
