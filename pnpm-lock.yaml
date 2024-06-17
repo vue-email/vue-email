@@ -158,8 +158,8 @@ importers:
         specifier: 0.0.3
         version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/tailwind':
-        specifier: 0.1.6
-        version: 0.1.6(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.1.8
+        version: 0.1.8(vue@3.4.29(typescript@5.1.6))
       '@vue-email/text':
         specifier: 0.0.3
         version: 0.0.3(vue@3.4.29(typescript@5.1.6))
@@ -473,6 +473,21 @@ importers:
       '@types/postcss-css-variables':
         specifier: 0.18.3
         version: 0.18.3
+      '@vue-email/button':
+        specifier: workspace:^
+        version: link:../button
+      '@vue-email/head':
+        specifier: workspace:*
+        version: link:../head
+      '@vue-email/heading':
+        specifier: workspace:*
+        version: link:../heading
+      '@vue-email/hr':
+        specifier: workspace:*
+        version: link:../hr
+      '@vue-email/html':
+        specifier: workspace:*
+        version: link:../html
       '@vue-email/render':
         specifier: workspace:*
         version: link:../render
@@ -1313,8 +1328,8 @@ packages:
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/tailwind@0.1.6':
-    resolution: {integrity: sha512-CUSkOIzvnuxK3pwtdALws8O/lNQ5YyvJRNln1wmYxXOhtd7/UeRmfeoFOi7Cy5Mj5AfeNTSNKwVwNYn2lNXwrw==}
+  '@vue-email/tailwind@0.1.8':
+    resolution: {integrity: sha512-4f7OfrRG3GQaGREgq/vDmkm8llwGbr2z0UcyrWlO0toXmJ/fSmtnBcipaXuFRh0q8QbKuxCaE+e+OBwvOPMXXw==}
     peerDependencies:
       vue: ^3.4.29
 
@@ -3936,7 +3951,7 @@ snapshots:
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/tailwind@0.1.6(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/tailwind@0.1.8(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
