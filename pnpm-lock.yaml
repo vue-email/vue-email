@@ -4,6 +4,17 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  postcss-css-variables@0.19.0:
+    hash: 2wxqv7k2gzlwmmem3fifiqjawa
+    path: patches/postcss-css-variables@0.19.0.patch
+  process@0.11.10:
+    hash: wpk4cjsj5eh7v5jak26jgis56e
+    path: patches/process@0.11.10.patch
+  tailwindcss@3.3.2:
+    hash: tbktbbunwha5d2hk7egjdvzb6q
+    path: patches/tailwindcss@3.3.2.patch
+
 importers:
 
   .:
@@ -110,9 +121,48 @@ importers:
       '@vue-email/container':
         specifier: 0.0.1
         version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/font':
+        specifier: 0.0.1
+        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/head':
+        specifier: 0.0.1
+        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/heading':
+        specifier: 0.0.1
+        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/hr':
+        specifier: 0.0.1
+        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/html':
+        specifier: 0.0.1
+        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/img':
+        specifier: 0.0.1
+        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/link':
+        specifier: 0.0.1
+        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/markdown':
+        specifier: 0.0.1
+        version: 0.0.1(isomorphic-dompurify@2.12.0)(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/preview':
+        specifier: 0.0.1
+        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
       '@vue-email/render':
         specifier: workspace:*
         version: link:../render
+      '@vue-email/row':
+        specifier: 0.0.1
+        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/section':
+        specifier: 0.0.1
+        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/tailwind':
+        specifier: 0.1.1
+        version: 0.1.1(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/text':
+        specifier: 0.0.1
+        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
       vue:
         specifier: ^3.4.29
         version: 3.4.29(typescript@5.1.6)
@@ -434,10 +484,10 @@ importers:
         version: 8.4.38
       postcss-css-variables:
         specifier: 0.19.0
-        version: 0.19.0(postcss@8.4.38)
+        version: 0.19.0(patch_hash=2wxqv7k2gzlwmmem3fifiqjawa)(postcss@8.4.38)
       tailwindcss:
         specifier: 3.3.2
-        version: 3.3.2
+        version: 3.3.2(patch_hash=tbktbbunwha5d2hk7egjdvzb6q)
       tsconfig:
         specifier: workspace:*
         version: link:../tsconfig
@@ -1233,6 +1283,72 @@ packages:
 
   '@vue-email/container@0.0.1':
     resolution: {integrity: sha512-4s96Cvf9jgUOGRWnC+O9v0No/O+26KkKqNCKk80FgYafazpsHlMW5u7ffkbOJbI6hCa4rbOp+XqMurI67xMWVg==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/font@0.0.1':
+    resolution: {integrity: sha512-gD6Bc3U1TGI1lzkmmOh7LYbqNIqBzC97IRPaR45EX1yoarZ/YrPk5m+79gPAVRRJ8Pc5kVjv9D2SfIoxk+ECSA==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/head@0.0.1':
+    resolution: {integrity: sha512-Ck/rZhnlQHNwpGGG1m/IOeYbkT+16MhFmAdaLTvB0Z9+FMeyVlgKV2zq83TpfujfSPIIt6MqDLsu7N+P9jZHTQ==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/heading@0.0.1':
+    resolution: {integrity: sha512-YyiyTlpIq0Xpif3d9PbTaJhDSQ91oTuzGpnCFOU8WcNFvEkuKZ1pv6hsgUyxhYvzQ08xNBMPpELs/BbonYAAiA==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/hr@0.0.1':
+    resolution: {integrity: sha512-3ht9r1XLJ6QhPGMeA/pSpRz/JYL9cm5s9fce0pTtz1+NJ9+PTSuOae2fJf2gGMutjz5rV3mk1TDjq2K+f5LYqQ==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/html@0.0.1':
+    resolution: {integrity: sha512-x7IfVVZvCYZOQyawD9piwoccy0j5j758V6x+zjOlMyTqpo8N2nSbSMXUZhcVTLRWx0KapFBeisHvlOH7S4kxhA==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/img@0.0.1':
+    resolution: {integrity: sha512-y/nud1LQ57Ez6S+CZFmMz8nGC55b61Yhb7VlFYrCxpv98ra50idW1z6N0bw+SjtTTj7tKMb0sijJGjj3f2pPCw==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/link@0.0.1':
+    resolution: {integrity: sha512-RmkeegcucAbOV5mbkjsTWsDOvlhACghWjtjbN/wUlSIpxfs7vt93+Z241oNQwYwYSoao7uM+HGbVl0E65YvWaQ==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/markdown@0.0.1':
+    resolution: {integrity: sha512-n3JIeguwEhz7mCTjptIcOeWd8+UP3o0h2oiWXyQK7BpyK0Xk1zCEa8/bqh/FqeN2Zi7SRCa32IGujaexwSzumQ==}
+    peerDependencies:
+      isomorphic-dompurify: ^2.12.0
+      vue: ^3.4.27
+
+  '@vue-email/preview@0.0.1':
+    resolution: {integrity: sha512-E5dvkFMV5MFD6yjtkde7NacatE9HPWVQb20CyW/43jX3TYMBtqRsSAHKycQQfa0e/KS+CyTtz2Ad9I8CGGdXFw==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/row@0.0.1':
+    resolution: {integrity: sha512-q1wGbnso3JhBTMg0X436LCPacXGHtQxV8ivcDASIE4qrVIexwd7twRtWqQYf8dwGMpmrjMs/yROvVQZJCGl/qA==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/section@0.0.1':
+    resolution: {integrity: sha512-KAiMa7NSOFTY6ygrVFEPRJ7bNc+3x9uWEO52EnbTO/26OcsOMu1JbjFai21E+aPNy4n3Q6bBmtc4r1M/jtXW1Q==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/tailwind@0.1.1':
+    resolution: {integrity: sha512-5iSy8UGjyTX4Dk9w0MPWKPOYFwt7dH80/YneJQh19zteMci7v1JaIU8yQEdF96YGz2NPmW2k5W6wY3utzNmGRQ==}
+    peerDependencies:
+      vue: ^3.4.29
+
+  '@vue-email/text@0.0.1':
+    resolution: {integrity: sha512-1rs92s+Syo0kFCyNak4aqSrjZkoDi22lg7Rp5P2HEAy0My8eAgKzVDp6jBBgj91S3RJtYuJprZ5aaTK4Y5dpnQ==}
     peerDependencies:
       vue: ^3.4.27
 
@@ -3904,6 +4020,59 @@ snapshots:
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
+  '@vue-email/font@0.0.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/head@0.0.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/heading@0.0.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/hr@0.0.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/html@0.0.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/img@0.0.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/link@0.0.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/markdown@0.0.1(isomorphic-dompurify@2.12.0)(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      isomorphic-dompurify: 2.12.0
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/preview@0.0.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/row@0.0.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/section@0.0.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/tailwind@0.1.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/text@0.0.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
   '@vue/compiler-core@3.4.29':
     dependencies:
       '@babel/parser': 7.24.7
@@ -5131,7 +5300,7 @@ snapshots:
       os-browserify: 0.3.0
       path-browserify: 1.0.1
       pkg-dir: 5.0.0
-      process: 0.11.10
+      process: 0.11.10(patch_hash=wpk4cjsj5eh7v5jak26jgis56e)
       punycode: 1.4.1
       querystring-es3: 0.2.1
       readable-stream: 3.6.2
@@ -5286,7 +5455,7 @@ snapshots:
 
   possible-typed-array-names@1.0.0: {}
 
-  postcss-css-variables@0.19.0(postcss@8.4.38):
+  postcss-css-variables@0.19.0(patch_hash=2wxqv7k2gzlwmmem3fifiqjawa)(postcss@8.4.38):
     dependencies:
       balanced-match: 1.0.2
       escape-string-regexp: 1.0.5
@@ -5342,7 +5511,7 @@ snapshots:
 
   process-nextick-args@2.0.1: {}
 
-  process@0.11.10: {}
+  process@0.11.10(patch_hash=wpk4cjsj5eh7v5jak26jgis56e): {}
 
   proto-list@1.2.4: {}
 
@@ -5614,7 +5783,7 @@ snapshots:
 
   symbol-tree@3.2.4: {}
 
-  tailwindcss@3.3.2:
+  tailwindcss@3.3.2(patch_hash=tbktbbunwha5d2hk7egjdvzb6q):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
