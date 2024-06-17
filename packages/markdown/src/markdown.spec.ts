@@ -5,7 +5,6 @@ import { Markdown } from "./index";
 
 describe("<Markdown> component", () => {
   it("renders the markdown in the correct format for browsers", async () => {
-    const testMessage = "Test message";
     const component = h(Markdown, {
       source: `# Markdown Test Document
 
@@ -61,4 +60,58 @@ console.log(\`Hello, $\{name}!\`);
 
     expect(actualOutput).toMatchSnapshot();
   });
+
+  it("renders the headers in the correct format for browsers", () => {
+    const actualOutput = render(h(Markdown, {
+      source: `
+# Heading 1!
+## Heading 2!
+### Heading 3!
+#### Heading 4!
+##### Heading 5!
+###### Heading 6!
+       `
+    }));
+
+    expect(actualOutput).toMatchSnapshot();
+  });
+
+  it("renders text in the correct format for browsers", () => {
+
+
+    const actualOutput = render(h(Markdown, {
+      markdownCustomStyles: {
+        bold: {
+          font: '700 23px / 32px "Roobert PRO", system-ui, sans-serif',
+          background: 'url("path/to/image")',
+        },
+      },
+    }, [
+      '**This is sample bold text in markdown** and *this is italic text*'
+    ])
+    );
+    expect(actualOutput).toMatchSnapshot();
+  });
+
+  it("renders links in the correct format for browsers", () => {
+    const actualOutput = render(h(Markdown, [
+      'Link to [React-email](https://react.email)'
+    ]));
+    expect(actualOutput).toMatchSnapshot();
+  });
+
+  it("renders lists in the correct format for browsers", () => {
+    const actualOutput = render(h(Markdown, [
+      `
+# Below is a list 
+
+- Item One
+- Item Two
+- Item Three
+       `
+    ]));
+
+    expect(actualOutput).toMatchSnapshot();
+  });
+
 })

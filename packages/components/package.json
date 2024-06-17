@@ -1,6 +1,6 @@
 {
   "name": "@vue-email/components",
-  "version": "0.0.10",
+  "version": "0.0.16",
   "description": "A collection of all components Vue Email.",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -52,8 +52,8 @@
     "@vue-email/html": "0.0.3",
     "@vue-email/img": "0.0.3",
     "@vue-email/link": "0.0.3",
-    "@vue-email/markdown": "0.0.3",
     "@vue-email/preview": "0.0.3",
+    "@vue-email/markdown": "0.0.7",
     "@vue-email/row": "0.0.3",
     "@vue-email/section": "0.0.3",
     "@vue-email/code-block": "0.0.3",
