@@ -23,9 +23,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "build": "tsup src/index.ts --format esm,cjs --dts --external vue",
     "clean": "rm -rf dist",
-    "dev": "tsup src/index.ts --format esm,cjs --dts --external react --watch",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --external vue --watch",
     "lint": "eslint .",
     "test:watch": "vitest",
     "test": "vitest run"
@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "@babel/core": "7.23.9",
-    "@babel/preset-react": "7.23.3",
     "@vue-email/render": "workspace:*",
     "typescript": "5.1.6",
     "tsconfig": "workspace:*"

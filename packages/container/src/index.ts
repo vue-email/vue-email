@@ -1,7 +1,7 @@
 import { CSSProperties, TableHTMLAttributes, defineComponent, h } from 'vue'
 
 export default defineComponent<TableHTMLAttributes>({
-  name: 'Column',
+  name: 'Container',
   setup(props, { slots }) {
     return () => h(
       'table',

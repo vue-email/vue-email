@@ -67,9 +67,6 @@ importers:
       '@babel/core':
         specifier: 7.23.9
         version: 7.23.9
-      '@babel/preset-react':
-        specifier: 7.23.3
-        version: 7.23.3(@babel/core@7.23.9)
       '@vue-email/render':
         specifier: workspace:*
         version: link:../render
@@ -89,12 +86,37 @@ importers:
       '@babel/core':
         specifier: 7.23.9
         version: 7.23.9
-      '@babel/preset-react':
-        specifier: 7.23.3
-        version: 7.23.3(@babel/core@7.23.9)
       '@vue-email/render':
         specifier: workspace:*
         version: link:../render
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
+  packages/components:
+    dependencies:
+      '@vue-email/body':
+        specifier: 0.0.2
+        version: 0.0.2(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/button':
+        specifier: 0.0.1
+        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/column':
+        specifier: 0.0.1
+        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/container':
+        specifier: 0.0.1
+        version: 0.0.1(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/render':
+        specifier: workspace:*
+        version: link:../render
+      vue:
+        specifier: ^3.4.29
+        version: 3.4.29(typescript@5.1.6)
+    devDependencies:
       tsconfig:
         specifier: workspace:*
         version: link:../tsconfig
@@ -111,9 +133,44 @@ importers:
       '@babel/core':
         specifier: 7.23.9
         version: 7.23.9
-      '@babel/preset-react':
-        specifier: 7.23.3
-        version: 7.23.3(@babel/core@7.23.9)
+      '@vue-email/render':
+        specifier: workspace:*
+        version: link:../render
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
+  packages/font:
+    dependencies:
+      vue:
+        specifier: ^3.4.27
+        version: 3.4.29(typescript@5.1.6)
+    devDependencies:
+      '@babel/core':
+        specifier: 7.23.9
+        version: 7.23.9
+      '@vue-email/render':
+        specifier: workspace:*
+        version: link:../render
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
+  packages/head:
+    dependencies:
+      vue:
+        specifier: ^3.4.27
+        version: 3.4.29(typescript@5.1.6)
+    devDependencies:
+      '@babel/core':
+        specifier: 7.23.9
+        version: 7.23.9
       '@vue-email/render':
         specifier: workspace:*
         version: link:../render
@@ -136,9 +193,6 @@ importers:
         specifier: ^3.4.27
         version: 3.4.29(typescript@5.4.5)
     devDependencies:
-      '@babel/preset-react':
-        specifier: 7.24.7
-        version: 7.24.7(@babel/core@7.23.9)
       '@edge-runtime/vm':
         specifier: 3.2.0
         version: 3.2.0
@@ -287,12 +341,6 @@ packages:
 
   '@babel/preset-react@7.23.3':
     resolution: {integrity: sha512-tbkHOS9axH6Ysf2OUEqoSZ6T3Fa2SrNH6WTWSPBboxKzdxNc9qOICeLXkNG0ZEwbQ1HY8liwOce4aN/Ceyuq6w==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-
-  '@babel/preset-react@7.24.7':
-    resolution: {integrity: sha512-AAH4lEkpmzFWrGVlHaxJB7RLH21uPQ9+He+eFLWHmF9IuFQVugz8eAsamaW0DXRrTfco5zj1wWtpdcXJUOfsag==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -784,6 +832,26 @@ packages:
 
   '@vitest/utils@1.6.0':
     resolution: {integrity: sha512-21cPiuGMoMZwiOHa2i4LXkMkMkCGzA+MVFV70jRwHo95dL4x/ts5GZhML1QWuy7yfp3WzK3lRvZi3JnXTYqrBw==}
+
+  '@vue-email/body@0.0.2':
+    resolution: {integrity: sha512-nalA9/HGYfJ6X102DMiZ30eGCI/EYPFKFBJRuKseLVPBkhHDLVnWf27A7JYCx84HZLo0QCj3bUrrCRxGtQedGQ==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/button@0.0.1':
+    resolution: {integrity: sha512-ZcIkrcBdMkXOWKJk/xC1G7rn5svr1sXUJl5Y0SMMh+MIx0mycNkwL4cIIaXamKkjzicPhvsefpNBHwx+ZMrKiA==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/column@0.0.1':
+    resolution: {integrity: sha512-o9xymlVkYvaKpR5nd7JaoW2wJDkvuEFgFFeMyMQUCzWG+386mBa8kZSMrROKX3xtN0FhF+rOFH+FM9zaLtGocA==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/container@0.0.1':
+    resolution: {integrity: sha512-4s96Cvf9jgUOGRWnC+O9v0No/O+26KkKqNCKk80FgYafazpsHlMW5u7ffkbOJbI6hCa4rbOp+XqMurI67xMWVg==}
+    peerDependencies:
+      vue: ^3.4.27
 
   '@vue/compiler-core@3.4.29':
     resolution: {integrity: sha512-TFKiRkKKsRCKvg/jTSSKK7mYLJEQdUiUfykbG49rubC9SfDyvT2JrzTReopWlz2MxqeLyxh9UZhvxEIBgAhtrg==}
@@ -2229,18 +2297,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/preset-react@7.24.7(@babel/core@7.23.9)':
-    dependencies:
-      '@babel/core': 7.23.9
-      '@babel/helper-plugin-utils': 7.24.7
-      '@babel/helper-validator-option': 7.24.7
-      '@babel/plugin-transform-react-display-name': 7.24.7(@babel/core@7.23.9)
-      '@babel/plugin-transform-react-jsx': 7.24.7(@babel/core@7.23.9)
-      '@babel/plugin-transform-react-jsx-development': 7.24.7(@babel/core@7.23.9)
-      '@babel/plugin-transform-react-pure-annotations': 7.24.7(@babel/core@7.23.9)
-    transitivePeerDependencies:
-      - supports-color
-
   '@babel/template@7.24.7':
     dependencies:
       '@babel/code-frame': 7.24.7
@@ -2587,6 +2643,22 @@ snapshots:
       estree-walker: 3.0.3
       loupe: 2.3.7
       pretty-format: 29.7.0
+
+  '@vue-email/body@0.0.2(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/button@0.0.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/column@0.0.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/container@0.0.1(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
 
   '@vue/compiler-core@3.4.29':
     dependencies:

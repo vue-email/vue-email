@@ -23,9 +23,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "build": "tsup src/index.ts --format esm,cjs --dts --external vue",
     "clean": "rm -rf dist",
-    "dev": "tsup src/index.ts --format esm,cjs --dts --external react --watch",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --external vue --watch",
     "lint": "eslint ."
   },
   "repository": {
@@ -34,33 +34,18 @@
     "directory": "packages/components"
   },
   "keywords": [
-    "react",
+    "vue",
     "email"
   ],
   "engines": {
     "node": ">=18.0.0"
   },
   "dependencies": {
-    "@vue-email/body": "0.0.8",
-    "@vue-email/button": "0.0.15",
-    "@vue-email/code-block": "0.0.4",
-    "@vue-email/code-inline": "0.0.2",
-    "@vue-email/column": "0.0.10",
-    "@vue-email/container": "0.0.12",
-    "@vue-email/font": "0.0.6",
-    "@vue-email/head": "0.0.9",
-    "@vue-email/heading": "0.0.12",
-    "@vue-email/hr": "0.0.8",
-    "@vue-email/html": "0.0.8",
-    "@vue-email/img": "0.0.8",
-    "@vue-email/link": "0.0.8",
-    "@vue-email/markdown": "0.0.10",
-    "@vue-email/preview": "0.0.9",
-    "@vue-email/render": "workspace:0.0.16-canary.0",
-    "@vue-email/row": "0.0.8",
-    "@vue-email/section": "0.0.12",
-    "@vue-email/tailwind": "0.0.18",
-    "@vue-email/text": "0.0.8"
+    "@vue-email/body": "0.0.2",
+    "@vue-email/button": "0.0.1",
+    "@vue-email/column": "0.0.1",
+    "@vue-email/container": "0.0.1",
+    "@vue-email/render": "workspace:*"
   },
   "peerDependencies": {
     "vue": "^3.4.29"

@@ -60,7 +60,6 @@
     "vue": "^3.4.27"
   },
   "devDependencies": {
-    "@babel/preset-react": "7.24.7",
     "@edge-runtime/vm": "3.2.0",
     "@types/html-to-text": "9.0.4",
     "@types/js-beautify": "1.14.3",
