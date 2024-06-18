@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest'
 import { h } from "vue";
 
 describe("render", () => {
-  it("converts a React component into HTML", async () => {
+  it("converts a Vue component into HTML", async () => {
 
     const actualOutput = await render(h(Template, { firstName: "Jim" }))
 

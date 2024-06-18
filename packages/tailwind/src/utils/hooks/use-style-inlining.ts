@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'vue'
 
 /**
- * Creates a style inlining function that converts an element's className into inlined React styles - based on the
+ * Creates a style inlining function that converts an element's className into inlined Vue styles - based on the
  * {@link stylePerClass} map - for all classes also.
  *
  * Also returns residual classes that could not be found on the map.
