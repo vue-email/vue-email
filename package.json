@@ -21,7 +21,8 @@
     "vite": "5.2.13",
     "vitest": "1.6.0",
     "tsconfig": "workspace:*",
-    "happy-dom": "12.2.2"
+    "happy-dom": "12.2.2",
+    "@vitejs/plugin-vue": "^5.0.5"
   },
   "packageManager": "pnpm@9.1.1",
   "pnpm": {

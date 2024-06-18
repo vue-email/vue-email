@@ -22,6 +22,9 @@ importers:
       '@types/node':
         specifier: 18.18.0
         version: 18.18.0
+      '@vitejs/plugin-vue':
+        specifier: ^5.0.5
+        version: 5.0.5(vite@5.2.13(@types/node@18.18.0))(vue@3.4.29(typescript@5.4.5))
       eslint:
         specifier: 9.4.0
         version: 9.4.0
@@ -205,8 +208,8 @@ importers:
         specifier: 0.0.3
         version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/tailwind':
-        specifier: 0.1.8
-        version: 0.1.8(vue@3.4.29(typescript@5.1.6))
+        specifier: 0.1.9
+        version: 0.1.9(vue@3.4.29(typescript@5.1.6))
       '@vue-email/text':
         specifier: 0.0.3
         version: 0.0.3(vue@3.4.29(typescript@5.1.6))
@@ -523,6 +526,12 @@ importers:
       '@types/postcss-css-variables':
         specifier: 0.18.3
         version: 0.18.3
+      '@vitejs/plugin-vue':
+        specifier: ^5.0.5
+        version: 5.0.5(vite@5.3.1(@types/node@18.18.0))(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/body':
+        specifier: workspace:^
+        version: link:../body
       '@vue-email/button':
         specifier: workspace:^
         version: link:../button
@@ -541,6 +550,18 @@ importers:
       '@vue-email/render':
         specifier: workspace:*
         version: link:../render
+      '@vue-email/text':
+        specifier: workspace:*
+        version: link:../text
+      dom-serializer:
+        specifier: ^2.0.0
+        version: 2.0.0
+      domutils:
+        specifier: ^3.1.0
+        version: 3.1.0
+      htmlparser2:
+        specifier: ^9.1.0
+        version: 9.1.0
       memfs:
         specifier: 4.9.3
         version: 4.9.3
@@ -1391,8 +1412,8 @@ packages:
     peerDependencies:
       vue: ^3.4.27
 
-  '@vue-email/tailwind@0.1.8':
-    resolution: {integrity: sha512-4f7OfrRG3GQaGREgq/vDmkm8llwGbr2z0UcyrWlO0toXmJ/fSmtnBcipaXuFRh0q8QbKuxCaE+e+OBwvOPMXXw==}
+  '@vue-email/tailwind@0.1.9':
+    resolution: {integrity: sha512-3CH5bBAL8DTQfucWeMnM1uwE1vnnqvMvZsPMIdWnw87NQMRfj0dVkBRav7efZOrtowELM6VFHC0B1S3/rK5GPw==}
     peerDependencies:
       vue: ^3.4.29
 
@@ -2082,6 +2103,9 @@ packages:
 
   htmlparser2@8.0.2:
     resolution: {integrity: sha512-GYdjWKDkbRLkZ5geuHs5NY1puJ+PXwP7+fHPRz06Eirsb9ugf6d8kkXav6ADhcODhFFPMIXyxkxSuMf3D6NCFA==}
+
+  htmlparser2@9.1.0:
+    resolution: {integrity: sha512-5zfg6mHUoaer/97TxnGpxmbR7zJtPwIYFMZ/H5ucTlPZhKvtum05yiPK3Mgai3a0DyVxv7qYqoweaEd2nrYQzQ==}
 
   http-proxy-agent@7.0.2:
     resolution: {integrity: sha512-T1gkAiYYDWYx3V5Bmyu7HcfcvL7mUrTWiM6yOfa3PIphViJ/gFPbvidQ+veqSOHci/PxBcDabeUNCzpOODJZig==}
@@ -3908,6 +3932,16 @@ snapshots:
     dependencies:
       postcss: 8.4.38
 
+  '@vitejs/plugin-vue@5.0.5(vite@5.2.13(@types/node@18.18.0))(vue@3.4.29(typescript@5.4.5))':
+    dependencies:
+      vite: 5.2.13(@types/node@18.18.0)
+      vue: 3.4.29(typescript@5.4.5)
+
+  '@vitejs/plugin-vue@5.0.5(vite@5.3.1(@types/node@18.18.0))(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vite: 5.3.1(@types/node@18.18.0)
+      vue: 3.4.29(typescript@5.1.6)
+
   '@vitejs/plugin-vue@5.0.5(vite@5.3.1(@types/node@18.18.0))(vue@3.4.29(typescript@5.4.5))':
     dependencies:
       vite: 5.3.1(@types/node@18.18.0)
@@ -4025,7 +4059,7 @@ snapshots:
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
-  '@vue-email/tailwind@0.1.8(vue@3.4.29(typescript@5.1.6))':
+  '@vue-email/tailwind@0.1.9(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 
@@ -4888,6 +4922,13 @@ snapshots:
       selderee: 0.11.0
 
   htmlparser2@8.0.2:
+    dependencies:
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+      domutils: 3.1.0
+      entities: 4.5.0
+
+  htmlparser2@9.1.0:
     dependencies:
       domelementtype: 2.3.0
       domhandler: 5.0.3

@@ -2,8 +2,6 @@ export default function cleanup(str: string) {
   if (!str || typeof str !== 'string')
     return str
 
-  console.log(str)
-
   return str
     .replace(/ data-v-inspector="[^"]*"/g, '')
     .replace(/<!--\[-->/g, '')
@@ -15,4 +13,7 @@ export default function cleanup(str: string) {
     .replace(/<template>/g, '')
     .replace(/<template[^>]*>/g, '')
     .replace(/<\/template>/g, '')
+    .replace(/<tailwind-clean-component>/g, '')
+    .replace(/<tailwind-clean-component[^>]*>/g, '')
+    .replace(/<\/tailwind-clean-component>/g, '')
 }

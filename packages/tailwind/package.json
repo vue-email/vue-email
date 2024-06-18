@@ -1,6 +1,6 @@
 {
   "name": "@vue-email/tailwind",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "A Tailwind component to wrap emails with Tailwind CSS",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -53,10 +53,16 @@
     "postcss-css-variables": "0.19.0",
     "@types/postcss-css-variables": "0.18.3",
     "@vue-email/button": "workspace:^",
+    "@vue-email/body": "workspace:^",
     "@vue-email/head": "workspace:*",
     "@vue-email/heading": "workspace:*",
     "@vue-email/hr": "workspace:*",
-    "@vue-email/html": "workspace:*"
+    "@vue-email/text": "workspace:*",
+    "@vue-email/html": "workspace:*",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "htmlparser2": "^9.1.0",
+    "domutils": "^3.1.0",
+    "dom-serializer": "^2.0.0"
   },
   "publishConfig": {
     "access": "public"
