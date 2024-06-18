@@ -67,7 +67,8 @@
     "tsup": "8.1.0",
     "typescript": "5.4.5",
     "vitest": "1.6.0",
-    "tsconfig": "workspace:*"
+    "tsconfig": "workspace:*",
+    "@vitejs/plugin-vue": "^5.0.5"
   },
   "publishConfig": {
     "access": "public"

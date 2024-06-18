@@ -435,6 +435,9 @@ importers:
       '@types/js-beautify':
         specifier: 1.14.3
         version: 1.14.3
+      '@vitejs/plugin-vue':
+        specifier: ^5.0.5
+        version: 5.0.5(vite@5.3.1(@types/node@18.18.0))(vue@3.4.29(typescript@5.4.5))
       jsdom:
         specifier: 24.1.0
         version: 24.1.0
@@ -1271,6 +1274,13 @@ packages:
 
   '@types/postcss-css-variables@0.18.3':
     resolution: {integrity: sha512-E7puBJg4Pxo39BgIRklr1ycHgjiyZ3PrYNKq3cguhPBltASIHMiB4+rTiTGOepBhoIIDTX4g4Y41PRr6cHFx5A==}
+
+  '@vitejs/plugin-vue@5.0.5':
+    resolution: {integrity: sha512-LOjm7XeIimLBZyzinBQ6OSm3UBCNVCpLkxGC0oWmm2YPzVZoxMsdvNVimLTBzpAnR9hl/yn1SHGuRfe6/Td9rQ==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      vite: ^5.0.0
+      vue: ^3.2.25
 
   '@vitest/expect@1.6.0':
     resolution: {integrity: sha512-ixEvFVQjycy/oNgHjqsL6AZCDduC+tflRluaHIzKIsdbzkLn2U/iBnVeJwB6HsIjQBdfMR8Z0tRxKUsvFJEeWQ==}
@@ -3897,6 +3907,11 @@ snapshots:
   '@types/postcss-css-variables@0.18.3':
     dependencies:
       postcss: 8.4.38
+
+  '@vitejs/plugin-vue@5.0.5(vite@5.3.1(@types/node@18.18.0))(vue@3.4.29(typescript@5.4.5))':
+    dependencies:
+      vite: 5.3.1(@types/node@18.18.0)
+      vue: 3.4.29(typescript@5.4.5)
 
   '@vitest/expect@1.6.0':
     dependencies:
