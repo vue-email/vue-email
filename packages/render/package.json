@@ -1,6 +1,6 @@
 {
   "name": "@vue-email/render",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Transform Vue components into HTML email templates",
   "sideEffects": false,
   "main": "./dist/browser/index.js",

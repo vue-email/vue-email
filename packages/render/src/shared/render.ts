@@ -5,7 +5,7 @@ import type { Options } from "./options";
 import { convert } from "html-to-text";
 import { pretty } from "./utils/pretty";
 import { plainTextSelectors } from "./plain-text-selectors";
-import cleanup from './utils/cleanup';
+import { cleanup } from './utils/cleanup';
 
 
 export type ExtractComponentProps<TComponent> =

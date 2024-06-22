@@ -1,4 +1,4 @@
-export default function cleanup(str: string) {
+export function cleanup(str: string) {
   if (!str || typeof str !== 'string')
     return str
 
