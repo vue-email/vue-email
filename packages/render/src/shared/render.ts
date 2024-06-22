@@ -1,6 +1,6 @@
 import { renderToString } from 'vue/server-renderer'
 import type { AllowedComponentProps, Component, VNodeProps } from 'vue'
-import { createSSRApp, getCurrentInstance } from 'vue'
+import { createSSRApp } from 'vue'
 import type { Options } from "./options";
 import { convert } from "html-to-text";
 import { pretty } from "./utils/pretty";
