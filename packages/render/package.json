@@ -1,0 +1,76 @@
+{
+  "name": "@vue-email/render",
+  "version": "0.0.5",
+  "description": "Transform Vue components into HTML email templates",
+  "sideEffects": false,
+  "main": "./dist/browser/index.js",
+  "module": "./dist/browser/index.mjs",
+  "types": "./dist/browser/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "exports": {
+    ".": {
+      "node": {
+        "import": {
+          "types": "./dist/node/index.d.mts",
+          "default": "./dist/node/index.mjs"
+        },
+        "require": {
+          "types": "./dist/node/index.d.ts",
+          "default": "./dist/node/index.js"
+        }
+      },
+      "default": {
+        "import": {
+          "types": "./dist/node/index.d.mts",
+          "default": "./dist/node/index.mjs"
+        },
+        "require": {
+          "types": "./dist/node/index.d.ts",
+          "default": "./dist/node/index.js"
+        }
+      }
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup-node",
+    "clean": "rm -rf dist",
+    "dev": "tsup-node --watch",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vue-email/vue-email.git",
+    "directory": "packages/render"
+  },
+  "keywords": [
+    "vue",
+    "email"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "html-to-text": "9.0.5",
+    "js-beautify": "^1.15.1",
+    "vue": "^3.4.27"
+  },
+  "devDependencies": {
+    "@edge-runtime/vm": "3.2.0",
+    "@types/html-to-text": "9.0.4",
+    "@types/js-beautify": "1.14.3",
+    "jsdom": "24.1.0",
+    "tsup": "8.1.0",
+    "typescript": "5.4.5",
+    "vitest": "1.6.0",
+    "tsconfig": "workspace:*",
+    "@vitejs/plugin-vue": "^5.0.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
