@@ -204,6 +204,9 @@ importers:
       '@vue-email/section':
         specifier: 0.0.3
         version: 0.0.3(vue@3.4.29(typescript@5.1.6))
+      '@vue-email/style':
+        specifier: 0.0.3
+        version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/tailwind':
         specifier: 0.1.9
         version: 0.1.9(vue@3.4.29(typescript@5.1.6))
@@ -1362,6 +1365,11 @@ packages:
 
   '@vue-email/section@0.0.3':
     resolution: {integrity: sha512-DPvDBmf3jPZGw8ZoIgs/lS3yt8H0BXMLniR0aTa6FhBPWJsXXaaQHDPY6h7jfeCgppgAoDRLZqiMnZXfqSTUWw==}
+    peerDependencies:
+      vue: ^3.4.27
+
+  '@vue-email/style@0.0.3':
+    resolution: {integrity: sha512-1t1I1EFJ77N4AC0qb1WYUfSOsFXTUUR2gxnbg88dsXHiaMiBlyokqy50wnn4/FrubUqbOFmseCz+4nSZzGg5bA==}
     peerDependencies:
       vue: ^3.4.27
 
@@ -3957,6 +3965,10 @@ snapshots:
       vue: 3.4.29(typescript@5.1.6)
 
   '@vue-email/section@0.0.3(vue@3.4.29(typescript@5.1.6))':
+    dependencies:
+      vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/style@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
 

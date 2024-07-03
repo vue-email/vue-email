@@ -18,3 +18,4 @@ export * from "@vue-email/row";
 export * from "@vue-email/section";
 export * from "@vue-email/tailwind";
 export * from "@vue-email/text";
+export * from "@vue-email/style";
