@@ -196,8 +196,8 @@ importers:
         specifier: 0.0.3
         version: 0.0.3(vue@3.4.29(typescript@5.1.6))
       '@vue-email/render':
-        specifier: workspace:*
-        version: link:../render
+        specifier: ^0.0.9
+        version: 0.0.9(typescript@5.1.6)
       '@vue-email/row':
         specifier: 0.0.3
         version: 0.0.3(vue@3.4.29(typescript@5.1.6))
@@ -1357,6 +1357,10 @@ packages:
     resolution: {integrity: sha512-e9qLDsP5+f5KZQhiVGjI/d/x5NfLfYusjI9C4bewwXM6bYJo1i5WRRzX6SM7sygKEk0ZbKqnzPqbnSWtABuzDw==}
     peerDependencies:
       vue: ^3.4.27
+
+  '@vue-email/render@0.0.9':
+    resolution: {integrity: sha512-FShvnLSoys3y+30uIO4ZuBSsXKGaj/VOB+CfNxhgxLmFsLbwKwUZQgJVAmXviuuSC5xpWQCOEPQ8P7oEEYa0WA==}
+    engines: {node: '>=18.0.0'}
 
   '@vue-email/row@0.0.3':
     resolution: {integrity: sha512-/wnkRMFJl5WTehD3/ryn7taJs42Vk7K1xUH37Q5R5T8tu1lBnAhwWcDvUeqaH/7+N4weELEBjQdKa9F6fqYlcA==}
@@ -3959,6 +3963,14 @@ snapshots:
   '@vue-email/preview@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
       vue: 3.4.29(typescript@5.1.6)
+
+  '@vue-email/render@0.0.9(typescript@5.1.6)':
+    dependencies:
+      html-to-text: 9.0.5
+      js-beautify: 1.15.1
+      vue: 3.4.29(typescript@5.1.6)
+    transitivePeerDependencies:
+      - typescript
 
   '@vue-email/row@0.0.3(vue@3.4.29(typescript@5.1.6))':
     dependencies:
