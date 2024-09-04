@@ -1,4 +1,5 @@
 import type { HtmlToTextOptions } from "html-to-text";
+import { Component, DefineComponent } from 'vue'
 
 export type Options = {
   pretty?: boolean;
@@ -15,5 +16,6 @@ export type Options = {
        * @see https://github.com/html-to-text/node-html-to-text
        */
       htmlToTextOptions?: HtmlToTextOptions;
+      components?:  { [name: string]: Component | DefineComponent }
     }
   );
