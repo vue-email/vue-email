@@ -33,6 +33,12 @@ export async function render<T extends Component>(
   const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
   const App = createSSRApp(component, props || {})
 
+  if (options && options.components) {
+    Object.keys(options.components).forEach(key => {
+      App.component(key, options.components[key])
+    });
+  }
+
   const markup = await renderToString(App)
   if (options?.plainText) {
     return convert(markup, {
