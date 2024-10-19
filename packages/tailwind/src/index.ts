@@ -35,7 +35,7 @@ export const Tailwind = defineComponent({
     )
 
     const nonMediaQueryCSS = markupCSS.replaceAll(
-      /@media\s*\(.*\)\s*{\s*\.(.*)\s*{[\s\S]*}\s*}/gm,
+      /@media\s*\(.*?\)\s*{[^{}]*({[^{}]*}[^{}a]*)*}/gm,
       (mediaQuery: any, _className: any) => {
         headStyles.push(
           mediaQuery
