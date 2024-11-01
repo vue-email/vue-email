@@ -556,6 +556,9 @@ importers:
       dom-serializer:
         specifier: ^2.0.0
         version: 2.0.0
+      domhandler:
+        specifier: ^5.0.3
+        version: 5.0.3
       domutils:
         specifier: ^3.1.0
         version: 3.1.0

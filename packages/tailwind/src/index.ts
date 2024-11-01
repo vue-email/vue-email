@@ -1,7 +1,8 @@
 import type { PropType } from 'vue'
 import { defineComponent, h } from 'vue'
-import { parseDocument } from 'htmlparser2'
+import { Parser } from 'htmlparser2'
 import { findOne, findAll, appendChild } from 'domutils'
+import { DomHandler } from "domhandler";
 import render from 'dom-serializer'
 
 
@@ -24,7 +25,7 @@ export const Tailwind = defineComponent({
   },
   async setup(props, { slots }) {
     if (!slots.default || !slots.default())
-      throw new Error('ETailwind component must have a default slot')
+      throw new Error('Tailwind component must have a default slot')
 
     const $default = slots.default()
     let headStyles: string[] = []
@@ -67,12 +68,14 @@ export const Tailwind = defineComponent({
     if (headStyles.length > 0 && (!hasHTML || !hasHead))
       throw new Error('Tailwind: To use responsive styles you must have a <Html> and <Head> element in your template.')
 
-    const dom = parseDocument(markup, {
-      decodeEntities: false,
-      xmlMode: true,
-    })
+    const handler = new DomHandler();
+    const parser = new Parser(handler);
+    parser.write(markup);
+    parser.end();
 
-    const head = findOne(elem => elem.name === 'head', dom.children)
+    const dom = handler.dom;
+
+    const head = findOne(elem => elem.name === 'head', dom)
 
     if (headStyles.length > 0 && hasHead && head) {
       appendChild(head, {
@@ -89,7 +92,7 @@ export const Tailwind = defineComponent({
 
     const hasAttrs = (elem: any) => elem.attribs && elem.attribs.class
 
-    findAll(elem => hasAttrs(elem), dom.children)
+    findAll(elem => hasAttrs(elem), dom)
       .forEach((elem) => {
         const currentStyles = elem.attribs.style || ''
 
