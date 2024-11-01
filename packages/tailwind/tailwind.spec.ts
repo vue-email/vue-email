@@ -48,6 +48,27 @@ describe('tailwind component', () => {
     })
   })
 
+  it('should render single tags correctly', async () => {
+    const component = h(Tailwind, {
+    }, [
+      h('address', [
+        '123 Main St.',
+        h('br'),
+        'Suite 400',
+        h('br'),
+        'Springfield, IL',
+        h('br'),
+        'USA'
+      ])
+    ])
+
+    const actualOutput = await render(component)
+
+    expect(actualOutput).toMatchInlineSnapshot(
+      '"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><address>123 Main St.<br/>Suite 400<br/>Springfield, IL<br/>USA</address>"',
+    )
+  })
+
   // describe('vue component with children', () => {
   //   it('should render children with inline Tailwind styles', async () => {
   //     const component = h(TailwindTest, {
