@@ -1,6 +1,6 @@
 {
   "name": "@vue-email/tailwind",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "A Tailwind component to wrap emails with Tailwind CSS",
   "sideEffects": false,
   "main": "./dist/index.js",
