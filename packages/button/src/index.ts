@@ -36,7 +36,7 @@ const buttonTextStyle = (pb?: number) => {
 export const Button = defineComponent<AnchorHTMLAttributes>({
   name: 'Button',
   props: {
-    style: CSSProperties,
+    style: Object,
   },  
   setup(props, { slots }) {
 
@@ -47,12 +47,12 @@ export const Button = defineComponent<AnchorHTMLAttributes>({
       return props.style as CSSProperties;
     });
 
-    const paddingValues = computed(parsePadding({
+    const paddingValues = computed(() => parsePadding({
       padding: styleObject.value?.padding,
-      paddingLeft: styleObject.value?.paddingLeft ?? styleObject.value?['padding-left'],
-      paddingRight: styleObject.value?.paddingRight ?? styleObject.value?['padding-right'],
-      paddingTop: styleObject.value?.paddingTop ?? styleObject.value?['padding-top'],
-      paddingBottom: styleObject.value?.paddingBottom ?? styleObject.value?['padding-bottom'],
+      paddingLeft: styleObject.value?.paddingLeft ?? styleObject.value?.['padding-left'],
+      paddingRight: styleObject.value?.paddingRight ?? styleObject.value?.['padding-right'],
+      paddingTop: styleObject.value?.paddingTop ?? styleObject.value?.['padding-top'],
+      paddingBottom: styleObject.value?.paddingBottom ?? styleObject.value?.['padding-bottom'],
     }));
 
     const textRaise = computed(() => pxToPt(paddingValues.value.pt + paddingValues.value.pb));
