@@ -35,6 +35,9 @@ const buttonTextStyle = (pb?: number) => {
 
 export const Button = defineComponent<AnchorHTMLAttributes>({
   name: 'Button',
+  props: {
+    style: Object,
+  },  
   setup(props, { slots }) {
 
     const styleObject = computed(() => {
@@ -44,20 +47,18 @@ export const Button = defineComponent<AnchorHTMLAttributes>({
       return props.style as CSSProperties;
     });
 
-
-    const { pt, pr, pb, pl } = parsePadding({
+    const paddingValues = computed(() => parsePadding({
       padding: styleObject.value?.padding,
-      paddingLeft: styleObject.value?.paddingLeft,
-      paddingRight: styleObject.value?.paddingRight,
-      paddingTop: styleObject.value?.paddingTop,
-      paddingBottom: styleObject.value?.paddingBottom,
-    });
+      paddingLeft: styleObject.value?.paddingLeft ?? styleObject.value?.['padding-left'],
+      paddingRight: styleObject.value?.paddingRight ?? styleObject.value?.['padding-right'],
+      paddingTop: styleObject.value?.paddingTop ?? styleObject.value?.['padding-top'],
+      paddingBottom: styleObject.value?.paddingBottom ?? styleObject.value?.['padding-bottom'],
+    }));
 
-    const y = pt + pb;
-    const textRaise = pxToPt(y);
+    const textRaise = computed(() => pxToPt(paddingValues.value.pt + paddingValues.value.pb));
 
-    const firstSpan = `<!--[if mso]><i style="letter-spacing: ${pl}px;mso-font-width:-100%;mso-text-raise:${textRaise}" hidden>&nbsp;</i><![endif]-->`
-    const secondSpan = `<!--[if mso]><i style="letter-spacing: ${pr}px;mso-font-width:-100%" hidden>&nbsp;</i><![endif]-->`
+    const firstSpan = computed(() => `<!--[if mso]><i style="letter-spacing: ${paddingValues.value.pl}px;mso-font-width:-100%;mso-text-raise:${textRaise.value}" hidden>&nbsp;</i><![endif]-->`)
+    const secondSpan = computed(() => `<!--[if mso]><i style="letter-spacing: ${paddingValues.value.pr}px;mso-font-width:-100%" hidden>&nbsp;</i><![endif]-->`)
 
     return () => {
       return h(
@@ -65,24 +66,21 @@ export const Button = defineComponent<AnchorHTMLAttributes>({
         {
           'style': buttonStyle({
             ...props.style as CSSProperties,
-            pt,
-            pr,
-            pb,
-            pl
+            ...paddingValues.value
           }),
           'href': props.href,
           'target': props.target,
         },
         [
-          h('span', { innerHTML: firstSpan }),
+          h('span', { innerHTML: firstSpan.value }),
           h(
             'span',
             {
-              style: buttonTextStyle(pb),
+              style: buttonTextStyle(paddingValues.value.pb),
             },
             slots.default?.(),
           ),
-          h('span', { innerHTML: secondSpan }),
+          h('span', { innerHTML: secondSpan.value }),
         ],
       )
     }
