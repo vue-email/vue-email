@@ -2,6 +2,9 @@ import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import { render } from "@vue-email/render";
 import { Tailwind } from './src/index'
+import { Html } from "@vue-email/html";
+import { Head } from "@vue-email/head";
+import { Body } from "@vue-email/body";
 // import TailwindTest from '../components/TailwindTest.vue'
 
 describe('tailwind component', () => {
@@ -44,6 +47,26 @@ describe('tailwind component', () => {
 
       expect(actualOutput).toMatchInlineSnapshot(
         '"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><div class="bg-test text-white" style="background-color: rgb(252,186,3); color: rgb(255,255,255);">Hello world</div><div class="bg-test" style="color: rgb(255,255,255); background-color: rgb(252,186,3);">custom background</div>"',
+      )
+    })
+  })
+
+  describe('class styles', () => {
+    it.only('should render with Tailwind utility classes', async () => {
+      const component = h(Tailwind, [
+        h(Html, [
+          h(Head),
+          h(Body, [
+            h('div', { class: 'container' }, [
+              h('div', { class: 'hidden sm:block text-[#ccc]' })
+            ])
+          ])
+        ])
+      ])
+
+      const actualOutput = await render(component)
+      expect(actualOutput).toMatchInlineSnapshot(
+        '"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="x-apple-disable-message-reformatting"/></head><body><div class="container" style="width: 100%;"><div class="sm:block" style="display: none; color: rgb(204,204,204);"/></div></body></html>"',
       )
     })
   })
