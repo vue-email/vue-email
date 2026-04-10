@@ -1,5 +1,5 @@
 import type { CSSProperties, PropType } from 'vue'
-import { computed, defineComponent, h } from 'vue'
+import { defineComponent, h } from 'vue'
 import { parseMarkdownToJSX } from './utils'
 import type { StylesType } from './types'
 

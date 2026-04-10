@@ -26,7 +26,7 @@
     "build": "tsup src/index.ts --format esm,cjs --dts --external vue",
     "clean": "rm -rf dist",
     "dev": "tsup src/index.ts --format esm,cjs --dts --external vue --watch",
-    "lint": "eslint ."
+    "lint": "oxlint ."
   },
   "repository": {
     "type": "git",

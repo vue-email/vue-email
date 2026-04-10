@@ -1,12 +1,13 @@
-import { resolve } from "node:path";
+import { resolve, dirname } from "node:path";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
-// import vue from '@vitejs/plugin-vue';
+import { fileURLToPath } from "node:url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [
-    // vue(),
     dts({ include: ["src"], outDir: "dist" }),
     nodePolyfills({
       include: ["path", "tty", "fs", "crypto", "process", "os"],
