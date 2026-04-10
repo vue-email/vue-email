@@ -38,7 +38,7 @@
     "build": "tsup-node",
     "clean": "rm -rf dist",
     "dev": "tsup-node --watch",
-    "lint": "eslint .",
+    "lint": "oxlint .",
     "test": "vitest run",
     "test:watch": "vitest"
   },
