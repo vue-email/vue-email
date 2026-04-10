@@ -26,7 +26,7 @@
     "build": "tsc && vite build",
     "dev": "vite build --watch",
     "clean": "rm -rf dist",
-    "lint": "oxlint . --ignore-path vite.config.ts",
+    "lint": "oxlint .",
     "test:watch": "vitest --config ../../vitest.config.ts",
     "test": "vitest run --config ../../vitest.config.ts"
   },
